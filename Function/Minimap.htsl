@@ -12,11 +12,9 @@ if (stat region == stat oldRegion) {
   sound "Fall Big" 0.7 1.0 invokers_location
   displayMenu Minimap
   exit
-}
-
-if () {
+} else {
   stat minimapLoad = 1
-  stat lock = 1 // @compile line
+  stat lock = 1
   stat oldRegion = stat region
 
   // @temp i
@@ -302,8 +300,10 @@ if () {
   stat menuPlot9s = stat s
 }
 
-stat minimapLoad = 0
-stat lock = 0 // @compile line
-title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
-sound "Fall Big" 0.7 1.0 invokers_location
-displayMenu Minimap
+if () {
+  stat minimapLoad = 0
+  stat lock = 0
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+  sound "Fall Big" 0.7 1.0 invokers_location
+  displayMenu Minimap
+}

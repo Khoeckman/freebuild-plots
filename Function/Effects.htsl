@@ -1,8 +1,3 @@
-// TODO: problem, causes night vision and invis to flicker
-if (hasGroup "Moderator" true) {
-  exit  
-}
-
 stat invis = 0
 
 if (hasPotion "Invisibility") {
@@ -16,5 +11,3 @@ if (stat nvn == 1) {
 if (stat invis == 1) {
   applyPotion "Invisibility" 2592000 1
 }
-
-has

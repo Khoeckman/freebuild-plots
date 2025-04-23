@@ -1,6 +1,7 @@
-if (stat region == stat oldRegion) {
-  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
-  sound "Fall Big" 0.7 1.0 invokers_location
-  displayMenu Minimap
-  exit
-}
+stat minimapLoad = 1
+  stat lock = 1
+  stat oldRegion = stat region
+
+  // @temp i
+  stat i = stat region
+  stat i -= 1

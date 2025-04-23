@@ -1,5 +1,11 @@
 function "Ban verify"
 
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot teleport while loading the minimap."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 failParkour Teleported!
 applyPotion "Blindness" 1 1 false true
 

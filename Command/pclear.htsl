@@ -4,6 +4,12 @@ if (stat inPlot <= 0) {
   exit
 }
 
+if (stat inPlotProtect == 1) {
+  chat "&cYou cannot clear a protected plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 stat plot = stat inPlot
 stat plotData = 0
 function "Upload plotData"

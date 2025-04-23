@@ -28,7 +28,6 @@ if (hasGroup "Moderator" true, !stat inPlotId == stat id) {
   sound "Note pling" 1.0 2.0 invokers_location
 }
 
- // @compile under
 stat plot = stat inPlot
 
 stat lock = 1
@@ -79,13 +78,13 @@ if (stat i == 22) {
 }
 
 if (stat i == 31) {
-  // protect = true (0)
-  stat plotProtect = 0
+  // protect = true (1)
+  stat plotProtect = 1
   chat "&aYou updated plot#%stat.player/plot%: &2&lPROTECTED ON"
 }
 if (stat i == 32) {
-  // protect = false (1)
-  stat plotProtect = 1
+  // protect = false (0)
+  stat plotProtect = 0
   chat "&aYou updated plot#%stat.player/plot%: &4&lPROTECTED OFF"
 }
 

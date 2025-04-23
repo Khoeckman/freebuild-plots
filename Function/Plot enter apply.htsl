@@ -1,8 +1,14 @@
 // @extends "Plot enter"
 // Input: id, inPlot...
 
+if (stat inPlotPvp == 2) {
+  setTeam "None"
+} else {
+  setTeam "NoPvP"
+}
+
 // If player should not change gamemode and group
-if or (hasGroup "Banned", hasGroup "Moderator" true) {
+if (hasGroup "Banned") {
   exit
 }
 
@@ -19,19 +25,22 @@ if (stat inPlotGm == 2) {
 }
 
 // If player should not change group
-/*
 if (hasGroup "Moderator" true) {
   exit
 }
-*/
 
 if (stat inPlotId == stat id) {
   changePlayerGroup "Home"
   exit
 }
 
-if (stat inPlotPublic == 2) {
+if (stat inPlotPublic == 2, stat inPlotGm == 0, stat inPlotOn == 2) {
   changePlayerGroup "Creative"
+  exit
+}
+
+if (stat inPlotPublic == 2, stat inPlotOn == 2) {
+  changePlayerGroup "NoCreative"
   exit
 }
 

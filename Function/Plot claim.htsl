@@ -38,7 +38,7 @@ function "Unpack plotData"
 
 // Plot is protected
 if or (stat plotId == 1, stat plotProtect == 1) {
-  chat "&cYou cannot claim this plot as it's protected."
+  chat "&cYou cannot claim a protected plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   stat err = 1
   exit
