@@ -1,17 +1,24 @@
 // @global
-// Input: #bcType, #id
+// Input: #bcType, (#id, #plot)
 // Output: (oldRegion)
 
 sound "Orb Pickup" 1 0 invokers_location
 
-chat &7
-chat "&2&m---&a &lPUBLIC BROADCAST&2 &m--------------------------"
-
 if (globalstat bcType == 1) {
+  chat &7
+  chat "&2&m---&a &lPUBLIC BROADCAST&2 &m--------------------------"
   chat "&bPlayer #%stat.global/id% &fcleared the data of all plots."
   chat "&2&m------------------------------------------------"
 
   stat oldRegion = 0 // Clear minimap cache
+  exit
+}
+
+if (globalstat bcType == 2, hasTeam "Bot") {
+  chat "&eClear plot#%stat.global/plot%"
+}
+
+if (globalstat bcType == 2) {
   exit
 }
 

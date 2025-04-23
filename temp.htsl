@@ -1,7 +1,2 @@
-stat minimapLoad = 1
-  stat lock = 1
-  stat oldRegion = stat region
-
-  // @temp i
-  stat i = stat region
-  stat i -= 1
+globalstat plot = stat inPlot
+function "Public broadcast" true

@@ -1,0 +1,29 @@
+// Input: id, home, inPlot
+
+if (stat inPlot <= 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!stat inPlotId == stat id, !hasGroup "Admin" true) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat inPlotProtect == 1) {
+  chat "&cYou cannot reset a protected plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot reset a plot while the minimap is loading."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+globalstat bcType = 2
+globalstat plot = stat inPlot
+function "Public broadcast" true
