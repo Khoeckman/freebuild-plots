@@ -1,0 +1,8 @@
+// Input: dividend, divisor
+// Output: remainder
+
+stat remainder = stat dividend
+stat difference = stat dividend
+stat difference /= stat divisor
+stat difference *= stat divisor
+stat remainder -= stat difference // Output: remainder

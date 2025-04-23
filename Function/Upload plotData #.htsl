@@ -1,0 +1,560 @@
+// Input: plot, plotData
+
+goto function "Upload plotData"
+
+if (stat plot > 14) {
+  function "Upload plotData 2"
+  exit
+}
+
+if (stat plot == 1) {
+  globalstat plot1 = stat plotData
+  exit
+}
+if (stat plot == 2) {
+  globalstat plot2 = stat plotData
+  exit
+}
+if (stat plot == 3) {
+  globalstat plot3 = stat plotData
+  exit
+}
+if (stat plot == 4) {
+  globalstat plot4 = stat plotData
+  exit
+}
+if (stat plot == 5) {
+  globalstat plot5 = stat plotData
+  exit
+}
+if (stat plot == 6) {
+  globalstat plot6 = stat plotData
+  exit
+}
+if (stat plot == 7) {
+  globalstat plot7 = stat plotData
+  exit
+}
+if (stat plot == 8) {
+  globalstat plot8 = stat plotData
+  exit
+}
+if (stat plot == 9) {
+  globalstat plot9 = stat plotData
+  exit
+}
+if (stat plot == 10) {
+  globalstat plot10 = stat plotData
+  exit
+}
+if (stat plot == 11) {
+  globalstat plot11 = stat plotData
+  exit
+}
+if (stat plot == 12) {
+  globalstat plot12 = stat plotData
+  exit
+}
+if (stat plot == 13) {
+  globalstat plot13 = stat plotData
+  exit
+}
+if (stat plot == 14) {
+  globalstat plot14 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 2"
+
+if (stat plot > 28) {
+  function "Upload plotData 3"
+  exit
+}
+
+if (stat plot == 15) {
+  globalstat plot15 = stat plotData
+  exit
+}
+if (stat plot == 16) {
+  globalstat plot16 = stat plotData
+  exit
+}
+if (stat plot == 17) {
+  globalstat plot17 = stat plotData
+  exit
+}
+if (stat plot == 18) {
+  globalstat plot18 = stat plotData
+  exit
+}
+if (stat plot == 19) {
+  globalstat plot19 = stat plotData
+  exit
+}
+if (stat plot == 20) {
+  globalstat plot20 = stat plotData
+  exit
+}
+if (stat plot == 21) {
+  globalstat plot21 = stat plotData
+  exit
+}
+if (stat plot == 22) {
+  globalstat plot22 = stat plotData
+  exit
+}
+if (stat plot == 23) {
+  globalstat plot23 = stat plotData
+  exit
+}
+if (stat plot == 24) {
+  globalstat plot24 = stat plotData
+  exit
+}
+if (stat plot == 25) {
+  globalstat plot25 = stat plotData
+  exit
+}
+if (stat plot == 26) {
+  globalstat plot26 = stat plotData
+  exit
+}
+if (stat plot == 27) {
+  globalstat plot27 = stat plotData
+  exit
+}
+if (stat plot == 28) {
+  globalstat plot28 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 3"
+
+if (stat plot > 42) {
+  function "Upload plotData 4"
+  exit
+}
+
+if (stat plot == 29) {
+  globalstat plot29 = stat plotData
+  exit
+}
+if (stat plot == 30) {
+  globalstat plot30 = stat plotData
+  exit
+}
+if (stat plot == 31) {
+  globalstat plot31 = stat plotData
+  exit
+}
+if (stat plot == 32) {
+  globalstat plot32 = stat plotData
+  exit
+}
+if (stat plot == 33) {
+  globalstat plot33 = stat plotData
+  exit
+}
+if (stat plot == 34) {
+  globalstat plot34 = stat plotData
+  exit
+}
+if (stat plot == 35) {
+  globalstat plot35 = stat plotData
+  exit
+}
+if (stat plot == 36) {
+  globalstat plot36 = stat plotData
+  exit
+}
+if (stat plot == 37) {
+  globalstat plot37 = stat plotData
+  exit
+}
+if (stat plot == 38) {
+  globalstat plot38 = stat plotData
+  exit
+}
+if (stat plot == 39) {
+  globalstat plot39 = stat plotData
+  exit
+}
+if (stat plot == 40) {
+  globalstat plot40 = stat plotData
+  exit
+}
+if (stat plot == 41) {
+  globalstat plot41 = stat plotData
+  exit
+}
+if (stat plot == 42) {
+  globalstat plot42 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 4"
+
+if (stat plot > 56) {
+  function "Upload plotData 5"
+  exit
+}
+
+if (stat plot == 43) {
+  globalstat plot43 = stat plotData
+  exit
+}
+if (stat plot == 44) {
+  globalstat plot44 = stat plotData
+  exit
+}
+if (stat plot == 45) {
+  globalstat plot45 = stat plotData
+  exit
+}
+if (stat plot == 46) {
+  globalstat plot46 = stat plotData
+  exit
+}
+if (stat plot == 47) {
+  globalstat plot47 = stat plotData
+  exit
+}
+if (stat plot == 48) {
+  globalstat plot48 = stat plotData
+  exit
+}
+if (stat plot == 49) {
+  globalstat plot49 = stat plotData
+  exit
+}
+if (stat plot == 50) {
+  globalstat plot50 = stat plotData
+  exit
+}
+if (stat plot == 51) {
+  globalstat plot51 = stat plotData
+  exit
+}
+if (stat plot == 52) {
+  globalstat plot52 = stat plotData
+  exit
+}
+if (stat plot == 53) {
+  globalstat plot53 = stat plotData
+  exit
+}
+if (stat plot == 54) {
+  globalstat plot54 = stat plotData
+  exit
+}
+if (stat plot == 55) {
+  globalstat plot55 = stat plotData
+  exit
+}
+if (stat plot == 56) {
+  globalstat plot56 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 5"
+
+if (stat plot > 70) {
+  function "Upload plotData 6"
+  exit
+}
+
+if (stat plot == 57) {
+  globalstat plot57 = stat plotData
+  exit
+}
+if (stat plot == 58) {
+  globalstat plot58 = stat plotData
+  exit
+}
+if (stat plot == 59) {
+  globalstat plot59 = stat plotData
+  exit
+}
+if (stat plot == 60) {
+  globalstat plot60 = stat plotData
+  exit
+}
+if (stat plot == 61) {
+  globalstat plot61 = stat plotData
+  exit
+}
+if (stat plot == 62) {
+  globalstat plot62 = stat plotData
+  exit
+}
+if (stat plot == 63) {
+  globalstat plot63 = stat plotData
+  exit
+}
+if (stat plot == 64) {
+  globalstat plot64 = stat plotData
+  exit
+}
+if (stat plot == 65) {
+  globalstat plot65 = stat plotData
+  exit
+}
+if (stat plot == 66) {
+  globalstat plot66 = stat plotData
+  exit
+}
+if (stat plot == 67) {
+  globalstat plot67 = stat plotData
+  exit
+}
+if (stat plot == 68) {
+  globalstat plot68 = stat plotData
+  exit
+}
+if (stat plot == 69) {
+  globalstat plot69 = stat plotData
+  exit
+}
+if (stat plot == 70) {
+  globalstat plot70 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 6"
+
+if (stat plot > 84) {
+  function "Upload plotData 7"
+  exit
+}
+
+if (stat plot == 71) {
+  globalstat plot71 = stat plotData
+  exit
+}
+if (stat plot == 72) {
+  globalstat plot72 = stat plotData
+  exit
+}
+if (stat plot == 73) {
+  globalstat plot73 = stat plotData
+  exit
+}
+if (stat plot == 74) {
+  globalstat plot74 = stat plotData
+  exit
+}
+if (stat plot == 75) {
+  globalstat plot75 = stat plotData
+  exit
+}
+if (stat plot == 76) {
+  globalstat plot76 = stat plotData
+  exit
+}
+if (stat plot == 77) {
+  globalstat plot77 = stat plotData
+  exit
+}
+if (stat plot == 78) {
+  globalstat plot78 = stat plotData
+  exit
+}
+if (stat plot == 79) {
+  globalstat plot79 = stat plotData
+  exit
+}
+if (stat plot == 80) {
+  globalstat plot80 = stat plotData
+  exit
+}
+if (stat plot == 81) {
+  globalstat plot81 = stat plotData
+  exit
+}
+if (stat plot == 82) {
+  globalstat plot82 = stat plotData
+  exit
+}
+if (stat plot == 83) {
+  globalstat plot83 = stat plotData
+  exit
+}
+if (stat plot == 84) {
+  globalstat plot84 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 7"
+
+if (stat plot > 98) {
+  function "Upload plotData 8"
+  exit
+}
+
+if (stat plot == 85) {
+  globalstat plot85 = stat plotData
+  exit
+}
+if (stat plot == 86) {
+  globalstat plot86 = stat plotData
+  exit
+}
+if (stat plot == 87) {
+  globalstat plot87 = stat plotData
+  exit
+}
+if (stat plot == 88) {
+  globalstat plot88 = stat plotData
+  exit
+}
+if (stat plot == 89) {
+  globalstat plot89 = stat plotData
+  exit
+}
+if (stat plot == 90) {
+  globalstat plot90 = stat plotData
+  exit
+}
+if (stat plot == 91) {
+  globalstat plot91 = stat plotData
+  exit
+}
+if (stat plot == 92) {
+  globalstat plot92 = stat plotData
+  exit
+}
+if (stat plot == 93) {
+  globalstat plot93 = stat plotData
+  exit
+}
+if (stat plot == 94) {
+  globalstat plot94 = stat plotData
+  exit
+}
+if (stat plot == 95) {
+  globalstat plot95 = stat plotData
+  exit
+}
+if (stat plot == 96) {
+  globalstat plot96 = stat plotData
+  exit
+}
+if (stat plot == 97) {
+  globalstat plot97 = stat plotData
+  exit
+}
+if (stat plot == 98) {
+  globalstat plot98 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 8"
+
+if (stat plot > 112) {
+  function "Upload plotData 9"
+  exit
+}
+
+if (stat plot == 99) {
+  globalstat plot99 = stat plotData
+  exit
+}
+if (stat plot == 100) {
+  globalstat plot100 = stat plotData
+  exit
+}
+if (stat plot == 101) {
+  globalstat plot101 = stat plotData
+  exit
+}
+if (stat plot == 102) {
+  globalstat plot102 = stat plotData
+  exit
+}
+if (stat plot == 103) {
+  globalstat plot103 = stat plotData
+  exit
+}
+if (stat plot == 104) {
+  globalstat plot104 = stat plotData
+  exit
+}
+if (stat plot == 105) {
+  globalstat plot105 = stat plotData
+  exit
+}
+if (stat plot == 106) {
+  globalstat plot106 = stat plotData
+  exit
+}
+if (stat plot == 107) {
+  globalstat plot107 = stat plotData
+  exit
+}
+if (stat plot == 108) {
+  globalstat plot108 = stat plotData
+  exit
+}
+if (stat plot == 109) {
+  globalstat plot109 = stat plotData
+  exit
+}
+if (stat plot == 110) {
+  globalstat plot110 = stat plotData
+  exit
+}
+if (stat plot == 111) {
+  globalstat plot111 = stat plotData
+  exit
+}
+if (stat plot == 112) {
+  globalstat plot112 = stat plotData
+  exit
+}
+
+
+goto function "Upload plotData 9"
+
+if (stat plot == 113) {
+  globalstat plot113 = stat plotData
+  exit
+}
+if (stat plot == 114) {
+  globalstat plot114 = stat plotData
+  exit
+}
+if (stat plot == 115) {
+  globalstat plot115 = stat plotData
+  exit
+}
+if (stat plot == 116) {
+  globalstat plot116 = stat plotData
+  exit
+}
+if (stat plot == 117) {
+  globalstat plot117 = stat plotData
+  exit
+}
+if (stat plot == 118) {
+  globalstat plot118 = stat plotData
+  exit
+}
+if (stat plot == 119) {
+  globalstat plot119 = stat plotData
+  exit
+}
+if (stat plot == 120) {
+  globalstat plot120 = stat plotData
+  exit
+}
+if (stat plot == 121) {
+  globalstat plot121 = stat plotData
+  exit
+}

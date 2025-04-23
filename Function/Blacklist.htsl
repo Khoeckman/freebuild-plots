@@ -1,0 +1,9 @@
+if (hasGroup "Moderator" true) {
+  exit
+}
+
+if or (hasItem "tnt_minecart" "Item Type" Anywhere "Any Amount", hasItem "slime" "Item Type" Anywhere "Any Amount", hasItem "Barrier" "Item Type" Anywhere "Any Amount", hasItem "item_frame" "Item Type" Anywhere "Any Amount", hasItem "painting" "Item Type" Anywhere "Any Amount", hasItem "DragonEgg" "Item Type" Anywhere "Any Amount") {
+  stat banReason = 1
+  stat banDuration = 0
+  function "Softban"
+}

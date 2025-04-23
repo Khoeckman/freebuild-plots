@@ -1,0 +1,3 @@
+globalstat joinId = stat id
+//globalstat joinLevel = stat Level
+function "Quit" true

@@ -1,0 +1,29 @@
+// Input: plot...
+// Output: plotData
+
+stat unix = %date.unix%
+stat unix /= 60
+
+if () {
+  // @temp packed
+  stat packed = stat plotPvP
+
+  stat packed *= 10
+  stat packed += stat plotGm
+
+  stat packed *= 10
+  stat packed += stat plotPublic
+
+  stat packed *= 10
+  stat packed += stat plotProtect
+}
+
+if () {
+  stat packed *= {10**8}
+  stat packed += stat unix
+
+  stat packed *= {10**6}
+  stat packed += stat plotId
+}
+
+stat plotData = stat packed

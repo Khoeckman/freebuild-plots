@@ -1,0 +1,16 @@
+// Input: home, #auto
+
+stat plot = globalstat auto
+stat plot += 1
+
+function "Plot claim"
+
+if (stat err == 2) {
+  exit
+}
+
+globalstat auto += 1
+
+if (globalstat auto >= 81) {
+  globalstat auto = 0
+}

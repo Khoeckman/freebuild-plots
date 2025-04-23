@@ -1,0 +1,309 @@
+// Input: region, *oldRegion, plotLoad
+
+if (stat minimapLoad > 0) {
+  chat "&cYou are already loading the minimap."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Load from cache if possible
+if (stat region == stat oldRegion) {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+  sound "Fall Big" 0.7 1.0 invokers_location
+  displayMenu Minimap
+  exit
+}
+
+if () {
+  stat minimapLoad = 1
+  stat lock = 1 // @compile line
+  stat oldRegion = stat region
+
+  // @temp i
+  stat i = stat region
+  stat i -= 1
+}
+
+if () {
+  // @temp delta
+  stat delta = globalstat regionSize
+  stat delta *= globalstat plotGridSize
+
+  stat dividend = stat i
+  stat divisor = globalstat regionSize
+  function "Modulo"
+  stat menuPlot1 = stat remainder
+  stat menuPlot1 *= globalstat regionSize
+
+  // @temp temp
+  stat temp = stat i
+  stat temp /= globalstat regionSize 
+  stat temp *= stat delta
+}
+
+if () {
+  // Row 1
+  stat menuPlot1 += stat temp
+  stat menuPlot1 += 1
+
+  stat menuPlot2 = stat menuPlot1
+  stat menuPlot2 += 1
+
+  stat menuPlot3 = stat menuPlot2
+  stat menuPlot3 += 1
+
+  // Row 2
+  stat menuPlot4 = stat menuPlot1
+  stat menuPlot4 += globalstat plotGridSize
+
+  stat menuPlot5 = stat menuPlot4
+  stat menuPlot5 += 1
+}
+
+if () {
+  stat menuPlot6 = stat menuPlot5
+  stat menuPlot6 += 1
+
+  // Row 3
+  stat menuPlot7 = stat menuPlot4
+  stat menuPlot7 += globalstat plotGridSize
+
+  stat menuPlot8 = stat menuPlot7
+  stat menuPlot8 += 1
+
+  stat menuPlot9 = stat menuPlot8
+  stat menuPlot9 += 1
+}
+
+sound Click 0.7 1.0 invokers_location
+// TODO: if minimapLoad == 1, prevent home verify & plot enter from downloading -> side effect: people can leave plot and grief? (no cuz plot left keeps working)
+title "&a&oMinimap" "&8⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+
+// Load plots in `region`
+
+pause 4
+stat plot = stat menuPlot1
+
+if () {
+  title "&a&oMinimap" "&2⬛&8⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot1Id = stat plotId
+  stat menuPlot1On = stat plotOn
+  stat menuPlot1Protect = stat plotProtect
+  stat menuPlot1Public = stat plotPublic
+  stat menuPlot1Gm = stat plotGm
+  stat menuPlot1PvP = stat plotPvP
+
+  stat menuPlot1h = stat h
+  stat menuPlot1m = stat m
+  stat menuPlot1s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot2
+
+if () {
+  title "&a&oMinimap" "&a⬛&2⬛&8⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot2Id = stat plotId
+  stat menuPlot2On = stat plotOn
+  // stat menuPlot2Protect = stat plotProtect
+  stat menuPlot2Public = stat plotPublic
+  stat menuPlot2Gm = stat plotGm
+  stat menuPlot2PvP = stat plotPvP
+
+
+  stat menuPlot2h = stat h
+  stat menuPlot2m = stat m
+  stat menuPlot2s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot3
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛&2⬛&8⬛⬛⬛⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot3Id = stat plotId
+  stat menuPlot3On = stat plotOn
+  // stat menuPlot3Protect = stat plotProtect
+  stat menuPlot3Public = stat plotPublic
+  stat menuPlot3Gm = stat plotGm
+  stat menuPlot3PvP = stat plotPvP
+
+
+  stat menuPlot3h = stat h
+  stat menuPlot3m = stat m
+  stat menuPlot3s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot4
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛&2⬛&8⬛⬛⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot4Id = stat plotId
+  stat menuPlot4On = stat plotOn
+  // stat menuPlot4Protect = stat plotProtect
+  stat menuPlot4Public = stat plotPublic
+  stat menuPlot4Gm = stat plotGm
+  stat menuPlot4PvP = stat plotPvP
+
+
+  stat menuPlot4h = stat h
+  stat menuPlot4m = stat m
+  stat menuPlot4s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot5
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛&2⬛&8⬛⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot5Id = stat plotId
+  stat menuPlot5On = stat plotOn
+  // stat menuPlot5Protect = stat plotProtect
+  stat menuPlot5Public = stat plotPublic
+  stat menuPlot5Gm = stat plotGm
+  stat menuPlot5PvP = stat plotPvP
+
+
+  stat menuPlot5h = stat h
+  stat menuPlot5m = stat m
+  stat menuPlot5s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot6
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛&2⬛&8⬛⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot6Id = stat plotId
+  stat menuPlot6On = stat plotOn
+  // stat menuPlot6Protect = stat plotProtect
+  stat menuPlot6Public = stat plotPublic
+  stat menuPlot6Gm = stat plotGm
+  stat menuPlot6PvP = stat plotPvP
+
+
+  stat menuPlot6h = stat h
+  stat menuPlot6m = stat m
+  stat menuPlot6s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot7
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛&2⬛&8⬛⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot7Id = stat plotId
+  stat menuPlot7On = stat plotOn
+  // stat menuPlot7Protect = stat plotProtect
+  stat menuPlot7Public = stat plotPublic
+  stat menuPlot7Gm = stat plotGm
+  stat menuPlot7PvP = stat plotPvP
+
+  stat menuPlot7h = stat h
+  stat menuPlot7m = stat m
+  stat menuPlot7s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot8
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛&2⬛&8⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot8Id = stat plotId
+  stat menuPlot8On = stat plotOn
+  // stat menuPlot8Protect = stat plotProtect
+  stat menuPlot8Public = stat plotPublic
+  stat menuPlot8Gm = stat plotGm
+  stat menuPlot8PvP = stat plotPvP
+
+  stat menuPlot8h = stat h
+  stat menuPlot8m = stat m
+  stat menuPlot8s = stat s
+}
+
+pause 4
+stat plot = stat menuPlot9
+
+if () {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛&2⬛" 0 1 1
+
+  function "Download plotData"
+  function "Unpack plotData"
+
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot9Id = stat plotId
+  stat menuPlot9On = stat plotOn
+  // stat menuPlot9Protect = stat plotProtect
+  stat menuPlot9Public = stat plotPublic
+  stat menuPlot9Gm = stat plotGm
+  stat menuPlot9PvP = stat plotPvP
+
+  stat menuPlot9h = stat h
+  stat menuPlot9m = stat m
+  stat menuPlot9s = stat s
+}
+
+stat minimapLoad = 0
+stat lock = 0 // @compile line
+title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+sound "Fall Big" 0.7 1.0 invokers_location
+displayMenu Minimap

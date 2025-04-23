@@ -1,0 +1,9 @@
+if (stat nvn == 0) {
+  stat nvn = 1
+  title "&e&oNight Vision" &a&lON 0 1 1
+} else {
+  stat nvn = 0
+  applyPotion "Night Vision" 1 1 true
+  title "&e&oNight Vision" &c&lOFF 0 1 1
+}
+sound random.drink 0.7 1.0 invokers_location

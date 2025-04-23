@@ -1,0 +1,41 @@
+// @global
+// Input: #bcType, #id, (#plot, #banDuration)
+
+if (!hasGroup "Moderator" true) {
+  exit
+}
+
+sound "Orb Pickup" 1 0 invokers_location
+
+chat &7
+chat "&4&m---&c &lSTAFF BROADCAST&4 &m---------------------------"
+
+if (globalstat bcType == 1) {
+  chat "&bPlayer #%stat.global/id% &fwas caught with a &4&lBLACKLISTED ITEM&f."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+if (globalstat bcType == 1) {
+  chat "&bPlayer #%stat.global/id% &fwas caught with a &4&lBLACKLISTED ITEM&f."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+if (globalstat bcType == 3) {
+  stat seconds = globalstat banDuration
+  function "Seconds to HMS"
+  
+  chat "&bPlayer #%stat.global/id% &fwas &c&lSOFT-BANNED &fby staff for &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&f."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+if (globalstat bcType == 10) {
+  chat "&bPlayer #%stat.global/id% &fcleared the data of &a&oPlot &b&o#%stat.global/plot%&f."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+chat "&c&lERROR &fBroadcast type is invalid. &7(Please report this error)"
+chat "&4&m------------------------------------------------"

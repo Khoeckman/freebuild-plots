@@ -1,0 +1,3 @@
+stat banReason = 3
+stat banDuration = {10*60}
+function "Softban"

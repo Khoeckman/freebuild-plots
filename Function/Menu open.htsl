@@ -1,0 +1,14 @@
+sound "Door Open" 0.7 1.0 invokers_location
+
+if (stat home > 0) {
+  displayMenu Menu
+} else {
+  displayMenu "Menu (Limited)"
+}
+
+if (hasGroup "Owner") {
+  giveItem "CreativeMenu" false 7 true
+  giveItem "HousingMenu" false 8 true
+} else {
+  giveItem "CreativeMenu" false 8 true
+}

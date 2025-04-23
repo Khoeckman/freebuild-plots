@@ -1,0 +1,5 @@
+if (!hasGroup "Moderator" true) {
+  title "&c&oForbidden" "You cannot drop items" 0 2 1
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  cancelEvent
+}

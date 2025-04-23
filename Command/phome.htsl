@@ -1,0 +1,8 @@
+if (stat home <= 0) {
+  chat "&cYou must have a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+stat plot = stat home
+function "Plot teleport"

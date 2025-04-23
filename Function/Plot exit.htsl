@@ -1,0 +1,21 @@
+// Input: inPlot, *oldInPlot
+
+// Player left a plot
+if (stat inPlot == 0, stat oldInPlot > 0) {
+  stat oldInPlot = 0
+  title "&e&oPublic" null 1 1 1
+} else {
+  exit
+}
+
+// If player should not change gamemode and group
+if (hasGroup "Banned") {
+  exit
+}
+
+gamemode "Creative"
+
+// Change player group if they are not staff
+if (!hasGroup "Moderator" true) {
+  changePlayerGroup "Public"
+}

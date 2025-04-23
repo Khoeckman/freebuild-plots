@@ -1,0 +1,11 @@
+// Input: home, inPlot, #plot
+// Output: homeVerifyCd
+
+if (stat home == globalstat plot) {
+  stat homeVerifyCd = 0
+}
+
+// Player must be in the plot where the data changed
+if (stat inPlot == globalstat plot) {
+  stat oldInPlot = 0 // TODO: unsafe against action cooldown; Solution: use `inPlotVerify` queue
+}

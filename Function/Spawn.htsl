@@ -1,0 +1,7 @@
+function "Ban verify"
+
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
+tp house_spawn_location true
+sound "Enderman Teleport" 0.7 1.0 invokers_location

@@ -1,0 +1,60 @@
+// Scratch: https://scratch.mit.edu/projects/1160831605/editor/
+
+// Input: oldInPlot
+// Output: inPlot
+
+// Check if player is outside the plots region
+if or (placeholder %player.location.x% < -121, placeholder %player.location.x% > 116, placeholder %player.location.y% < 136, placeholder %player.location.y% > 245, placeholder %player.location.z% < -106, placeholder %player.location.z% > 131) {
+  stat inPlot = 0
+  exit
+} else {
+  // Calculate the values that will be used to check if the player is on the street
+
+  // Calculate for `inPlotX`
+  stat dividend = globalstat plotStartX
+  stat dividend += %player.location.x%
+
+  // @temp difference
+  stat difference = stat dividend
+  stat difference /= globalstat plotPlusGapSize
+  stat difference *= globalstat plotPlusGapSize
+
+  stat inPlotX = stat dividend
+  stat inPlotX -= stat difference
+}
+
+if () {
+  // Calculate for `inPlotZ`
+  stat dividend = globalstat plotStartZ
+  stat dividend += %player.location.z%
+
+  // @temp difference
+  stat difference = stat dividend
+  stat difference /= globalstat plotPlusGapSize
+  stat difference *= globalstat plotPlusGapSize
+
+  stat inPlotZ = stat dividend
+  stat inPlotZ -= stat difference
+}
+
+// Check if the player is on the street
+if or (stat inPlotX >= globalstat plotSize, stat inPlotZ >= globalstat plotSize) {
+  stat inPlot = 0
+  exit
+}
+
+// Calculate what plot the player is in
+if () {
+  stat inPlotCol = globalstat plotStartX
+  stat inPlotCol += %player.location.x%
+  stat inPlotCol /= globalstat plotPlusGapSize
+
+  stat inPlotRow = globalstat plotStartZ
+  stat inPlotRow += %player.location.z%
+  stat inPlotRow /= globalstat plotPlusGapSize
+
+  stat inPlot = stat inPlotRow
+  stat inPlot *= globalstat plotGridSize
+  stat inPlot += stat inPlotCol
+  stat inPlot += 1
+}

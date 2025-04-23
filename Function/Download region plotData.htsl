@@ -1,0 +1,233 @@
+// Input: *for4A, region, menuPlot1-9
+// Output: menuPlot1-9...(hms)
+
+if (stat for4A <= 0) {
+  exit
+}
+stat for4A -= 1
+
+// @temp loading
+stat loading = 10
+stat loading -= stat for4A
+
+changeVelocity 0 0 0 // Disallow player to move
+title "&a&oMinimap" "&eLoading (%stat.player/loading%/9)"
+
+// TODO: huge problem with func 4 tick cd! (if people move while its downloading, glitches *will* happen)
+// SOLUTION: make branchless fix to: set plot == menuPlot then download & upack, default -1, check if -1 after, postpone download to next loop
+
+ // Delay because of action CD
+ if (stat homeVerifyCd <= 60) {
+  stat homeVerifyCd += 60
+}
+
+if (stat for4A == 1) {
+  stat plot = stat menuPlot1
+
+  // --- same across all if's
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  // ---
+
+  stat menuPlot1Id = stat plotId
+  stat menuPlot1On = stat plotOn
+  // stat menuPlot1Protect = stat plotProtect
+  stat menuPlot1Public = stat plotPublic
+  stat menuPlot1Gm = stat plotGm
+  stat menuPlot1PvP = stat plotPvP
+
+  stat menuPlot1h = stat h
+  stat menuPlot1m = stat m
+  stat menuPlot1s = stat s
+
+  // Show minimap after last plotData is downloaded
+  sound "Fall Big" 0.7 1.0 invokers_location
+  displayMenu Minimap
+  exit
+}
+
+if (stat for4A == 2) {
+  stat plot = stat menuPlot2
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot2Id = stat plotId
+  stat menuPlot2On = stat plotOn
+  // stat menuPlot2Protect = stat plotProtect
+  stat menuPlot2Public = stat plotPublic
+  stat menuPlot2Gm = stat plotGm
+  stat menuPlot2PvP = stat plotPvP
+
+
+  stat menuPlot2h = stat h
+  stat menuPlot2m = stat m
+  stat menuPlot2s = stat s
+  exit
+}
+
+if (stat for4A == 3) {
+  stat plot = stat menuPlot3
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot3Id = stat plotId
+  stat menuPlot3On = stat plotOn
+  // stat menuPlot3Protect = stat plotProtect
+  stat menuPlot3Public = stat plotPublic
+  stat menuPlot3Gm = stat plotGm
+  stat menuPlot3PvP = stat plotPvP
+
+
+  stat menuPlot3h = stat h
+  stat menuPlot3m = stat m
+  stat menuPlot3s = stat s
+  exit
+}
+
+if (stat for4A == 4) {
+  stat plot = stat menuPlot4
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot4Id = stat plotId
+  stat menuPlot4On = stat plotOn
+  // stat menuPlot4Protect = stat plotProtect
+  stat menuPlot4Public = stat plotPublic
+  stat menuPlot4Gm = stat plotGm
+  stat menuPlot4PvP = stat plotPvP
+
+
+  stat menuPlot4h = stat h
+  stat menuPlot4m = stat m
+  stat menuPlot4s = stat s
+  exit
+}
+
+if (stat for4A == 5) {
+  stat plot = stat menuPlot5
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot5Id = stat plotId
+  stat menuPlot5On = stat plotOn
+  // stat menuPlot5Protect = stat plotProtect
+  stat menuPlot5Public = stat plotPublic
+  stat menuPlot5Gm = stat plotGm
+  stat menuPlot5PvP = stat plotPvP
+
+
+  stat menuPlot5h = stat h
+  stat menuPlot5m = stat m
+  stat menuPlot5s = stat s
+  exit
+}
+
+if (stat for4A == 6) {
+  stat plot = stat menuPlot6
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot6Id = stat plotId
+  stat menuPlot6On = stat plotOn
+  // stat menuPlot6Protect = stat plotProtect
+  stat menuPlot6Public = stat plotPublic
+  stat menuPlot6Gm = stat plotGm
+  stat menuPlot6PvP = stat plotPvP
+
+
+  stat menuPlot6h = stat h
+  stat menuPlot6m = stat m
+  stat menuPlot6s = stat s
+  exit
+}
+
+if (stat for4A == 7) {
+  stat plot = stat menuPlot7
+
+  function "Download plotData"
+  function "Unpack plotData"
+  
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot7Id = stat plotId
+  stat menuPlot7On = stat plotOn
+  // stat menuPlot7Protect = stat plotProtect
+  stat menuPlot7Public = stat plotPublic
+  stat menuPlot7Gm = stat plotGm
+  stat menuPlot7PvP = stat plotPvP
+
+  stat menuPlot7h = stat h
+  stat menuPlot7m = stat m
+  stat menuPlot7s = stat s
+  exit
+}
+
+if (stat for4A == 8) {
+  stat plot = stat menuPlot8
+
+  function "Download plotData"
+  function "Unpack plotData"
+
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot8Id = stat plotId
+  stat menuPlot8On = stat plotOn
+  // stat menuPlot8Protect = stat plotProtect
+  stat menuPlot8Public = stat plotPublic
+  stat menuPlot8Gm = stat plotGm
+  stat menuPlot8PvP = stat plotPvP
+
+  stat menuPlot8h = stat h
+  stat menuPlot8m = stat m
+  stat menuPlot8s = stat s
+  exit
+}
+
+if (stat for4A == 9) {
+  stat plot = stat menuPlot9
+
+  function "Download plotData"
+  function "Unpack plotData"
+
+  stat seconds = stat plotUnix
+  function "Seconds to HMS"
+
+  stat menuPlot9Id = stat plotId
+  stat menuPlot9On = stat plotOn
+  // stat menuPlot9Protect = stat plotProtect
+  stat menuPlot9Public = stat plotPublic
+  stat menuPlot9Gm = stat plotGm
+  stat menuPlot9PvP = stat plotPvP
+
+  stat menuPlot9h = stat h
+  stat menuPlot9m = stat m
+  stat menuPlot9s = stat s
+  exit
+}

@@ -1,0 +1,51 @@
+// Input: id, banReason, banDuration, *banTs
+
+if (hasGroup "Moderator" true) {
+  exit
+}
+
+if (stat banTs == 0) {
+  stat banTs = %date.unix%
+}
+
+if (stat banDuration > 0) {
+  stat banTs += stat banDuration
+} else {
+  stat banTs += 10 // TODO: calc time using naughty score
+}
+
+stat seconds = stat banTs
+stat seconds -= %date.unix%
+
+function "Seconds to HMS"
+
+chat &7
+chat "&4&m---&c &lBANNED&4 &m-------------------------------------"
+
+if (stat banReason == 1) {
+  chat "Reason: &eObtaining a blacklisted item or block&f."
+}
+
+if (stat banReason == 2) {
+  chat "Reason: &eFlying outside the barriers&f."
+}
+
+if (stat banReason == 3) {
+  chat "Reason: &eBanned by staff&f."
+}
+
+chat "Duration: &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&f."
+chat "&4&m------------------------------------------------"
+
+applyLayout "clear"
+
+// Notify staff
+globalstat bcType = stat banReason
+globalstat id = stat id
+globalstat banDuration = stat banDuration
+function "Staff broadcast" true
+
+function "Spawn"
+// TODO: check if title does not get replaced by plot enter title (sol: pause)
+title "&4&lBANNED" "&cNotified staff"
+sound "Anvil Land" 0.3 1.0 invokers_location

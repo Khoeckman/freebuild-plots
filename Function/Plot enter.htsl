@@ -1,0 +1,68 @@
+// Input: inPlot, plotTitle
+// Output: inPlot...
+
+// If player is not in a plot or updating plotData is locked
+if (stat inPlot <= 0) {
+  exit
+}
+
+// Player must have entered a (different) plot or the plotData must have changed
+if (stat inPlot == stat oldInPlot, stat inPlotData == stat oldInPlotData) {
+  exit
+}
+
+// If player entered a (different) plot
+if (!stat inPlot == stat oldInPlot) {
+  stat plot = stat inPlot
+
+  stat plotData = -1
+  stat plotId = -1
+  function "Download plotData"
+  function "Unpack plotData"
+
+  // Show plot enter title
+  stat plotTitle = 0
+}
+
+// If download is on CD
+if or (stat plotData == -1, stat plotId == -1) {
+  exit
+} else {
+  stat oldInPlot = stat inPlot
+  stat oldInPlotData = stat inPlotData
+
+  stat inPlotData = stat plotData
+  stat inPlotId = stat plotId
+  stat inPlotUnix = stat plotUnix
+  stat inPlotProtect = stat plotProtect
+  stat inPlotOn = stat plotOn
+  stat inPlotPublic = stat plotPublic
+  stat inPlotGm = stat plotGm
+  stat inPlotPvP = stat plotPvp
+}
+
+ // Delay because of action CD
+if (stat homeVerifyCd <= 4) {
+  stat homeVerifyCd += 4
+}
+
+if (stat plotTitle == 0, stat inPlotProtect == 1) {
+  stat plotTitle = 1
+  title "&a&oPlot &b&o#%stat.player/inPlot%" "&e&lPROTECTED" 1 1 1
+}
+
+if (stat plotTitle == 0, stat inPlotId == stat id) {
+  stat plotTitle = 1
+  title "&a&oPlot &b&o#%stat.player/inPlot%" "&6&lHOME" 1 1 1
+}
+
+if (stat plotTitle == 0, stat inPlotId == 0) {
+  stat plotTitle = 1
+  title "&a&oPlot &b&o#%stat.player/inPlot%" "&a&lFREE" 1 1 1
+}
+
+if (stat plotTitle == 0) {
+  title "&a&oPlot &b&o#%stat.player/inPlot%" "&bPlayer #%stat.player/inPlotId%" 1 1 1
+}
+
+function "Plot enter apply"

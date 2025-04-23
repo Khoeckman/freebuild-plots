@@ -1,0 +1,11 @@
+// Input: dividend, divisor
+// Output: quotient, remainder
+
+stat quotient = stat dividend
+stat quotient /= stat divisor // Output: quotient
+
+// @temp difference
+stat difference = stat quotient
+stat difference *= stat divisor
+stat remainder = stat dividend
+stat remainder -= stat difference // Output: remainder

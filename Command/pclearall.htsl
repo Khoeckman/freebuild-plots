@@ -1,0 +1,115 @@
+globalstat auto = 0
+globalstat Claimed = 0
+globalstat Expired = 0
+globalstat OwnerOnline = 0
+
+if () {
+  globalstat plot1 = 0
+  globalstat plot2 = 0
+  globalstat plot3 = 0
+  globalstat plot4 = 0
+  globalstat plot5 = 0
+  globalstat plot6 = 0
+  globalstat plot7 = 0
+  globalstat plot8 = 0
+  globalstat plot9 = 0
+  globalstat plot10 = 0
+}
+
+if () {
+  globalstat plot11 = 0
+  globalstat plot12 = 0
+  globalstat plot13 = 0
+  globalstat plot14 = 0
+  globalstat plot15 = 0
+  globalstat plot16 = 0
+  globalstat plot17 = 0
+  globalstat plot18 = 0
+  globalstat plot19 = 0
+  globalstat plot20 = 0
+}
+
+if () {
+  globalstat plot21 = 0
+  globalstat plot22 = 0
+  globalstat plot23 = 0
+  globalstat plot24 = 0
+  globalstat plot25 = 0
+  globalstat plot26 = 0
+  globalstat plot27 = 0
+  globalstat plot28 = 0
+  globalstat plot29 = 0
+  globalstat plot30 = 0
+}
+
+if () {
+  globalstat plot31 = 0
+  globalstat plot32 = 0
+  globalstat plot33 = 0
+  globalstat plot34 = 0
+  globalstat plot35 = 0
+  globalstat plot36 = 0
+  globalstat plot37 = 0
+  globalstat plot38 = 0
+  globalstat plot39 = 0
+  globalstat plot40 = 0
+}
+
+if () {
+  globalstat plot41 = 4_0_0_0_1_00000000_000000
+  globalstat plot42 = 0
+  globalstat plot43 = 0
+  globalstat plot44 = 0
+  globalstat plot45 = 0
+  globalstat plot46 = 0
+  globalstat plot47 = 0
+  globalstat plot48 = 0
+  globalstat plot49 = 0
+  globalstat plot50 = 0
+}
+
+if () {
+  globalstat plot51 = 0
+  globalstat plot52 = 0
+  globalstat plot53 = 0
+  globalstat plot54 = 0
+  globalstat plot55 = 0
+  globalstat plot56 = 0
+  globalstat plot57 = 0
+  globalstat plot58 = 0
+  globalstat plot59 = 0
+  globalstat plot60 = 0
+}
+
+if () {
+  globalstat plot61 = 0
+  globalstat plot62 = 0
+  globalstat plot63 = 0
+  globalstat plot64 = 0
+  globalstat plot65 = 0
+  globalstat plot66 = 0
+  globalstat plot67 = 0
+  globalstat plot68 = 0
+  globalstat plot69 = 0
+  globalstat plot70 = 0
+}
+
+if () {
+  globalstat plot71 = 0
+  globalstat plot72 = 0
+  globalstat plot73 = 0
+  globalstat plot74 = 0
+  globalstat plot75 = 0
+  globalstat plot76 = 0
+  globalstat plot77 = 0
+  globalstat plot78 = 0
+  globalstat plot79 = 0
+  globalstat plot80 = 0
+}
+
+globalstat plot81 = 0
+
+globalstat bcType = 1
+globalstat id = stat id
+function "Public broadcast" true
+function "inPlotData verify" true

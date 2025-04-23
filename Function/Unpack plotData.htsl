@@ -1,0 +1,86 @@
+// Input: plotData
+// Output: plot...
+
+// @temp unpacked
+stat unpacked = stat plotData
+
+if () {
+  // Previous exp: 0
+  // Sum exp: (0 + 6) = 6
+  // Current exp: 6
+  stat mask = stat unpacked // 112145678912000001n
+  stat mask /= {10**6} // 112145678912n
+  stat mask *= {10**6} // 112145678912000000n
+
+  stat plotId = stat unpacked // 112145678912000001n
+  stat plotId -= stat mask // 1n
+
+
+  // Previous exp: 8
+  // Sum exp: (6 + 8) = 14
+  // Current exp: 6
+  stat unpacked /= {10**6} // 112145678912n
+  stat mask /= {10**14} // 1121n
+  stat mask *= {10**8} // 112100000000n
+
+  stat plotUnix = stat unpacked // 112145678912n
+  stat plotUnix -= stat mask // 45678912n
+}
+
+// @temp unix
+stat unix = globalstat buffer
+stat unix *= 60
+stat plotUnix += stat unix
+stat plotUnix *= 60
+
+stat unix = stat plotUnix
+stat unix -= %date.unix%
+
+// Mark owner as offline if they did not update their plot for over (60 + 15) seconds
+if (stat unix < -75) {
+  stat plotOn = 4
+} else {
+  stat plotOn = 2
+}
+
+if (stat plotId == 0) {
+  stat plotOn = 0
+}
+
+if () {
+  // Previous exp: 8
+  // Sum exp: (8 + 1) = 9
+  // Current exp: 1
+  stat unpacked /= {10**8} // 1121n
+  stat mask /= {10**9} // 112n
+  stat mask *= 10 // 1120n
+
+  stat plotProtect = stat unpacked // 1121n
+  stat plotProtect -= stat mask // 1n
+
+  // Previous exp: 1
+  // Sum exp: (1 + 1) = 2
+  // Current exp: 1
+  stat unpacked /= 10 // 112n
+  stat mask /= 100 // 11n
+  stat mask *= 10 // 110n
+
+  stat plotPublic = stat unpacked // 112n
+  stat plotPublic -= stat mask // 2n
+}
+
+if () {
+  // Previous exp: 1
+  // Sum exp: (1 + 1) = 2
+  // Current exp: 1
+  stat unpacked /= 10 // 12n
+  stat mask /= 100 // 1n
+  stat mask *= 10 // 10n
+
+  stat plotGm = stat unpacked // 12n
+  stat plotGm -= stat mask // 2n
+
+  // Remainder
+  stat unpacked /= 10 // 1n
+  stat plotPvP = stat unpacked // 1n
+}

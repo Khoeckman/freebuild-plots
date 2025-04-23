@@ -1,0 +1,6 @@
+if (stat region == stat oldRegion) {
+  title "&a&oMinimap" "&a⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
+  sound "Fall Big" 0.7 1.0 invokers_location
+  displayMenu Minimap
+  exit
+}

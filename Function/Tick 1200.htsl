@@ -1,0 +1,5 @@
+if (placeholder %house.cookies% > globalstat CookieRecord) {
+  globalstat CookieRecord = %house.cookies%
+}
+
+// todo: update total plot claimed (using server player?)

@@ -1,0 +1,51 @@
+// Input: plot
+
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot teleport while the minimap is loading."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// @temp i
+stat i = stat plot
+stat i -= 1
+
+// @temp row
+stat row = stat i
+stat row /= globalstat plotGridSize
+
+stat dividend = stat i
+stat divisor = globalstat plotGridSize
+function "Modulo"
+// @temp col
+stat col = stat remainder
+
+if () {
+  // @temp x, y, z
+  stat x = -110
+  stat y = 169
+  stat z = -105
+
+  // @temp dx
+  stat dx = globalstat plotPlusGapSize
+  stat dx *= stat col
+  stat x += stat dx
+
+  // @temp dz
+  stat dz = globalstat plotPlusGapSize
+  stat dz *= stat row
+  stat z += stat dz
+}
+
+tp "custom_coordinates" "%stat.player/x% %stat.player/y% %stat.player/z% 0 0" true
+sound "Enderman Teleport" 0.7 1.0 invokers_location
+chat "&aYou teleported to plot#%stat.player/plot% (&b%stat.player/x% %stat.player/y% %stat.player/z%&a)."
+
+// gc
+// stat i = 0
+// stat row = 0
+// stat col = 0
+// stat x = 0
+// stat dx = 0
+// stat z = 0
+// stat dz = 0

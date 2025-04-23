@@ -1,0 +1,19 @@
+// @global
+// Input: #bcType, #id
+// Output: (oldRegion)
+
+sound "Orb Pickup" 1 0 invokers_location
+
+chat &7
+chat "&2&m---&a &lPUBLIC BROADCAST&2 &m--------------------------"
+
+if (globalstat bcType == 1) {
+  chat "&bPlayer #%stat.global/id% &fcleared the data of all plots."
+  chat "&2&m------------------------------------------------"
+
+  stat oldRegion = 0 // Clear minimap cache
+  exit
+}
+
+chat "&c&lERROR &fBroadcast type is invalid. &7(Please report this error)"
+chat "&2&m------------------------------------------------"

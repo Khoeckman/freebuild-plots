@@ -1,0 +1,35 @@
+// Input: id, home, inPlot
+// TODO: on error, try unclaiming home
+
+if (stat inPlot <= 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!stat inPlotId == stat id) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot unclaim a plot while the minimap is loading."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Unclaim the plot
+stat plot = stat inPlot
+stat plotData = 0
+function "Upload plotData"
+
+globalstat plot = stat inPlot
+function "inPlotData verify" true
+
+chat &7
+chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"
+chat "&fYou unclaimed &a&oPlot &b&o#%stat.player/plot%&f."
+chat "&2&m------------------------------------------------"
+
+sound "Explode" 0.7 1.0 invokers_location

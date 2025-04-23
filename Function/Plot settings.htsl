@@ -1,0 +1,101 @@
+// Input: i, inPlot, inPlot...
+
+if (stat inPlot <= 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!hasGroup "Moderator" true, !stat inPlotId == stat id) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// @temp setting
+stat setting = stat i
+stat setting /= 10
+
+// Only admins can change the plot protection
+if (stat setting == 3, !hasGroup "Admin" true) {
+  chat "&cYou must be an admin."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (hasGroup "Moderator" true, !stat inPlotId == stat id) {
+  chat "&6&lWARNING &6You are modifying plot#%stat.player/inPlot% owned by &bPlayer #%stat.player/inPlotId%&6."
+  sound "Note pling" 1.0 2.0 invokers_location
+}
+
+ // @compile under
+stat plot = stat inPlot
+
+stat lock = 1
+pause 4
+
+stat plotData = 0
+function "Download plotData"
+function "Unpack plotData"
+
+if (stat i == 1) {
+  // public = true (2)
+  stat plotPublic = 2
+  chat "&aYou updated plot#%stat.player/plot%: &2&lPUBLIC"
+}
+
+if (stat i == 2) {
+  // public = false (4)
+  stat plotPublic = 4
+  chat "&aYou updated plot#%stat.player/plot%: &7&lPRIVATE"
+}
+
+
+if (stat i == 11) {
+  // gm = Creative (0)
+  stat plotGm = 0
+  chat "&aYou updated plot#%stat.player/plot%: &a&lCREATIVE"
+}
+if (stat i == 12) {
+  // gm = Survival (1)
+  stat plotGm = 1
+  chat "&aYou updated plot#%stat.player/plot%: &2&lSURVIVAL"
+}
+if (stat i == 13) {
+  // gm = Adventure (2)
+  stat plotGm = 2
+  chat "&aYou updated plot#%stat.player/plot%: &c&lADVENTURE"
+}
+
+if (stat i == 21) {
+  // PvP = true (2)
+  stat plotPvP = 2
+  chat "&aYou updated plot#%stat.player/plot%: &2&lPVP ON"
+}
+if (stat i == 22) {
+  // PvP = false (4)
+  stat plotPvP = 4
+  chat "&aYou updated plot#%stat.player/plot%: &4&lPVP OFF"
+}
+
+if (stat i == 31) {
+  // protect = true (0)
+  stat plotProtect = 0
+  chat "&aYou updated plot#%stat.player/plot%: &2&lPROTECTED ON"
+}
+if (stat i == 32) {
+  // protect = false (1)
+  stat plotProtect = 1
+  chat "&aYou updated plot#%stat.player/plot%: &4&lPROTECTED OFF"
+}
+
+function "Pack plotData"
+function "Upload plotData"
+globalstat plot = stat plot
+function "inPlotData verify" true
+
+sound "Click" 0.7 1.0 invokers_location
+
+// gc
+// stat i = 0
+// stat setting = 0

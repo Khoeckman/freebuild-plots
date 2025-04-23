@@ -1,0 +1,561 @@
+// Input: plot
+// Output: plotData
+
+goto function "Download plotData"
+
+if (stat plot > 14) {
+  function "Download plotData 2"
+  exit
+}
+
+if (stat plot == 1) {
+  stat plotData = globalstat plot1
+  exit
+}
+if (stat plot == 2) {
+  stat plotData = globalstat plot2
+  exit
+}
+if (stat plot == 3) {
+  stat plotData = globalstat plot3
+  exit
+}
+if (stat plot == 4) {
+  stat plotData = globalstat plot4
+  exit
+}
+if (stat plot == 5) {
+  stat plotData = globalstat plot5
+  exit
+}
+if (stat plot == 6) {
+  stat plotData = globalstat plot6
+  exit
+}
+if (stat plot == 7) {
+  stat plotData = globalstat plot7
+  exit
+}
+if (stat plot == 8) {
+  stat plotData = globalstat plot8
+  exit
+}
+if (stat plot == 9) {
+  stat plotData = globalstat plot9
+  exit
+}
+if (stat plot == 10) {
+  stat plotData = globalstat plot10
+  exit
+}
+if (stat plot == 11) {
+  stat plotData = globalstat plot11
+  exit
+}
+if (stat plot == 12) {
+  stat plotData = globalstat plot12
+  exit
+}
+if (stat plot == 13) {
+  stat plotData = globalstat plot13
+  exit
+}
+if (stat plot == 14) {
+  stat plotData = globalstat plot14
+  exit
+}
+
+
+goto function "Download plotData 2"
+
+if (stat plot > 28) {
+  function "Download plotData 3"
+  exit
+}
+
+if (stat plot == 15) {
+  stat plotData = globalstat plot15
+  exit
+}
+if (stat plot == 16) {
+  stat plotData = globalstat plot16
+  exit
+}
+if (stat plot == 17) {
+  stat plotData = globalstat plot17
+  exit
+}
+if (stat plot == 18) {
+  stat plotData = globalstat plot18
+  exit
+}
+if (stat plot == 19) {
+  stat plotData = globalstat plot19
+  exit
+}
+if (stat plot == 20) {
+  stat plotData = globalstat plot20
+  exit
+}
+if (stat plot == 21) {
+  stat plotData = globalstat plot21
+  exit
+}
+if (stat plot == 22) {
+  stat plotData = globalstat plot22
+  exit
+}
+if (stat plot == 23) {
+  stat plotData = globalstat plot23
+  exit
+}
+if (stat plot == 24) {
+  stat plotData = globalstat plot24
+  exit
+}
+if (stat plot == 25) {
+  stat plotData = globalstat plot25
+  exit
+}
+if (stat plot == 26) {
+  stat plotData = globalstat plot26
+  exit
+}
+if (stat plot == 27) {
+  stat plotData = globalstat plot27
+  exit
+}
+if (stat plot == 28) {
+  stat plotData = globalstat plot28
+  exit
+}
+
+
+goto function "Download plotData 3"
+
+if (stat plot > 42) {
+  function "Download plotData 4"
+  exit
+}
+
+if (stat plot == 29) {
+  stat plotData = globalstat plot29
+  exit
+}
+if (stat plot == 30) {
+  stat plotData = globalstat plot30
+  exit
+}
+if (stat plot == 31) {
+  stat plotData = globalstat plot31
+  exit
+}
+if (stat plot == 32) {
+  stat plotData = globalstat plot32
+  exit
+}
+if (stat plot == 33) {
+  stat plotData = globalstat plot33
+  exit
+}
+if (stat plot == 34) {
+  stat plotData = globalstat plot34
+  exit
+}
+if (stat plot == 35) {
+  stat plotData = globalstat plot35
+  exit
+}
+if (stat plot == 36) {
+  stat plotData = globalstat plot36
+  exit
+}
+if (stat plot == 37) {
+  stat plotData = globalstat plot37
+  exit
+}
+if (stat plot == 38) {
+  stat plotData = globalstat plot38
+  exit
+}
+if (stat plot == 39) {
+  stat plotData = globalstat plot39
+  exit
+}
+if (stat plot == 40) {
+  stat plotData = globalstat plot40
+  exit
+}
+if (stat plot == 41) {
+  stat plotData = globalstat plot41
+  exit
+}
+if (stat plot == 42) {
+  stat plotData = globalstat plot42
+  exit
+}
+
+
+goto function "Download plotData 4"
+
+if (stat plot > 56) {
+  function "Download plotData 5"
+  exit
+}
+
+if (stat plot == 43) {
+  stat plotData = globalstat plot43
+  exit
+}
+if (stat plot == 44) {
+  stat plotData = globalstat plot44
+  exit
+}
+if (stat plot == 45) {
+  stat plotData = globalstat plot45
+  exit
+}
+if (stat plot == 46) {
+  stat plotData = globalstat plot46
+  exit
+}
+if (stat plot == 47) {
+  stat plotData = globalstat plot47
+  exit
+}
+if (stat plot == 48) {
+  stat plotData = globalstat plot48
+  exit
+}
+if (stat plot == 49) {
+  stat plotData = globalstat plot49
+  exit
+}
+if (stat plot == 50) {
+  stat plotData = globalstat plot50
+  exit
+}
+if (stat plot == 51) {
+  stat plotData = globalstat plot51
+  exit
+}
+if (stat plot == 52) {
+  stat plotData = globalstat plot52
+  exit
+}
+if (stat plot == 53) {
+  stat plotData = globalstat plot53
+  exit
+}
+if (stat plot == 54) {
+  stat plotData = globalstat plot54
+  exit
+}
+if (stat plot == 55) {
+  stat plotData = globalstat plot55
+  exit
+}
+if (stat plot == 56) {
+  stat plotData = globalstat plot56
+  exit
+}
+
+
+goto function "Download plotData 5"
+
+if (stat plot > 70) {
+  function "Download plotData 6"
+  exit
+}
+
+if (stat plot == 57) {
+  stat plotData = globalstat plot57
+  exit
+}
+if (stat plot == 58) {
+  stat plotData = globalstat plot58
+  exit
+}
+if (stat plot == 59) {
+  stat plotData = globalstat plot59
+  exit
+}
+if (stat plot == 60) {
+  stat plotData = globalstat plot60
+  exit
+}
+if (stat plot == 61) {
+  stat plotData = globalstat plot61
+  exit
+}
+if (stat plot == 62) {
+  stat plotData = globalstat plot62
+  exit
+}
+if (stat plot == 63) {
+  stat plotData = globalstat plot63
+  exit
+}
+if (stat plot == 64) {
+  stat plotData = globalstat plot64
+  exit
+}
+if (stat plot == 65) {
+  stat plotData = globalstat plot65
+  exit
+}
+if (stat plot == 66) {
+  stat plotData = globalstat plot66
+  exit
+}
+if (stat plot == 67) {
+  stat plotData = globalstat plot67
+  exit
+}
+if (stat plot == 68) {
+  stat plotData = globalstat plot68
+  exit
+}
+if (stat plot == 69) {
+  stat plotData = globalstat plot69
+  exit
+}
+if (stat plot == 70) {
+  stat plotData = globalstat plot70
+  exit
+}
+
+
+goto function "Download plotData 6"
+
+if (stat plot > 84) {
+  function "Download plotData 7"
+  exit
+}
+
+if (stat plot == 71) {
+  stat plotData = globalstat plot71
+  exit
+}
+if (stat plot == 72) {
+  stat plotData = globalstat plot72
+  exit
+}
+if (stat plot == 73) {
+  stat plotData = globalstat plot73
+  exit
+}
+if (stat plot == 74) {
+  stat plotData = globalstat plot74
+  exit
+}
+if (stat plot == 75) {
+  stat plotData = globalstat plot75
+  exit
+}
+if (stat plot == 76) {
+  stat plotData = globalstat plot76
+  exit
+}
+if (stat plot == 77) {
+  stat plotData = globalstat plot77
+  exit
+}
+if (stat plot == 78) {
+  stat plotData = globalstat plot78
+  exit
+}
+if (stat plot == 79) {
+  stat plotData = globalstat plot79
+  exit
+}
+if (stat plot == 80) {
+  stat plotData = globalstat plot80
+  exit
+}
+if (stat plot == 81) {
+  stat plotData = globalstat plot81
+  exit
+}
+if (stat plot == 82) {
+  stat plotData = globalstat plot82
+  exit
+}
+if (stat plot == 83) {
+  stat plotData = globalstat plot83
+  exit
+}
+if (stat plot == 84) {
+  stat plotData = globalstat plot84
+  exit
+}
+
+
+goto function "Download plotData 7"
+
+if (stat plot > 98) {
+  function "Download plotData 8"
+  exit
+}
+
+if (stat plot == 85) {
+  stat plotData = globalstat plot85
+  exit
+}
+if (stat plot == 86) {
+  stat plotData = globalstat plot86
+  exit
+}
+if (stat plot == 87) {
+  stat plotData = globalstat plot87
+  exit
+}
+if (stat plot == 88) {
+  stat plotData = globalstat plot88
+  exit
+}
+if (stat plot == 89) {
+  stat plotData = globalstat plot89
+  exit
+}
+if (stat plot == 90) {
+  stat plotData = globalstat plot90
+  exit
+}
+if (stat plot == 91) {
+  stat plotData = globalstat plot91
+  exit
+}
+if (stat plot == 92) {
+  stat plotData = globalstat plot92
+  exit
+}
+if (stat plot == 93) {
+  stat plotData = globalstat plot93
+  exit
+}
+if (stat plot == 94) {
+  stat plotData = globalstat plot94
+  exit
+}
+if (stat plot == 95) {
+  stat plotData = globalstat plot95
+  exit
+}
+if (stat plot == 96) {
+  stat plotData = globalstat plot96
+  exit
+}
+if (stat plot == 97) {
+  stat plotData = globalstat plot97
+  exit
+}
+if (stat plot == 98) {
+  stat plotData = globalstat plot98
+  exit
+}
+
+
+goto function "Download plotData 8"
+
+if (stat plot > 112) {
+  function "Download plotData 9"
+  exit
+}
+
+if (stat plot == 99) {
+  stat plotData = globalstat plot99
+  exit
+}
+if (stat plot == 100) {
+  stat plotData = globalstat plot100
+  exit
+}
+if (stat plot == 101) {
+  stat plotData = globalstat plot101
+  exit
+}
+if (stat plot == 102) {
+  stat plotData = globalstat plot102
+  exit
+}
+if (stat plot == 103) {
+  stat plotData = globalstat plot103
+  exit
+}
+if (stat plot == 104) {
+  stat plotData = globalstat plot104
+  exit
+}
+if (stat plot == 105) {
+  stat plotData = globalstat plot105
+  exit
+}
+if (stat plot == 106) {
+  stat plotData = globalstat plot106
+  exit
+}
+if (stat plot == 107) {
+  stat plotData = globalstat plot107
+  exit
+}
+if (stat plot == 108) {
+  stat plotData = globalstat plot108
+  exit
+}
+if (stat plot == 109) {
+  stat plotData = globalstat plot109
+  exit
+}
+if (stat plot == 110) {
+  stat plotData = globalstat plot110
+  exit
+}
+if (stat plot == 111) {
+  stat plotData = globalstat plot111
+  exit
+}
+if (stat plot == 112) {
+  stat plotData = globalstat plot112
+  exit
+}
+
+
+goto function "Download plotData 9"
+
+if (stat plot == 113) {
+  stat plotData = globalstat plot113
+  exit
+}
+if (stat plot == 114) {
+  stat plotData = globalstat plot114
+  exit
+}
+if (stat plot == 115) {
+  stat plotData = globalstat plot115
+  exit
+}
+if (stat plot == 116) {
+  stat plotData = globalstat plot116
+  exit
+}
+if (stat plot == 117) {
+  stat plotData = globalstat plot117
+  exit
+}
+if (stat plot == 118) {
+  stat plotData = globalstat plot118
+  exit
+}
+if (stat plot == 119) {
+  stat plotData = globalstat plot119
+  exit
+}
+if (stat plot == 120) {
+  stat plotData = globalstat plot120
+  exit
+}
+if (stat plot == 121) {
+  stat plotData = globalstat plot121
+  exit
+}

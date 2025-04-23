@@ -1,0 +1,76 @@
+// Input: id, inPlot, inPlot...
+
+if (hasGroup "Banned") {
+  stat seconds = stat banTs
+  stat seconds -= %date.unix%
+  //function "Seconds to HMS" // TODO: Too much stat pollution every 4tick (use clone function)
+
+  actionBar "&c&oBanned &8/ &a%stat.player/seconds% seconds"
+  //actionBar "&c&oBanned &8/ &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&c"
+  exit
+}
+
+if (stat inPlot <= 0) {
+  actionBar "&e&oPublic"
+  exit
+}
+
+if (stat inPlotProtect == 1, stat inPlotId == 0, stat inPlotPublic == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &e&lPUBLIC"
+  exit
+}
+
+if (stat inPlotProtect == 1, stat inPlotId == 0, !stat inPlotPublic == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &e&lPROTECTED"
+  exit
+}
+
+if (stat inPlotId < 0) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &a&lFREE"
+  exit
+}
+
+if (stat inPlotId == stat id, stat inPlotGm == 0) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &6&lHOME &8/ &a&lCREATIVE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotId == stat id, stat inPlotGm == 1) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &6&lHOME &8/ &2&lSURVIVAL &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotId == stat id, stat inPlotGm == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &6&lHOME &8/ &c&lADVENTURE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 0, stat inPlotOn == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &a&lONLINE&8 / &a&lCREATIVE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 1, stat inPlotOn == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &a&lONLINE&8 / &2&lSURVIVAL &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 2, stat inPlotOn == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &a&lONLINE&8 / &4&lADVENTURE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 0) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &c&lOFFLINE&8 / &a&lCREATIVE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 1) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &c&lOFFLINE&8 / &2&lSURVIVAL &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}
+
+if (stat inPlotGm == 2) {
+  actionBar "&a&oPlot &b&o#%stat.player/inPlot% &8/ &fOwner &bP#%stat.player/inPlotId% &c&lOFFLINE&8 / &4&lADVENTURE &%stat.player/inPlotPublic%&lPUBLIC &%stat.player/inPlotPvP%&lPVP"
+  exit
+}

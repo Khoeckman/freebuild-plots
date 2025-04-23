@@ -1,0 +1,102 @@
+// Input: id, home, plot, plotId, plotUnix, plotOn
+
+// 0 = no error; 1 = error; 2 = error + fail /pauto
+stat err = 2
+
+if (hasGroup "Banned") {
+  chat "&cYou cannot claim a plot while banned."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat plot <= 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat home == stat plot) {
+  chat "&cYou already own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat home > 0) {
+  chat "&cYou already own plot#%stat.player/home%."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot claim a plot while the minimap is loading."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+function "Download plotData"
+function "Unpack plotData"
+
+// Plot is protected
+if or (stat plotId == 1, stat plotProtect == 1) {
+  chat "&cYou cannot claim this plot as it's protected."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  stat err = 1
+  exit
+}
+
+// Owner of plot is online
+if (stat plotId > 0, stat plotOn == 2, placeholder %date.unix% <= stat plotUnix) {
+  chat "&cYou cannot claim this plot because it's owner is online."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  stat err = 1
+  exit
+}
+
+// Plot has not expired yet
+if (stat plotId > 0, placeholder %date.unix% <= stat plotUnix) {
+  stat seconds = stat plotUnix
+  stat seconds -= %date.unix%
+
+  function "Seconds to HMS"
+
+  chat "&cYou cannot claim this plot for another &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  stat err = 1
+  exit
+}
+
+// If plot is claimable
+if or (stat plotId == 0, placeholder %date.unix% > stat plotUnix) {
+  // Claim plot #`plot`
+  stat plotId = stat id
+  stat plotProtect = 0
+  stat plotOn = 2
+  stat plotPublic = 4
+  stat plotGm = 0
+  stat plotPvp = 4
+
+  function "Pack plotData"
+  function "Upload plotData"
+  stat home = stat plot
+  globalstat plot = stat home
+  function "inPlotData verify" true
+
+  chat &7
+  chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
+  chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%stat.player/plot%&f."
+  chat "&fNext steps: &e/prules /phome /pset"
+  chat &8
+  chat "&c&lDISCLAIMER"
+  chat "&c&l⎜ &fAnyone else can claim this plot after &a%stat.global/buffer% hours&f of you being &coffline&f."
+  chat "&c&l⎜ &fThis timer resets every &aminute &fwhile you are &aonline&f."
+  chat "&2&m------------------------------------------------"
+
+  sound "Level Up" 0.7 1.0 invokers_location
+
+  stat err = 0
+  exit
+}
+
+// Unknown reason
+chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error)"
+sound "Anvil Land" 0.3 1.0 invokers_location

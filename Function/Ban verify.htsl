@@ -1,0 +1,14 @@
+if (hasGroup "Moderator" true) {
+  exit
+}
+
+if (stat banTs > 0, placeholder %date.unix% < stat banTs) {
+  changePlayerGroup "Banned" false
+  exit
+}
+
+if (hasGroup "Banned") {
+  stat banTs = 0
+  stat oldInPlot = 0 // Force inPlot reload
+  changePlayerGroup "Public"
+}

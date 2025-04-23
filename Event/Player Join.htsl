@@ -1,0 +1,41 @@
+function "Ban verify"
+
+stat lock = 0
+stat minimapLoad = 0
+stat homeVerifyCd = 0
+stat plotTitle = 0
+stat invis = 0 // Incase staff forgot they left it on
+
+if (hasGroup "Owner") {
+  giveItem "CreativeMenu" false 7 true
+  giveItem "HousingMenu" false 8 true
+} else {
+  giveItem "CreativeCookie" false 4 true
+  giveItem "CreativeMenu" false 8 true
+}
+
+function "Spawn"
+
+if (stat id <= 0) {
+  globalstat UniquePlayers += 1
+  stat id = globalstat UniquePlayers
+  globalstat joinId = stat id
+  function "First join" true
+
+  pause 30
+  title "&a&oCreative &2&oPlots" "&e&lWELCOME" 0 2 1
+  sound "Level Up" 0.7 1.0 invokers_location
+} else {
+  globalstat joinId = stat id
+  //globalstat joinLevel = stat Level
+  function "Join" true
+
+  pause 30
+  title "&a&oCreative &2&oPlots" "&e&lWELCOME BACK" 0 2 1
+  sound "Level Up" 0.7 1.0 invokers_location
+}
+
+pause 60
+
+sound Click 0.7 1.0 invokers_location
+displayMenu "Rules"
