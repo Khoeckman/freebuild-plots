@@ -1,3 +1,4 @@
+// @extends "Plot enter"
 // Input: id, inPlot...
 
 // If player should not change gamemode and group

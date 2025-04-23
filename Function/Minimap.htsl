@@ -1,4 +1,4 @@
-// Input: region, *oldRegion, plotLoad
+// Input: region, *oldRegion, *minimapLoad, *lock
 
 if (stat minimapLoad > 0) {
   chat "&cYou are already loading the minimap."
