@@ -10,6 +10,8 @@ if (hasGroup "Banned") {
   exit
 }
 
+// TODO @c work with new plotUnix and buffer (remove plotOn if possible)
+
 if (stat inPlot <= 0) {
   actionBar "&e&oPublic"
   exit

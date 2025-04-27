@@ -44,8 +44,10 @@ if or (stat plotId == 1, stat plotProtect == 1) {
   exit
 }
 
+stat unix += globalstat buffer
+
 // Owner of plot is online
-if (stat plotId > 0, stat plotOn == 2, placeholder %date.unix% <= stat plotUnix) {
+if (stat plotId > 0, stat plotOn == 2, stat unix >= 0) {
   chat "&cYou cannot claim this plot because it's owner is online."
   sound "Anvil Land" 0.3 1.0 invokers_location
   stat err = 1
@@ -53,9 +55,8 @@ if (stat plotId > 0, stat plotOn == 2, placeholder %date.unix% <= stat plotUnix)
 }
 
 // Plot has not expired yet
-if (stat plotId > 0, placeholder %date.unix% <= stat plotUnix) {
-  stat seconds = stat plotUnix
-  stat seconds -= %date.unix%
+if (stat plotId > 0, stat unix >= 0) {
+  stat seconds = stat unix
 
   function "Seconds to HMS"
 
@@ -66,7 +67,7 @@ if (stat plotId > 0, placeholder %date.unix% <= stat plotUnix) {
 }
 
 // If plot is claimable
-if or (stat plotId == 0, placeholder %date.unix% > stat plotUnix) {
+if or (stat plotId == 0, stat plotUnix < 0) {
   // Claim plot #`plot`
   stat plotId = stat id
   stat plotProtect = 0
@@ -87,7 +88,7 @@ if or (stat plotId == 0, placeholder %date.unix% > stat plotUnix) {
   chat "&fNext steps: &e/prules /phome /pset"
   chat &8
   chat "&c&lDISCLAIMER"
-  chat "&c&l⎜ &fAnyone else can claim this plot after &a%stat.global/buffer% hours&f of you being &coffline&f."
+  chat "&c&l⎜ &fAnyone else can claim this plot after &a%stat.global/buffer% seconds&f of you being &coffline&f."
   chat "&c&l⎜ &fThis timer resets every &aminute &fwhile you are &aonline&f."
   chat "&2&m------------------------------------------------"
 

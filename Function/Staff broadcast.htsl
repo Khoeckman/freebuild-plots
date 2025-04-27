@@ -16,8 +16,8 @@ if (globalstat bcType == 1) {
   exit
 }
 
-if (globalstat bcType == 1) {
-  chat "&bPlayer #%stat.global/id% &fwas caught with a &4&lBLACKLISTED ITEM&f."
+if (globalstat bcType == 2) {
+  chat "&bPlayer #%stat.global/id% &fwas caught in the &4&lNO-FLY ZONE&f."
   chat "&4&m------------------------------------------------"
   exit
 }
@@ -27,6 +27,19 @@ if (globalstat bcType == 3) {
   function "Seconds to HMS"
   
   chat "&bPlayer #%stat.global/id% &fwas &c&lSOFT-BANNED &fby staff for &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&f."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+if (globalstat bcType == 4) {  
+  chat "&bPlayer #%stat.global/id% &fwas &a&lUNBANNED &fby staff."
+  chat "&4&m------------------------------------------------"
+  exit
+}
+
+// TODO: reported who?
+if (globalstat bcType == 5) {  
+  chat "&bPlayer #%stat.global/id% &freported a player."
   chat "&4&m------------------------------------------------"
   exit
 }

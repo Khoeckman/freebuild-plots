@@ -4,5 +4,10 @@ if (stat home <= 0) {
   exit
 }
 
+if (stat home > 81) {
+  stat home = 0
+  exit
+}
+
 stat plot = stat home
 function "Plot teleport"

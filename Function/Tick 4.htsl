@@ -9,38 +9,37 @@ function "Actionbar"
 
 // Reset home expire time every 1200 ticks (1 minute)
 
-if (stat homeVerifyCd >= 0) {
+if or (stat homeVerifyCd >= 0, stat lock == 1) {
   stat homeVerifyCd -= 4
   exit
 }
 stat homeVerifyCd = 1200
 
 if (stat home <= 0) {
-  //chat "&e EXIT: home (%stat.player/home%) <= 0"
+  exit
+}
+
+// Reset home if it is out of bounds
+if or (stat home < 0, stat home > 81) {
+  stat home = 0
   exit
 }
 
 stat plot = stat home
 stat plotData = -1
 stat plotId = -1
-//chat "&e DEFAULT: plotData (%stat.player/plotData%) / plotId (%stat.player/plotId%)"
 function "Download plotData"
 function "Unpack plotData"
 
 if or (stat plotData == -1, stat plotId == -1) {
-  //chat "&e EXIT: plotData (%stat.player/plotData%) == -1 OR plotId (%stat.player/plotId%) == -1"
   stat homeVerifyCd = 0
-  //chat "&e EDIT: homeVerifyCd (%stat.player/homeVerifyCd%)"
   exit
 }
 
 if or (stat home <= 0, !stat plotId == stat id) {
-  //chat "&e EDIT: home (%stat.player/home%) <= 0 OR !stat plotId (%stat.player/plotId%) == stat id (%stat.player/id%)"
   stat home = 0
-  //chat "&e EDIT: home (%stat.player/home%)"
   exit
 }
 
-//chat "&e UPLOAD: plotData (%stat.player/plotData%) / plotId (%stat.player/plotId%)"
 function "Pack plotData"
 function "Upload plotData"

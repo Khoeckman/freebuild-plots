@@ -5,42 +5,25 @@ if (stat seconds < 0) {
   stat seconds = 0
 }
 
+stat dividend = stat seconds
+stat divisor = 60
+
 if () {
-  stat quotient = stat seconds
-  stat quotient /= 60 // Output: quotient
+  stat quotient = stat dividend
+  stat quotient /= stat divisor // Output: quotient
 
   // @temp difference
   stat difference = stat quotient
-  stat difference *= 60
-  stat remainder = stat seconds
+  stat difference *= stat divisor
+  stat remainder = stat dividend
   stat remainder -= stat difference // Output: remainder
-
-  stat s = stat remainder
-  stat m = stat quotient
-
-  stat quotient /= 60
-  stat h = stat quotient
 }
 
-stat quotient *= 60
-stat m -= stat quotient
-
-/*
-if (stat seconds < 0) {
-  stat seconds = 0
-}
-
-stat quotient = stat seconds
-stat quotient /= 60
+stat s = stat remainder
 stat m = stat quotient
 
-// @temp difference
-stat quotient *= 60
-stat s = stat seconds
-stat s -= stat quotient
-
-stat m -= stat quotient
-
-stat quotient /= 60
+stat quotient /= stat divisor
 stat h = stat quotient
-*/
+
+stat quotient *= stat divisor
+stat m -= stat quotient

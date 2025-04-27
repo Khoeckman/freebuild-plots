@@ -1,0 +1,5 @@
+// This is to add extra security against speed-fly-hackers breaking spawn
+
+if (!hasGroup "Banned", !hasGroup "Moderator" true) {
+  changePlayerGroup "Public"
+}

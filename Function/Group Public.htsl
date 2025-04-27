@@ -1,0 +1,4 @@
+// Prevent people from shortly being able to break blocks when joining
+if (!hasGroup "Banned", !hasGroup "Moderator" true) {
+  changePlayerGroup "Public"
+}

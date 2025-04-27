@@ -1,5 +1,5 @@
 // Input: plotData
-// Output: plot...
+// Output: unix, plot...
 
 // @temp unpacked
 stat unpacked = stat plotData
@@ -27,17 +27,14 @@ if () {
   stat plotUnix -= stat mask // 45678912n
 }
 
-// @temp unix
-stat unix = globalstat buffer
-stat unix *= 60
-stat plotUnix += stat unix
 stat plotUnix *= 60
 
+// @temp unix
 stat unix = stat plotUnix
 stat unix -= %date.unix%
 
-// Mark owner as offline if they did not update their plot for over (60 + 15) seconds
-if (stat unix < -75) {
+// Mark owner as offline if they did not update their plot for over 70 seconds
+if (stat unix < -70) {
   stat plotOn = 4
 } else {
   stat plotOn = 2

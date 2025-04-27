@@ -1,7 +1,10 @@
-stat invis = 0
-
-if (hasPotion "Invisibility") {
+if (hasPotion "Invisibility", !hasGroup "Moderator" true) {
+  stat invis = 0
   clearEffects
+}
+
+if or (hasTeam "NoPvP", hasGroup "Banned") {
+  applyPotion "Weakness" 1 10 true
 }
 
 if (stat nvn == 1) {

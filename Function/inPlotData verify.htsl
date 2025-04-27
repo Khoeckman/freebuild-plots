@@ -2,11 +2,18 @@
 // Input: home, inPlot, #plot
 // Output: homeVerifyCd
 
+// Force check everyone (on /presetall)
+if (globalstat plot == -1) {
+  stat homeVerifyCd = 0
+  stat oldInPlot = 0
+  exit
+}
+
 if (stat home == globalstat plot) {
   stat homeVerifyCd = 0
 }
 
 // Player must be in the plot where the data changed
 if (stat inPlot == globalstat plot) {
-  stat oldInPlot = 0 // TODO: unsafe against action cooldown; Solution: use `inPlotVerify` queue
+  stat oldInPlot = 0 // TODO: check why double title in plot #50
 }

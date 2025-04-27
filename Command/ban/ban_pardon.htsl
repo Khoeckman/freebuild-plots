@@ -1,2 +1,9 @@
 stat banTs = 0
 chat "&aYou received a pardon from staff."
+title "&2&lUNBANNED" "&aBe a good boi now" 0 5 1
+sound "Level Up" 0.7 1.0 invokers_location
+
+globalstat bcType = 4
+globalstat id = stat id
+function "Staff broadcast" true
+// TODO add msg sound title and staff bc

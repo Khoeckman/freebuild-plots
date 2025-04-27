@@ -14,8 +14,11 @@ if (globalstat bcType == 1) {
   exit
 }
 
-if (globalstat bcType == 2, hasTeam "Bot") {
-  chat "&eClear plot#%stat.global/plot%"
+if (globalstat bcType == 2, hasGroup "UnpaidWorker", globalstat plot > 0) {
+  stat plot = globalstat plot
+  function "Plot to XYZ"
+  chat ">>copypaste ( 124 1 -114 95 59 -85) %stat.player/x% %stat.player/y% %stat.player/z%"
+  // FROM: 124 1 -114 TO: 95 59 (check height) -85 PASTE: 
 }
 
 if (globalstat bcType == 2) {

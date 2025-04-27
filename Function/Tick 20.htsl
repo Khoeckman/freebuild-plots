@@ -1,1 +1,5 @@
 function "Ban verify"
+
+if (stat unclaimCd > 0) {
+  stat unclaimCd -= 1
+}

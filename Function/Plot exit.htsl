@@ -3,10 +3,23 @@
 // Player left a plot
 if (stat inPlot == 0, stat oldInPlot > 0) {
   stat oldInPlot = 0
+
+  // Reset in plotData incase it cannot be downloaded right away when entering one.
+  stat inPlotData = 0
+  stat inPlot = 0
+  stat inPlotId = 0
+  stat inPlotUnix = 0
+  stat inPlotProtect = 0
+  stat inPlotPublic = 0
+  stat inPlotGm = 0
+  stat inPlotPvP = 0
+
   title "&e&oPublic" null 1 1 1
 } else {
   exit
 }
+
+setTeam "NoPvP"
 
 // If player should not change gamemode and group
 if (hasGroup "Banned") {

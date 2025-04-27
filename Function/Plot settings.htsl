@@ -90,6 +90,7 @@ if (stat i == 32) {
 
 function "Pack plotData"
 function "Upload plotData"
+stat lock = 0
 globalstat plot = stat plot
 function "inPlotData verify" true
 

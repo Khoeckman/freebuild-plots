@@ -1,10 +1,15 @@
 function "Ban verify"
+function "Group Public"
 
 stat lock = 0
 stat minimapLoad = 0
 stat homeVerifyCd = 0
 stat plotTitle = 0
 stat invis = 0 // Incase staff forgot they left it on
+
+if (stat region < 1) {
+  stat region = 1
+}
 
 if (hasGroup "Owner") {
   giveItem "CreativeMenu" false 7 true

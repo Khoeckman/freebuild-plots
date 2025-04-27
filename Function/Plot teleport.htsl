@@ -37,6 +37,9 @@ if () {
   stat z += stat dz
 }
 
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
 tp "custom_coordinates" "%stat.player/x% %stat.player/y% %stat.player/z% 0 0" true
 sound "Enderman Teleport" 0.7 1.0 invokers_location
 chat "&aYou teleported to plot#%stat.player/plot% (&b%stat.player/x% %stat.player/y% %stat.player/z%&a)."

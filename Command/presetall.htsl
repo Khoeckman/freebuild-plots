@@ -56,7 +56,7 @@ if () {
 }
 
 if () {
-  globalstat plot41 = 4_0_0_0_1_00000000_000000
+  globalstat plot41 = 4_0_4_1_00000000_000000
   globalstat plot42 = 0
   globalstat plot43 = 0
   globalstat plot44 = 0
@@ -112,4 +112,5 @@ globalstat plot81 = 0
 globalstat bcType = 1
 globalstat id = stat id
 function "Public broadcast" true
+globalstat plot = -1
 function "inPlotData verify" true

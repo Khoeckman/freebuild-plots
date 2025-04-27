@@ -2,7 +2,7 @@
 // Output: inPlot...
 
 // If player is not in a plot or updating plotData is locked
-if (stat inPlot <= 0) {
+if or (stat inPlot <= 0, stat lock == 1) {
   exit
 }
 
@@ -62,6 +62,7 @@ if (stat plotTitle == 0, stat inPlotId == 0) {
 }
 
 if (stat plotTitle == 0) {
+  stat plotTitle = 1
   title "&a&oPlot &b&o#%stat.player/inPlot%" "&bPlayer #%stat.player/inPlotId%" 1 1 1
 }
 

@@ -1,0 +1,15 @@
+if (!hasGroup "Moderator" true) {
+  chat "&cYou must be staff."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if and (stat invis == 0) {
+  stat invis = 1
+  title &e&lINVIS &a&lON 0 1 1
+} else {
+  stat invis = 0
+  applyPotion Invisibility 1 1 true
+  title &e&lINVIS &c&lOFF 0 1 1
+}
+sound random.drink 0.7 1.0 invokers_location

@@ -10,20 +10,47 @@ if (stat unclaimCd > 0) {
   exit
 }
 
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot unclaim a plot while the minimap is loading."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// @temp err
+stat err = 0
+
 if (stat inPlot <= 0) {
   chat "&cYou must be inside a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
+  stat err = 1
 }
 
-if (!stat inPlotId == stat id) {
+if (stat err == 0, !stat inPlotId == stat id) {
   chat "&cYou must own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
+  stat err = 1
+}
+
+if (stat err > 0, stat home == stat inPlot) {
   exit
 }
 
-if (stat minimapLoad > 0) {
-  chat "&cYou cannot unclaim a plot while the minimap is loading."
+if (stat err > 0, stat home <= 0) {
+  exit
+}
+
+if (stat err > 0) {
+  chat "&eUnclaiming your home (plot#%stat.player/home%) instead..."
+  
+  stat plot = stat home
+  function "Download plotData"
+  function "Unpack plotData"
+}
+
+// Check if player owns their home
+if (stat err > 0, !stat plotId == stat id) {
+  stat verifyHomeCd = 0
+  chat "&cYou must own a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -33,10 +60,10 @@ stat plot = stat inPlot
 stat plotData = 0
 function "Upload plotData"
 
-stat unclaimCd = globalstat plotUnclaimCd
-
 globalstat plot = stat inPlot
 function "inPlotData verify" true
+
+stat unclaimCd = globalstat plotUnclaimCd
 
 chat &7
 chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"

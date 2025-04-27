@@ -11,6 +11,7 @@ lock - 1 = Stop plot enter and home verify from using the plotData functions
 err - boolean to tell if function exited with an error
 x, y, z - used for /plot_home
 homeVerifyCd - used to execute 'Home Verify' every x ticks (set to 0 to trigger instantly)
+unclaimCd - players are only allowed to unclaim their plot once every #`plotUnclaimCd` seconds
 
 plot - number of the plot you are targeting
 plotData - data of the plot you are targeting
@@ -67,11 +68,12 @@ Claimed - total amount of plots currently claimed
 Expired - total amount of plots that are expired
 OwnerOnline - amount of plots who's owner is online
 
-buffer - max offline hours
+buffer - seconds between last plotData update before it becomes claimable.
 plotSize - 18 = (18x18)
 plotGridSize - 9 = (9x9 plots each 22x22)
 plotGapSize - 5
 regionSize - 3 = (3x3)
+plotUnclaimCd - how many seconds players have to wait before unclaiming a plot again
 
 !!! IMPORTANT !!! manually update when subvalues update OR update it when someone joins
 plotPlusGapSize - 23 (18 + 5) Cache this value to improve performance and reduce script size
@@ -86,10 +88,11 @@ auto - The next plot /auto will try to claim
 plot# - bitpacking: FEDCBBBBBBBBAAAAAA (1F 1E 1D 1C 8B 6A = 18/19 bits)
 #: Plot number
 A: plotId - Owner ID (max: 999.999)
-B: plotUnix - Owner last online minute [%date.unix% / 60], inclusive (max: 99.999.999)
+B: plotUnix - Owner last online minute [%date.unix% / 60], inclusive (max: 99.999.999); WHEN UNPACKED: seconds until u can claim the plot (negative if claimable)
 
-C: plotProtect - Wether the plot is protected from expiring (0 = No; 1 = Yes)
-0: plotOn - Wether the owner is online (0 & 4 = No; 2 = Yes) (NOT STORED IN THE DATA, derived from plotUnix)
-D: plotPublic - Wether visitors can build on this plot. (4 = No; 2 = Yes)
+C: plotProtect - Wether the plot is protected from expiring (0 = No; 1 = Yes; Default = No)
+D: plotPublic - Wether visitors can build on this plot. (4 = No; 2 = Yes; Default = No)
 E: plotGm - Gamemode of visitors in the plot. (0 = Creative; 1 = Survival; 2 = Adventure)
-F: plotPvP - Wether visitors can PvP. (4 = No; 0 & 2 = Yes)
+F: plotPvP - Wether visitors can PvP. (4 = No; 2 = Yes; Default = Yes)
+
+plotOn - Wether the owner is online (4 = No; 2 = Yes; Default = No) (NOT STORED IN THE DATA, derived from plotUnix)
