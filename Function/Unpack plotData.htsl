@@ -29,7 +29,7 @@ if () {
 
 stat plotUnix *= 60
 
-// @temp unix
+// Used in "Plot claim"
 stat unix = stat plotUnix
 stat unix -= %date.unix%
 

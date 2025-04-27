@@ -2,7 +2,7 @@
 // Input: id, inPlot...
 
 if (stat inPlotPvp == 2) {
-  setTeam "None"
+  setTeam "YesPvP"
 } else {
   setTeam "NoPvP"
 }

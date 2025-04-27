@@ -34,7 +34,7 @@ if (stat minimapLoad > 0) {
 }
 
 function "Download plotData"
-function "Unpack plotData"
+function "Unpack plotData" // Output: unix
 
 // Plot is protected
 if or (stat plotId == 1, stat plotProtect == 1) {
