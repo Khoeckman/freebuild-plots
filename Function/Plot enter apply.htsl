@@ -8,7 +8,7 @@ if (stat inPlotPvp == 2) {
 }
 
 // If player should not change gamemode and group
-if or (hasGroup "Banned", hasGroup "UnpaidWorker") {
+if or (hasGroup "Banned", hasGroup "Moderator" true) {
   exit
 }
 
@@ -25,7 +25,7 @@ if (stat inPlotGm == 2) {
 }
 
 // If player should not change group or new player id is 0
-if or (hasGroup "Moderator" true, stat id <= 0) {
+if (stat id <= 0) {
   exit
 }
 

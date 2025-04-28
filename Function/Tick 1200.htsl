@@ -2,4 +2,8 @@ if (placeholder %house.cookies% > globalstat CookieRecord) {
   globalstat CookieRecord = %house.cookies%
 }
 
+if (stat naughty > 0, !hasGroup "Banned") {
+  stat naughty -= 1
+}
+
 // todo: update total plot claimed (using server player?)

@@ -45,7 +45,7 @@ if (globalstat bcType == 5) {
 }
 
 if (globalstat bcType == 10) {
-  chat "&bPlayer #%stat.global/id% &fcleared the data of &a&oPlot &b&o#%stat.global/plot%&f."
+  chat "&bPlayer #%stat.global/id% &freset the data of &a&oPlot &b&o#%stat.global/plot%&f." // @compile line
   chat "&4&m------------------------------------------------"
   exit
 }

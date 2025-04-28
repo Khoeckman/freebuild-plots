@@ -22,7 +22,7 @@ if (stat inPlot == 0, stat oldInPlot > 0) {
 setTeam "NoPvP"
 
 // If player should not change gamemode and group
-if (hasGroup "Banned") {
+if (!hasGroup "Banned") {
   exit
 }
 

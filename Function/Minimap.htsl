@@ -79,7 +79,7 @@ title "&a&oMinimap" "&8⬛⬛⬛⬛⬛⬛⬛⬛⬛" 0 1 1
 
 // Load plots in `region`
 
-pause 4
+pause 5
 stat plot = stat menuPlot1
 
 if () {
@@ -103,7 +103,7 @@ if () {
   stat menuPlot1s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot2
 
 if () {
@@ -128,7 +128,7 @@ if () {
   stat menuPlot2s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot3
 
 if () {
@@ -153,7 +153,7 @@ if () {
   stat menuPlot3s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot4
 
 if () {
@@ -178,7 +178,7 @@ if () {
   stat menuPlot4s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot5
 
 if () {
@@ -203,7 +203,7 @@ if () {
   stat menuPlot5s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot6
 
 if () {
@@ -228,7 +228,7 @@ if () {
   stat menuPlot6s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot7
 
 if () {
@@ -252,7 +252,7 @@ if () {
   stat menuPlot7s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot8
 
 if () {
@@ -276,7 +276,7 @@ if () {
   stat menuPlot8s = stat s
 }
 
-pause 4
+pause 5
 stat plot = stat menuPlot9
 
 if () {

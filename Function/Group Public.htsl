@@ -1,5 +1,6 @@
 // Prevent people from being able to break blocks when teleporting
+setTeam "NoPvP"
+
 if (!hasGroup "Banned", !hasGroup "Moderator" true) {
-  setTeam "NoPvP"
   changePlayerGroup "Public"
 }

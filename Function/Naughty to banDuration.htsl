@@ -1,0 +1,55 @@
+// Input: *naughty
+// Output: banDuration, (unclaimCd)
+
+if (stat naughty > 60, stat home > 0) {
+    // Unclaim their plot
+    stat plot = stat home // TOOD: possible danger that home is desynced?
+    stat plotData = 0
+    function "Upload plotData"
+
+    stat unclaimCd = globalstat plotUnclaimCd
+
+    globalstat plot = stat home
+    function "inPlotData verify" true
+
+    chat &7
+    chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"
+    chat "&fWe unclaimed &a&oPlot &b&o#%stat.player/plot%&f as part of your punishment."
+    chat "&2&m------------------------------------------------"
+
+    sound "Explode" 0.7 1.0 invokers_location
+}
+
+if (stat naughty > 80) {
+  stat banDuration = {10*24*60*60}
+  stat naughty += 10
+  exit
+}
+
+if (stat naughty > 60) {
+  stat banDuration = {1*24*60*60}
+  stat naughty += 10
+  exit
+}
+
+if (stat naughty > 40) {
+  stat banDuration = {1*60*60}
+  stat naughty += 10
+  
+  exit
+}
+
+if (stat naughty > 20) {
+  stat banDuration = {10*60}
+  stat naughty += 10
+  exit
+}
+
+if (stat naughty > 0) {
+  stat banDuration = 60
+  stat naughty += 10
+  exit
+}
+
+stat banDuration = 10
+stat naughty += 5

@@ -1,26 +1,32 @@
-// Input: id, inPlot, inPlotProtect
+// Input: id, home, inPlot
 
 if (stat inPlot <= 0) {
-  chat "&cYou are not inside a plot."
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!stat inPlotId == stat id, !hasGroup "Admin" true) {
+  chat "&cYou must own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
 if (stat inPlotProtect == 1) {
-  chat "&cYou cannot clear a protected plot."
+  chat "&cYou cannot clear a protected plot." // @compile
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-stat plot = stat inPlot
-stat plotData = 0
-function "Upload plotData"
-sound "Glass" 0.7 1.0 invokers_location
+if (stat minimapLoad > 0) {
+  chat "&cYou cannot clear a plot while the minimap is loading." // @compile
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
 
-globalstat plot = stat plot
-function "inPlotData verify" true
+chat "&eThis is a work in progress."
 
-globalstat bcType = 10
-globalstat id = stat id
+// Message to bot
+globalstat bcType = 2
 globalstat plot = stat inPlot
-function "Staff broadcast" true
+function "Public broadcast" true

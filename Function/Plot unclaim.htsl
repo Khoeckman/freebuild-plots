@@ -1,8 +1,8 @@
 // Input: id, home, inPlot, unclaimCd
 
-if (stat unclaimCd > 0) {
+if (stat unclaimCd > 0, !hasGroup "Moderator" true) {
   stat dividend = stat unclaimCd
-  stat divisor = 10
+  stat divisor = 60
   function "Modulo quotient"
 
   chat "&cYou cannot unclaim a plot for another %stat.player/quotient%m %stat.player/remainder%s&c."

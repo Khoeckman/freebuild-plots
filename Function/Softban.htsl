@@ -1,4 +1,4 @@
-// Input: id, naughty, banReason, banDuration, *banTs
+// Input: id, *naughty, banReason, *banDuration, *banTs
 
 if (hasGroup "Moderator" true) {
   exit
@@ -9,7 +9,7 @@ if (stat banTs == 0) {
 }
 
 if (stat banDuration <= 0) {
-  stat banDuration = 10 // TODO: calc time using naughty score
+  function "Naughty to banDuration"
 }
 stat banTs += stat banDuration
 
@@ -51,6 +51,7 @@ chat "Duration: &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&f."
 chat "&4&m------------------------------------------------"
 
 applyLayout "clear"
+giveItem "CreativeMenu" false 8 true
 
 // Notify staff
 globalstat bcType = stat banReason

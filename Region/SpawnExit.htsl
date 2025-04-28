@@ -1,0 +1,8 @@
+// Prevent going from spawn directly in the no-fly zone
+if (inRegion "Public") {
+  exit
+}
+
+stat banReason = 2
+stat banDuration = 0
+function "Softban"

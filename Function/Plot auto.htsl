@@ -3,6 +3,7 @@
 stat plot = globalstat auto
 stat plot += 1
 
+chat "&eAutoclaiming plot#%stat.player/plot%..."
 function "Plot claim"
 
 if (stat err == 2) {

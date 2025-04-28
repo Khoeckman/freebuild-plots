@@ -1,5 +1,5 @@
 // Input: plotData
-// Output: unix, plot...
+// Output: plot...
 
 // @temp unpacked
 stat unpacked = stat plotData
@@ -27,14 +27,12 @@ if () {
   stat plotUnix -= stat mask // 45678912n
 }
 
-stat plotUnix *= 60
-
-// Used in "Plot claim"
-stat unix = stat plotUnix
-stat unix -= %date.unix%
+ // @compile
+stat plotUnix *= 60 // unix ts in seconds of last plotData upload
+stat plotUnix -= %date.unix% // negative number representing the amount of seconds has passed since last plotData upload
 
 // Mark owner as offline if they did not update their plot for over 70 seconds
-if (stat unix < -70) {
+if (stat plotUnix < -180) {
   stat plotOn = 4
 } else {
   stat plotOn = 2
@@ -43,6 +41,8 @@ if (stat unix < -70) {
 if (stat plotId == 0) {
   stat plotOn = 0
 }
+
+stat plotUnix += globalstat buffer // positive = seconds until plot expires; negative = plot has expired
 
 if () {
   // Previous exp: 8

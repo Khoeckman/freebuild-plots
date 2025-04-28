@@ -34,7 +34,7 @@ if (stat minimapLoad > 0) {
 }
 
 function "Download plotData"
-function "Unpack plotData" // Output: unix
+function "Unpack plotData"
 
 // Plot is protected
 if or (stat plotId == 1, stat plotProtect == 1) {
@@ -44,10 +44,8 @@ if or (stat plotId == 1, stat plotProtect == 1) {
   exit
 }
 
-stat unix += globalstat buffer
-
 // Owner of plot is online
-if (stat plotId > 0, stat plotOn == 2, stat unix >= 0) {
+if (stat plotId > 0, stat plotOn == 2, stat plotUnix >= 0) {
   chat "&cYou cannot claim this plot because it's owner is online."
   sound "Anvil Land" 0.3 1.0 invokers_location
   stat err = 1
@@ -55,8 +53,8 @@ if (stat plotId > 0, stat plotOn == 2, stat unix >= 0) {
 }
 
 // Plot has not expired yet
-if (stat plotId > 0, stat unix >= 0) {
-  stat seconds = stat unix
+if (stat plotId > 0, stat plotUnix >= 0) {
+  stat seconds = stat plotUnix
 
   function "Seconds to HMS"
 

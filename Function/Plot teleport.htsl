@@ -37,6 +37,8 @@ if () {
   stat z += stat dz
 }
 
+function "Group Public"
+
 failParkour Teleported!
 applyPotion "Blindness" 1 1 false true
 

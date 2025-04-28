@@ -1,5 +1,16 @@
+// Input: banTs
+
 if (hasGroup "Moderator" true) {
   exit
+}
+
+// Kick banned players if server is almost full
+if (hasGroup "Banned", placeholder %house.players% > 81) {
+  chat "&cYou are kicked from this housing because you are banned while the server is almost full."
+  title "&4&lSERVER FULL" null 0 5 1
+  sound "Enderdragon Growl" 0.7 1.0 invokers_location
+  pause 16
+  lobby "Housing"
 }
 
 if (stat banTs > 0, placeholder %date.unix% < stat banTs) {
@@ -9,6 +20,6 @@ if (stat banTs > 0, placeholder %date.unix% < stat banTs) {
 
 if (hasGroup "Banned") {
   stat banTs = 0
-  stat oldInPlot = 0 // Force inPlot reload
+  stat oldInPlot = 0 // Force inPlot reload to update gamemode
   changePlayerGroup "Public"
 }

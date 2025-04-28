@@ -1,6 +1,3 @@
-function "Ban verify"
-function "Group Public"
-
 stat lock = 0
 stat minimapLoad = 0
 stat homeVerifyCd = 0
