@@ -1,0 +1,3 @@
+stat banReason = 1
+  stat banDuration = 0
+  function "Softban"

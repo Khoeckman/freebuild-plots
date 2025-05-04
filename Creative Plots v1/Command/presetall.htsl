@@ -65,7 +65,7 @@ if () {
   globalstat plot47 = 0
   globalstat plot48 = 0
   globalstat plot49 = 0
-  globalstat plot50 = 0
+  globalstat plot50 = 4_0_2_1_00000000_000000
 }
 
 if () {

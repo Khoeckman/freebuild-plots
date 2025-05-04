@@ -1,16 +1,35 @@
 // Input: id, inPlot, inPlot...
 
+// @compile if
 if (hasGroup "Banned") {
   stat seconds = stat banTs
   stat seconds -= %date.unix%
-  //function "Seconds to HMS" // TODO: Too much stat pollution every 4tick (use clone function)
+  
+  stat quotient = stat seconds
+  stat quotient /= 60
 
-  actionBar "&c&oBanned &8/ &a%stat.player/seconds% seconds"
-  //actionBar "&c&oBanned &8/ &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&c"
+  // @temp difference
+  stat difference = stat quotient
+  stat difference *= 60
+  stat s = stat seconds
+  stat s -= stat difference
+  
+  stat m = stat quotient
+  
+  stat quotient /= 60
+  stat h = stat quotient
+  
+  stat quotient *= 60
+  stat m -= stat quotient
+
+  actionBar "&c&oBanned &8/ &a%stat.player/h%h %stat.player/m%m %stat.player/s%s&c"
   exit
 }
 
 // TODO @c work with new plotUnix and buffer (remove plotOn if possible)
+// working with plotUnix + %date.unix% can provide live data
+// altough only visually
+// better option: run every 4 tick
 
 if (stat inPlot <= 0) {
   actionBar "&e&oPublic"

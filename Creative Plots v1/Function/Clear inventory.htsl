@@ -1,0 +1,11 @@
+resetInventory // Clears armor? yes
+// @compile TODO use where
+
+if (hasGroup "Owner") {
+  giveItem "CreativeCookie" false -1 false
+  giveItem "CreativeMenu" false 7 true
+  giveItem "HousingMenu" false 8 true
+} else {
+  giveItem "CreativeCookie" false 4 true
+  giveItem "CreativeMenu" false 8 true
+}

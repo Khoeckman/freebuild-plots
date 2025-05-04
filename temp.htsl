@@ -1,5 +1,0 @@
-if (!hasGroup "Moderator" true) {
-  chat "&cYou must be staff."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}

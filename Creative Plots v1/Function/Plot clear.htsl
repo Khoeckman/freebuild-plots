@@ -13,13 +13,13 @@ if (!stat inPlotId == stat id, !hasGroup "Admin" true) {
 }
 
 if (stat inPlotProtect == 1) {
-  chat "&cYou cannot clear a protected plot." // @compile
+  chat "&cYou cannot clear a protected plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
 if (stat minimapLoad > 0) {
-  chat "&cYou cannot clear a plot while the minimap is loading." // @compile
+  chat "&cYou cannot clear a plot while the minimap is loading."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }

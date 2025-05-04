@@ -25,7 +25,9 @@ if (stat inPlotGm == 2) {
 }
 
 // If player should not change group or new player id is 0
-if (stat id <= 0) {
+// @compile if - have to use this since weird 'unset' update
+if (!stat id > 0) {
+  changePlayerGroup "Public"
   exit
 }
 
@@ -34,12 +36,20 @@ if (stat inPlotId == stat id) {
   exit
 }
 
-if (stat inPlotPublic == 2, stat inPlotGm == 0, stat inPlotOn == 2) {
+// @compile below BROKEN
+// @temp cond1
+stat cond1 = 0 
+
+if or (stat inPlotOn == 2, stat plotProtect == 1) {
+  stat cond1 = 1
+}
+
+if (stat inPlotPublic == 2, stat inPlotGm == 0, stat cond1 == 1) {
   changePlayerGroup "Creative"
   exit
 }
 
-if (stat inPlotPublic == 2, stat inPlotOn == 2) {
+if (stat inPlotPublic == 2, stat cond1 == 1) {
   changePlayerGroup "NoCreative"
   exit
 }

@@ -46,6 +46,12 @@ if (stat homeVerifyCd <= 4) {
   stat homeVerifyCd += 4
 }
 
+// @compile if
+if (stat plotTitle == 0, stat inPlotId == 0, stat inPlotPublic == 2) {
+  stat plotTitle = 1
+  title "&a&oPlot &b&o#%stat.player/inPlot%" "&e&lPUBLIC" 1 1 1
+}
+
 if (stat plotTitle == 0, stat inPlotProtect == 1) {
   stat plotTitle = 1
   title "&a&oPlot &b&o#%stat.player/inPlot%" "&e&lPROTECTED" 1 1 1

@@ -35,7 +35,6 @@ if (stat naughty > 60) {
 if (stat naughty > 40) {
   stat banDuration = {1*60*60}
   stat naughty += 10
-  
   exit
 }
 

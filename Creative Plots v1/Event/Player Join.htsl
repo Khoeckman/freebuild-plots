@@ -9,6 +9,7 @@ if (stat region < 1) {
 }
 
 if (hasGroup "Owner") {
+  giveItem "CreativeCookie" false -1 false
   giveItem "CreativeMenu" false 7 true
   giveItem "HousingMenu" false 8 true
 } else {
