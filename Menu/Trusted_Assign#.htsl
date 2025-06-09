@@ -1,0 +1,23 @@
+// #
+var trustAddr = 5
+var trustIgn unset
+
+globalvar req = %player.name%
+globalvar res unset
+globalvar trustX = %player.pos.x%
+globalvar trustY = %player.pos.y%
+globalvar trustZ = %player.pos.z%
+// Nearest player has to be within 15 blocks
+globalvar trustNearest = 15
+function "Request nearest player" true
+
+if (globalvar res == 0 0) {
+  chat "&cNo players found within 15 blocks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+} else {
+  // #
+  var trust5Ign = globalvar res
+  chat "&aAssigned &b%var.global/res% to &eSlot &b#%var.player/trustAddr%&a."
+  sound Click 0.7 1.0 invokers_location
+}
+displayMenu "Trusted"

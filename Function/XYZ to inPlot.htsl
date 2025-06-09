@@ -1,0 +1,32 @@
+// Input: plot
+// Output: x, y, z
+
+// @temp i
+stat i = stat plot
+stat i -= 1
+
+// @temp row
+stat row = stat i
+stat row /= globalstat plotGridSize
+
+stat dividend = stat i
+stat divisor = globalstat plotGridSize
+function "Modulo"
+// @temp col
+stat col = stat remainder
+
+if () {
+  stat x = -110
+  stat y = 169
+  stat z = -105
+
+  // @temp dx
+  stat dx = globalstat plotPlusGapSize
+  stat dx *= stat col
+  stat x += stat dx
+
+  // @temp dz
+  stat dz = globalstat plotPlusGapSize
+  stat dz *= stat row
+  stat z += stat dz
+}

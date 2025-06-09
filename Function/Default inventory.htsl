@@ -1,0 +1,14 @@
+// giveItem "PlotsCookie" false 4 true
+
+if (hasGroup "Owner") {
+  giveItem "PlotsMenu" true 7 true
+  giveItem "HousingMenu" true 8 true
+  exit
+}
+
+if (hasGroup "LG" true) {
+  giveItem "PlotsMenu" true 7 true
+  giveItem "HousingAdminMenu" true 8 true
+} else {
+  giveItem "PlotsMenu" true 8 true
+}
