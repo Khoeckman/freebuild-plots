@@ -6,4 +6,4 @@ sound Fizz 0.7 1.0 invokers_location
 
 // #
 var trust5Ign unset
-displayMenu "Trusted"
+displayMenu "Trusted builders"

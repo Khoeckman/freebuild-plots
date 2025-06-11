@@ -1,0 +1,14 @@
+// @todo this is the worst way to do this
+// Home prefix
+if (var homeAddr > 0) {
+  var homePrefix = "&a&oPlot &b&o#"
+} else {
+  var homePrefix unset
+}
+
+// Count down
+if (var unclaimCd > 1) {
+  var unclaimCd -= 1
+} else {
+  var unclaimCd unset
+}

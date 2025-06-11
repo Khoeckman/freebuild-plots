@@ -1,4 +1,4 @@
+globalvar req = %player.name%
 globalvar houseGroup = %player.group.tag%
-globalvar houseIgn = %player.name%
 globalvar houseVersion = %player.version%
 function "Quit" true

@@ -6,52 +6,117 @@ y=1.1x^{1.5}
 x = minutes built on plot
 y = minutes to keep plot after offline
 
+## Emojis
+
+⛃ ⚔ ✧ ✦ ❤ ⚡ ❈ 🗡 ✪ ➡ ⎜ ⬛
+
+## Flags
+
+@global - Function is global and meant for all players
+@target one - Function is global but only meant for one player, determined by #`target`
+@target many - Function is global but only meant for certain players
+
+@temp - Temporary variables which are not documented in this file
+@create - Create this function, command, region, ... in Housing
+@compile - Import this HTSL code into Housing
+
+## Params
+
+Input - var (temp) globalvar (#temp) teamvar (@temp)
+Output - var (temp) globalvar (#temp) teamvar (@temp)
+
+Event input - Received from `req`
+Event output - Sent to `target`
+
 ## Variables
 
 **Syntax:**
 
-name (type) [fallback value] - Description (ppcd = Post-processed)
+name (TypeScript style types) [fallback value] - Description
+ppcd = Post-processed
 
 ### Player
 
-id (number) - Id of the player, mainly used to check if they are new. Might be used in the future.
+id (number) - Id of the player, mainly used to check if they are new. Might be used in the future
 cd (bool) - Check if a function is on cd by setting to 1 and calling a function which should set it back to 0. And checking if its 0 after
+rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #`maxRated`
+banTs (int | unset) [0] - Unix timestamp marking the end of the ban
+unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #`unClaimCd` when claiming a plot
 
-plotAddr (byte) - Plot register address of the downloaded plot
-plotPrefix (string) - Text for before the index eg. "&a&oPlot &b&o#" (ppcd)
+nvn (1 | unset) [0] - Night vision
+nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
+invis (1 | unset) [0] - Invisibility (LG+ only)
+invisStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
+
+// Temporary plot data to work with or store in `in...` or `home...`
+plotAddr (byte) - Plot register address of the current plot
+plotId (short) - Owner Id
 plotIgn (string) - Owner IGN
-plotUnix (number) - Unix timestamp of the last moment the owner was online
-plotProtect (byte) - 1, 2, 3, 4, 5
-plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
-plotBuild (byte) - 1, 2, 3
+plotUnix (int) - Unix timestamp when the plot expires
+plotSettings (byte) - (3 bits: ABC) = (A: plotOnline, B: plotBuild, C: plotProtect) = (000-124) / compressed = (00-30)
+plotOnline (byte) - (0, 1) = (Offline, Online) - Wether the owner of the plot is online (bitpacked)
+plotBuild (byte) - (0, 1, 2) = (Private, Trusted, Public) - Who can build (bitpacked)
 plotBuildStr (String) [&cNone] - Name of the build setting (ppcd)
-plotTrusted (bool) - Are you trusted on this plot (async)
-plotRatingScore (number) - Total score of the plot
-plotRatingCount (byte) - Total amount of players that scored te plot
-plotRating (float) - Weighted average of the score (ppcd)
+plotProtect (byte) - (0, 1, 2, 3, 4) = (Off, Low, Medium, High, Extreme) - Protection level (bitpacked)
+plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
+plotTrusted (bool) - (0, 1) = (No, Yes) - Are you trusted on this plot (ppcd-async)
+plotPoints (short) [0] - Total points of the plot
+plotRated (short) - Total amount of players that rated the plot (all time)
+plotRating (float) - plotPoints / plotRated (ppcd)
 
 // Plot the player is in
-inPlot...
-inPlotPrefix (string) [&e&oPublic]
+inAddr (byte | unset)
+in... - Won't be shown if `inAddr` is not > 0
 
-// Home of the player
-home...
-homePrefix (string) [&c&oNone]
+// Plot the player has claimed as home
+homeAddr (byte | unset)
+homePrefix (string | unset) [&c&oNone] - Text for before the index eg. "&a&oPlot &b&o#" (ppcd)
+homeShield (number) [0] - Seconds until home is claimable
+homePoints (number)
+homeRated (byte) [0]
+homeRating (float) ['0.000']
 
 trustAddr (byte) - Trust register address
-trust#Ign (string) ['&cNone'] - Trusted IGN (# = register 1 trough 7)
+trust#Ign (string | unset) ['&cNone'] - Trusted IGN (# = register 1 trough 7)
 
 ### Public
 
-req (string) - IGN of event requestor (dispatch)
-res (string) ['&cNone'] - IGN of event responder (callback)
-target (string) - IGN of event target (handler)
+req (string | id) - IGN or ID of event requestor (dispatch)
+res (string | id | unset) ['&cNone'] - IGN or ID of event responder (callback)
+target (string | id) - IGN or ID of event target (handler)
 
 houseGroup (string) - Group of the player who joined or quit
-houseIgn (string) - IGN of the player who joined or quit
 houseVersion (string) - Minecraft Version of the player who joined or quit
+
+cookieRecord (short) - highest amount of weekly cookies on the house
+unique (short) [0] - Unique amount of players on the house
+
+plotXZ (30)
+plotGap (7)
+plotXZPlusGap (37)
+plotY (?)
+plotYPlusGap (?)
+plotStartX (-128)
+plotStartY (1)
+plotStartZ (-113)
+plotEndX (124)
+plotEndY (254)
+plotEndZ (139)
+
+exprBuffer (600) - Amount of seconds until a player can claim another (offline) player's plot.
+
+unclaimCd (short) - The number of seconds a player must wait before they can unclaim a plot again
+maxRated (10) - The amount of plots a player can rate per hour
 
 trustX (float) - X-coord of the player
 trustY (float) - Y-coord of the player
 trustZ (float) - Z-coord of the player
 trustNearest (float) - Distance to the nearest player
+
+#### Menu analysis (todo)
+
+m_plra (short) - Amount of clicks on "Menu: Plot rating"
+
+#### Command analysis (todo)
+
+c_pclaim (short) - Use count of "/pclaim"

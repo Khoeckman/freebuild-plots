@@ -1,15 +1,13 @@
 // @global
 
 // Event input: req, x, y, z
-// Event output: res, target, nearest
+// Event output: res, trustNearest
 
-// @temp x, y, z - Position of the player
-// @temp dx, dy, dz, sum, dist
+// @temp x, y, z, dx, dy, dz, sum, dist
 
-// @compile all
-// @todo test if ChatGPT did good
+// @todo test if ChatGPT did good with 3D math
 
-// If player sent the request himself
+// Abort if player sent the request himself
 if (globalvar req == %player.name%) {
   exit
 }
@@ -64,8 +62,6 @@ var dist += var temp
 var dist /= 2.0
 
 if (var dist < globalvar trustNearest) {
-  globalvar res = %player.name%
-  // globalvar target = globalvar req
   globalvar trustNearest = var dist
-  // function "Response nearest player" true
+  globalvar res = %player.name%
 }

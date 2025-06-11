@@ -1,0 +1,45 @@
+// Input: plotAddr
+// Output: x, y, z
+
+// @temp addr, row, col, dx, dz
+
+var addr = var plotAddr
+var addr -= 1
+
+var row = var addr
+var row /= globalvar plotGridSize
+
+var dividend = var addr
+var divisor = globalvar plotGridSize
+
+// <Modulo>
+// Input: dividend, divisor
+// Output: remainder
+
+var remainder = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var remainder -= var diff // Output: remainder
+// </Modulo>
+
+var col = var remainder
+
+var x = globalvar plotStartX
+var y = 4
+var z = globalvar plotStartZ
+
+var dx = globalvar plotPlusGapSize
+var dx *= var col
+var x += var dx
+
+var dz = globalvar plotPlusGapSize
+var dz *= var row
+var z += var dz
+
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
+tp "custom_coordinates" "%var.player/x% %var.player/y% %var.player/z% 0 0" true
+sound "Enderman Teleport" 0.7 1.0 invokers_location
+chat "&aYou teleported to plot#%var.player/plotAddr% (&b%var.player/x% %var.player/y% %var.player/z%&a)."

@@ -1,0 +1,37 @@
+// Input: plot...
+// Output: plot...
+
+if or (!var plotId > 0, var plotIgn == 0 0) {
+  var plotId unset
+  var plotIgn unset
+  var plotUnix unset
+  var plotSettings unset
+  var plotPoints unset
+  var plotRated unset
+  exit
+}
+
+// Only the owner of the plot can update its expiry timestamp.
+if (var plotId == var id) {
+  var plotUnix = %date.unix%
+  // @todo replace this with earned buffer time
+  var plotUnix += globalvar exprBuffer
+}
+
+// Pack
+// (3 bits: ABC) = (A: plotOnline, B: plotBuild, C: plotProtect) = (000-124) / compressed = (00-30)
+var plotSettings = var plotOnline 0
+var plotSettings *= 10
+var plotSettings = var plotBuild 0
+var plotSettings *= 10
+var plotSettings += var plotProtect 0
+
+// Save 1 global byte if all settings are default
+if (!var plotSettings > 0) {
+  var plotSettings unset
+}
+
+if (!var plotRated > 0) {
+  var plotPoints unset
+  var plotRated unset
+}

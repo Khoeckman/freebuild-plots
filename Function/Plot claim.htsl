@@ -1,0 +1,63 @@
+// Input: homeAddr, plotAddr, plot...
+
+// @create
+
+// 0 = no error; 1 = user error; 2 = plot error
+var err = 1
+
+if (hasGroup "Banned") {
+  chat "&cYou cannot claim a plot while banned."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var plotAddr > 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var homeAddr == var plotAddr) {
+  chat "&cYou already own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var homeAddr > 0) {
+  chat "&cYou already own &a&oPlot &b&o#%var.player/homeAddr%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// If plot is claimable
+if (!var plotId > 0) {
+  // Claim plot #`plotAddr`
+  var plotId = var id
+  var plotIgn = %player.name%
+
+  function "Plot preprocess"
+  function "Plot upload"
+  var homeAddr = var plotAddr
+  // @todo sync all other plot -> home data
+  // globalvar plot = var home
+  // function "inPlotData verify" true
+
+  chat &7
+  chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
+  chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
+  chat "&fNext steps: &e/phome /pthis"
+  chat &8
+  chat "&c&lDISCLAIMER"
+  chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/exprBuffer% seconds"
+  chat "&c&l⎜ &fof you being &coffline&f."
+  chat "&2&m------------------------------------------------"
+
+  sound "Level Up" 0.7 1.0 invokers_location
+
+  var err = 0
+  exit
+}
+
+// Unknown reason
+chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error)"
+sound "Anvil Land" 0.3 1.0 invokers_location

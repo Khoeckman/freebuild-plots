@@ -1,0 +1,87 @@
+// Input: plot...
+// Output: plot...
+
+// @temp mask
+
+// @todo this might not be necessary at all
+// If plot is FREE, clean all `plot...` variables
+if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
+  var plotId unset
+  var plotIgn unset
+  var plotUnix unset
+  var plotExpr unset
+  var plotSettings unset
+  var plotOnline unset
+  var plotProtect unset
+  var plotProtectStr unset
+  var plotBuild unset
+  var plotBuildStr unset
+  var plotTrusted unset
+  var plotPoints unset
+  var plotRated unset
+  var plotRating unset
+  exit
+}
+
+// Unpack
+var rest = var plotSettings
+
+var mask = var rest
+var mask /= 10
+var mask *= 10
+var plotProtect = var rest
+var plotProtect -= var mask
+
+var rest /= 10
+var mask /= 10
+var mask *= 10
+var plotBuild = var rest
+var plotBuild -= var mask
+
+var rest /= 10
+var plotOnline = var rest
+
+// @todo make schema for event
+var plotTrusted = 0
+
+if (var plotRated > 0) {
+  var plotPoints unset
+  var plotRated unset
+  var plotRating unset
+} else {
+  var plotRating = %var.player/plotPoints%D 0.0
+  var plotRating /= %var.player/plotRated%D
+}
+
+// Build name
+if (var plotBuild == 1) {
+  var plotBuildStr = "&eTrusted"
+}
+
+if (var plotBuild == 2) {
+  var plotBuildStr = "&aPublic"
+} else {
+  var plotBuildStr = "&cPrivate"
+}
+
+// Protect name
+if (var plotProtect == 1) {
+  var plotProtectStr = "&aLow"
+  exit
+}
+
+if (var plotProtect == 2) {
+  var plotProtectStr = "&eMedium"
+  exit
+}
+
+if (var plotProtect == 3) {
+  var plotProtectStr = "&6High"
+  exit
+}
+
+if (var plotProtect == 4) {
+  var plotProtectStr = "&cExtreme"
+} else {
+  var plotProtectStr = "&7Off"
+}

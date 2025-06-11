@@ -1,0 +1,41 @@
+// Input: in..., banTs
+
+if (hasGroup "Banned") {
+  // @temp seconds, quotient, diff, s, m, h
+  var seconds = var banTs 0
+  var seconds -= %date.unix%
+  
+  var quotient = var seconds
+  var quotient /= 60
+
+  var diff = var quotient
+  var diff *= 60
+  var s = var seconds
+  var s -= var diff
+  
+  var m = var quotient
+  
+  var quotient /= 60
+  var h = var quotient
+  
+  var quotient *= 60
+  var m -= var quotient
+
+  actionBar "&c&oBanned &8/ &a%var.player/h%h %var.player/m%m %var.player/s%s&c"
+  exit
+}
+
+// "XYZ to inAddr" debug
+// actionBar "&finAddr %var.player/inAddr% &8| &finRow %var.player/inRow% &8| &finCol %var.player/inCol% &8| &finX %var.player/inX% &8| &finZ %var.player/inZ%"
+
+if (!var inAddr > 0) {
+  actionBar "&e&oPublic"
+  exit
+}
+
+if (!var inId > 0) {
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &a&lFREE"
+  exit
+}
+
+actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &fOwner: &b%var.player/inIgn%"

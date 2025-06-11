@@ -20,4 +20,4 @@ if (globalvar res == 0 0) {
   chat "&aAssigned &b%var.global/res% to &eSlot &b#%var.player/trustAddr%&a."
   sound Click 0.7 1.0 invokers_location
 }
-displayMenu "Trusted"
+displayMenu "Trusted builders"

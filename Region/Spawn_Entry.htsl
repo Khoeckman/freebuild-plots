@@ -1,0 +1,4 @@
+// Extra fast group change to prevent griefing
+if (!hasGroup "Banned", !hasGroup "LG" true) {
+  changePlayerGroup "Visitor" true
+}

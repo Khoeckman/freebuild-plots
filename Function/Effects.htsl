@@ -1,0 +1,28 @@
+// No invisibility permission
+if (hasPotion "Invisibility", !hasGroup "LG" true) {
+  var invis unset
+  clearEffects
+  displayNametag true
+}
+
+if (hasPotion "Night Vision", !var nvn == 1) {
+  clearEffects
+}
+
+if (hasPotion "Invisibility", !var invis == 1) {
+  clearEffects
+}
+
+if (var nvn == 1) {
+  applyPotion "Night Vision" 2592000
+}
+
+if or (var invis == 1, hasGroup "LG") {
+  applyPotion "Invisibility" 2592000
+  displayNametag false
+}
+
+// Ban from participating in PvP
+if (hasGroup "Banned") {
+  applyPotion "Weakness" 1 10 true
+}

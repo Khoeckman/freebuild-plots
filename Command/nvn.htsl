@@ -1,0 +1,10 @@
+if (!var nvn == 1) {
+  var nvn = 1
+  var nvnStr = "&a&lENABLED" 
+  title "&e&oNight Vision" "&a&lON" 0 1 1
+} else {
+  var nvn unset
+  var nvnStr unset
+  title "&e&oNight Vision" "&c&lOFF" 0 1 1
+}
+sound "Drink" 0.7 1.0 invokers_location

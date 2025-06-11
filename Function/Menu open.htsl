@@ -1,6 +1,6 @@
 sound "Door Open" 0.7 1.0 invokers_location
 
-if (var home > 0) {
+if (var homeAddr > 0) {
   displayMenu "Menu"
 } else {
   displayMenu "Menu (Homeless)"

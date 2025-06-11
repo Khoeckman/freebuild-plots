@@ -1,0 +1,6 @@
+if (!hasGroup "Banned", !hasGroup "LG" true) {
+  // Ensures block breaking is disabled after teleport to prevent abuse.
+  changePlayerGroup "Visitor" true
+}
+// #
+tp "custom_coordinates" "~ 178 ~" true

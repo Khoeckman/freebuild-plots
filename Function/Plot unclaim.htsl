@@ -1,0 +1,21 @@
+chat "&eLocally unclaiming only..."
+
+if (!var homeAddr > 0) {
+  chat "&cYou must own a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var plotAddr = var homeAddr
+
+var homeAddr unset
+var homePrefix unset
+
+var unclaimCd = globalvar unclaimCd
+
+chat &7
+chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"
+chat "&fYou unclaimed &a&oPlot &b&o#%var.player/plotAddr%&f."
+chat "&2&m------------------------------------------------"
+
+sound "Explode" 0.7 1.0 invokers_location
