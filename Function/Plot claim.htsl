@@ -72,6 +72,9 @@ if (!var plotId > 0) {
   exit
 }
 
-// Unknown reason
-chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error)"
+// The plot cannot be claimed because of an unknown reason
+
+// @debug
+// @compile below
+chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error &e/mailbox&7)"
 sound "Anvil Land" 0.3 1.0 invokers_location
