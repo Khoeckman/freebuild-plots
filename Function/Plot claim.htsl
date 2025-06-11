@@ -29,6 +29,17 @@ if (var homeAddr > 0) {
   exit
 }
 
+// @compile below
+// Download the plot the player is trying to claim
+function "Plot download"
+function "Plot postprocess"
+
+if (var plotId > 0) {
+  chat "&cYou cannot claim this plot because it's already claimed."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 // If plot is claimable
 if (!var plotId > 0) {
   // Claim plot #`plotAddr`
@@ -37,7 +48,10 @@ if (!var plotId > 0) {
 
   function "Plot preprocess"
   function "Plot upload"
+
   var homeAddr = var plotAddr
+  var homePrefix = "&a&oPlot &b&o#"
+
   // @todo sync all other plot -> home data
   // globalvar plot = var home
   // function "inPlotData verify" true

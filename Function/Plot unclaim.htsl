@@ -1,4 +1,4 @@
-chat "&eLocally unclaiming only..."
+// Input: homeAddr
 
 if (!var homeAddr > 0) {
   chat "&cYou must own a plot."
@@ -7,6 +7,22 @@ if (!var homeAddr > 0) {
 }
 
 var plotAddr = var homeAddr
+function "Plot download"
+function "Plot postprocess"
+
+if (!var plotId == var id) {
+  chat "&cYou must own a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+
+  var homeAddr unset
+  var homePrefix unset
+  exit
+}
+
+// Erase plot data
+var plotId unset
+function "Plot preprocess"
+function "Plot upload"
 
 var homeAddr unset
 var homePrefix unset

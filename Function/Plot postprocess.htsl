@@ -23,6 +23,10 @@ if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   exit
 }
 
+if (!var plotSettings > 0) {
+  var plotSettings = 0
+}
+
 // Unpack
 var rest = var plotSettings
 
@@ -44,7 +48,7 @@ var plotOnline = var rest
 // @todo make schema for event
 var plotTrusted = 0
 
-if (var plotRated > 0) {
+if (!var plotRated > 0) {
   var plotPoints unset
   var plotRated unset
   var plotRating unset

@@ -1,4 +1,4 @@
-// @todo this is the worst way to do this
+// @todo this is the worst way to do this, will be replaced with synced-code
 // Home prefix
 if (var homeAddr > 0) {
   var homePrefix = "&a&oPlot &b&o#"

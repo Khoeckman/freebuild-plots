@@ -1,0 +1,75 @@
+// Input: inPlot, plotTitle
+// Output: inPlot...
+
+// If player is not in a plot or updating plotData is locked
+if or (var inPlot <= 0, var lock == 1) {
+  exit
+}
+
+// Player must have entered a (different) plot or the plotData must have changed
+if (var inPlot == var oldInPlot, var inPlotData == var oldInPlotData) {
+  exit
+}
+
+// If player entered a (different) plot
+if (!var inPlot == var oldInPlot) {
+  var plot = var inPlot
+
+  var plotData = -1
+  var plotId = -1
+  function "Download plotData"
+  function "Unpack plotData"
+
+  // Show plot enter title
+  var plotTitle = 0
+}
+
+// If download is on CD
+if or (var plotData == -1, var plotId == -1) {
+  exit
+} else {
+  var oldInPlot = var inPlot
+  var oldInPlotData = var inPlotData
+
+  var inPlotData = var plotData
+  var inPlotId = var plotId
+  var inPlotUnix = var plotUnix
+  var inPlotProtect = var plotProtect
+  var inPlotOn = var plotOn
+  var inPlotPublic = var plotPublic
+  var inPlotGm = var plotGm
+  var inPlotPvP = var plotPvp
+}
+
+ // Delay because of action CD
+if (var homeVerifyCd <= 4) {
+  var homeVerifyCd += 4
+}
+
+// @compile if
+if (var plotTitle == 0, var inPlotId == 0, var inPlotPublic == 2) {
+  var plotTitle = 1
+  title "&a&oPlot &b&o#%var.player/inPlot%" "&e&lPUBLIC" 1 1 1
+}
+
+if (var plotTitle == 0, var inPlotProtect == 1) {
+  var plotTitle = 1
+  title "&a&oPlot &b&o#%var.player/inPlot%" "&e&lPROTECTED" 1 1 1
+}
+
+if (var plotTitle == 0, var inPlotId == var id) {
+  var plotTitle = 1
+  title "&a&oPlot &b&o#%var.player/inPlot%" "&6&lHOME" 1 1 1
+}
+
+if (var plotTitle == 0, var inPlotId == 0) {
+  var plotTitle = 1
+  title "&a&oPlot &b&o#%var.player/inPlot%" "&a&lFREE" 1 1 1
+}
+
+if (var plotTitle == 0) {
+  var plotTitle = 1
+  title "&a&oPlot &b&o#%var.player/inPlot%" "&bPlayer #%var.player/inPlotId%" 1 1 1
+}
+
+function "Plot enter apply"

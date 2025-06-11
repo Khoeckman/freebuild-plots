@@ -1,6 +1,8 @@
 # Freebuild Co-op plots
 
-A Hypixel Housing project. By Khoeckman x LG.
+A Hypixel Housing project. By Khoeckman x Legendary Games.
+
+## Notes
 
 y=1.1x^{1.5}
 x = minutes built on plot
