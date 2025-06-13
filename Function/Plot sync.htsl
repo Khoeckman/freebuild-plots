@@ -1,0 +1,7 @@
+// @global
+// Event input: plotAddr
+
+// Only sync if the player is in the same plot
+if (!var inPlotAddr == plotAddr) {
+  var inAddr unset
+}

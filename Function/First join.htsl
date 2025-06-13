@@ -1,3 +1,4 @@
 // @global
 // Event input: req
+
 chat "&a&l» &a&l&oWELCOME! %var.global/houseGroup% &b%var.global/req%&f joined for the first time and is playing on &a%var.global/houseVersion%&f."

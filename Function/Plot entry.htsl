@@ -1,75 +1,57 @@
-// Input: inPlot, plotTitle
-// Output: inPlot...
+// Input: inAddr
+// Output: in...
 
-// If player is not in a plot or updating plotData is locked
-if or (var inPlot <= 0, var lock == 1) {
+// If the player is not inAddr a plot
+// OR
+// The player must have entered a (different) plot
+if or (!var inAddr > 0, var inAddr == var oldInAddr) {
   exit
 }
 
-// Player must have entered a (different) plot or the plotData must have changed
-if (var inPlot == var oldInPlot, var inPlotData == var oldInPlotData) {
-  exit
-}
+var plotAddr = var inAddr
 
-// If player entered a (different) plot
-if (!var inPlot == var oldInPlot) {
-  var plot = var inPlot
-
-  var plotData = -1
-  var plotId = -1
-  function "Download plotData"
-  function "Unpack plotData"
-
-  // Show plot enter title
-  var plotTitle = 0
-}
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
 
 // If download is on CD
-if or (var plotData == -1, var plotId == -1) {
+// OR
+// Something went wrong downloading the plot
+if or (var cd == 0, !var plotId > 0) {
   exit
-} else {
-  var oldInPlot = var inPlot
-  var oldInPlotData = var inPlotData
-
-  var inPlotData = var plotData
-  var inPlotId = var plotId
-  var inPlotUnix = var plotUnix
-  var inPlotProtect = var plotProtect
-  var inPlotOn = var plotOn
-  var inPlotPublic = var plotPublic
-  var inPlotGm = var plotGm
-  var inPlotPvP = var plotPvp
 }
 
- // Delay because of action CD
-if (var homeVerifyCd <= 4) {
-  var homeVerifyCd += 4
+// Prevent this function from running every 4 ticks
+var oldInAddr = var inAddr
+
+// Copy `plot` to `inPlot`
+var inPlotId = var plotId
+var inPlotIgn = var plotIgn
+var inPlotUnix = var plotUnix
+var inPlotExpr = var plotExpr
+var inPlotSettings = var plotSettings
+var inPlotOnline = var plotOnline
+var inPlotProtect = var plotProtect
+var inPlotProtectStr = var plotProtectStr
+var inPlotBuild = var plotBuild
+var inPlotBuildStr = var plotBuildStr
+var inPlotTrusted = var plotTrusted
+var inPlotPoints = var plotPoints
+var inPlotRated = var plotRated
+var inPlotRating = var plotRating
+
+// If player should not change gamemode and group
+if or (var banCd > 0, hasGroup "LG" true) {
+  exit
 }
 
-// @compile if
-if (var plotTitle == 0, var inPlotId == 0, var inPlotPublic == 2) {
-  var plotTitle = 1
-  title "&a&oPlot &b&o#%var.player/inPlot%" "&e&lPUBLIC" 1 1 1
+if (var inPlotId == var id) {
+  changePlayerGroup "Home"
+  exit
 }
 
-if (var plotTitle == 0, var inPlotProtect == 1) {
-  var plotTitle = 1
-  title "&a&oPlot &b&o#%var.player/inPlot%" "&e&lPROTECTED" 1 1 1
-}
+changePlayerGroup "Visitor"
 
-if (var plotTitle == 0, var inPlotId == var id) {
-  var plotTitle = 1
-  title "&a&oPlot &b&o#%var.player/inPlot%" "&6&lHOME" 1 1 1
-}
+globalvar req = var id
 
-if (var plotTitle == 0, var inPlotId == 0) {
-  var plotTitle = 1
-  title "&a&oPlot &b&o#%var.player/inPlot%" "&a&lFREE" 1 1 1
-}
-
-if (var plotTitle == 0) {
-  var plotTitle = 1
-  title "&a&oPlot &b&o#%var.player/inPlot%" "&bPlayer #%var.player/inPlotId%" 1 1 1
-}
-
-function "Plot enter apply"
+function "Plot trusted" true

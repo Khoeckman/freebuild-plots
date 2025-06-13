@@ -2,16 +2,6 @@
 
 A Hypixel Housing project. By Khoeckman x Legendary Games.
 
-## Notes
-
-y=1.1x^{1.5}
-x = minutes built on plot
-y = minutes to keep plot after offline
-
-## Emojis
-
-⛃ ⚔ ✧ ✦ ❤ ⚡ ❈ 🗡 ✪ ➡ ⎜ ⬛
-
 ## Flags
 
 @global - Function is global and meant for all players
@@ -21,6 +11,11 @@ y = minutes to keep plot after offline
 @temp - Temporary variables which are not documented in this file
 @create - Create this function, command, region, ... in Housing
 @compile - Import this HTSL code into Housing
+
+`varname` - Player variable
+\#`varname` - Global variable
+@`varname` - Team variable
+Func`functionname` - Function
 
 ## Params
 
@@ -40,7 +35,7 @@ ppcd = Post-processed
 ### Player
 
 id (number) - Id of the player, mainly used to check if they are new. Might be used in the future
-cd (bool) - Check if a function is on cd by setting to 1 and calling a function which should set it back to 0. And checking if its 0 after
+cd (bool) - Check if a function is on cd by setting to 0 and calling a function which should set it to 1. And checking if its 1 after
 rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #`maxRated`
 banTs (int | unset) [0] - Unix timestamp marking the end of the ban
 unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #`unClaimCd` when claiming a plot
@@ -68,7 +63,8 @@ plotRating (float) - plotPoints / plotRated (ppcd)
 
 // Plot the player is in
 inAddr (byte | unset)
-in... - Won't be shown if `inAddr` is not > 0
+oldInAddr (byte) - Set to `inAddr` when Func`Plot entry` downloads the data the plot the player is in
+in... - Won't be shown if `inAddr` is not above 0
 
 // Plot the player has claimed as home
 homeAddr (byte | unset)
@@ -81,7 +77,7 @@ homeRating (float) ['0.000']
 trustAddr (byte) - Trust register address
 trust#Ign (string | unset) ['&cNone'] - Trusted IGN (# = register 1 trough 7)
 
-### Public
+### Global
 
 req (string | id) - IGN or ID of event requestor (dispatch)
 res (string | id | unset) ['&cNone'] - IGN or ID of event responder (callback)
@@ -114,6 +110,7 @@ trustX (float) - X-coord of the player
 trustY (float) - Y-coord of the player
 trustZ (float) - Z-coord of the player
 trustNearest (float) - Distance to the nearest player
+trusted (bool) - Whether the requesting player is trusted on plot #`plotAddr`
 
 #### Menu analysis (todo)
 
@@ -122,3 +119,17 @@ m_plra (short) - Amount of clicks on "Menu: Plot rating"
 #### Command analysis (todo)
 
 c_pclaim (short) - Use count of "/pclaim"
+
+## Personal Notes
+
+y=1.1x^{1.5}
+x = minutes built on plot
+y = minutes to keep plot after offline
+
+### HMS
+
+&a%var.player/h%h %var.player/m%m %var.player/s%s
+
+### Emojis
+
+⛃ ⚔ ✧ ✦ ❤ ⚡ ❈ 🗡 ✪ ➡ ⎜ ⬛

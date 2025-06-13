@@ -1,3 +1,5 @@
+// @auto 12000
+
 sound "Note Pling" 0.7 0.0 invokers_location
 chat &7
 chat "&6&lLEGENDARY GAMES » &l&r&9&nhttps://discord.gg/nFh4Y4Q89P"

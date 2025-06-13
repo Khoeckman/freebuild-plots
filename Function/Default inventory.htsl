@@ -1,3 +1,7 @@
+// Does not do:
+// resetInventory
+// giveItem "PlotsCookie" false 4 true
+
 if (hasGroup "Owner") {
   giveItem "PlotsMenu" true 7 true
   giveItem "HousingMenu" true 8 true

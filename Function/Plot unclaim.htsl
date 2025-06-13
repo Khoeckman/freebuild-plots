@@ -1,7 +1,18 @@
 // Input: homeAddr
 
+// @compile file
+
 if (!var homeAddr > 0) {
   chat "&cYou must own a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var unclaimCd > 0, !hasGroup "LG" true) {
+  var seconds = var unclaimCd
+  function "Seconds to HMS"
+
+  chat "&cYou cannot unclaim your home for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }

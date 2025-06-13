@@ -3,6 +3,8 @@
 
 goto function "Plot download"
 
+var cd = 1
+
 if (var plotAddr > 14) {
   function "Plot download 2"
   exit

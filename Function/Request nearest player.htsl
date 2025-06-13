@@ -1,5 +1,4 @@
 // @global
-
 // Event input: req, x, y, z
 // Event output: res, trustNearest
 

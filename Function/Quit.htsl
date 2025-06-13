@@ -1,5 +1,6 @@
 // @global
 // Event input: req
+
 if (hasGroup "LG" true) {
   chat "&c&l« %var.global/houseGroup% &b%var.global/req%&f quit."
 }

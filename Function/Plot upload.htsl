@@ -1,5 +1,7 @@
 goto function "Plot upload"
 
+var cd = 1
+
 if (var plotAddr > 14) {
   function "Plot upload 2"
   exit

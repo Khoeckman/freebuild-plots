@@ -1,3 +1,5 @@
+// @auto 1200
+
 if (placeholder %house.cookies% > globalvar CookieRecord 0) {
   globalvar CookieRecord = %house.cookies%
 }
