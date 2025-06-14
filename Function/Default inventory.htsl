@@ -8,7 +8,7 @@ if (hasGroup "Owner") {
   exit
 }
 
-if (hasGroup "LG" true) {
+if (hasGroup "Staff" true) {
   giveItem "PlotsMenu" true 7 true
   giveItem "HousingAdminMenu" true 8 true
 } else {

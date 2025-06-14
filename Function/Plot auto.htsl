@@ -1,0 +1,30 @@
+// Input: auto, homeAddr, *#auto
+// Output: #auto
+
+if (!var auto > 0) {
+  exit
+}
+
+var auto -= 1
+
+if (var auto == 0) {
+  chat "&eStopping autoclaim."
+  exit
+}
+
+var plotAddr = globalvar auto
+chat "&eAutoclaiming &a&oPlot &b&o#%var.player/plotAddr%&e..."
+function "Plot claim"
+
+// Don't increase #{auto} on user error
+if (var err == 1) {
+  var auto = 0
+  chat "&eStopping autoclaim."
+  exit
+}
+
+globalvar auto += 1
+
+if (globalvar auto > globalvar maxPlotAddr) {
+  globalvar auto = 1
+}

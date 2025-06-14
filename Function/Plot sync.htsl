@@ -1,7 +1,14 @@
 // @global
-// Event input: plotAddr
+// Event input: targetId, targetAddr
+// Output: ?oldInAddr
 
-// Only sync if the player is in the same plot
-if (!var inPlotAddr == plotAddr) {
-  var inAddr unset
+// Sync if the player is the target
+if (globalvar targetId == var id) {
+  var oldInAddr unset
+  exit
+}
+
+// Sync if the player is in the same plot
+if (globalvar targetAddr == var inAddr) {
+  var oldInAddr unset
 }

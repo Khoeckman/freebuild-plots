@@ -1,8 +1,6 @@
 // Input: homeAddr, plotAddr, plot...
 
-// @create
-
-// 0 = no error; 1 = user error; 2 = plot error
+// 0 = no error; 1 = user error; 2 = plot restriction
 var err = 1
 
 if (var banTs > 0) {
@@ -17,7 +15,7 @@ if (!var plotAddr > 0) {
   exit
 }
 
-if (var plotAddr > 98) {
+if (var plotAddr > globalvar maxPlotAddr) {
   chat "&eClaiming plots above &b&o#98&e is currently unsupported due to global storage limits."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
@@ -30,14 +28,22 @@ if (var homeAddr == var plotAddr) {
 }
 
 if (var homeAddr > 0) {
-  chat "&cYou already own &a&oPlot &b&o#%var.player/homeAddr%&c."
+  chat "&cYou already own &a&oPlot &b&o#%var.player/homeAddr%&c. Try &e/phome&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
 // Download the plot the player is trying to claim
+var cd = 0
 function "Plot download"
 function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
 
 if (var plotId > 0) {
   chat "&cYou cannot claim this plot because it's already claimed."
@@ -45,48 +51,60 @@ if (var plotId > 0) {
   exit
 }
 
-// If plot is claimable
-if (!var plotId > 0) {
-  // Claim plot #`plotAddr`
-  var plotId = var id
-  var plotIgn = %player.name%
-  var plotUnix unset
-  var plotOnline = 1
-  var plotBuild = 0
-  var plotProtect = 0
-  var plotPoints unset
-  var plotRated unset
+// if (var plotId > 0) {
+//   // @debug The plot cannot be claimed because of an unknown reason
+//   chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error &e/mail&7)"
+//   sound "Anvil Land" 0.3 1.0 invokers_location
+//   exit
+// }
 
-  function "Plot preprocess"
-  function "Plot upload"
+// Claim plot #{plotAddr}
+var plotId = var id
+var plotIgn = %player.name%
+var plotUnix unset
+var plotOnline = 1
+var plotBuild = 0
+var plotProtect = 0
+var plotPoints unset
+var plotRated unset
 
-  var homeAddr = var plotAddr
-  var homePrefix = "&a&oPlot &b&o#"
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
 
-  // @compile below
-  globalvar plotAddr = var homeAddr
-  function "Plot sync" true
-
-  // @temp minutes
-  var minutes = globalvar exprBuffer
-  var minutes /= 60
-
-  chat &7
-  chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
-  chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
-  chat "&fNext steps: &e/phome /pthis"
-  chat &8
-  chat "&c&lDISCLAIMER"
-  chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/minutes% minutes of"
-  chat "&c&l⎜ &fyou being &coffline&f."
-  chat "&2&m------------------------------------------------"
-
-  sound "Level Up" 0.7 1.0 invokers_location
-
-  var err = 0
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-// @debug The plot cannot be claimed because of an unknown reason
-chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error &e/mail&7)"
-sound "Anvil Land" 0.3 1.0 invokers_location
+globalvar targetAddr = var plotAddr
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+var homeAddr = var plotAddr
+var homePrefix = "&a&oPlot &b&o#"
+
+// @temp minutes
+var minutes = globalvar exprBuffer
+var minutes /= 60
+
+chat &7
+chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
+chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
+chat "&fNext steps: &e/phome /pthis"
+chat &8
+chat "&c&lDISCLAIMER"
+chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/minutes% minutes of"
+chat "&c&l⎜ &fyou being &coffline&f."
+chat "&2&m------------------------------------------------"
+
+sound "Level Up" 0.7 1.0 invokers_location
+
+var err = 0

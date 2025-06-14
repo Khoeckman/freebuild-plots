@@ -6,5 +6,7 @@ function "XYZ to inAddr"
 function "Plot entry"
 function "Plot exit"
 
+function "Plot auto"
+
 // Last
 function "Actionbar"

@@ -1,0 +1,9 @@
+globalvar targetAddr = var plotAddr
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

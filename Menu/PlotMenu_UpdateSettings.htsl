@@ -1,0 +1,11 @@
+// #
+var settingStr = "Protection"
+// #
+var selected = 4
+// #
+var selectedStr = "&cExtreme"
+
+sound "Click" 0.7 1.0 invokers_location
+function "Plot settings"
+
+displayMenu "Plot menu"

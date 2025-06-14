@@ -1,9 +1,8 @@
 // Init: homePrefix
 // Input: id, homeAddr
 function "Spawn"
-function "Default inventory" 
 
-globalvar req = %player.name%
+globalvar reqIgn = %player.name%
 globalvar houseGroup = %player.group.tag%
 globalvar houseVersion = %player.version%
 
@@ -11,6 +10,8 @@ if (!var id > 0) {
   globalvar unique += 1
   var id = globalvar unique
   function "First join" true
+
+  resetInventory
   pause 30
 
   title "&a&oCreative &2&oPlots" "&e&lWELCOME" 0 2 1
@@ -21,3 +22,15 @@ if (!var id > 0) {
   title "&a&oCreative &2&oPlots" "&e&lWELCOME BACK" 0 2 1
 }
 sound "Level Up" 0.7 1.0 invokers_location
+
+resetInventory
+giveItem "PlotsCookie" false 4 true
+function "Default inventory"
+
+// <Event: Group Change>
+function "Group permission"
+
+if (!hasGroup "Banned") {
+  gamemode "Creative"
+}
+// </>

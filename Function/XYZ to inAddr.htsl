@@ -13,7 +13,7 @@ if or (placeholder %player.pos.x% < globalvar plotStartX, placeholder %player.po
 
 // Check if the player is on the street (preparation)
 if () {
-  // Calculate for `inX`
+  // Calculate for {inX}
   var dividend = %player.location.x%
   var dividend -= globalvar plotStartX
 
@@ -24,7 +24,7 @@ if () {
   var inX = var dividend
   var inX -= var diff
 
-  // Calculate for `inY`
+  // Calculate for {inY}
   var dividend = %player.location.y%
   var dividend -= globalvar plotStartY
 
@@ -35,7 +35,7 @@ if () {
   var inY = var dividend
   var inY -= var diff
 
-  // Calculate for `inZ`
+  // Calculate for {inZ}
   var dividend = %player.location.z%
   var dividend -= globalvar plotStartZ
 

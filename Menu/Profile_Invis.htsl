@@ -1,4 +1,4 @@
-if (!hasGroup "LG" true) {
+if (!hasGroup "Staff" true) {
   chat "&cYou must be atleast &e[STAFF]&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

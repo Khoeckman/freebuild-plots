@@ -1,8 +1,9 @@
 // Input: plot...
 // Output: plot...
 
-// @debug @todo remove on alpha -> beta
+// @todo remove on alpha -> beta
 if (var plotAddr < 0) {
+  // @debug
   chat "&c&lFATAL &cCannot preprocess &a&oPlot &b&o#%var.player/plotAddr '&cUnset'%&c. &7(Please report this error &e/mail&7)"
   sound "Anvil Land" 0.3 1.0 invokers_location
 }
@@ -25,9 +26,7 @@ if (var plotId == var id) {
 }
 
 // Pack
-// (3 bits: ABC) = (A: plotOnline, B: plotBuild, C: plotProtect) = (000-124) / compressed = (00-30)
-var plotSettings = var plotOnline 0
-var plotSettings *= 10
+// (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
 var plotSettings = var plotBuild 0
 var plotSettings *= 10
 var plotSettings += var plotProtect 0

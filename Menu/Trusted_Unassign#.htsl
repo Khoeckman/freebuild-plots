@@ -1,9 +1,4 @@
 // #
 var trustAddr = 5
-
-chat "&aUnassigned &b%var.global/res '&cNone'%&a from &eSlot &b#%var.player/trustAddr%&a."
-sound Fizz 0.7 1.0 invokers_location
-
-// #
-var trust5Ign unset
+function "Remove trusted player"
 displayMenu "Trusted builders"

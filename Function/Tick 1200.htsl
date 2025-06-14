@@ -4,6 +4,6 @@ if (placeholder %house.cookies% > globalvar CookieRecord 0) {
   globalvar CookieRecord = %house.cookies%
 }
 
-if (var naughty > 0, !hasGroup "Banned") {
+if (var naughty > 0, !var banTs > 0) {
   var naughty -= 1
 }

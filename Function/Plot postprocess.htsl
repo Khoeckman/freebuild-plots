@@ -1,10 +1,9 @@
 // Input: plot...
 // Output: plot...
 
-// @temp mask
+// @temp rest, mask
 
-// @todo this might not be necessary at all
-// If plot is FREE, clean all `plot...` variables
+// If plot is FREE, clean all {plot...} variables
 if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   var plotId unset
   var plotIgn unset
@@ -14,6 +13,7 @@ if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   var plotOnline unset
   var plotProtect unset
   var plotProtectStr unset
+  var plotPermStr unset
   var plotBuild unset
   var plotBuildStr unset
   var plotTrusted unset
@@ -28,6 +28,7 @@ if (!var plotSettings > 0) {
 }
 
 // Unpack
+// (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
 var rest = var plotSettings
 
 var mask = var rest
@@ -37,23 +38,36 @@ var plotProtect = var rest
 var plotProtect -= var mask
 
 var rest /= 10
-var mask /= 10
-var mask *= 10
 var plotBuild = var rest
-var plotBuild -= var mask
 
-var rest /= 10
-var plotOnline = var rest
+// Online - Skip checking if they are the owner
+if (!var plotId == var id) {
+  globalvar targetId = var plotId
+  globalvar online unset
+  // @todo handle possible function CD error
+  function "Player online" true
+  var plotOnline = globalvar online
+} else {
+  var plotOnline = 1
+}
 
-// @todo make schema for event
-var plotTrusted = 0
+// Trusted - Skip checking if they are the owner or staff
+if (var plotBuild > 0, !var plotId == var id, !hasGroup "Staff" true) {
+  globalvar reqId = var id
+  // globalvar targetId = var plotId
+  globalvar trusted unset
+  // @todo handle possible function CD error
+  function "Player on trusted list" true
+  var plotTrusted = globalvar trusted
+}
 
+// Calculate rating
 if (!var plotRated > 0) {
   var plotPoints unset
   var plotRated unset
   var plotRating unset
 } else {
-  var plotRating = %var.player/plotPoints%D 0.0
+  var plotRating = %var.player/plotPoints 0%D
   var plotRating /= %var.player/plotRated%D
 }
 
@@ -68,7 +82,9 @@ if (var plotBuild == 2) {
   var plotBuildStr = "&cPrivate"
 }
 
-// Protect name
+// Protect & permission group name
+var plotPermStr = "&e[STAFF]"
+
 if (var plotProtect == 1) {
   var plotProtectStr = "&aLow"
   exit
@@ -81,11 +97,13 @@ if (var plotProtect == 2) {
 
 if (var plotProtect == 3) {
   var plotProtectStr = "&6High"
+  var plotPermStr = "&c[STAFF]"
   exit
 }
 
 if (var plotProtect == 4) {
   var plotProtectStr = "&cExtreme"
+  var plotPermStr = "&4[OWNER]"
 } else {
   var plotProtectStr = "&7Off"
 }

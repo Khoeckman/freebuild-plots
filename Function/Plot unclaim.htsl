@@ -1,14 +1,12 @@
 // Input: homeAddr
 
-// @compile file
-
 if (!var homeAddr > 0) {
   chat "&cYou must own a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-if (var unclaimCd > 0, !hasGroup "LG" true) {
+if (var unclaimCd > 0, !hasGroup "Staff" true) {
   var seconds = var unclaimCd
   function "Seconds to HMS"
 
@@ -18,8 +16,16 @@ if (var unclaimCd > 0, !hasGroup "LG" true) {
 }
 
 var plotAddr = var homeAddr
+var cd = 0
 function "Plot download"
 function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
 
 if (!var plotId == var id) {
   chat "&cYou must own a plot."
@@ -32,8 +38,17 @@ if (!var plotId == var id) {
 
 // Erase plot data
 var plotId unset
+
+var cd = 0
 function "Plot preprocess"
 function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
 
 var homeAddr unset
 var homePrefix unset
@@ -46,3 +61,13 @@ chat "&fYou unclaimed &a&oPlot &b&o#%var.player/plotAddr%&f."
 chat "&2&m------------------------------------------------"
 
 sound "Explode" 0.7 1.0 invokers_location
+
+globalvar targetAddr = var plotAddr
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

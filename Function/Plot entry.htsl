@@ -1,9 +1,9 @@
-// Input: inAddr
+// Input: inAddr, *oldInAddr
 // Output: in...
 
 // If the player is not inAddr a plot
 // OR
-// The player must have entered a (different) plot
+// the player just entered a (different) plot
 if or (!var inAddr > 0, var inAddr == var oldInAddr) {
   exit
 }
@@ -15,43 +15,47 @@ function "Plot download"
 function "Plot postprocess"
 
 // If download is on CD
-// OR
-// Something went wrong downloading the plot
-if or (var cd == 0, !var plotId > 0) {
+if (var cd == 0) {
   exit
 }
 
-// Prevent this function from running every 4 ticks
+// Only run this function when these no longer match
 var oldInAddr = var inAddr
 
-// Copy `plot` to `inPlot`
-var inPlotId = var plotId
-var inPlotIgn = var plotIgn
-var inPlotUnix = var plotUnix
-var inPlotExpr = var plotExpr
-var inPlotSettings = var plotSettings
-var inPlotOnline = var plotOnline
-var inPlotProtect = var plotProtect
-var inPlotProtectStr = var plotProtectStr
-var inPlotBuild = var plotBuild
-var inPlotBuildStr = var plotBuildStr
-var inPlotTrusted = var plotTrusted
-var inPlotPoints = var plotPoints
-var inPlotRated = var plotRated
-var inPlotRating = var plotRating
+// Copy {plot...} to {in...}
+var inId = var plotId
+var inIgn = var plotIgn
+var inUnix = var plotUnix
+var inExpr = var plotExpr
+var inSettings = var plotSettings
+var inOnline = var plotOnline
+var inProtect = var plotProtect
+var inProtectStr = var plotProtectStr 0 true
+var inBuild = var plotBuild
+var inBuildStr = var plotBuildStr 0 true
+var inTrusted = var plotTrusted
+var inPoints = var plotPoints
+var inRated = var plotRated
+var inRating = var plotRating
 
 // If player should not change gamemode and group
-if or (var banCd > 0, hasGroup "LG" true) {
+if or (var banCd > 0, hasGroup "Staff" true) {
   exit
 }
 
-if (var inPlotId == var id) {
-  changePlayerGroup "Home"
+if (var inId == var id) {
+  changePlayerGroup "Home" true
   exit
 }
 
-changePlayerGroup "Visitor"
+if (var inBuild > 0, var inTrusted == 1) {
+  changePlayerGroup "Trusted" false
+  exit
+}
 
-globalvar req = var id
+if (var inBuild == 2) {
+  changePlayerGroup "Build" false
+  exit
+}
 
-function "Plot trusted" true
+changePlayerGroup "Visitor" false

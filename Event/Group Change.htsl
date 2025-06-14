@@ -1,0 +1,5 @@
+function "Group permission"
+
+if (!hasGroup "Banned") {
+  gamemode "Creative"
+}
