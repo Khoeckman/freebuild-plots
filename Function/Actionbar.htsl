@@ -23,7 +23,7 @@ if (var banUnix > 0) {
   var m -= var temp
   // @endmixin
 
-  actionBar "&c&oBanned &8/ &a%var.player/h%h %var.player/m%m %var.player/s%s&c"
+  actionBar "&c&oBanned &7/ &a%var.player/h%h %var.player/m%m %var.player/s%s&c"
   exit
 }
 
@@ -36,7 +36,7 @@ if (!var inAddr > 0) {
 }
 
 if (!var inId > 0) {
-  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &a&lFREE"
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &7/ &a&lFREE"
   exit
 }
 

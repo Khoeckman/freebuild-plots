@@ -57,8 +57,6 @@ if (var trustAddr == 5) {
   var trust5Ign = globalvar resIgn
 }
 
-// @compile file
-
 chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
 sound Click 0.7 1.0 invokers_location
 

@@ -1,4 +1,7 @@
 // @auto 20
+// Input: unclaimCd, banUnix
+
+function "Ban sync"
 
 // Count down
 if (var unclaimCd > 1) {

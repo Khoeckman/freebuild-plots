@@ -11,8 +11,9 @@ if (!var banUnix > %date.unix%) {
   var banUnix = %date.unix%
 }
 var banUnix += var banSeconds
+changePlayerGroup "Banned" false
 
-// Message
+// Feedback to the player
 var seconds = var banSeconds
 function "Seconds to HMS"
 
@@ -20,12 +21,14 @@ chat &7
 chat "&4&m---&c &lBANNED&4 &m-------------------------------------"
 
 if (!var banReason > 0) {
-  chat "Reason: &eBanned by staff&f."
+  chat "Reason: &eBanned by staff"
 }
 
 if (var banReason == 1) {
-  chat "Reason: &eObtaining a blacklisted item or block&f."
+  chat "Reason: &eObtaining a blacklisted item or block"
 }
-
-chat "Duration: &a%var.player/h%h %var.player/m%m %var.player/s%s&f."
+chat "Duration: &a%var.player/h%h %var.player/m%m %var.player/s%s"
 chat "&4&m------------------------------------------------"
+
+title "&4&lBANNED" null 0 3 1
+sound "Explode" 0.7 1.0 invokers_location

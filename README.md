@@ -10,6 +10,7 @@ The value provided is not a number when benson claimed a plo for the first time 
 
 @global - Function is always executed for everyone
 @auto <number> - Function runs every <number> ticks
+@targeted - Command is in `Targeted` mode
 
 @temp - List of temporary variables in the file which are not documented in this file
 @create - Create the function, command, region, ... in Housing

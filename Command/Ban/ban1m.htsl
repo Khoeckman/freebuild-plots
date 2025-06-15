@@ -1,0 +1,6 @@
+// @targeted
+
+var banReason unset
+var banSeconds = 60
+
+function "Ban player"

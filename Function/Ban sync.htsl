@@ -1,0 +1,21 @@
+// Pardon staff
+if or (!var banUnix > 0, hasGroup "Staff" true) {
+  var banUnix unset
+  exit
+}
+
+// Player has been banned
+if (!hasGroup "Banned", var banUnix > %date.unix%) {
+  changePlayerGroup "Banned" false
+  exit
+}
+
+// Ban has expired
+if (hasGroup "Banned", var banUnix > 0, var banUnix <= %date.unix%) {
+  var banUnix unset
+  changePlayerGroup "Visitor" false
+
+  chat "&aYour ban has expired."
+  title "&2&lUNBANNED" "&aBe a good boi now" 0 3 1
+  sound "Level Up" 0.7 1.0 invokers_location
+}
