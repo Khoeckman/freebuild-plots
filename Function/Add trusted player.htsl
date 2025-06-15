@@ -13,7 +13,8 @@ globalvar reqZ = %player.pos.z%
 globalvar resId unset
 globalvar resIgn unset
 
-// Nearest player has to be within #{plotXZ}^2 squared blocks
+// Nearest player has to be within #{plotXZ} blocks
+// Distance calculations are done by comparing squared distances to avoid sqrt()
 globalvar minDist = globalvar plotXZ
 globalvar minDist *= globalvar plotXZ
 var cd = 0
@@ -26,7 +27,7 @@ if (var cd == 0) {
 }
 
 if (!globalvar resId > 0) {
-  chat "&cNo players found within %var.global/plotXZ% blocks."
+  chat "&cNo players found within &a%var.global/plotXZ%&c blocks."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }

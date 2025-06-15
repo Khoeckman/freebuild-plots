@@ -52,7 +52,7 @@ if (var setting == "Protection") {
   var plotProtectStr = var selectedStr
 }
 
-chat "&aYou updated &a&oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
+chat "&aYou updated &oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
 
 var cd = 0
 function "Plot preprocess"

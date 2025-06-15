@@ -11,21 +11,21 @@ if (globalvar reqId == var id) {
 }
 
 // Calculate the square distance between the event requestor and the player
-var dx = var %player.pos.x%
+var dx = %player.pos.x%
 var dx -= globalvar reqX
 var dx *= var dx
 
-var dy = var %player.pos.y%
+var dy = %player.pos.y%
 var dy -= globalvar reqY
 var dy *= var dy
 
-var dz = var %player.pos.z%
+var dz = %player.pos.z%
 var dz -= globalvar reqZ
 var dz *= var dz
 
-var sum = var dx
-var sum += var dy
-var sum += var dz
+var dist = var dx
+var dist += var dy
+var dist += var dz
 
 if (var dist < globalvar minDist) {
   globalvar minDist = var dist

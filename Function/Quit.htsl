@@ -7,5 +7,6 @@ if (hasGroup "Staff" true) {
 
 // When the house owner leaves, everyone gets set to adventure.
 if (globalvar houseGroup == "&4[OWNER]") {
+  // pause 1
   gamemode "creative"
 }

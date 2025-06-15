@@ -1,5 +1,3 @@
-// @compile (#)
-
 if (!var banUnix > 0, !hasGroup "Staff" true) {
   // Ensures block breaking is disabled after teleport to prevent abuse.
   changePlayerGroup "Visitor" false
