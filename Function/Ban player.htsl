@@ -1,0 +1,31 @@
+// Input: banSeconds, banUnix
+
+if (hasGroup "Staff" true) {
+  chat "&eYou got banned but are immune."
+  sound "Note Pling" 0.7 2.0 invokers_location
+  exit
+}
+
+// Set or increase the ban expiration timestamp
+if (!var banUnix > %date.unix%) {
+  var banUnix = %date.unix%
+}
+var banUnix += var banSeconds
+
+// Message
+var seconds = var banSeconds
+function "Seconds to HMS"
+
+chat &7
+chat "&4&m---&c &lBANNED&4 &m-------------------------------------"
+
+if (!var banReason > 0) {
+  chat "Reason: &eBanned by staff&f."
+}
+
+if (var banReason == 1) {
+  chat "Reason: &eObtaining a blacklisted item or block&f."
+}
+
+chat "Duration: &a%var.player/h%h %var.player/m%m %var.player/s%s&f."
+chat "&4&m------------------------------------------------"

@@ -4,6 +4,8 @@ A Hypixel Housing project. By Khoeckman x Legendary Games.
 
 ## Todo
 
+The value provided is not a number when benson claimed a plo for the first time after joining
+
 ## Flags
 
 @global - Function is always executed for everyone
@@ -39,6 +41,7 @@ id (number) - Id of the player, mainly used to check if they are new. Might be u
 cd (bool) - Check if a function is on cd by setting to 0 and calling a function which should set it to 1. And checking if its 1 after
 permission (byte) - Permission level of the player used to compare against the protection level of a plot
 rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #{maxRated}
+banSeconds (int) - Amount of seconds a player is soft-banned
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
 groupStr (string) - Stored group tag for chat feedback
@@ -103,7 +106,8 @@ reqY (float) - Y-coord of the player
 reqZ (float) - Z-coord of the player
 minDist (float) - Distance to the nearest player
 
-houseGroup (string) - Group of the player who joined or quit
+houseGroup (string) - Group tag (eg. "&4[OWNER]") of the player who joined or quit
+houseGroupTag (string) - Group (eg. "Owner") of the player who joined or quit
 houseVersion (string) - Minecraft Version of the player who joined or quit
 
 cookieRecord (short) - highest amount of weekly cookies on the house

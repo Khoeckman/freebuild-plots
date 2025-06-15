@@ -1,6 +1,7 @@
 // @auto 4
 
 function "Effects"
+function "Blacklist"
 
 function "XYZ to inAddr"
 function "Home sync"
@@ -11,3 +12,10 @@ function "Plot auto"
 
 // Last
 function "Actionbar"
+
+// Prevent player from falling in the void
+if (placeholder %player.pos.y% < -6) {
+  failParkour Teleported!
+  tp "custom_coordinates" "~ 10 ~" true
+  sound "Enderman Teleport" 0.7 1.0 invokers_location
+}

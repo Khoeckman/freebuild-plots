@@ -1,0 +1,46 @@
+// @auto 4
+
+// @debug tps
+
+if (!var tpsTick > 0) {
+  var tpsTick = 0
+  var tpsTickAvg = 0
+}
+
+var tpsTick += 1
+
+if (!var tpsUnix == %date.unix%) {
+  var tpsTickAvg *= 4.0
+  var tpsTickAvg += "%player.var/tpsTick%"
+  var tpsTickAvg /= 5.0
+  var tpsUnix = %date.unix%
+}
+pause 1
+var tpsTick += 1
+
+if (!var tpsUnix == %date.unix%) {
+  var tpsTickAvg *= 4.0
+  var tpsTickAvg += "%player.var/tpsTick%"
+  var tpsTickAvg /= 5.0
+  var tpsUnix = %date.unix%
+}
+pause 1
+var tpsTick += 1
+
+if (!var tpsUnix == %date.unix%) {
+  var tpsTickAvg *= 4.0
+  var tpsTickAvg += "%player.var/tpsTick%"
+  var tpsTickAvg /= 5.0
+  var tpsUnix = %date.unix%
+}
+pause 1
+var tpsTick += 1
+
+if (!var tpsUnix == %date.unix%) {
+  var tpsTickAvg *= 4.0
+  var tpsTickAvg += "%player.var/tpsTick%"
+  var tpsTickAvg /= 5.0
+  var tpsUnix = %date.unix%
+}
+
+title "&7" "&6&lTPS &e%var.player/tpsTickAvg%" 0 1 1

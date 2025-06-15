@@ -2,5 +2,6 @@
 var homeSyncQ = 1
 
 globalvar reqIgn = %player.name%
-globalvar houseGroup = %player.group.tag%
+globalvar houseGroupTag = %player.group.tag%
+globalvar houseGroup = %player.group.name%
 function "Quit" true

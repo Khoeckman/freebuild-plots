@@ -32,9 +32,6 @@ if (!globalvar resId > 0) {
   exit
 }
 
-chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
-sound Click 0.7 1.0 invokers_location
-
 if (var trustAddr == 1) {
   var trust1Id = globalvar resId
   var trust1Ign = globalvar resIgn
@@ -53,15 +50,17 @@ if (var trustAddr == 3) {
 if (var trustAddr == 4) {
   var trust4Id = globalvar resId
   var trust4Ign = globalvar resIgn
-} else {
+}
+
+if (var trustAddr == 5) {
   var trust5Id = globalvar resId
   var trust5Ign = globalvar resIgn
 }
 
-// Prevent syncing if player doesnt have a home
-if (!var homeAddr > 0) {
-  exit
-}
+// @compile file
+
+chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
+sound Click 0.7 1.0 invokers_location
 
 globalvar targetId = globalvar resId
 

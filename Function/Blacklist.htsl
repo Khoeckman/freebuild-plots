@@ -1,0 +1,8 @@
+if (hasGroup "Staff" true) {
+  exit
+}
+
+if or (hasItem "sapling0" "Item Type" Anywhere "Any Amount", hasItem "sapling1" "Item Type" Anywhere "Any Amount", hasItem "sapling2" "Item Type" Anywhere "Any Amount", hasItem "sapling3" "Item Type" Anywhere "Any Amount", hasItem "sapling4" "Item Type" Anywhere "Any Amount", hasItem "sapling5" "Item Type" Anywhere "Any Amount", hasItem "dragon_egg" "Item Type" Anywhere "Any Amount", hasItem "slime" "Item Type" Anywhere "Any Amount", hasItem "barrier" "Item Type" Anywhere "Any Amount", hasItem "arrow" "Item Type" Anywhere "Any Amount", hasItem "painting" "Item Type" Anywhere "Any Amount", hasItem "snowball" "Item Type" Anywhere "Any Amount", hasItem "egg" "Item Type" Anywhere "Any Amount", hasItem "bone_meal" "Item Type" Anywhere "Any Amount", hasItem "ender_pearl" "Item Type" Anywhere "Any Amount", hasItem "potion" "Item Type" Anywhere "Any Amount", hasItem "experience_bottle" "Item Type" Anywhere "Any Amount", hasItem "fire_charge" "Item Type" Anywhere "Any Amount", hasItem "item_frame" "Item Type" Anywhere "Any Amount", hasItem "tnt_minecart" "Item Type" Anywhere "Any Amount") {
+  var banSeconds = 60
+  function "Ban player"
+}

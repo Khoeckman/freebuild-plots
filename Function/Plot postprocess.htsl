@@ -75,18 +75,25 @@ if (!var plotRated > 0) {
 }
 
 // Build name
+if (!var plotBuild > 0) {
+  var plotBuildStr = "&cPrivate"
+}
+
 if (var plotBuild == 1) {
   var plotBuildStr = "&eTrusted"
 }
 
 if (var plotBuild == 2) {
   var plotBuildStr = "&aPublic"
-} else {
-  var plotBuildStr = "&cPrivate"
 }
 
 // Protect & permission group name
 var plotPermStr = "&e[STAFF]"
+
+if (!var plotProtect > 0) {
+  var plotProtectStr = "&7Off"
+  exit
+}
 
 if (var plotProtect == 1) {
   var plotProtectStr = "&aLow"
@@ -107,6 +114,4 @@ if (var plotProtect == 3) {
 if (var plotProtect == 4) {
   var plotProtectStr = "&cExtreme"
   var plotPermStr = "&4[OWNER]"
-} else {
-  var plotProtectStr = "&7Off"
 }

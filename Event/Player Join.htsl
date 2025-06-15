@@ -3,7 +3,7 @@
 function "Spawn"
 
 globalvar reqIgn = %player.name%
-globalvar houseGroup = %player.group.tag%
+globalvar houseGroupTag = %player.group.tag%
 globalvar houseVersion = %player.version%
 
 if (!var id > 0) {

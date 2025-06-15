@@ -16,7 +16,7 @@ if (!var plotAddr > 0) {
 }
 
 if (var plotAddr > globalvar maxPlotAddr) {
-  chat "&eClaiming plots above &b&o#98&e is currently unsupported due to global storage limits."
+  chat "&cClaiming plots above &b&o#98&c is currently unsupported due to global storage limits."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -78,7 +78,7 @@ var plotIgn = %player.name%
 var plotUnix unset
 var plotOnline = 1
 var plotBuild = 0
-var plotProtect = 0
+var plotProtect = var permission 0
 var plotPoints unset
 var plotRated unset
 

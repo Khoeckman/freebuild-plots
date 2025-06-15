@@ -40,4 +40,4 @@ if (!var inId > 0) {
   exit
 }
 
-actionBar "&a&oPlot &b&o#%var.player/inAddr% &7/ &fOwner: &b%var.player/inIgn% &7/&f Building: %var.player/inBuildStr% &7/&f Protection: %var.player/inProtectStr%"
+actionBar "&a&oPlot &b&o#%var.player/inAddr% &7/ &fOwner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) &7/&f Building: %var.player/inBuildStr% &7/&f Protection: %var.player/inProtectStr%"

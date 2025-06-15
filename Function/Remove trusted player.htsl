@@ -37,7 +37,9 @@ if (var trustAddr == 4) {
   globalvar targetId = var trust4Id
   var trust4Id unset
   var trust4Ign unset
-} else {
+}
+
+if (var trustAddr == 5) {
   var ign = var trust5Ign
   
   globalvar targetId = var trust5Id
@@ -48,9 +50,7 @@ if (var trustAddr == 4) {
 chat "&aUnassigned &b%var.player/ign '&cNone'%&a from &eSlot &b#%var.player/trustAddr%&a."
 sound Fizz 0.7 1.0 invokers_location
 
-// Prevent syncing if player doesnt have a home
-// OR
-// Target is unset
+// Prevent syncing if target is unset
 if (!globalvar targetId > 0) {
   exit
 }
