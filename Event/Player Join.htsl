@@ -11,6 +11,7 @@ if (!var id > 0) {
   var id = globalvar unique
   function "First join" true
 
+  var nvn = 1
   resetInventory
   pause 30
 

@@ -1,1 +1,1 @@
-var auto = 10
+var auto = globalvar plotLayerSize

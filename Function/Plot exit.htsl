@@ -1,5 +1,6 @@
-// Input: in, *oldIn
-// Output: in...
+// @auto 4
+// Input: inAddr, *oldInAddr, banUnix
+// Output: oldInAddr
 
 // @todo disabling this function could reduce the amount of fetches from the plot registers
 // BUT! Plot syncs should check for {oldInAddr} if {inAddr} is unset
@@ -13,7 +14,7 @@ if or (var inAddr > 0, !var oldInAddr > 0) {
 var oldInAddr unset
 
 // If player should not change group
-if or (var banTs > 0, hasGroup "Staff" true) {
+if or (var banUnix > 0, hasGroup "Staff" true) {
   exit
 }
 

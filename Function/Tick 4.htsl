@@ -3,6 +3,7 @@
 function "Effects"
 
 function "XYZ to inAddr"
+function "Home sync"
 function "Plot entry"
 function "Plot exit"
 

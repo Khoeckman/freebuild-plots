@@ -1,6 +1,11 @@
 // @global
-// Event input: reqIgn
+// Event input: reqIgn, houseGroup
 
 if (hasGroup "Staff" true) {
   chat "&c&l« %var.global/houseGroup% &b%var.global/reqIgn%&f quit."
+}
+
+// When the house owner leaves, everyone gets set to adventure.
+if (globalvar houseGroup == "&4[OWNER]") {
+  gamemode "creative"
 }

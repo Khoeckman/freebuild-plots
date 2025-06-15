@@ -45,3 +45,5 @@ if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }
+
+function "Home unset" true

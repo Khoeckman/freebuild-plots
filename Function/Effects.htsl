@@ -1,3 +1,7 @@
+// @auto 4
+// Input: *nvn, *invis, banUnix
+// Output: nvn, invis, invisStr
+
 // No invisibility permission
 if (hasPotion "Invisibility", !hasGroup "Staff" true) {
   var invis unset
@@ -25,6 +29,6 @@ if (var invis == 1, hasGroup "Staff" true) {
 }
 
 // Ban from participating in PvP
-if (var banTs > 0) {
+if (var banUnix > 0) {
   applyPotion "Weakness" 1 10 true
 }

@@ -1,9 +1,9 @@
-// Input: homeAddr, plotAddr, plot...
+// Input: homeAddr, plotAddr, plot..., banUnix
 
 // 0 = no error; 1 = user error; 2 = plot restriction
 var err = 1
 
-if (var banTs > 0) {
+if (var banUnix > 0) {
   chat "&cYou cannot claim a plot while banned."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
@@ -45,18 +45,32 @@ if (var cd == 0) {
   exit
 }
 
-if (var plotId > 0) {
-  chat "&cYou cannot claim this plot because it's already claimed."
+if (var plotProtect > var permission) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
   exit
 }
 
-// if (var plotId > 0) {
-//   // @debug The plot cannot be claimed because of an unknown reason
-//   chat "&c&lERROR &cYou cannot claim this plot for an unknown reason. &7(Please report this error &e/mail&7)"
-//   sound "Anvil Land" 0.3 1.0 invokers_location
-//   exit
-// }
+// Plot owner is online
+if (var plotId > 0, var plotOnline == 1) {
+  chat "&cYou cannot claim this plot because it's owner is online."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
+  exit
+}
+
+// Plot is not expired
+if (var plotId > 0, var plotExpr > 0) {
+  var seconds = var plotExpr
+
+  function "Seconds to HMS"
+
+  chat "&cYou cannot claim this plot for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
+  exit
+}
 
 // Claim plot #{plotAddr}
 var plotId = var id
@@ -101,7 +115,7 @@ chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
 chat "&fNext steps: &e/phome /pthis"
 chat &8
 chat "&c&lDISCLAIMER"
-chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/minutes% minutes of"
+chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.player/minutes% minutes&f of"
 chat "&c&l⎜ &fyou being &coffline&f."
 chat "&2&m------------------------------------------------"
 

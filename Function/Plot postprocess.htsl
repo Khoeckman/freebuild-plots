@@ -23,6 +23,9 @@ if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   exit
 }
 
+var plotExpr = var plotUnix
+var plotExpr -= %date.unix%
+
 if (!var plotSettings > 0) {
   var plotSettings = 0
 }

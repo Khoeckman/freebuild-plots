@@ -1,4 +1,6 @@
+// Check if the player still owns their home when they return
+var homeSyncQ = 1
+
 globalvar reqIgn = %player.name%
 globalvar houseGroup = %player.group.tag%
-globalvar houseVersion = %player.version%
 function "Quit" true

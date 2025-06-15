@@ -1,7 +1,8 @@
-// Input: in..., banTs
+// @auto 4
+// Input: in..., banUnix
 
-if (var banTs > 0) {
-  var seconds = var banTs
+if (var banUnix > 0) {
+  var seconds = var banUnix
   var seconds -= %date.unix%
 
   // @mixin Seconds to HMS

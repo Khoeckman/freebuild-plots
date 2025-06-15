@@ -1,9 +1,10 @@
 // @auto 1200
+// Input: naughty, banUnix
 
 if (placeholder %house.cookies% > globalvar CookieRecord 0) {
   globalvar CookieRecord = %house.cookies%
 }
 
-if (var naughty > 0, !var banTs > 0) {
+if (var naughty > 0, !var banUnix > 0) {
   var naughty -= 1
 }

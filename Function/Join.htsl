@@ -1,4 +1,4 @@
 // @global
-// Event input: reqIgn
+// Event input: reqIgn, houseGroup, houseVersion
 
 chat "&a&l» %var.global/houseGroup% &b%var.global/reqIgn%&f joined and is playing on &a%var.global/houseVersion%&f."

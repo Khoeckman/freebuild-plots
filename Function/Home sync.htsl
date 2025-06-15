@@ -1,0 +1,23 @@
+// @auto 4
+// Input: homeAddr
+
+if (!var homeSyncQ > 0) {
+  exit
+}
+
+var homeSyncQ unset
+
+var plotAddr = var homeAddr
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  exit
+}
+
+if (!var plotId == var id) {
+  var homeAddr unset
+  var homePrefix unset
+}

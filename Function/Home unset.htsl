@@ -1,0 +1,7 @@
+// @global
+// Event input: targetAddr (wildcard: -1)
+
+if or (globalvar targetAddr == -1, globalvar targetAddr == var homeAddr) {
+  var homeAddr unset
+  var homePrefix unset
+}

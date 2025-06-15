@@ -1,3 +1,4 @@
+// @auto 4
 // Input: inAddr, *oldInAddr
 // Output: in...
 
@@ -38,7 +39,7 @@ var inPoints = var plotPoints
 var inRated = var plotRated
 var inRating = var plotRating
 
-// If player should not change gamemode and group
+// If player should not change group
 if or (var banCd > 0, hasGroup "Staff" true) {
   exit
 }

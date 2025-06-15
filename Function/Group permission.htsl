@@ -1,7 +1,7 @@
 // Output: permission
 
 if (hasGroup "Owner") {
-  var permission = 127
+  var permission = 4
   exit
 }
 
