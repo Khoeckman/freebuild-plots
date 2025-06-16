@@ -1,13 +1,6 @@
 // Input: plot...
 // Output: plot...
 
-// @todo remove on alpha -> beta
-if (var plotAddr < 0) {
-  // @debug
-  chat "&c&lFATAL &cCannot preprocess &a&oPlot &b&o#%var.player/plotAddr '&cUnset'%&c. &7(Please report this error &e/mail&7)"
-  sound "Anvil Land" 0.3 1.0 invokers_location
-}
-
 if or (!var plotId > 0, var plotIgn == 0 0) {
   var plotId unset
   var plotIgn unset

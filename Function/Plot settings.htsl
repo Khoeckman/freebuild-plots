@@ -12,20 +12,16 @@ if (!var inId == var id, !hasGroup "Staff" true) {
   exit
 }
 
-if (!var permission >= var inProtect) {
+// Not enough permissions
+if (!var permission >= var inProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-if (var err == 1) {
-  chat "&cYou must be %var.player/groupStr% to change the protection level."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
+// Warning when modifying someone else's plot
 if (!var inId == var id, hasGroup "Staff" true) {
-  chat "&6&lWARNING &eYou are modifying &a&oPlot &b&o#%var.player/inAddr% owned by &b%var.player/inIgn%&6."
+  chat "&6&lWARNING &eYou are modifying &a&oPlot &b&o#%var.player/inAddr%&e owned by &b%var.player/inIgn%&e."
   sound "Note Pling" 1.0 2.0 invokers_location
 }
 
@@ -47,9 +43,13 @@ if (var settingStr == "Building") {
   var plotBuildStr = var selectedStr
 }
 
-if (var setting == "Protection") {
+if (var settingStr == "Protection", !var permission >= var selected 0 0) {
   var plotProtect = var selected
   var plotProtectStr = var selectedStr
+} else {
+  chat "&cYou lack permission to apply this setting."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
 }
 
 chat "&aYou updated &oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"

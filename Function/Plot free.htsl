@@ -12,7 +12,8 @@ if (var inAddr <= 0) {
   exit
 }
 
-if (var inProtect > var permission) {
+// Not enough permissions
+if (!var permission >= var inProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

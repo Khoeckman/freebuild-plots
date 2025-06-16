@@ -24,20 +24,20 @@ if (var cd == 0) {
 var oldInAddr = var inAddr
 
 // Copy {plot...} to {in...}
-var inId = var plotId
-var inIgn = var plotIgn
-var inUnix = var plotUnix
-var inExpr = var plotExpr
-var inSettings = var plotSettings
-var inOnline = var plotOnline
-var inProtect = var plotProtect
+var inId = var plotId 0 true
+var inIgn = var plotIgn 0 true
+var inUnix = var plotUnix 0 true
+var inExpr = var plotExpr 0 true
+var inSettings = var plotSettings 0 true
+var inOnline = var plotOnline 0 true
+var inProtect = var plotProtect 0 true
 var inProtectStr = var plotProtectStr 0 true
-var inBuild = var plotBuild
+var inBuild = var plotBuild 0 true
 var inBuildStr = var plotBuildStr 0 true
-var inTrusted = var plotTrusted
-var inPoints = var plotPoints
-var inRated = var plotRated
-var inRating = var plotRating
+var inTrusted = var plotTrusted 0 true
+var inPoints = var plotPoints 0 true
+var inRated = var plotRated 0 true
+var inRating = var plotRating 0 true
 
 // If player should not change group
 if or (var banCd > 0, hasGroup "Staff" true) {

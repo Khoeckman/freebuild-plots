@@ -9,19 +9,7 @@ if (var banUnix > 0) {
   exit
 }
 
-if (!var plotAddr > 0) {
-  chat "&cYou must be inside a plot."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
-if (var plotAddr > globalvar maxPlotAddr) {
-  chat "&cClaiming plots above &b&o#98&c is currently unsupported due to global storage limits."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
-if (var homeAddr == var plotAddr) {
+if (var plotAddr > 0, var homeAddr == var plotAddr) {
   chat "&cYou already own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
@@ -29,6 +17,18 @@ if (var homeAddr == var plotAddr) {
 
 if (var homeAddr > 0) {
   chat "&cYou already own &a&oPlot &b&o#%var.player/homeAddr%&c. Try &e/phome&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var plotAddr > 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var plotAddr > globalvar maxPlotAddr) {
+  chat "&cYou cannot claim above &a&oPlot &b&o#%var.global/maxPlotAddr%&c yet due to global storage limits."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -45,7 +45,8 @@ if (var cd == 0) {
   exit
 }
 
-if (var plotProtect > var permission) {
+// Not enough permissions
+if (!var permission >= var inProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   var err = 2
