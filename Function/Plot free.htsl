@@ -7,7 +7,7 @@ if (!hasGroup "Staff" true) {
 }
 
 if (var inAddr <= 0) {
-  chat "&cYou are not inside a plot."
+  chat "&cYou must be inside a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }

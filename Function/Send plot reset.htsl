@@ -1,0 +1,15 @@
+// @global
+// Event input: reqId, reqAddr
+// Output: oldInAddr
+
+// Let the requestor know the function is not on cooldown
+if (globalvar reqId == var id) {
+  var cd = 1
+  exit
+}
+
+if (hasGroup "Staff") {
+  // @todo convert #{reqAddr} to <x1, y1, z1> <x2, y2, z2>
+  chat "&6&lRESET &ereqId: %var.global/reqId% reqAddr: %var.global/reqAddr%"
+  chat ">>copypaste x1 y1 z1 x2 y2 z2 x3 y3 z3"
+}

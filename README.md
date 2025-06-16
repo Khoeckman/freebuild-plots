@@ -50,7 +50,7 @@ homeSyncQ (1 | unset) -
 
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
-invis (1 | unset) [0] - Invisibility (LG+ only)
+invis (1 | unset) [0] - Invisibility (Staff+ only)
 invisStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
 
 // Temporary plot data to work with or store in {in...} or {home...}

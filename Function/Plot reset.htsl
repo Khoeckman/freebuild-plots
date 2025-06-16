@@ -1,16 +1,14 @@
 // @global @bot
 // Event input: plotAddr
 
-// @todo
-
-if (!hasGroup "Staff" true) {
-  chat "&cYou must be staff."
+if (var inAddr <= 0) {
+  chat "&cYou must be inside a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-if (var inAddr <= 0) {
-  chat "&cYou are not inside a plot."
+if (!var inId == var id, !hasGroup "Staff" true) {
+  chat "&cYou must own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -22,32 +20,19 @@ if (!var permission >= var inProtect 0 0) {
   exit
 }
 
-var plotAddr = var inAddr
-// Erase plot data
-var plotId unset
+globalvar reqId = var id
+globalvar reqAddr = var inAddr
 
 var cd = 0
-function "Plot preprocess"
-function "Plot upload"
 
-// If upload is on CD
+function "Send plot reset" true
+
+// If function is on CD
 if (var cd == 0) {
-  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  chat "&6&lTRY AGAIN &eSomeone else used this function within the last 4 ticks."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-chat "&aYou set &oPlot &b&o#%var.player/plotAddr%&a to &lFREE&a."
-sound "Glass" 0.7 1.0 invokers_location
-
-globalvar targetAddr = var plotAddr
-
-if (!globalvar plotSyncHyper == 1) {
-  globalvar plotSyncHyper = 1
-  function "Plot sync" true
-} else {
-  globalvar plotSyncHyper unset
-  function "Plot sync 2" true
-}
-
-function "Home unset" true
+chat "&eResetting &oPlot &b&o#%var.player/plotAddr%&e..."
+sound "Explode" 0.7 1.0 invokers_location
