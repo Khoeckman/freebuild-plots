@@ -54,7 +54,7 @@ invis (1 | unset) [0] - Invisibility (Staff+ only)
 invisStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
 
 // Temporary plot data to work with or store in {in...} or {home...}
-plotAddr (byte) - Plot register address of the current plot
+plotAddr (byte) [&cNone] - Plot register address of the current plot
 plotId (short) - Owner Id
 plotIgn (string) - Owner IGN
 plotUnix (int) - Unix timestamp when the plot expires
@@ -121,9 +121,14 @@ auto (byte) - Plot address of the plot /pauto will try to claim
 plotXZ (30)
 plotGap (7)
 plotXZPlusGap (37)
-plotGridSize (7)
+
 plotY (78)
+plotGroundY (3)
 plotYPlusGap (86)
+
+plotGridSize (7)
+plotLayerSize (49)
+
 plotStartX (-128)
 plotStartY (1)
 plotStartZ (-113)

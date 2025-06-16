@@ -1,19 +1,18 @@
 // Input: plotAddr
 // Output: tp(x, y, z)
 
-// @temp addr, row, layer, col
+// @temp addr, x, y, z, diff
+
+if or (!var plotAddr > 0, var plotAddr > globalvar maxPlotAddr -1 0) {
+  chat "&cYou cannot teleport to &a&oPlot &b&o#%var.player/plotAddr '&cNone'%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
 
 var addr = var plotAddr
 var addr -= 1
 
-// Row (X) - addr % 7
-var row = var addr
-var row /= globalvar plotGridSize
-
-// Layer (Y) - addr // 7*7
-
-// Col (Z) - (addr // 7) % 7
-
+// Row (X) - addr % plotGridSize
 var dividend = var addr
 var divisor = globalvar plotGridSize
 
@@ -28,19 +27,48 @@ var diff *= var divisor
 var remainder -= var diff
 // </Modulo>
 
-var col = var remainder
+var x = var remainder
 
-var x = globalvar plotStartX
-var y = 4
-var z = globalvar plotStartZ
+// Layer (Y) - addr // plotLayerSize
+var y = var addr
+var y /= globalvar plotLayerSize
 
-var dx = globalvar plotPlusGapSize
-var dx *= var col
-var x += var dx
+// Col (Z) - (addr // plotGridSize) % plotGridSize
 
-var dz = globalvar plotPlusGapSize
-var dz *= var row
-var z += var dz
+var dividend = var addr
+var dividend /= globalvar plotGridSize
+var divisor = globalvar plotGridSize
+
+// <Modulo>
+// Input: dividend, divisor
+// Output: remainder
+
+var remainder = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var remainder -= var diff
+// </Modulo>
+
+var z = var remainder
+
+// Convert (row, layer, col) to (x, y, z)
+if () {
+  var x *= globalvar plotXZPlusGap
+  var x += globalvar plotStartX
+  var temp = %var.global/plotXZ%D
+  var temp /= 2.0
+  var x = %var.player/x%D
+  var x += %var.player/temp%D
+
+  var y *= globalvar plotYPlusGap
+  var y = globalvar plotStartY
+  var y += globalvar plotGroundY
+
+  var z *= globalvar plotXZPlusGap
+  var z += globalvar plotStartZ
+  var z += 1
+}
 
 failParkour Teleported!
 applyPotion "Blindness" 1 1 false true

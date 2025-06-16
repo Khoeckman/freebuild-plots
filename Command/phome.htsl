@@ -1,0 +1,9 @@
+if (!var homeAddr > 0) {
+  chat "&cYou must own a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var plotAddr = var homeAddr
+
+function "Plot teleport"
