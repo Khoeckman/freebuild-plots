@@ -1,4 +1,5 @@
-// Input: setting, value, in...
+// Input: settingStr, selected
+// Output: plot...
 
 if (!var inAddr > 0) {
   chat "&cYou must be inside a plot."
@@ -53,7 +54,6 @@ if (var settingStr == "Protection") {
   var plotProtect = var selected
   var plotProtectStr = var selectedStr
 }
-
 
 chat "&aYou updated &oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
 

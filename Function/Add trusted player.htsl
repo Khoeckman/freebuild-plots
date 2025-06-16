@@ -1,4 +1,4 @@
-// Input: trustAddr, inAddr
+// Input: trustAddr
 // Output: trust#Id, trust#Ign
 
 // {trustAddr} must be between 1 and 5

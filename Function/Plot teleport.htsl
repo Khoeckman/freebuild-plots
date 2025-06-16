@@ -1,5 +1,5 @@
 // Input: plotAddr
-// Output: x, y, z
+// Output: tp(x, y, z)
 
 // @temp addr, row, col, dx, dz
 

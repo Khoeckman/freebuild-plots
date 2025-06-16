@@ -1,7 +1,0 @@
-if () {
-
-}
-
-// only staff and plot owner can do this. Unless protection level
-
-function "Plot reset" true

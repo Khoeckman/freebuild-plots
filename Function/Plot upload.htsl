@@ -1,3 +1,6 @@
+// Input: plot...
+// Output: #p#...
+
 goto function "Plot upload"
 
 var cd = 1

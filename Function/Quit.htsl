@@ -9,8 +9,7 @@ if (!globalvar houseGroup == "Owner") {
   exit
 }
 
-// When the house owner leaves, everyone gets set to adventure.
-// Make sure all dummy's
+// When the house owner leaves, everyone gets set to adventure, so put them back in creative.
 
 pause 4
 gamemode "creative"

@@ -1,5 +1,5 @@
 // @auto 4
-// Input: auto, homeAddr, *#auto
+// Input: auto, *#auto
 // Output: #auto
 
 if (!var auto > 0) {

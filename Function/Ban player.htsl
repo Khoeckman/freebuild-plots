@@ -1,4 +1,4 @@
-// Input: banReason, banSeconds, *banUnix
+// Input: banReason, banSeconds
 
 if (hasGroup "Staff" true) {
   chat "&eYou got banned but are immune."

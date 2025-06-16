@@ -1,5 +1,5 @@
 // @auto 4
-// Input: inAddr, *oldInAddr, banUnix
+// Input: inAddr, *oldInAddr
 // Output: oldInAddr
 
 // @todo disabling this function could reduce the amount of fetches from the plot registers

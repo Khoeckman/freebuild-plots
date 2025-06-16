@@ -1,4 +1,3 @@
 if (!hasGroup "Staff" true) {
-  title "&c&oForbidden" "You cannot pick up items" 0 2 1
   cancelEvent
 }

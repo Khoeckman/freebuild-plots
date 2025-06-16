@@ -1,8 +1,8 @@
 // Scratch: https://scratch.mit.edu/projects/1160831605/editor/
 
 // @auto 4
-// Input: oldin
-// Output: in
+// Input: pos(x, y, z)
+// Output: inAddr
 
 // @temp dividend, diff, inX, inY, inZ, inCol, inLayer, inRow
 

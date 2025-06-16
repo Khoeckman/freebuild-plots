@@ -1,6 +1,6 @@
 // @global
 // Event input: targetId, targetAddr
-// Output: ?oldInAddr
+// Output: oldInAddr
 
 // Sync if the player is the target
 if (globalvar targetId == var id) {

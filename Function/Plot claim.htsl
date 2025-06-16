@@ -1,4 +1,5 @@
-// Input: homeAddr, plotAddr, plot..., banUnix
+// Input: plotAddr
+// Output: plot..., homeAddr, homePrefix
 
 // 0 = no error; 1 = user error; 2 = plot restriction
 var err = 1

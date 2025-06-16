@@ -1,5 +1,4 @@
 // @auto 4
-// Input: in..., banUnix
 
 if (var banUnix > 0) {
   var seconds = var banUnix

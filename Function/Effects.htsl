@@ -1,5 +1,5 @@
 // @auto 4
-// Input: *nvn, *invis, banUnix
+// Input: *nvn, *invis
 // Output: nvn, invis, invisStr
 
 // No invisibility permission

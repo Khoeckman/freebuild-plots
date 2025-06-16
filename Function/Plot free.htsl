@@ -1,4 +1,4 @@
-// Input: id, inPlot, inPlotProtect
+// Input: inAddr
 
 if (!hasGroup "Staff" true) {
   chat "&cYou must be staff."

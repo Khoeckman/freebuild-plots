@@ -2,3 +2,52 @@
 // Event input: plotAddr
 
 // @todo
+
+if (!hasGroup "Staff" true) {
+  chat "&cYou must be staff."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var inAddr <= 0) {
+  chat "&cYou are not inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Not enough permissions
+if (!var permission >= var inProtect 0 0) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var plotAddr = var inAddr
+// Erase plot data
+var plotId unset
+
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+chat "&aYou set &oPlot &b&o#%var.player/plotAddr%&a to &lFREE&a."
+sound "Glass" 0.7 1.0 invokers_location
+
+globalvar targetAddr = var plotAddr
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+
+function "Home unset" true

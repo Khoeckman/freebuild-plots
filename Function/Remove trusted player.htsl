@@ -1,4 +1,5 @@
-// Input: trust...
+// Input: trustAddr, *trust#Id, *trust#Ign
+// Output: trust#Id, trust#Ign
 
 // @temp ign
 
