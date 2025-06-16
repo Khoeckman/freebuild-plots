@@ -11,4 +11,8 @@ if or (hasItem "sapling0" "Item Type" Anywhere "Any Amount", hasItem "sapling1" 
   function "Default inventory"
 
   function "Ban player"
+
+  pause 60
+  sound "Click" 0.7 1.0 invokers_location
+  displayMenu "Blacklist"
 }

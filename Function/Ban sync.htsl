@@ -13,6 +13,7 @@ if (!hasGroup "Banned", var banUnix > %date.unix%) {
 // Ban has expired
 if (hasGroup "Banned", var banUnix > 0, var banUnix <= %date.unix%) {
   var banUnix unset
+  var oldInAddr unset
   changePlayerGroup "Visitor" false
 
   chat "&aYour ban ended."
