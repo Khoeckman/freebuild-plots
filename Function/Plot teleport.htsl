@@ -6,8 +6,13 @@
 var addr = var plotAddr
 var addr -= 1
 
+// Row (X) - addr % 7
 var row = var addr
 var row /= globalvar plotGridSize
+
+// Layer (Y) - addr // 7*7
+
+// Col (Z) - (addr // 7) % 7
 
 var dividend = var addr
 var divisor = globalvar plotGridSize

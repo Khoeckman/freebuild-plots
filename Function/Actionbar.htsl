@@ -22,7 +22,7 @@ if (var banUnix > 0) {
   var m -= var temp
   // @endmixin
 
-  actionBar "&c&oBanned &7/ &a%var.player/h%h %var.player/m%m %var.player/s%s&c"
+  actionBar "&c&oBanned &8/ &a%var.player/h%h %var.player/m%m %var.player/s%s&c"
   exit
 }
 
@@ -35,8 +35,8 @@ if (!var inAddr > 0) {
 }
 
 if (!var inId > 0) {
-  actionBar "&a&oPlot &b&o#%var.player/inAddr% &7/ &a&lFREE"
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &a&lFREE"
   exit
 }
 
-actionBar "&a&oPlot &b&o#%var.player/inAddr% &7/ &fOwner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) &7/&f Building: %var.player/inBuildStr% &7/&f Protection: %var.player/inProtectStr%"
+actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &fOwner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) (%var.player/inOnlineStr '&c&lOFFLINE'%&7) &8/&f Building: %var.player/inBuildStr% &8/&f Protection: %var.player/inProtectStr%"

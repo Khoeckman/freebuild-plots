@@ -2,12 +2,40 @@
 // Input: id, homeAddr
 function "Spawn"
 
+// Make bots invisible
 if (hasGroup "Staff") {
   var invis = 1
 } else {
   var invis = 0
 }
 
+// Prepare player
+resetInventory
+giveItem "PlotsCookie" false 4 true
+function "Default inventory"
+
+// <Event: Group Change>
+function "Group permission"
+
+if (!hasGroup "Banned") {
+  gamemode "Creative"
+}
+// </>
+
+// Send player online event
+globalvar targetId unset
+globalvar targetAddr unset
+globalvar targetPlotId = var id
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+
+// Join message
 globalvar reqIgn = %player.name%
 globalvar houseGroupTag = %player.group.tag%
 globalvar houseVersion = %player.version%
@@ -28,28 +56,7 @@ if (!var id > 0) {
 
   title "&a&oCreative &2&oPlots" "&e&lWELCOME BACK" 0 2 1
 }
+
+// All code below is delayed 30 ticks (like the title in the if above)!
+
 sound "Level Up" 0.7 1.0 invokers_location
-
-resetInventory
-giveItem "PlotsCookie" false 4 true
-function "Default inventory"
-
-// <Event: Group Change>
-function "Group permission"
-
-if (!hasGroup "Banned") {
-  gamemode "Creative"
-}
-// </>
-
-globalvar targetId unset
-globalvar targetAddr unset
-globalvar targetPlotId = var id
-
-if (!globalvar plotSyncHyper == 1) {
-  globalvar plotSyncHyper = 1
-  function "Plot sync" true
-} else {
-  globalvar plotSyncHyper unset
-  function "Plot sync 2" true
-}

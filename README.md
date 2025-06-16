@@ -66,6 +66,7 @@ plotProtect (byte) - (0, 1, 2, 3, 4) = (Off, Low, Medium, High, Extreme) - Prote
 plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
 plotPermStr (string) [&e[STAFF]] - Required group tag to change the protection setting (ppcd)
 plotOnline (bool) - (-1, 0, 1) = (Offline, Unknown, Online) - Whether the owner of the plot is online. When it is `unknown`: disallow claiming the plot and building (ppcd-async)
+plotOnlineStr (string) [&c&lOFFLINE] - OFFLINE or ONLINE
 plotTrusted (bool) - (0, 1) = (No, Yes) - Are you trusted on this plot (ppcd-async)
 plotPoints (short) [0] - Total points of the plot
 plotRated (short) - Total amount of players that rated the plot (all time)
@@ -120,6 +121,7 @@ auto (byte) - Plot address of the plot /pauto will try to claim
 plotXZ (30)
 plotGap (7)
 plotXZPlusGap (37)
+plotGridSize (7)
 plotY (78)
 plotYPlusGap (86)
 plotStartX (-128)

@@ -5,17 +5,19 @@
 
 // If plot is FREE, clean all {plot...} variables
 if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
+  // @compile inside if
   var plotId unset
   var plotIgn unset
   var plotUnix unset
   var plotExpr unset
   var plotSettings unset
-  var plotOnline unset
+  var plotBuild unset
+  var plotBuildStr unset
   var plotProtect unset
   var plotProtectStr unset
   var plotPermStr unset
-  var plotBuild unset
-  var plotBuildStr unset
+  var plotOnline unset
+  var plotOnlineStr unset
   var plotTrusted unset
   var plotPoints unset
   var plotRated unset
@@ -75,6 +77,17 @@ if (!var plotRated > 0) {
 } else {
   var plotRating = %var.player/plotPoints 0%D
   var plotRating /= %var.player/plotRated%D
+}
+
+// Online status
+var plotOnlineStr unset
+
+if (var plotOnline == -1) {
+  var plotOnlineStr = "&c&lOFFLINE"
+}
+
+if (var plotOnline == 1) {
+  var plotOnlineStr = "&a&lONLINE"
 }
 
 // Build name
