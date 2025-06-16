@@ -1,0 +1,26 @@
+// @global
+// Event input: targetId, targetAddr, targetPlotId
+// Output: oldInAddr
+
+// @debug log all uses of this function
+if (hasGroup "Dev" true) {
+  // #
+  chat "&ePlot sync 2 / targetId: %var.global/targetId 'Unset'%, targetAddr: %var.global/targetAddr 'Unset'%, targetPlotId: %var.global/targetPlotId 'Unset'%"
+}
+
+// Sync if the player is the target
+if (globalvar targetId == var id) {
+  var oldInAddr unset
+  exit
+}
+
+// Sync if the player is in the same plot
+if (globalvar targetAddr == var inAddr) {
+  var oldInAddr unset
+  exit
+}
+
+// Sync if the player is in a plot owner by #{id}
+if (globalvar targetPlotId == var inId) {
+  var oldInAddr unset
+}

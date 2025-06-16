@@ -1,7 +1,7 @@
 // @global
 // Event input: reqIgn, houseGroup, houseGroupTag
 
-if (hasGroup "Staff" true) {
+if (hasGroup "Mod" true) {
   chat "&c&l« %var.global/houseGroupTag% &b%var.global/reqIgn%&f quit."
 }
 

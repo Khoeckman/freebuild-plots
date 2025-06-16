@@ -23,16 +23,14 @@ if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   exit
 }
 
-var plotExpr = var plotUnix
-var plotExpr -= %date.unix%
-
-if (!var plotSettings > 0) {
-  var plotSettings = 0
-}
+// {plotUnix} may not be ""
+var plotUnix = var plotUnix 0 true
+var plotExpr unset
 
 // Unpack
 // (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
-var rest = var plotSettings
+var rest = var plotSettings 0 true
+var rest = var rest 0
 
 var mask = var rest
 var mask /= 10
@@ -44,9 +42,11 @@ var rest /= 10
 var plotBuild = var rest
 
 // Online - Skip checking if they are the owner
+var plotOnline = 0
+
 if (!var plotId == var id) {
   globalvar targetId = var plotId
-  globalvar online unset
+  globalvar online = -1
   // @todo handle possible function CD error
   function "Player online" true
   var plotOnline = globalvar online
@@ -65,6 +65,9 @@ if (var plotBuild > 0, !var plotId == var id, !hasGroup "Staff" true) {
 }
 
 // Calculate rating
+// {plotPoints} may not be ""
+var plotPoints = var plotPoints 0 true
+
 if (!var plotRated > 0) {
   var plotPoints unset
   var plotRated unset

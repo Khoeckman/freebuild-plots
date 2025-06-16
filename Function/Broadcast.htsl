@@ -1,0 +1,7 @@
+// @global
+
+// Event input: bcReason, staffOnly
+
+if (globalvar staffOnly > 0, !hasGroup "Mod" true) {
+
+}

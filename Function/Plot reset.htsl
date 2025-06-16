@@ -7,7 +7,7 @@ if (var inAddr <= 0) {
   exit
 }
 
-if (!var inId == var id, !hasGroup "Staff" true) {
+if (!var inId == var id, !hasGroup "Mod" true) {
   chat "&cYou must own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

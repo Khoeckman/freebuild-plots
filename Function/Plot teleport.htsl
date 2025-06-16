@@ -1,7 +1,7 @@
 // Input: plotAddr
 // Output: tp(x, y, z)
 
-// @temp addr, row, col, dx, dz
+// @temp addr, row, layer, col
 
 var addr = var plotAddr
 var addr -= 1
@@ -20,7 +20,7 @@ var remainder = var dividend
 var diff = var dividend
 var diff /= var divisor
 var diff *= var divisor
-var remainder -= var diff // Output: remainder
+var remainder -= var diff
 // </Modulo>
 
 var col = var remainder

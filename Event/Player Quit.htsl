@@ -5,3 +5,15 @@ globalvar reqIgn = %player.name%
 globalvar houseGroupTag = %player.group.tag%
 globalvar houseGroup = %player.group.name%
 function "Quit" true
+
+globalvar targetId unset
+globalvar targetAddr unset
+globalvar targetPlotId = var id
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

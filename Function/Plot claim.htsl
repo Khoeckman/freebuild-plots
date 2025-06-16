@@ -55,12 +55,15 @@ if (!var permission >= var inProtect 0 0) {
 }
 
 // Plot owner is online
-if (var plotId > 0, var plotOnline == 1) {
-  chat "&cYou cannot claim this plot because it's owner is online."
+if (var plotId > 0, !var plotOnline == -1) {
+  chat "&cYou cannot claim this plot because the owner is online."
   sound "Anvil Land" 0.3 1.0 invokers_location
   var err = 2
   exit
 }
+
+var plotExpr = var plotUnix 0
+var plotExpr -= %date.unix%
 
 // Plot is not expired
 if (var plotId > 0, var plotExpr > 0) {
@@ -95,7 +98,9 @@ if (var cd == 0) {
   exit
 }
 
+globalvar targetId unset
 globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
 
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1

@@ -68,7 +68,9 @@ chat "&2&m------------------------------------------------"
 
 sound "Explode" 0.7 1.0 invokers_location
 
+globalvar targetId unset
 globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
 
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1

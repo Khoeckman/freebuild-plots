@@ -2,6 +2,12 @@
 // Input: id, homeAddr
 function "Spawn"
 
+if (hasGroup "Staff") {
+  var invis = 1
+} else {
+  var invis = 0
+}
+
 globalvar reqIgn = %player.name%
 globalvar houseGroupTag = %player.group.tag%
 globalvar houseVersion = %player.version%
@@ -35,3 +41,15 @@ if (!hasGroup "Banned") {
   gamemode "Creative"
 }
 // </>
+
+globalvar targetId unset
+globalvar targetAddr unset
+globalvar targetPlotId = var id
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

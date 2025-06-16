@@ -2,6 +2,6 @@
 // Event input: targetId
 // Event output: online
 
-if (!globalvar targetId == var id) {
+if (globalvar targetId == var id) {
   globalvar online = 1
 }

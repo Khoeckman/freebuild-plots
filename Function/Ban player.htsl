@@ -1,7 +1,7 @@
 // Input: banReason, banSeconds
 
 if (hasGroup "Staff" true) {
-  chat "&eYou got banned but are immune."
+  chat "&eSomebody tried to ban you."
   sound "Note Pling" 0.7 2.0 invokers_location
   exit
 }

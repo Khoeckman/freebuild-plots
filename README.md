@@ -58,14 +58,14 @@ plotAddr (byte) - Plot register address of the current plot
 plotId (short) - Owner Id
 plotIgn (string) - Owner IGN
 plotUnix (int) - Unix timestamp when the plot expires
-plotExpr (int) - Delta seconds of `plotUnix`. Negative number means the plot is expired. Positive represents the amount of seconds until it expires (ppcd)
+plotExpr (int) - This needs to be recalculated every time it is used! Delta seconds of `plotUnix`. Negative number means the plot is expired. Positive represents the amount of seconds until it expires (ppcd-live)
 plotSettings (byte) - (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
 plotBuild (byte) - (0, 1, 2) = (Private, Trusted, Public) - Who can build (bitpacked)
 plotBuildStr (String) [&cNone] - Name of the build setting (ppcd)
 plotProtect (byte) - (0, 1, 2, 3, 4) = (Off, Low, Medium, High, Extreme) - Protection level (bitpacked)
 plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
 plotPermStr (string) [&e[STAFF]] - Required group tag to change the protection setting (ppcd)
-plotOnline (bool) - (0, 1) = (Offline, Online) - Wether the owner of the plot is online (ppcd-async)
+plotOnline (bool) - (-1, 0, 1) = (Offline, Unknown, Online) - Whether the owner of the plot is online. When it is `unknown`: disallow claiming the plot and building (ppcd-async)
 plotTrusted (bool) - (0, 1) = (No, Yes) - Are you trusted on this plot (ppcd-async)
 plotPoints (short) [0] - Total points of the plot
 plotRated (short) - Total amount of players that rated the plot (all time)
@@ -111,7 +111,9 @@ houseGroup (string) - Group tag (eg. "&4[OWNER]") of the player who joined or qu
 houseGroupTag (string) - Group (eg. "Owner") of the player who joined or quit
 houseVersion (string) - Minecraft Version of the player who joined or quit
 
-cookieRecord (short) - highest amount of weekly cookies on the house
+cookieCurrent (short) - total amount of weekly cookies the house received
+cookieRecord (short) - highest amount of weekly cookies the house received
+cookieTotal (short) - total amount of cookies the house received
 unique (short) [0] - Unique amount of players on the house
 auto (byte) - Plot address of the plot /pauto will try to claim
 

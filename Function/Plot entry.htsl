@@ -54,7 +54,7 @@ if (var inBuild > 0, var inTrusted == 1) {
   exit
 }
 
-if (var inBuild == 2) {
+if (var inBuild == 2, var inOnline > 0) {
   changePlayerGroup "Build" false
   exit
 }

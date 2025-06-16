@@ -61,6 +61,8 @@ chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
 sound Click 0.7 1.0 invokers_location
 
 globalvar targetId = globalvar resId
+globalvar targetAddr unset
+globalvar targetPlotId = unset
 
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1

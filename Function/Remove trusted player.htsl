@@ -56,6 +56,9 @@ if (!globalvar targetId > 0) {
   exit
 }
 
+globalvar targetAddr unset
+globalvar targetPlotId unset
+
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
   function "Plot sync" true

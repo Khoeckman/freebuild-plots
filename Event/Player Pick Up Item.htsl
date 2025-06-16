@@ -1,3 +1,3 @@
-if (!hasGroup "Staff" true) {
+if (!hasGroup "Mod" true) {
   cancelEvent
 }

@@ -2,13 +2,13 @@
 // resetInventory
 // giveItem "PlotsCookie" false 4 true
 
-if or (hasGroup "Owner", hasGroup "Dev") {
+if (hasGroup "Dev" true) {
   giveItem "PlotsMenu" true 7 true
   giveItem "HousingMenu" true 8 true
   exit
 }
 
-if (hasGroup "Staff" true) {
+if (hasGroup "Mod" true) {
   giveItem "PlotsMenu" true 7 true
   giveItem "HousingAdminMenu" true 8 true
 } else {

@@ -7,15 +7,21 @@ if (!var inAddr > 0) {
   exit
 }
 
-if (!var inId == var id, !hasGroup "Staff" true) {
+if (!var inId == var id, !hasGroup "Mod" true) {
   chat "&cYou must own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-// Not enough permissions
+// Not enough permissions to manage plot
 if (!var permission >= var inProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var settingStr == "Protection", !hasGroup "Mod" true) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to apply this setting."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -27,7 +33,7 @@ if (var settingStr == "Protection", !var permission >= var selected 0 0) {
 }
 
 // Warning when modifying someone else's plot
-if (!var inId == var id, hasGroup "Staff" true) {
+if (!var inId == var id) {
   chat "&6&lWARNING &eYou are modifying &a&oPlot &b&o#%var.player/inAddr%&e owned by &b%var.player/inIgn%&e."
   sound "Note Pling" 1.0 2.0 invokers_location
 }
@@ -68,7 +74,9 @@ if (var cd == 0) {
   exit
 }
 
-globalvar targetAddr = var inAddr
+globalvar targetId unset
+globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
 
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
