@@ -1,4 +1,4 @@
-// Input: banSeconds, banUnix
+// Input: banReason, banSeconds, *banUnix
 
 if (hasGroup "Staff" true) {
   chat "&eYou got banned but are immune."
@@ -19,16 +19,12 @@ function "Seconds to HMS"
 
 chat &7
 chat "&4&m---&c &lBANNED&4 &m-------------------------------------"
-
-if (!var banReason > 0) {
-  chat "Reason: &eBanned by staff"
-}
-
-if (var banReason == 1) {
-  chat "Reason: &eObtaining a blacklisted item or block"
-}
+chat "Reason: &e%var.player/banReason%"
 chat "Duration: &a%var.player/h%h %var.player/m%m %var.player/s%s"
 chat "&4&m------------------------------------------------"
 
-title "&4&lBANNED" null 0 3 1
+title "&4&lBANNED" "&c%var.player/banReason%" 0 3 1
 sound "Explode" 0.7 1.0 invokers_location
+
+// gc
+var banReason unset

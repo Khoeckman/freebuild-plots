@@ -1,6 +1,6 @@
 // @targeted
 
-var banReason unset
+var banReason = "Banned by staff"
 var banSeconds = 60
 
 function "Ban player"
