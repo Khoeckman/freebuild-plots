@@ -25,14 +25,18 @@ if (!hasGroup "Banned") {
 // </>
 
 // Send player online event
-globalvar targetId unset
-globalvar targetAddr unset
-globalvar targetPlotId = var id
+if (var homeAddr > 0) {
+  globalvar targetId unset
+  globalvar targetAddr unset
+  globalvar targetPlotId = var id
+}
 
-if (!globalvar plotSyncHyper == 1) {
+if (var homeAddr > 0, !globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
   function "Plot sync" true
-} else {
+}
+
+if (var homeAddr > 0, globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }

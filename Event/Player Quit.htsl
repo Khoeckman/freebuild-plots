@@ -6,7 +6,11 @@ globalvar houseGroupTag = %player.group.tag%
 globalvar houseGroup = %player.group.name%
 function "Quit" true
 
-// Send player offline event
+// Send player offline event if they have a home
+if (!var homeAddr > 0) {
+  exit
+}
+
 globalvar targetId unset
 globalvar targetAddr unset
 globalvar targetPlotId = var id

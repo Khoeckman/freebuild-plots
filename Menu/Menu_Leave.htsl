@@ -2,8 +2,9 @@ sound "Click" 0.7 1.0 invokers_location
 closeMenu
 
 title "&a&oCreative &2&oPlots" "&e&lGOODBYE" 0 2 1
-
-pause 20
+pause 15
 
 function "Spawn"
+pause 5
+
 lobby Housing
