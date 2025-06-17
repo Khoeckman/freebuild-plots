@@ -52,6 +52,16 @@ if (var cd == 0) {
 
 // Dynamically update the correct setting
 
+if (var settingStr == "Building", var selected == var plotBuild) {
+  chat "&c%var.player/settingStr% is already %var.player/selectedStr%&c."
+  exit
+}
+
+if (var settingStr == "Protection", var selected == var plotProtect) {
+  chat "&c%var.player/settingStr% is already %var.player/selectedStr%&c."
+  exit
+}
+
 if (var settingStr == "Building") {
   var plotBuild = var selected
   var plotBuildStr = var selectedStr
