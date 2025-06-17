@@ -3,7 +3,7 @@ chat "&6&m---&e &lCOMMANDS&6 &m--------------------------"
 chat "&e/cmds &8- &fPrints this list."
 chat "&e/mail &8- &fTeleport to the &bMailbox&f."
 
-// @todo
+// @todo go troug the list of commands and add each on in the right group with descr
 
 if (hasGroup "Mod" true) {
   chat &8

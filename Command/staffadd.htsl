@@ -1,0 +1,3 @@
+changePlayerGroup "Mod"
+// @todo @broadcast make staff-broadcast
+chat "&c&lSTAFF &8/ &aYou have been added to the staff team."

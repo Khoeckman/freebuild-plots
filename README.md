@@ -47,7 +47,6 @@ banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 banCount (byte) [0] - The amount of times the player got banned
 unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
 groupStr (string) - Stored group tag for chat feedback
-homeSyncQ (1 | unset) - Queue checking wether the player still owns {plotAddr}
 
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
@@ -79,12 +78,12 @@ oldInAddr (byte) - Set to {inAddr} when Func{Plot entry} downloads the data the 
 in... - Won't be shown if {inAddr} is not above 0
 
 // Plot the player has claimed as home
+homeSyncQ (1 | unset) - Queue checking wether the player still owns {plotAddr}
 homeAddr (byte | unset)
 homePrefix (string | unset) [&c&oNone] - Text for before the index eg. "&a&oPlot &b&o#" (ppcd)
-homeShield (number) [0] - Seconds until home is claimable
-homePoints (number)
-homeRated (byte) [0]
-homeRating (float) ['0.000']
+homePoints (number) - @todo sync in Func{Plot claim}
+homeRated (byte) [0] - @todo sync in Func{Plot claim}
+homeRating (float) ['0.000'] - @todo sync in Func{Plot claim}
 
 plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` after updating a setting.
 settingStr (string) - (Building, Protection) - Name of the setting that changes

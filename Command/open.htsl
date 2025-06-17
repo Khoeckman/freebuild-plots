@@ -1,0 +1,12 @@
+if (!globalvar lockdown > 0) {
+  chat "&cThe house is already &a&lOPEN&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+globalvar lockdown unset
+function "Plot sync all" true
+
+// @todo @broadcast make public-broadcast
+chat "&c&lSTAFF &8/ &aYou opened the house."
+sound "Note Pling" 1.0 2.0 invokers_location

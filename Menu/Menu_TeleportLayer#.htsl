@@ -6,5 +6,5 @@ failParkour Teleported!
 applyPotion "Blindness" 1 1 false true
 
 // #
-tp "custom_coordinates" "~ 178 ~" true
+tp "custom_coordinates" "~ 4 ~" true
 sound "Enderman Teleport" 0.7 1.0 invokers_location

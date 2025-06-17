@@ -1,7 +1,23 @@
 // @global
 
-// Event input: bcReason, staffOnly
+// Event input: reqIgn, bcReason, bcType (2 = PUBLIC, 4 = STAFF-ONLY)
 
-if (globalvar staffOnly > 0, !hasGroup "Mod" true) {
-
+if (globalvar bcType == 4, !hasGroup "Mod" true) {
+  exit
 }
+
+chat &7
+
+if (var bcType == 4) {
+  chat "&2&m---&c &lSTAFF&2 &m---------------------------"
+} else {
+  chat "&4&m---&a &lPUBLIC&4 &m--------------------------"
+}
+
+if (globalvar bcReason == 1) {
+  chat "&b%var.player/reqIgn%&f set all plots to &a&lFREE&f."
+  exit
+}
+
+chat "&%var.global/bcType%&m------------------------------------------------"
+sound "Orb Pickup" 1 0 invokers_location

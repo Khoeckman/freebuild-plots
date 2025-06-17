@@ -1,4 +1,4 @@
 // #
-var trustAddr = 5
+var trustAddr = 1
 function "Add trusted player"
 displayMenu "Trusted builders"
