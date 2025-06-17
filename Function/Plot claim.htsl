@@ -109,7 +109,7 @@ if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }
-var homeAddr = var plotAddr
+var homeAddr = var plotAddr 0 true
 var homePrefix = "&a&oPlot &b&o#"
 
 // @temp minutes

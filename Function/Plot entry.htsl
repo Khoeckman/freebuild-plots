@@ -9,6 +9,16 @@ if or (!var inAddr > 0, var inAddr == var oldInAddr) {
   exit
 }
 
+// If player is in the shared zone
+if (var inShared == 1, !var banUnix > 0, !hasGroup "Staff" true) {
+  changePlayerGroup "Build" false
+}
+
+if (var inShared == 1) {
+  var oldInAddr = var inAddr
+  exit
+}
+
 var plotAddr = var inAddr
 var cd = 0
 function "Plot download"
@@ -45,7 +55,12 @@ if (var plotMenuQ == 1) {
 }
 
 // If player should not change group
-if or (banUnix > 0, hasGroup "Staff" true) {
+if or (var banUnix > 0, hasGroup "Staff" true) {
+  exit
+}
+
+if (globalvar lockdown == 1) {
+  changePlayerGroup "Visitor" false
   exit
 }
 

@@ -6,16 +6,21 @@
 // BUT! Plot syncs should check for {oldInAddr} if {inAddr} is unset
 // OR use {inId} for #{target}
 
-// ! If the player just left a plot
-if or (var inAddr > 0, !var oldInAddr > 0) {
-  var plotId unset
+if or (var inAddr > 0, !var oldInAddr > 0) {  
   exit
 }
 
+// If the player just left a plot
 var oldInAddr unset
 
+// Reset necessary vars
+var plotId unset
+var plotBuildStr unset
+var plotProtectStr unset
+var plotOnlineStr unset
+
 // If player should not change group
-if or (var banUnix > 0, hasGroup "Staff" true) {
+if or (var inShared == 1, var banUnix > 0, hasGroup "Staff" true) {
   exit
 }
 

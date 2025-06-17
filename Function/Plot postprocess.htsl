@@ -3,9 +3,10 @@
 
 // @temp rest, mask
 
+// @compile FILE (to many if's)
+
 // If plot is FREE, clean all {plot...} variables
 if (!var plotId > 0) {
-  // @compile inside if
   var plotId unset
   var plotIgn unset
   var plotUnix unset
@@ -26,7 +27,6 @@ if (!var plotId > 0) {
   var plotRated unset
   var plotRating unset
 
-  // @todo set these correctly outside this if
   var menuBuild0 unset
   var menuBuild1 unset
   var menuBuild2 unset
@@ -59,7 +59,6 @@ var plotBuild = var rest
 // Online - Skip checking if they are the owner
 var plotOnline = 0
 
-// @compile if (inverted)
 if (var plotId == var id) {
   var plotOnline = 1
 } else {
