@@ -47,7 +47,7 @@ if (var cd == 0) {
 }
 
 // Not enough permissions
-if (!var permission >= var inProtect 0 0) {
+if (!var permission >= var plotProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   var err = 2

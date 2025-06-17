@@ -1,0 +1,5 @@
+if (hasGroup "Staff" true) {
+  changePlayerGroup "Visitor" false
+  // @todo @broadcast make this a staff-broadcast
+  chat "&c&lSTAFF &8/ &cYou have been removed from the staff team."
+}
