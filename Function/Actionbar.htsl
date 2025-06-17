@@ -39,4 +39,4 @@ if (!var inId > 0) {
   exit
 }
 
-actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &fOwner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) (%var.player/inOnlineStr '&c&lOFFLINE'%&7) &8/&f Building: %var.player/inBuildStr% &8/&f Protection: %var.player/inProtectStr%"
+actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &fOwner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) (%var.player/inOnlineStr '&6&lLOADING'%&7) &8/&f Building: %var.player/inBuildStr% &8/&f Protection: %var.player/inProtectStr%"

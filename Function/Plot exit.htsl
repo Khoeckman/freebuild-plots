@@ -8,6 +8,7 @@
 
 // ! If the player just left a plot
 if or (var inAddr > 0, !var oldInAddr > 0) {
+  var plotId unset
   exit
 }
 

@@ -4,4 +4,6 @@ closeMenu
 title "&a&oCreative &2&oPlots" "&e&lGOODBYE" 0 2 1
 
 pause 20
+
+function "Spawn"
 lobby Housing

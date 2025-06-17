@@ -44,9 +44,10 @@ permission (byte) - Permission level of the player used to compare against the p
 rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #{maxRated}
 banSeconds (int) - Amount of seconds a player is soft-banned
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
+banCount (byte) [0] - The amount of times the player got banned
 unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
 groupStr (string) - Stored group tag for chat feedback
-homeSyncQ (1 | unset) -
+homeSyncQ (1 | unset) - Queue checking wether the player still owns {plotAddr}
 
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
@@ -58,7 +59,7 @@ plotAddr (byte) [&cNone] - Plot register address of the current plot
 plotId (short) - Owner Id
 plotIgn (string) - Owner IGN
 plotUnix (int) - Unix timestamp when the plot expires
-plotExpr (int) - This needs to be recalculated every time it is used! Delta seconds of `plotUnix`. Negative number means the plot is expired. Positive represents the amount of seconds until it expires (ppcd-live)
+plotExpr (int) - This needs to be recalculated every time it is used! Delta seconds of {plotUnix}. Negative number means the plot is expired. Positive represents the amount of seconds until it expires (ppcd-live)
 plotSettings (byte) - (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
 plotBuild (byte) - (0, 1, 2) = (Private, Trusted, Public) - Who can build (bitpacked)
 plotBuildStr (String) [&cNone] - Name of the build setting (ppcd)
@@ -85,15 +86,26 @@ homePoints (number)
 homeRated (byte) [0]
 homeRating (float) ['0.000']
 
+plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` after updating a setting.
 settingStr (string) - (Building, Protection) - Name of the setting that changes
 selected (byte) - The value to be assigned to {setting}
 selectedStr (string) - The name of the value to be assigned to {setting}
+menuBuild0 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Private
+menuBuild1 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Trusted
+menuBuild2 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Public
+menuProtect0 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Off
+menuProtect1 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Low
+menuProtect2 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Medium
+menuProtect3 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: High
+menuProtect4 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Extreme
 
 trustAddr (byte) - Trust register address
 trust#Id (short | unset) - Trusted ID (# = register 1 trough 5)
 trust#Ign (string | unset) ['&cNone'] - Trusted IGN (# = register 1 trough 5)
 
 ### Global
+
+lockdown (bool) - Prevent anyone (below staff) from building
 
 reqId (id) - ID of event requestor (dispatch)
 resId (id | unset) ['&cNone'] - ID of event responder (callback)
@@ -122,8 +134,8 @@ plotXZ (30)
 plotGap (7)
 plotXZPlusGap (37)
 
-plotY (78)
-plotGroundY (3)
+plotY (79)
+plotGroundY (4)
 plotYPlusGap (86)
 
 plotGridSize (7)

@@ -11,11 +11,13 @@ if (hasPotion "Invisibility", !hasGroup "Staff" true) {
 }
 
 if (hasPotion "Invisibility", !var invis == 1) {
+  var invisStr unset
   clearEffects
   displayNametag true
 }
 
 if (hasPotion "Night Vision", !var nvn == 1) {
+  var nvnStr unset
   clearEffects
 }
 

@@ -6,6 +6,10 @@ if (!var auto > 0) {
   exit
 }
 
+if (!globalvar auto > 0) {
+  globalvar auto = 1
+}
+
 var auto -= 1
 
 if (var auto == 0) {

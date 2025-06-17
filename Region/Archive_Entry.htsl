@@ -1,3 +1,5 @@
+title "&2&oCreative &a&oPlots" "&e&lARCHIVE" 1 2 1 
+
 // Extra fast group change to prevent griefing
 if (!var banUnix > 0, hasPermission "Build", !hasGroup "Staff" true) {
   changePlayerGroup "Visitor" false

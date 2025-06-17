@@ -26,7 +26,7 @@ if (var cd == 0) {
   exit
 }
 
-if (!globalvar resId > 0) {
+if or (!globalvar resId > 0, globalvar resIgn == 0 0) {
   chat "&cNo players found within &a%var.global/plotXZ%&c blocks."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

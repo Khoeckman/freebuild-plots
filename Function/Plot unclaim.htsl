@@ -6,21 +6,6 @@ if (!var homeAddr > 0) {
   exit
 }
 
-if (!var permission >= var inProtect 0 0) {
-  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
-if (var unclaimCd > 0, !hasGroup "Staff" true) {
-  var seconds = var unclaimCd
-  function "Seconds to HMS"
-
-  chat "&cYou cannot unclaim your home for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
 var plotAddr = var homeAddr
 var cd = 0
 function "Plot download"
@@ -39,6 +24,21 @@ if (!var plotId == var id) {
 
   var homeAddr unset
   var homePrefix unset
+  exit
+}
+
+if (!var permission >= var plotProtect 0 0) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var unclaimCd > 0, !hasGroup "Staff" true) {
+  var seconds = var unclaimCd
+  function "Seconds to HMS"
+
+  chat "&cYou cannot unclaim your home for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 

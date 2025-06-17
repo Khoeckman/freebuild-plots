@@ -3,3 +3,8 @@ function "Group permission"
 if (!hasGroup "Banned") {
   gamemode "Creative"
 }
+
+// Improve grief prevention - Reset velocity if they just lost "Build" permission
+if (!hasPermission "Build") {
+  tp "custom_coordinates" "~ ~ ~"
+}

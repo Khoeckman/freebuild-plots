@@ -1,4 +1,31 @@
 chat &7
 chat "&6&m---&e &lCOMMANDS&6 &m--------------------------"
 chat "&e/cmds &8- &fPrints this list."
+chat "&e/mail &8- &fTeleport to the &bMailbox&f."
+
+// @todo
+
+if (hasGroup "Mod" true) {
+  chat &8
+  chat "&6&m---&e &lMOD&6 &m-------------------------------"
+  chat "&e/cmds &8- &fPrints this list."
+}
+
+if (hasGroup "Admin" true) {
+  chat &9
+  chat "&6&m---&c &lADMIN&6 &m-----------------------------"
+  chat "&e/cmds &8- &fPrints this list."
+}
+
+if (hasGroup "Dev" true) {
+  chat &a
+  chat "&6&m---&5 &lDEV&6 &m-------------------------------"
+  chat "&e/pnew &8- &fClaim a new plot."
+}
+
+if (hasGroup "Owner" true) {
+  chat "&4[OWNER] commands:"
+  chat "&e/cmds &8- &fPrints this list."
+}
+
 chat "&6&m----------------------------------------"

@@ -5,8 +5,10 @@ function "Spawn"
 // Make bots invisible
 if (hasGroup "Staff") {
   var invis = 1
+  var invisStr = "&a&lENABLED"
 } else {
   var invis = 0
+  var invisStr unset
 }
 
 // Prepare player
@@ -46,10 +48,14 @@ if (!var id > 0) {
   function "First join" true
 
   var nvn = 1
+  var nvnStr = "&a&lENABLED"
   resetInventory
   pause 30
 
   title "&a&oCreative &2&oPlots" "&e&lWELCOME" 0 2 1
+  
+  // Make sure new players their inventory is correct
+  function "Default inventory"
 } else {
   function "Join" true
   pause 30

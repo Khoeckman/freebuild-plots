@@ -75,4 +75,4 @@ applyPotion "Blindness" 1 1 false true
 
 tp "custom_coordinates" "%var.player/x% %var.player/y% %var.player/z% 0 0" true
 sound "Enderman Teleport" 0.7 1.0 invokers_location
-chat "&aYou teleported to &oPlot &b&o#%var.player/plotAddr%&a. &7(&b%var.player/x% %var.player/y% %var.player/z%&7)"
+chat "&aYou teleported to &oPlot &b&o#%var.player/plotAddr%&a. &7(&e%var.player/x%&7, &e%var.player/y%&7, &e%var.player/z%&7)"

@@ -40,8 +40,13 @@ var inPoints = var plotPoints 0 true
 var inRated = var plotRated 0 true
 var inRating = var plotRating 0 true
 
+if (var plotMenuQ == 1) {
+  var plotMenuQ unset
+  displayMenu "Plot menu"
+}
+
 // If player should not change group
-if or (var banCd > 0, hasGroup "Staff" true) {
+if or (banUnix > 0, hasGroup "Staff" true) {
   exit
 }
 
@@ -50,7 +55,7 @@ if (var inId == var id) {
   exit
 }
 
-if (var inBuild > 0, var inTrusted == 1) {
+if (var inBuild > 0, var inOnline > 0, var inTrusted == 1) {
   changePlayerGroup "Trusted" false
   exit
 }

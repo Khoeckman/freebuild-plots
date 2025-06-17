@@ -4,12 +4,13 @@
 // @temp rest, mask
 
 // If plot is FREE, clean all {plot...} variables
-if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
+if (!var plotId > 0) {
   // @compile inside if
   var plotId unset
   var plotIgn unset
   var plotUnix unset
   var plotExpr unset
+
   var plotSettings unset
   var plotBuild unset
   var plotBuildStr unset
@@ -18,10 +19,22 @@ if or (!var plotId > 0, var plotIgn == 0 0, !var plotUnix > 0) {
   var plotPermStr unset
   var plotOnline unset
   var plotOnlineStr unset
+
   var plotTrusted unset
+
   var plotPoints unset
   var plotRated unset
   var plotRating unset
+
+  // @todo set these correctly outside this if
+  var menuBuild0 unset
+  var menuBuild1 unset
+  var menuBuild2 unset
+  var menuProtect0 unset
+  var menuProtect1 unset
+  var menuProtect2 unset
+  var menuProtect3 unset
+  var menuProtect4 unset
   exit
 }
 
