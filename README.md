@@ -78,6 +78,7 @@ inAddr (byte | unset)
 oldInAddr (byte) - Set to {inAddr} when Func{Plot entry} downloads the data the plot the player is in
 in... - Won't be shown if {inAddr} is not above 0
 
+inSpawn (1 | unset) - Is 1 when the player is exactly on the spawn location.
 inShared (1 | unset) - Is 1 when the player is inside the `Shared` region.
 
 // Plot the player has claimed as home

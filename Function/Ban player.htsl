@@ -11,6 +11,9 @@ if (!var banUnix > %date.unix%) {
   var banUnix = %date.unix%
 }
 var banUnix += var banSeconds
+
+var banCount = var banCount 0 true
+var banCount += 1
 changePlayerGroup "Banned" false
 
 // Feedback to the player
@@ -28,3 +31,7 @@ sound "Explode" 0.7 1.0 invokers_location
 
 // gc
 var banReason unset
+
+// Remind 'em
+pause 60
+displayMenu "Rules"

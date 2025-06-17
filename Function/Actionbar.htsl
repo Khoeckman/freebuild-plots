@@ -29,6 +29,11 @@ if (var banUnix > 0) {
 // "XYZ to inAddr" debug
 // actionBar "&finAddr %var.player/inAddr% &8| &finRow %var.player/inRow% &8| &finCol %var.player/inCol% &8| &finX %var.player/inX% &8| &finZ %var.player/inZ%"
 
+if (var inShared == 1) {
+  actionBar "&d&oShared"
+  exit
+}
+
 if (!var inAddr > 0) {
   actionBar "&e&oPublic"
   exit

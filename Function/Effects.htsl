@@ -2,15 +2,22 @@
 // Input: *nvn, *invis
 // Output: nvn, invis, invisStr
 
+// Make the player invisible if they are on the exact spawn position
+var inSpawn unset
+
+if (!var banUnix > 0, placeholder %player.location.x% == 0, placeholder %player.location.y% == 13, placeholder %player.location.z% == 6) {
+  var inSpawn = 1
+}
+
 // No invisibility permission
-if (hasPotion "Invisibility", !hasGroup "Staff" true) {
+if (!var inSpawn > 0, hasPotion "Invisibility", !hasGroup "Staff" true) {
   var invis unset
   var invisStr unset
   clearEffects
   displayNametag true
 }
 
-if (hasPotion "Invisibility", !var invis == 1) {
+if (!var inSpawn > 0, hasPotion "Invisibility", !var invis == 1) {
   var invisStr unset
   clearEffects
   displayNametag true
@@ -25,7 +32,7 @@ if (var nvn == 1) {
   applyPotion "Night Vision" 2592000
 }
 
-if (var invis == 1, hasGroup "Staff" true) {
+if or (var inSpawn == 1, var invis == 1) {
   applyPotion "Invisibility" 2592000
   displayNametag false
 }
