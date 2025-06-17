@@ -59,14 +59,15 @@ var plotBuild = var rest
 // Online - Skip checking if they are the owner
 var plotOnline = 0
 
-if (!var plotId == var id) {
+// @compile if (inverted)
+if (var plotId == var id) {
+  var plotOnline = 1
+} else {
   globalvar targetId = var plotId
   globalvar online = -1
   // @todo handle possible function CD error
   function "Player online" true
   var plotOnline = globalvar online
-} else {
-  var plotOnline = 1
 }
 
 // Trusted - Skip checking if they are the owner or staff

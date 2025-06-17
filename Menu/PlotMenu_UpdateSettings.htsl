@@ -8,5 +8,4 @@ var selectedStr = "&cExtreme"
 sound "Click" 0.7 1.0 invokers_location
 function "Plot settings"
 
-// @compile below (# all)
 var plotMenuQ = 1

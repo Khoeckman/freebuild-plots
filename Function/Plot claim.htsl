@@ -10,7 +10,7 @@ if (var banUnix > 0) {
   exit
 }
 
-if (var plotAddr > 0, var homeAddr == var plotAddr) {
+if (var homeAddr == var plotAddr 0 -1) {
   chat "&cYou already own this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

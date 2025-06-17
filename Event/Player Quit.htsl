@@ -7,7 +7,7 @@ globalvar houseGroup = %player.group.name%
 function "Quit" true
 
 // Send player offline event if they have a home
-if (!var homeAddr > 0) {
+if (!var homeAddr > 0, !var hasMultiple > 0) {
   exit
 }
 

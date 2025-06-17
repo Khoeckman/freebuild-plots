@@ -10,7 +10,6 @@ if or (!var inAddr > 0, var inAddr == var oldInAddr) {
 }
 
 var plotAddr = var inAddr
-
 var cd = 0
 function "Plot download"
 function "Plot postprocess"

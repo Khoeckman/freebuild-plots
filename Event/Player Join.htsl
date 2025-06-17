@@ -1,5 +1,8 @@
 // Init: homePrefix
 // Input: id, homeAddr
+
+// @temp condOr
+
 function "Spawn"
 
 // Make bots invisible
@@ -24,19 +27,25 @@ if (!hasGroup "Banned") {
 }
 // </>
 
+var condOr unset
+
+if or (var homeAddr > 0, var hasMultiple == 1) {
+  var condOr = 1
+}
+
 // Send player online event
-if (var homeAddr > 0) {
+if (var condOr == 1) {
   globalvar targetId unset
   globalvar targetAddr unset
   globalvar targetPlotId = var id
 }
 
-if (var homeAddr > 0, !globalvar plotSyncHyper == 1) {
+if (var condOr == 1, !globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
   function "Plot sync" true
 }
 
-if (var homeAddr > 0, globalvar plotSyncHyper == 1) {
+if (var condOr == 1, globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }

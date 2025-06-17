@@ -47,6 +47,7 @@ banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 banCount (byte) [0] - The amount of times the player got banned
 unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
 groupStr (string) - Stored group tag for chat feedback
+hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
 
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu

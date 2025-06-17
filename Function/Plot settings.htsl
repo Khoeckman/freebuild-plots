@@ -1,4 +1,4 @@
-// Input: settingStr, selected
+// Input: in..., settingStr, selected
 // Output: plot...
 
 if (!var inAddr > 0) {
@@ -38,6 +38,7 @@ if (!var inId == var id) {
   sound "Note Pling" 1.0 2.0 invokers_location
 }
 
+var plotAddr = var inAddr
 var cd = 0
 function "Plot download"
 function "Plot postprocess"
