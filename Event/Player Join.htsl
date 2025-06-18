@@ -5,6 +5,8 @@
 
 function "Spawn"
 
+var inShared unset
+
 // Make bots invisible
 if (hasGroup "Staff") {
   var invis = 1

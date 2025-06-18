@@ -26,6 +26,7 @@ if (var err == 0) {
 
   var plotAddr = var homeAddr
   function "Plot teleport"
+  sound "Level Up" 0.7 1.0 invokers_location
 }
 
 // Don't increase #{auto} on user error

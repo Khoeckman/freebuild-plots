@@ -119,7 +119,7 @@ var minutes /= 60
 chat &7
 chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
 chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
-chat "&fNext steps: &e/phome &c/prules /blist"
+chat "&fNext steps: &e/phome /pthis &c/prules /blist"
 chat &8
 chat "&c&lDISCLAIMER"
 chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.player/minutes% minutes&f of"

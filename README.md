@@ -93,14 +93,14 @@ plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` after updating a settin
 settingStr (string) - (Building, Protection) - Name of the setting that changes
 selected (byte) - The value to be assigned to {setting}
 selectedStr (string) - The name of the value to be assigned to {setting}
-menuBuild0 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Private
-menuBuild1 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Trusted
-menuBuild2 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot build setting is: Public
-menuProtect0 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Off
-menuProtect1 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Low
-menuProtect2 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Medium
-menuProtect3 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: High
-menuProtect4 (&eClick to select | unset) ['&a&lSELECTED'] - Whether the plot protected setting is: Extreme
+menuBuild0 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Private
+menuBuild1 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Trusted
+menuBuild2 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Public
+menuProtect0 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Off
+menuProtect1 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Low
+menuProtect2 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Medium
+menuProtect3 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: High
+menuProtect4 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Extreme
 
 trustAddr (byte) - Trust register address
 trust#Id (short | unset) - Trusted ID (# = register 1 trough 5)

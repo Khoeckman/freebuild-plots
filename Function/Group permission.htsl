@@ -1,6 +1,6 @@
 // Output: permission
 
-if (hasGroup "Owner") {
+if (hasGroup "Dev" true) {
   var permission = 4
   exit
 }

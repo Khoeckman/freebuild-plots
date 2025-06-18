@@ -9,11 +9,6 @@ if or (!var inAddr > 0, var inAddr == var oldInAddr) {
   exit
 }
 
-// If player is in the shared zone
-if (var inShared == 1, !var banUnix > 0, !hasGroup "Staff" true) {
-  changePlayerGroup "Build" false
-}
-
 if (var inShared == 1) {
   var oldInAddr = var inAddr
   exit

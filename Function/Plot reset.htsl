@@ -34,5 +34,5 @@ if (var cd == 0) {
   exit
 }
 
-chat "&eResetting &oPlot &b&o#%var.player/plotAddr%&e..."
+chat "&eResetting &a&oPlot &b&o#%var.player/plotAddr%&e..."
 sound "Explode" 0.7 1.0 invokers_location

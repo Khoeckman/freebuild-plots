@@ -1,4 +1,5 @@
 // Extra fast group change to prevent griefing
-if (!var banUnix > 0, hasPermission "Build", !hasGroup "Staff" true) {
+// @compile #
+if (!var banUnix > 0, !hasGroup "Staff" true) {
   changePlayerGroup "Visitor" false
 }

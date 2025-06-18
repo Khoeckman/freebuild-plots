@@ -3,7 +3,15 @@
 
 // @temp rest, mask
 
-// @compile FILE (to many if's)
+// Command{pset} item feedback
+var menuBuild0 unset
+var menuBuild1 unset
+var menuBuild2 unset
+var menuProtect0 unset
+var menuProtect1 unset
+var menuProtect2 unset
+var menuProtect3 unset
+var menuProtect4 unset
 
 // If plot is FREE, clean all {plot...} variables
 if (!var plotId > 0) {
@@ -26,15 +34,6 @@ if (!var plotId > 0) {
   var plotPoints unset
   var plotRated unset
   var plotRating unset
-
-  var menuBuild0 unset
-  var menuBuild1 unset
-  var menuBuild2 unset
-  var menuProtect0 unset
-  var menuProtect1 unset
-  var menuProtect2 unset
-  var menuProtect3 unset
-  var menuProtect4 unset
   exit
 }
 
@@ -104,16 +103,20 @@ if (var plotOnline == 1) {
 }
 
 // Build name
+
 if (!var plotBuild > 0) {
   var plotBuildStr = "&cPrivate"
+  var menuBuild0 = "&aSelected"
 }
 
 if (var plotBuild == 1) {
   var plotBuildStr = "&eTrusted"
+  var menuBuild1 = "&aSelected"
 }
 
 if (var plotBuild == 2) {
   var plotBuildStr = "&aPublic"
+  var menuBuild2 = "&aSelected"
 }
 
 // Protect & permission group name
@@ -121,26 +124,28 @@ var plotPermStr = "&e[STAFF]"
 
 if (!var plotProtect > 0) {
   var plotProtectStr = "&7Off"
+  var menuProtect0 = "&aSelected"
   exit
 }
 
 if (var plotProtect == 1) {
   var plotProtectStr = "&aLow"
+  var menuProtect1 = "&aSelected"
   exit
 }
 
 if (var plotProtect == 2) {
   var plotProtectStr = "&eMedium"
+  var menuProtect2 = "&aSelected"
   exit
 }
 
 if (var plotProtect == 3) {
   var plotProtectStr = "&6High"
   var plotPermStr = "&c[STAFF]"
-  exit
-}
-
-if (var plotProtect == 4) {
+  var menuProtect3 = "&aSelected"
+} else {
   var plotProtectStr = "&cExtreme"
   var plotPermStr = "&4[OWNER]"
+  var menuProtect4 = "&aSelected"
 }
