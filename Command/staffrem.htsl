@@ -3,4 +3,5 @@ if (hasGroup "Staff" true) {
   changePlayerGroup "Visitor" false
   // @todo @broadcast make staff-broadcast
   chat "&c&lSTAFF &8/ &cYou have been removed from the staff team."
+  function "Default inventory"
 }

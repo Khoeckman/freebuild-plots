@@ -67,6 +67,22 @@ if (!var id > 0) {
   resetInventory
   pause 30
 
+  chat &7
+  chat "&2&m---&a &oCreative &2&oPlots&2 &m------------------------------"
+  chat "&fWelcome to this unique &a&lFREEBUILD&f project!"
+  chat "&fIn this &6house&f you can claim your own &e30x30&f &a&oPlot&f to build on."
+  chat "&fYou can &eTrust&f others to build on your &a&oPlot&f using &e/ptrust&f."
+  chat "&fNobody else can &cgrief&f your space, how hard they may try!"
+  chat &8
+  chat "&a&lCLAIMING A PLOT"
+  chat "&fJust do &e/pauto&f to claim a plot."
+  chat "&fYou can easily teleport to your plot using &e/phome&f."
+  chat "&fUse the &a&oCreative &2&oMenu&f for more features."
+  chat &9
+  chat "&c&lDISCLAIMER"
+  chat "&c&l⎜ &fCheck &b/info&f to prevent getting &c&lBANNED&f."
+  chat "&2&m------------------------------------------------"
+
   title "&a&oCreative &2&oPlots" "&e&lWELCOME" 0 2 1
   
   // Make sure new players their inventory is correct

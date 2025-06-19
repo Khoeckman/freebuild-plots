@@ -2,6 +2,8 @@
 // resetInventory
 // giveItem "PlotsCookie" false 4 true
 
+removeItem "PlotsMenu64"
+
 if (hasGroup "Dev" true) {
   giveItem "PlotsMenu" true 7 true
   giveItem "HousingMenu" true 8 true
