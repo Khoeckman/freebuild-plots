@@ -97,3 +97,16 @@ if (!var id > 0) {
 // All code below is delayed 30 ticks (like the title in the if above)!
 
 sound "Level Up" 0.7 1.0 invokers_location
+
+// Let only Admins know whether the house is open or closed
+if (!hasGroup "Admin" true) {
+  exit
+}
+
+if (!globalvar lockdown > 0) {
+  chat "&6&lWARNING &eThe house in currently &a&lOPEN&e."
+  sound "Note Pling" 1.0 2.0 invokers_location
+} else {
+  chat "&6&lWARNING &eThe house in currently &a&lCLOSED&e."
+  sound "Note Pling" 1.0 2.0 invokers_location
+}
