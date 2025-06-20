@@ -1,11 +1,9 @@
 // Init: homePrefix
 // Input: id, homeAddr
 
-// @temp condOr
+// @temp hasHome
 
 function "Spawn"
-
-var inShared unset
 
 // Make bots invisible
 if (hasGroup "Staff") {
@@ -29,25 +27,26 @@ if (!hasGroup "Banned") {
 }
 // </>
 
-var condOr unset
+var hasHome unset
 
+// If player has a home
 if or (var homeAddr > 0, var hasMultiple == 1) {
-  var condOr = 1
+  var hasHome = 1
 }
 
 // Send player online event
-if (var condOr == 1) {
+if (var hasHome == 1) {
   globalvar targetId unset
   globalvar targetAddr unset
   globalvar targetPlotId = var id
 }
 
-if (var condOr == 1, !globalvar plotSyncHyper == 1) {
+if (var hasHome == 1, !globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
   function "Plot sync" true
 }
 
-if (var condOr == 1, globalvar plotSyncHyper == 1) {
+if (var hasHome == 1, globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }
@@ -98,15 +97,14 @@ if (!var id > 0) {
 
 sound "Level Up" 0.7 1.0 invokers_location
 
-// Let only Admins know whether the house is open or closed
-if (!hasGroup "Admin" true) {
+if (globalvar lockdown == 1) {
+  chat "&6&lWARNING &a&oCreative &2&oplots&e is currently &c&lCLOSED&e."
+  sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
-if (!globalvar lockdown > 0) {
-  chat "&6&lWARNING &eThe house in currently &a&lOPEN&e."
-  sound "Note Pling" 1.0 2.0 invokers_location
-} else {
-  chat "&6&lWARNING &eThe house in currently &a&lCLOSED&e."
+// Let only Admins know whether the house is open or closed
+if (hasGroup "Admin" true, !globalvar lockdown > 0) {
+  chat "&6&lWARNING &a&oCreative &2&oplots&e is currently &a&lOPEN&e."
   sound "Note Pling" 1.0 2.0 invokers_location
 }

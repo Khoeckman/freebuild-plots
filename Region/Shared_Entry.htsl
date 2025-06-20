@@ -1,5 +1,3 @@
-var inShared = 1
-
 if (!globalvar lockdown > 0, !var banUnix > 0, !hasGroup "Staff" true) {
   changePlayerGroup "Build" false
 }

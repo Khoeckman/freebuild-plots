@@ -6,7 +6,7 @@ globalvar houseGroupTag = %player.group.tag%
 globalvar houseGroup = %player.group.name%
 function "Quit" true
 
-// Send player offline event if they have a home
+// If player is homeless
 if (!var homeAddr > 0, !var hasMultiple > 0) {
   exit
 }
@@ -25,6 +25,7 @@ if (var cd == 1) {
   function "Plot upload"
 }
 
+// Send player offline event if they have a home
 globalvar targetId unset
 globalvar targetAddr unset
 globalvar targetPlotId = var id

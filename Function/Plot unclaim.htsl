@@ -6,6 +6,12 @@ if (!var homeAddr > 0) {
   exit
 }
 
+if (globalvar lockdown == 1, !hasGroup "Admin" true) {
+  chat "&cYou cannot unclaim your home while &a&oCreative &2&oplots&c is &c&lCLOSED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 var plotAddr = var homeAddr
 var cd = 0
 function "Plot download"
@@ -18,6 +24,7 @@ if (var cd == 0) {
   exit
 }
 
+ // {homeAddr} is no longer owned by {id}
 if (!var plotId == var id) {
   chat "&cYou must own a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
@@ -33,6 +40,7 @@ if (!var permission >= var plotProtect 0 0) {
   exit
 }
 
+// Player has an unclaim cooldown
 if (var unclaimCd > 0, !hasGroup "Staff" true) {
   var seconds = var unclaimCd
   function "Seconds to HMS"
@@ -65,6 +73,8 @@ chat &7
 chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"
 chat "&fYou unclaimed &a&oPlot &b&o#%var.player/plotAddr%&f."
 chat "&2&m------------------------------------------------"
+
+title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lUNCLAIMED" 1 2 1
 
 sound "Explode" 0.7 1.0 invokers_location
 

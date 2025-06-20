@@ -20,7 +20,7 @@ var plotProtectStr unset
 var plotOnlineStr unset
 
 // If player should not change group
-if or (var inShared == 1, var banUnix > 0, hasGroup "Staff" true) {
+if or (var banUnix > 0, hasGroup "Staff" true, inRegion "Shared") {
   exit
 }
 

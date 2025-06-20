@@ -34,6 +34,12 @@ if (var plotAddr > globalvar maxPlotAddr) {
   exit
 }
 
+if (globalvar lockdown == 1, !hasGroup "Admin" true) {
+  chat "&cYou cannot claim a plot while &a&oCreative &2&oplots&c is &c&lCLOSED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 // Download the plot the player is trying to claim
 var cd = 0
 function "Plot download"
@@ -125,6 +131,8 @@ chat "&c&lDISCLAIMER"
 chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.player/minutes% minutes&f of"
 chat "&c&l⎜ &fyou being &coffline&f."
 chat "&2&m------------------------------------------------"
+
+title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lCLAIMED" 1 2 1
 
 sound "Level Up" 0.7 1.0 invokers_location
 
