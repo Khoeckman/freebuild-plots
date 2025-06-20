@@ -2,6 +2,9 @@
 
 function "Ban sync"
 
+// ms
+var playtime += 1000
+
 // Count down
 if (var unclaimCd > 1) {
   var unclaimCd -= 1

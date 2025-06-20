@@ -86,6 +86,8 @@ if (var cd == 0) {
   exit
 }
 
+var plotMenuQ = 1
+
 globalvar targetId unset
 globalvar targetAddr = var plotAddr
 globalvar targetPlotId unset
