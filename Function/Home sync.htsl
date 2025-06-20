@@ -7,6 +7,11 @@ if (!var homeSyncQ > 0) {
 
 var homeSyncQ unset
 
+// If player is homeless
+if (!var homeAddr > 0) {
+  exit
+}
+
 var plotAddr = var homeAddr
 var cd = 0
 function "Plot download"
@@ -17,10 +22,13 @@ if (var cd == 0) {
   exit
 }
 
-if (!var plotId == var id) {
-  title "&a&oPlot &b&o#%var.player/homeAddr%" "&c&lLOST" 1 2 1
-  sound "Explode" 0.7 1.0 invokers_location
-
-  var homeAddr unset
-  var homePrefix unset
+// Player still owns plot{homeAddr}
+if (var plotId == var id) {
+  exit
 }
+
+title "&a&oPlot &b&o#%var.player/homeAddr%" "&c&lLOST" 1 2 1
+sound "Explode" 0.7 1.0 invokers_location
+
+var homeAddr unset
+var homePrefix unset

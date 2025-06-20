@@ -34,4 +34,5 @@ var banReason unset
 
 // Remind 'em
 pause 60
+sound "Click" 0.7 1.0 invokers_location
 displayMenu "Rules"

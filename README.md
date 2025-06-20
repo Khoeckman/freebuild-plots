@@ -45,9 +45,13 @@ rated (byte) [0] - The amount of plots a player rated this hour, may not exceed 
 banSeconds (int) - Amount of seconds a player is soft-banned
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 banCount (byte) [0] - The amount of times the player got banned
-unclaimCd (short) [1800] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
-groupStr (string) - Stored group tag for chat feedback
 hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
+
+unclaimCd (short | unset) [#{unclaimCd}] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
+unclaimCdH (short | unset) - formatted hours
+unclaimCdM (short | unset) - formatted minutes
+unclaimCdS (short | unset) - formatted seconds
+unclaimCdActive (&a | unset) [&7] - Color code based on whether the cooldown is active, lime for active, gray for inactive
 
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
@@ -152,8 +156,9 @@ plotEndY (254)
 plotEndZ (139)
 
 maxPlotAddr (98)
-exprBuffer (600) - Amount of seconds until a player can claim another (offline) player's plot.
 maxRated (10) - The amount of plots players can rate per hour
+exprBuffer (600) - Amount of seconds being offline until another player can claim their plot.
+exprBufferM (10) - Amount of minutes being offline until another player can claim their plot.
 
 plotSyncHyper (1 | unset) - Index of {Plot sync} function that should be used next. Rotate value around 0-1.
 unclaimCd (short) - The number of seconds a player must wait before they can unclaim a plot again

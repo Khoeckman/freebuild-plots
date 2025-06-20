@@ -1,6 +1,6 @@
 // @temp blist
 
-if (hasGroup "Staff" true) {
+if or (hasGroup "Banned", hasGroup "Staff" true) {
   exit
 }
 

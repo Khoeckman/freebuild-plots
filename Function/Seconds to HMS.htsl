@@ -7,15 +7,13 @@ if (var seconds < 0) {
 
 var temp = var seconds
 var temp /= 60
-var temp *= 60
+var m = var temp
 
+var temp *= 60
 var s = var seconds
 var s -= var temp
 
-var temp /= 60
-var m = var temp
-
-var temp /= 60
+var temp /= 3600
 var h = var temp
 
 var temp *= 60
