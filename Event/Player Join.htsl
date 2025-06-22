@@ -59,7 +59,9 @@ globalvar houseVersion = %player.version%
 if (!var id > 0) {
   globalvar unique += 1
   var id = globalvar unique
-  function "First join" true
+  
+  globalvar bcReason = 1
+  function "Broadcast" true
 
   var nvn = 1
   var nvnStr = "&a&lENABLED"
@@ -87,7 +89,9 @@ if (!var id > 0) {
   // Make sure new players their inventory is correct
   function "Default inventory"
 } else {
-  function "Join" true
+  globalvar bcReason = 2
+  function "Broadcast" true
+
   pause 30
 
   title "&a&oCreative &2&oPlots" "&e&lWELCOME BACK" 0 2 1

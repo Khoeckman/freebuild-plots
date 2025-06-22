@@ -4,7 +4,7 @@ var homeSyncQ = 1
 globalvar reqIgn = %player.name%
 globalvar houseGroupTag = %player.group.tag%
 globalvar houseGroup = %player.group.name%
-function "Quit" true
+function "Player quit" true
 
 // If player is homeless
 if (!var homeAddr > 0, !var hasMultiple > 0) {

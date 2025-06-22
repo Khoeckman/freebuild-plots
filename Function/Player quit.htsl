@@ -15,31 +15,26 @@ pause 4
 gamemode "creative"
 
 pause 4
-
 if () {
   gamemode "creative"
 }
 
 pause 4
-
 if () {
   gamemode "creative"
 }
 
 pause 4
-
 if () {
   gamemode "creative"
 }
 
 pause 4
-
 if () {
   gamemode "creative"
 }
 
 pause 20
-
 if () {
   gamemode "creative"
 }

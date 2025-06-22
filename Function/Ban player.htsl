@@ -29,8 +29,14 @@ chat "&4&m------------------------------------------------"
 title "&4&lBANNED" "&c%var.player/banReason%" 0 3 1
 sound "Explode" 0.7 1.0 invokers_location
 
+globalvar reqIgn = %player.name%
+globalvar bcReason = 1001
+globalvar banReason = var banReason
+function "Broadcast" true
+
 // gc
 var banReason unset
+globalvar banReason unset
 
 // Remind 'em
 pause 60

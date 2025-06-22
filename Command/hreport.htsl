@@ -1,0 +1,7 @@
+// @targeted
+
+// @todo get xyz of player + who reported, group-prio has been set to 15 temp
+
+globalvar reqIgn = %player.name%
+globalvar bcReason = 1002
+function "Broadcast" true

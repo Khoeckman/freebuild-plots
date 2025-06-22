@@ -1,6 +1,8 @@
-if (!hasGroup "Staff" true) {
+if (!hasGroup "Mod" true) {
   changePlayerGroup "Mod"
-  // @todo @broadcast make staff-broadcast
-  chat "&c&lSTAFF &8/ &aYou have been added to the staff team."
   function "Default inventory"
+
+  globalvar reqIgn = %player.name%
+  globalvar bcReason = 1010
+  function "Broadcast" true
 }

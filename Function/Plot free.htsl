@@ -50,3 +50,8 @@ if (!globalvar plotSyncHyper == 1) {
 }
 
 function "Home unset" true
+
+globalvar reqIgn = %player.name%
+globalvar bcReason = 1003
+globalvar plotAddr = var plotAddr
+function "Broadcast" true

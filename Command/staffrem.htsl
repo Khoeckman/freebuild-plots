@@ -1,7 +1,9 @@
-if (hasGroup "Staff" true) {
+if (hasGroup "Staff" true, !hasGroup "Admin" true) {
   var oldInAddr unset
   changePlayerGroup "Visitor" false
-  // @todo @broadcast make staff-broadcast
-  chat "&c&lSTAFF &8/ &cYou have been removed from the staff team."
   function "Default inventory"
+
+  globalvar reqIgn = %player.name%
+  globalvar bcReason = 1011
+  function "Broadcast" true
 }
