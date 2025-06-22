@@ -19,13 +19,13 @@ resetInventory
 giveItem "PlotsCookie" false 4 true
 function "Default inventory"
 
-// <Event: Group Change>
+// @mixin Event: Group Change
 function "Group permission"
 
 if (!hasGroup "Banned") {
   gamemode "Creative"
 }
-// </>
+// @endmixin
 
 var hasHome unset
 
@@ -101,9 +101,11 @@ if (!var id > 0) {
 
 sound "Level Up" 0.7 1.0 invokers_location
 
+pause 30
+
 if (globalvar lockdown == 1) {
   chat "&6&lWARNING &a&oCreative &2&oplots&e is currently &c&lCLOSED&e."
-  sound "Anvil Land" 0.3 1.0 invokers_location
+  sound "Note Pling" 1.0 2.0 invokers_location
   exit
 }
 

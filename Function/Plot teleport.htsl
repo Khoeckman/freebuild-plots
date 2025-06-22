@@ -16,7 +16,7 @@ var addr -= 1
 var dividend = var addr
 var divisor = globalvar plotGridSize
 
-// <Modulo>
+// @mixin Modulo
 // Input: dividend, divisor
 // Output: remainder
 
@@ -25,7 +25,7 @@ var diff = var dividend
 var diff /= var divisor
 var diff *= var divisor
 var remainder -= var diff
-// </Modulo>
+// @endmixin
 
 var x = var remainder
 
@@ -39,7 +39,7 @@ var dividend = var addr
 var dividend /= globalvar plotGridSize
 var divisor = globalvar plotGridSize
 
-// <Modulo>
+// @mixin Modulo
 // Input: dividend, divisor
 // Output: remainder
 
@@ -48,7 +48,7 @@ var diff = var dividend
 var diff /= var divisor
 var diff *= var divisor
 var remainder -= var diff
-// </Modulo>
+// @endmixin
 
 var z = var remainder
 
