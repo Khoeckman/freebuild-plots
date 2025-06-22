@@ -55,11 +55,13 @@ if (var cd == 0) {
 
 if (var settingStr == "Building", var selected == var plotBuild) {
   chat "&c%var.player/settingStr% is already set to %var.player/selectedStr%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 
 if (var settingStr == "Protection", var selected == var plotProtect) {
   chat "&c%var.player/settingStr% is already set to %var.player/selectedStr%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
 

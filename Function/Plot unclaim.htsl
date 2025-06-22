@@ -75,7 +75,6 @@ chat "&fYou unclaimed &a&oPlot &b&o#%var.player/plotAddr%&f."
 chat "&2&m------------------------------------------------"
 
 title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lUNCLAIMED" 1 2 1
-
 sound "Explode" 0.7 1.0 invokers_location
 
 globalvar targetId unset

@@ -1,0 +1,21 @@
+if (!var inId == var id) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var inAddr == var homeAddr) {
+  chat "&a&oPlot &b&o#%var.player/inAddr%&c is already set as your home."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Set home
+var homeAddr = var inAddr
+var homePrefix = "&a&oPlot &b&o#"
+
+chat "&aYou set &a&oPlot &b&o#%var.player/homeAddr%&a as your home."
+
+sound "Level Up" 0.7 1.0 invokers_location
+
+var homeSyncQ = 1
