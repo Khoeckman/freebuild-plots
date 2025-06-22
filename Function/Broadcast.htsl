@@ -19,6 +19,11 @@ if (globalvar bcReason >= 1000, !hasGroup "Mod" true) {
   exit
 }
 
+if (globalvar bcReason == 1000) {
+  chat "&c&l« %var.global/houseGroupTag% &b%var.global/reqIgn%&f quit."
+  exit
+}
+
 chat &7
 
 if (globalvar bcReason >= 1000) {
@@ -54,11 +59,11 @@ if (globalvar bcReason == 1003) {
 }
 
 if (globalvar bcReason == 1010) {
-  chat "&b%var.global/reqIgn%&f was added to the staff team."
+  chat "&b%var.global/reqIgn%&f was &a&lADDED&f to the staff team. &a&l&oWELCOME"
 }
 
 if (globalvar bcReason == 1011) {
-  chat "&b%var.global/reqIgn%&f was removed from the staff team."
+  chat "&b%var.global/reqIgn%&f was &c&lREMOVED&f from the staff team."
 }
 
 if (globalvar bcReason >= 1000) {

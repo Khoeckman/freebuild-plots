@@ -1,10 +1,17 @@
 // Check if the player still owns their home when they return
 var homeSyncQ = 1
 
+var groupStr = %player.group.name%
+
+if (var groupStr == "Owner") {
+  function "Owner join or leave" true
+}
+
 globalvar reqIgn = %player.name%
 globalvar houseGroupTag = %player.group.tag%
-globalvar houseGroup = %player.group.name%
-function "Player quit" true
+
+globalvar bcReason = 1000
+function "Broadcast" true
 
 // If player is homeless
 if (!var homeAddr > 0, !var hasMultiple > 0) {

@@ -41,11 +41,11 @@ ppcd = Post-processed
 id (number) - Id of the player, mainly used to check if they are new. Might be used in the future
 cd (bool) - Check if a function is on cd by setting to 0 and calling a function which should set it to 1. And checking if its 1 after
 permission (byte) - Permission level of the player used to compare against the protection level of a plot
-rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #{maxRated}
+hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
+
 banSeconds (int) - Amount of seconds a player is soft-banned
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 banCount (byte) [0] - The amount of times the player got banned
-hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
 
 unclaimCd (short | unset) [#{unclaimCd}] - Amount of seconds until a player can unclaim their home. Is set to #{unClaimCd} when claiming a plot
 unclaimCdH (short | unset) - formatted hours
@@ -70,12 +70,14 @@ plotBuildStr (String) [&cNone] - Name of the build setting (ppcd)
 plotProtect (byte) - (0, 1, 2, 3, 4) = (Off, Low, Medium, High, Extreme) - Protection level (bitpacked)
 plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
 plotPermStr (string) [&e[STAFF]] - Required group tag to change the protection setting (ppcd)
-plotOnline (bool) - (-1, 0, 1) = (Offline, Unknown, Online) - Whether the owner of the plot is online. When it is `unknown`: disallow claiming the plot and building (ppcd-async)
+plotOnline (byte) - (-1, 0, 1) = (Offline, Unknown, Online) - Is the owner of the plot online. When value is `unknown`: disallow claiming the plot and building (ppcd-async)
 plotOnlineStr (string) [&c&lOFFLINE] - OFFLINE or ONLINE
-plotTrusted (bool) - (0, 1) = (No, Yes) - Are you trusted on this plot (ppcd-async)
+plotTrusted (1 | unset) - Are you trusted on this plot (ppcd-async)
 plotPoints (short) [0] - Total points of the plot
 plotRated (short) - Total amount of players that rated the plot (all time)
 plotRating (float) - plotPoints / plotRated (ppcd)
+
+rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #{maxRated}
 
 // Plot the player is in
 inAddr (byte | unset)
@@ -117,6 +119,7 @@ lockdown (bool) - Prevent anyone (below staff) from building
 reqId (id) - ID of event requestor (dispatch)
 resId (id | unset) ['&cNone'] - ID of event responder (callback)
 targetId (id) - ID of event target (handler)
+targetPlotId (id) - {inId} of event target (handler)
 
 reqIgn (string) - IGN of event requestor (dispatch)
 resIgn (string | unset) ['&cNone'] - IGN of event responder (callback)

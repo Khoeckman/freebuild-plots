@@ -1,4 +1,4 @@
-// @global
+// @global @hyper 2
 // Event input: targetId, targetAddr, targetPlotId
 // Output: oldInAddr
 

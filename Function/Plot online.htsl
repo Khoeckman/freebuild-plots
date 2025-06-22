@@ -1,0 +1,33 @@
+// @extends Plot postprocess
+// Input: plotId
+// Output plotOnline
+
+// The owner is logically online if the player is the owner
+if (var plotId == var id) {
+  var plotOnline = 1
+  exit
+}
+
+var plotOnline = 0
+
+globalvar targetId = var plotId
+globalvar online = -1
+
+if (!globalvar plotOnlineHyper > 0) {
+  globalvar plotOnlineHyper = 1
+  function "Player online" true
+}
+
+if (globalvar plotOnlineHyper == 1) {
+  globalvar plotOnlineHyper = 2
+  function "Player online 2" true
+}
+
+if (globalvar plotOnlineHyper == 2) {
+  globalvar plotOnlineHyper = 3
+  function "Player online 3" true
+} else {
+  globalvar plotOnlineHyper unset
+  function "Player online 4" true
+}
+var plotOnline = globalvar online

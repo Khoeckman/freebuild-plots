@@ -1,7 +1,7 @@
 // Init: homePrefix
 // Input: id, homeAddr
 
-// @temp hasHome
+// @temp hasHome, groupStr
 
 function "Spawn"
 
@@ -49,6 +49,12 @@ if (var hasHome == 1, !globalvar plotSyncHyper == 1) {
 if (var hasHome == 1, globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
+}
+
+var groupStr = %player.group.name%
+
+if (var groupStr == "Owner") {
+  function "Owner join or leave" true
 }
 
 // Join message

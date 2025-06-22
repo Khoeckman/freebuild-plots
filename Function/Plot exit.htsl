@@ -14,10 +14,10 @@ if or (var inAddr > 0, !var oldInAddr > 0) {
 var oldInAddr unset
 
 // Reset necessary vars
-var plotId unset
-var plotBuildStr unset
-var plotProtectStr unset
-var plotOnlineStr unset
+var inId unset
+var inBuildStr unset
+var inProtectStr unset
+var inOnlineStr unset
 
 // If player should not change group
 if or (var banUnix > 0, hasGroup "Staff" true, inRegion "Shared") {

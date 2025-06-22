@@ -52,6 +52,13 @@ if (var cd == 0) {
   exit
 }
 
+// If "Player online" is on CD
+if (var plotOnline == 0) {
+  chat "&6&lTRY AGAIN &eSomeone else used this function within the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 // Not enough permissions
 if (!var permission >= var plotProtect 0 0) {
   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."

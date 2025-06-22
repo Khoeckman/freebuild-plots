@@ -56,27 +56,10 @@ var rest /= 10
 var plotBuild = var rest
 
 // Online - Skip checking if they are the owner
-var plotOnline = 0
-
-if (var plotId == var id) {
-  var plotOnline = 1
-} else {
-  globalvar targetId = var plotId
-  globalvar online = -1
-  // @todo handle possible function CD error
-  function "Player online" true
-  var plotOnline = globalvar online
-}
+function "Plot online"
 
 // Trusted - Skip checking if they are the owner or staff
-if (var plotBuild > 0, !var plotId == var id, !hasGroup "Staff" true) {
-  globalvar reqId = var id
-  // globalvar targetId = var plotId
-  globalvar trusted unset
-  // @todo handle possible function CD error
-  function "Player on trusted list" true
-  var plotTrusted = globalvar trusted
-}
+function "Plot trusted"
 
 // Calculate rating
 // {plotPoints} may not be ""

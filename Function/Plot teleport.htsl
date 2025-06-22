@@ -12,7 +12,7 @@ if or (!var plotAddr > 0, var plotAddr > globalvar maxPlotAddr -1 0) {
 var addr = var plotAddr
 var addr -= 1
 
-// Row (X) - addr % plotGridSize
+// Row {x} - addr % plotGridSize
 var dividend = var addr
 var divisor = globalvar plotGridSize
 
@@ -29,11 +29,11 @@ var remainder -= var diff
 
 var x = var remainder
 
-// Layer (Y) - addr // plotLayerSize
+// Layer {y} - addr // plotLayerSize
 var y = var addr
 var y /= globalvar plotLayerSize
 
-// Col (Z) - (addr // plotGridSize) % plotGridSize
+// Col {z} - (addr // plotGridSize) % plotGridSize
 
 var dividend = var addr
 var dividend /= globalvar plotGridSize
@@ -56,6 +56,7 @@ var z = var remainder
 if () {
   var x *= globalvar plotXZPlusGap
   var x += globalvar plotStartX
+  // Teleport the player in the X-axis middle of his home
   var temp = %var.global/plotXZ%D
   var temp /= 2.0
   var x = %var.player/x%D
