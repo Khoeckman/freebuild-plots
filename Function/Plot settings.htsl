@@ -21,7 +21,7 @@ if (!var permission >= var inProtect 0 0) {
 }
 
 if (var settingStr == "Protection", !hasGroup "Mod" true) {
-  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to apply this setting."
+  chat "&cYou must be at least &e[STAFF]&c to change the protection setting of a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
