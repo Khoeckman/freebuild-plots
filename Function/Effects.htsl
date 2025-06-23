@@ -39,5 +39,5 @@ if or (var inSpawn == 1, var invis == 1) {
 
 // Ban from participating in PvP
 if (var banUnix > 0) {
-  applyPotion "Weakness" 1 10 true
+  applyPotion "Weakness" 30 10
 }

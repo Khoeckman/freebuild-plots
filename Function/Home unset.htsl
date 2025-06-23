@@ -7,4 +7,6 @@ if or (globalvar targetAddr == -1, globalvar targetAddr == var homeAddr) {
   
   var homeAddr unset
   var homePrefix unset
+  var homeRated unset
+  var homeRating unset
 }

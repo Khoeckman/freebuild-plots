@@ -63,7 +63,7 @@ if () {
   var x += %var.player/temp%D
 
   var y *= globalvar plotYPlusGap
-  var y = globalvar plotStartY
+  var y += globalvar plotStartY
   var y += globalvar plotGroundY
 
   var z *= globalvar plotXZPlusGap

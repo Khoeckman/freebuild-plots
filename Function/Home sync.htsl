@@ -22,7 +22,7 @@ if (var cd == 0) {
   exit
 }
 
-// Player still owns plot{homeAddr}
+// Player still owns {homeAddr}
 if (var plotId == var id) {
   exit
 }
@@ -32,3 +32,5 @@ sound "Explode" 0.7 1.0 invokers_location
 
 var homeAddr unset
 var homePrefix unset
+var homeRated unset
+var homeRating unset

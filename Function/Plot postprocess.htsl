@@ -74,6 +74,12 @@ if (!var plotRated > 0) {
   var plotRating /= %var.player/plotRated%D
 }
 
+// Sync home data
+if (var plotAddr == var homeAddr) {
+  var homeRated = var plotRated 0 true
+  var homeRating = var plotRating 0 true
+}
+
 // Online status
 var plotOnlineStr unset
 

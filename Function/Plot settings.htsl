@@ -75,8 +75,6 @@ if (var settingStr == "Protection") {
   var plotProtectStr = var selectedStr
 }
 
-chat "&aYou updated &oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
-
 var cd = 0
 function "Plot preprocess"
 function "Plot upload"
@@ -87,6 +85,9 @@ if (var cd == 0) {
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
+
+chat "&aYou updated &oPlot &b&o#%var.player/plotAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
+sound "Click" 0.7 1.0 invokers_location
 
 var plotMenuQ = 1
 

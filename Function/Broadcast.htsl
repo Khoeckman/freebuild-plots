@@ -46,7 +46,7 @@ if (globalvar bcReason == 11) {
 
 if (globalvar bcReason == 1001) {
   chat "&b%var.global/reqIgn%&f was &c&lBANNED&f."
-  chat "Reason: &e%var.player/banReason%"
+  chat "Reason: &e%var.global/banReason%"
 }
 
 if (globalvar bcReason == 1002) {

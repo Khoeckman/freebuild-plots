@@ -1,0 +1,70 @@
+// Input: inAddr, points, ratingStr
+
+if or (!var inAddr > 0, !var inId > 0) {
+  chat "&cYou must be inside an occupied plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var homeAddr == var plotAddr -1) {
+  chat "&cYou cannot rate your own plot."
+  sound "Pig Idle" 1.0 1.0 invokers_location
+  exit
+}
+
+var plotAddr = var inAddr
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+if (var plotId == var id) {
+  chat "&cYou cannot rate your own plot."
+  sound "Pig Idle" 1.0 1.0 invokers_location
+  exit
+}
+
+// If download is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var plotId == var id) {
+  chat "&cYou cannot rate your own plot."
+  sound "Pig Idle" 1.0 1.0 invokers_location
+  exit
+}
+
+var plotPoints += var points
+
+// Add one to the amount of player who rated this plot
+var plotRated += 1
+
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+chat "&aYou rated &oPlot &b&o#%var.player/plotAddr%&a. &fRating: %var.player/ratingStr%"
+sound "Level Up" 0.7 1.0 invokers_location
+
+globalvar targetId = var plotId
+globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
+globalvar targetHome = 1
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+globalvar targetHome unset

@@ -12,4 +12,8 @@ if (hasGroup "Staff") {
   // @todo convert #{reqAddr} to <x1, y1, z1> <x2, y2, z2>
   chat "&6&lRESET &ereqId: %var.global/reqId% reqAddr: %var.global/reqAddr%"
   chat ">>copypaste x1 y1 z1 x2 y2 z2 x3 y3 z3"
+
+/* >>copypaste x1 y1 z1 x2 y2 z2 x3 y3 z3
+>>set x1 y1 z1 x2 y2 z2 <block id>
+>>cut x1 y1 z1 x2 y2 z2 */
 }

@@ -2,10 +2,6 @@
 
 A Hypixel Housing project. By Khoeckman x Legendary Games.
 
-## Todo
-
-The value provided is not a number when benson claimed a plo for the first time after joining
-
 ## Flags
 
 @global - Function is always executed for everyone
@@ -77,8 +73,6 @@ plotPoints (short) [0] - Total points of the plot
 plotRated (short) - Total amount of players that rated the plot (all time)
 plotRating (float) - plotPoints / plotRated (ppcd)
 
-rated (byte) [0] - The amount of plots a player rated this hour, may not exceed #{maxRated}
-
 // Plot the player is in
 inAddr (byte | unset)
 oldInAddr (byte) - Set to {inAddr} when Func{Plot entry} downloads the data the plot the player is in
@@ -91,14 +85,13 @@ inShared (1 | unset) - Is 1 when the player is inside the `Shared` region.
 homeSyncQ (1 | unset) - Queue checking wether the player still owns {plotAddr}
 homeAddr (byte | unset)
 homePrefix (string | unset) [&c&oNone] - Text for before the index eg. "&a&oPlot &b&o#" (ppcd)
-homePoints (number) - @todo sync in Func{Plot claim}
-homeRated (byte) [0] - @todo sync in Func{Plot claim}
-homeRating (float) ['0.000'] - @todo sync in Func{Plot claim}
+homeRated (byte) [0]
+homeRating (float) ['0.000']
 
-plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` after updating a setting.
+plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` menu after updating a setting.
 settingStr (string) - (Building, Protection) - Name of the setting that changes
-selected (byte) - The value to be assigned to {setting}
-selectedStr (string) - The name of the value to be assigned to {setting}
+selected (byte) - The value to be assigned to {plotSettings}
+selectedStr (string) - The name of the value to be assigned to {plotSettings}
 menuBuild0 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Private
 menuBuild1 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Trusted
 menuBuild2 (&eClick to select | unset) [&eClick to select] - Whether the plot build setting is: Public
@@ -108,6 +101,8 @@ menuProtect2 (&eClick to select | unset) [&eClick to select] - Whether the plot 
 menuProtect3 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: High
 menuProtect4 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Extreme
 
+points (byte) - Amount of points the player gave. To be added to {plotPoints}. {plotRated} increases with 1
+ratingStr (string) - Name of the rating the player gave
 trustAddr (byte) - Trust register address
 trust#Id (short | unset) - Trusted ID (# = register 1 trough 5)
 trust#Ign (string | unset) ['&cNone'] - Trusted IGN (# = register 1 trough 5)
@@ -119,7 +114,9 @@ lockdown (bool) - Prevent anyone (below staff) from building
 reqId (id) - ID of event requestor (dispatch)
 resId (id | unset) ['&cNone'] - ID of event responder (callback)
 targetId (id) - ID of event target (handler)
+targetAddr (byte) - {inAddr} of event target (handler)
 targetPlotId (id) - {inId} of event target (handler)
+targetHome (1 | unset) - Sync {homeAddr} of event target instead of {inAddr}
 
 reqIgn (string) - IGN of event requestor (dispatch)
 resIgn (string | unset) ['&cNone'] - IGN of event responder (callback)
@@ -159,7 +156,6 @@ plotEndY (254)
 plotEndZ (139)
 
 maxPlotAddr (98)
-maxRated (10) - The amount of plots players can rate per hour
 exprBuffer (600) - Amount of seconds being offline until another player can claim their plot.
 exprBufferM (10) - Amount of minutes being offline until another player can claim their plot.
 
@@ -181,6 +177,10 @@ c_pclaim (short) - Use count of "/pclaim"
 y=1.1x^{1.5}
 x = minutes built on plot
 y = minutes to keep plot after offline
+
+### Discord invite link to LG
+
+https://discord.gg/jFtGfAnY8P
 
 ### Mail
 
