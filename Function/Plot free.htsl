@@ -22,7 +22,6 @@ if (!var permission >= var inProtect 0 0) {
 var plotAddr = var inAddr
 // Erase plot data
 var plotId unset
-
 var cd = 0
 function "Plot preprocess"
 function "Plot upload"

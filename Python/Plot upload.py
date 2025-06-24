@@ -2,7 +2,7 @@ from math import ceil
 
 output_file = "output.htsl"
 plots_per_function = 14
-plots = 98
+plots = 7*7*3
 functions = ceil(plots / plots_per_function)
 
 def nested_loop(funcIdx):

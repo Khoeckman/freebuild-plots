@@ -22,9 +22,7 @@ if (!var permission >= var inProtect 0 0) {
 
 globalvar reqId = var id
 globalvar reqAddr = var inAddr
-
 var cd = 0
-
 function "Send plot reset" true
 
 // If function is on CD

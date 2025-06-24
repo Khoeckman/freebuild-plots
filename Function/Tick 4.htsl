@@ -24,3 +24,8 @@ if (placeholder %player.pos.y% < -6) {
 if (gamemode "Survival", !hasGroup "Staff" true) {
   gamemode "Adventure"
 }
+
+// Check if player clicked on the Creative Menu from his inventory
+if (!hasItem "PlotsMenu" Metadata Hotbar "Any Amount") {
+  function "Menu open"
+}

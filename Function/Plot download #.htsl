@@ -816,6 +816,11 @@ if (var plotAddr == 84) {
 
 goto function "Plot download 7"
 
+if (var plotAddr > 98) {
+  function "Plot download 8"
+  exit
+}
+
 if (var plotAddr == 85) {
   var plotId = globalvar p85Id
   var plotIgn = globalvar p85Ign
@@ -940,5 +945,477 @@ if (var plotAddr == 98) {
   var plotSettings = globalvar p98Settings
   var plotPoints = globalvar p98Points
   var plotRated = globalvar p98Rated
+  exit
+}
+
+
+goto function "Plot download 8"
+
+if (var plotAddr > 112) {
+  function "Plot download 9"
+  exit
+}
+
+if (var plotAddr == 99) {
+  var plotId = globalvar p99Id
+  var plotIgn = globalvar p99Ign
+  var plotUnix = globalvar p99Unix
+  var plotSettings = globalvar p99Settings
+  var plotPoints = globalvar p99Points
+  var plotRated = globalvar p99Rated
+  exit
+}
+if (var plotAddr == 100) {
+  var plotId = globalvar p100Id
+  var plotIgn = globalvar p100Ign
+  var plotUnix = globalvar p100Unix
+  var plotSettings = globalvar p100Settings
+  var plotPoints = globalvar p100Points
+  var plotRated = globalvar p100Rated
+  exit
+}
+if (var plotAddr == 101) {
+  var plotId = globalvar p101Id
+  var plotIgn = globalvar p101Ign
+  var plotUnix = globalvar p101Unix
+  var plotSettings = globalvar p101Settings
+  var plotPoints = globalvar p101Points
+  var plotRated = globalvar p101Rated
+  exit
+}
+if (var plotAddr == 102) {
+  var plotId = globalvar p102Id
+  var plotIgn = globalvar p102Ign
+  var plotUnix = globalvar p102Unix
+  var plotSettings = globalvar p102Settings
+  var plotPoints = globalvar p102Points
+  var plotRated = globalvar p102Rated
+  exit
+}
+if (var plotAddr == 103) {
+  var plotId = globalvar p103Id
+  var plotIgn = globalvar p103Ign
+  var plotUnix = globalvar p103Unix
+  var plotSettings = globalvar p103Settings
+  var plotPoints = globalvar p103Points
+  var plotRated = globalvar p103Rated
+  exit
+}
+if (var plotAddr == 104) {
+  var plotId = globalvar p104Id
+  var plotIgn = globalvar p104Ign
+  var plotUnix = globalvar p104Unix
+  var plotSettings = globalvar p104Settings
+  var plotPoints = globalvar p104Points
+  var plotRated = globalvar p104Rated
+  exit
+}
+if (var plotAddr == 105) {
+  var plotId = globalvar p105Id
+  var plotIgn = globalvar p105Ign
+  var plotUnix = globalvar p105Unix
+  var plotSettings = globalvar p105Settings
+  var plotPoints = globalvar p105Points
+  var plotRated = globalvar p105Rated
+  exit
+}
+if (var plotAddr == 106) {
+  var plotId = globalvar p106Id
+  var plotIgn = globalvar p106Ign
+  var plotUnix = globalvar p106Unix
+  var plotSettings = globalvar p106Settings
+  var plotPoints = globalvar p106Points
+  var plotRated = globalvar p106Rated
+  exit
+}
+if (var plotAddr == 107) {
+  var plotId = globalvar p107Id
+  var plotIgn = globalvar p107Ign
+  var plotUnix = globalvar p107Unix
+  var plotSettings = globalvar p107Settings
+  var plotPoints = globalvar p107Points
+  var plotRated = globalvar p107Rated
+  exit
+}
+if (var plotAddr == 108) {
+  var plotId = globalvar p108Id
+  var plotIgn = globalvar p108Ign
+  var plotUnix = globalvar p108Unix
+  var plotSettings = globalvar p108Settings
+  var plotPoints = globalvar p108Points
+  var plotRated = globalvar p108Rated
+  exit
+}
+if (var plotAddr == 109) {
+  var plotId = globalvar p109Id
+  var plotIgn = globalvar p109Ign
+  var plotUnix = globalvar p109Unix
+  var plotSettings = globalvar p109Settings
+  var plotPoints = globalvar p109Points
+  var plotRated = globalvar p109Rated
+  exit
+}
+if (var plotAddr == 110) {
+  var plotId = globalvar p110Id
+  var plotIgn = globalvar p110Ign
+  var plotUnix = globalvar p110Unix
+  var plotSettings = globalvar p110Settings
+  var plotPoints = globalvar p110Points
+  var plotRated = globalvar p110Rated
+  exit
+}
+if (var plotAddr == 111) {
+  var plotId = globalvar p111Id
+  var plotIgn = globalvar p111Ign
+  var plotUnix = globalvar p111Unix
+  var plotSettings = globalvar p111Settings
+  var plotPoints = globalvar p111Points
+  var plotRated = globalvar p111Rated
+  exit
+}
+if (var plotAddr == 112) {
+  var plotId = globalvar p112Id
+  var plotIgn = globalvar p112Ign
+  var plotUnix = globalvar p112Unix
+  var plotSettings = globalvar p112Settings
+  var plotPoints = globalvar p112Points
+  var plotRated = globalvar p112Rated
+  exit
+}
+
+
+goto function "Plot download 9"
+
+if (var plotAddr > 126) {
+  function "Plot download 10"
+  exit
+}
+
+if (var plotAddr == 113) {
+  var plotId = globalvar p113Id
+  var plotIgn = globalvar p113Ign
+  var plotUnix = globalvar p113Unix
+  var plotSettings = globalvar p113Settings
+  var plotPoints = globalvar p113Points
+  var plotRated = globalvar p113Rated
+  exit
+}
+if (var plotAddr == 114) {
+  var plotId = globalvar p114Id
+  var plotIgn = globalvar p114Ign
+  var plotUnix = globalvar p114Unix
+  var plotSettings = globalvar p114Settings
+  var plotPoints = globalvar p114Points
+  var plotRated = globalvar p114Rated
+  exit
+}
+if (var plotAddr == 115) {
+  var plotId = globalvar p115Id
+  var plotIgn = globalvar p115Ign
+  var plotUnix = globalvar p115Unix
+  var plotSettings = globalvar p115Settings
+  var plotPoints = globalvar p115Points
+  var plotRated = globalvar p115Rated
+  exit
+}
+if (var plotAddr == 116) {
+  var plotId = globalvar p116Id
+  var plotIgn = globalvar p116Ign
+  var plotUnix = globalvar p116Unix
+  var plotSettings = globalvar p116Settings
+  var plotPoints = globalvar p116Points
+  var plotRated = globalvar p116Rated
+  exit
+}
+if (var plotAddr == 117) {
+  var plotId = globalvar p117Id
+  var plotIgn = globalvar p117Ign
+  var plotUnix = globalvar p117Unix
+  var plotSettings = globalvar p117Settings
+  var plotPoints = globalvar p117Points
+  var plotRated = globalvar p117Rated
+  exit
+}
+if (var plotAddr == 118) {
+  var plotId = globalvar p118Id
+  var plotIgn = globalvar p118Ign
+  var plotUnix = globalvar p118Unix
+  var plotSettings = globalvar p118Settings
+  var plotPoints = globalvar p118Points
+  var plotRated = globalvar p118Rated
+  exit
+}
+if (var plotAddr == 119) {
+  var plotId = globalvar p119Id
+  var plotIgn = globalvar p119Ign
+  var plotUnix = globalvar p119Unix
+  var plotSettings = globalvar p119Settings
+  var plotPoints = globalvar p119Points
+  var plotRated = globalvar p119Rated
+  exit
+}
+if (var plotAddr == 120) {
+  var plotId = globalvar p120Id
+  var plotIgn = globalvar p120Ign
+  var plotUnix = globalvar p120Unix
+  var plotSettings = globalvar p120Settings
+  var plotPoints = globalvar p120Points
+  var plotRated = globalvar p120Rated
+  exit
+}
+if (var plotAddr == 121) {
+  var plotId = globalvar p121Id
+  var plotIgn = globalvar p121Ign
+  var plotUnix = globalvar p121Unix
+  var plotSettings = globalvar p121Settings
+  var plotPoints = globalvar p121Points
+  var plotRated = globalvar p121Rated
+  exit
+}
+if (var plotAddr == 122) {
+  var plotId = globalvar p122Id
+  var plotIgn = globalvar p122Ign
+  var plotUnix = globalvar p122Unix
+  var plotSettings = globalvar p122Settings
+  var plotPoints = globalvar p122Points
+  var plotRated = globalvar p122Rated
+  exit
+}
+if (var plotAddr == 123) {
+  var plotId = globalvar p123Id
+  var plotIgn = globalvar p123Ign
+  var plotUnix = globalvar p123Unix
+  var plotSettings = globalvar p123Settings
+  var plotPoints = globalvar p123Points
+  var plotRated = globalvar p123Rated
+  exit
+}
+if (var plotAddr == 124) {
+  var plotId = globalvar p124Id
+  var plotIgn = globalvar p124Ign
+  var plotUnix = globalvar p124Unix
+  var plotSettings = globalvar p124Settings
+  var plotPoints = globalvar p124Points
+  var plotRated = globalvar p124Rated
+  exit
+}
+if (var plotAddr == 125) {
+  var plotId = globalvar p125Id
+  var plotIgn = globalvar p125Ign
+  var plotUnix = globalvar p125Unix
+  var plotSettings = globalvar p125Settings
+  var plotPoints = globalvar p125Points
+  var plotRated = globalvar p125Rated
+  exit
+}
+if (var plotAddr == 126) {
+  var plotId = globalvar p126Id
+  var plotIgn = globalvar p126Ign
+  var plotUnix = globalvar p126Unix
+  var plotSettings = globalvar p126Settings
+  var plotPoints = globalvar p126Points
+  var plotRated = globalvar p126Rated
+  exit
+}
+
+
+goto function "Plot download 10"
+
+if (var plotAddr > 140) {
+  function "Plot download 11"
+  exit
+}
+
+if (var plotAddr == 127) {
+  var plotId = globalvar p127Id
+  var plotIgn = globalvar p127Ign
+  var plotUnix = globalvar p127Unix
+  var plotSettings = globalvar p127Settings
+  var plotPoints = globalvar p127Points
+  var plotRated = globalvar p127Rated
+  exit
+}
+if (var plotAddr == 128) {
+  var plotId = globalvar p128Id
+  var plotIgn = globalvar p128Ign
+  var plotUnix = globalvar p128Unix
+  var plotSettings = globalvar p128Settings
+  var plotPoints = globalvar p128Points
+  var plotRated = globalvar p128Rated
+  exit
+}
+if (var plotAddr == 129) {
+  var plotId = globalvar p129Id
+  var plotIgn = globalvar p129Ign
+  var plotUnix = globalvar p129Unix
+  var plotSettings = globalvar p129Settings
+  var plotPoints = globalvar p129Points
+  var plotRated = globalvar p129Rated
+  exit
+}
+if (var plotAddr == 130) {
+  var plotId = globalvar p130Id
+  var plotIgn = globalvar p130Ign
+  var plotUnix = globalvar p130Unix
+  var plotSettings = globalvar p130Settings
+  var plotPoints = globalvar p130Points
+  var plotRated = globalvar p130Rated
+  exit
+}
+if (var plotAddr == 131) {
+  var plotId = globalvar p131Id
+  var plotIgn = globalvar p131Ign
+  var plotUnix = globalvar p131Unix
+  var plotSettings = globalvar p131Settings
+  var plotPoints = globalvar p131Points
+  var plotRated = globalvar p131Rated
+  exit
+}
+if (var plotAddr == 132) {
+  var plotId = globalvar p132Id
+  var plotIgn = globalvar p132Ign
+  var plotUnix = globalvar p132Unix
+  var plotSettings = globalvar p132Settings
+  var plotPoints = globalvar p132Points
+  var plotRated = globalvar p132Rated
+  exit
+}
+if (var plotAddr == 133) {
+  var plotId = globalvar p133Id
+  var plotIgn = globalvar p133Ign
+  var plotUnix = globalvar p133Unix
+  var plotSettings = globalvar p133Settings
+  var plotPoints = globalvar p133Points
+  var plotRated = globalvar p133Rated
+  exit
+}
+if (var plotAddr == 134) {
+  var plotId = globalvar p134Id
+  var plotIgn = globalvar p134Ign
+  var plotUnix = globalvar p134Unix
+  var plotSettings = globalvar p134Settings
+  var plotPoints = globalvar p134Points
+  var plotRated = globalvar p134Rated
+  exit
+}
+if (var plotAddr == 135) {
+  var plotId = globalvar p135Id
+  var plotIgn = globalvar p135Ign
+  var plotUnix = globalvar p135Unix
+  var plotSettings = globalvar p135Settings
+  var plotPoints = globalvar p135Points
+  var plotRated = globalvar p135Rated
+  exit
+}
+if (var plotAddr == 136) {
+  var plotId = globalvar p136Id
+  var plotIgn = globalvar p136Ign
+  var plotUnix = globalvar p136Unix
+  var plotSettings = globalvar p136Settings
+  var plotPoints = globalvar p136Points
+  var plotRated = globalvar p136Rated
+  exit
+}
+if (var plotAddr == 137) {
+  var plotId = globalvar p137Id
+  var plotIgn = globalvar p137Ign
+  var plotUnix = globalvar p137Unix
+  var plotSettings = globalvar p137Settings
+  var plotPoints = globalvar p137Points
+  var plotRated = globalvar p137Rated
+  exit
+}
+if (var plotAddr == 138) {
+  var plotId = globalvar p138Id
+  var plotIgn = globalvar p138Ign
+  var plotUnix = globalvar p138Unix
+  var plotSettings = globalvar p138Settings
+  var plotPoints = globalvar p138Points
+  var plotRated = globalvar p138Rated
+  exit
+}
+if (var plotAddr == 139) {
+  var plotId = globalvar p139Id
+  var plotIgn = globalvar p139Ign
+  var plotUnix = globalvar p139Unix
+  var plotSettings = globalvar p139Settings
+  var plotPoints = globalvar p139Points
+  var plotRated = globalvar p139Rated
+  exit
+}
+if (var plotAddr == 140) {
+  var plotId = globalvar p140Id
+  var plotIgn = globalvar p140Ign
+  var plotUnix = globalvar p140Unix
+  var plotSettings = globalvar p140Settings
+  var plotPoints = globalvar p140Points
+  var plotRated = globalvar p140Rated
+  exit
+}
+
+
+goto function "Plot download 11"
+
+if (var plotAddr == 141) {
+  var plotId = globalvar p141Id
+  var plotIgn = globalvar p141Ign
+  var plotUnix = globalvar p141Unix
+  var plotSettings = globalvar p141Settings
+  var plotPoints = globalvar p141Points
+  var plotRated = globalvar p141Rated
+  exit
+}
+if (var plotAddr == 142) {
+  var plotId = globalvar p142Id
+  var plotIgn = globalvar p142Ign
+  var plotUnix = globalvar p142Unix
+  var plotSettings = globalvar p142Settings
+  var plotPoints = globalvar p142Points
+  var plotRated = globalvar p142Rated
+  exit
+}
+if (var plotAddr == 143) {
+  var plotId = globalvar p143Id
+  var plotIgn = globalvar p143Ign
+  var plotUnix = globalvar p143Unix
+  var plotSettings = globalvar p143Settings
+  var plotPoints = globalvar p143Points
+  var plotRated = globalvar p143Rated
+  exit
+}
+if (var plotAddr == 144) {
+  var plotId = globalvar p144Id
+  var plotIgn = globalvar p144Ign
+  var plotUnix = globalvar p144Unix
+  var plotSettings = globalvar p144Settings
+  var plotPoints = globalvar p144Points
+  var plotRated = globalvar p144Rated
+  exit
+}
+if (var plotAddr == 145) {
+  var plotId = globalvar p145Id
+  var plotIgn = globalvar p145Ign
+  var plotUnix = globalvar p145Unix
+  var plotSettings = globalvar p145Settings
+  var plotPoints = globalvar p145Points
+  var plotRated = globalvar p145Rated
+  exit
+}
+if (var plotAddr == 146) {
+  var plotId = globalvar p146Id
+  var plotIgn = globalvar p146Ign
+  var plotUnix = globalvar p146Unix
+  var plotSettings = globalvar p146Settings
+  var plotPoints = globalvar p146Points
+  var plotRated = globalvar p146Rated
+  exit
+}
+if (var plotAddr == 147) {
+  var plotId = globalvar p147Id
+  var plotIgn = globalvar p147Ign
+  var plotUnix = globalvar p147Unix
+  var plotSettings = globalvar p147Settings
+  var plotPoints = globalvar p147Points
+  var plotRated = globalvar p147Rated
   exit
 }
