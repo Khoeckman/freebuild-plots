@@ -12,8 +12,8 @@ if (!hasGroup "Staff") {
   exit
 }
 
-if or (!globalvar reqAddr > 0, globalvar reqAddr > globalvar maxreqAddr -1) {
-  chat "&cYou cannot teleport to &a&oPlot &b&o#%var.player/reqAddr '&cNone'%&c."
+if or (!globalvar reqAddr > 0, globalvar reqAddr > globalvar maxPlotAddr -1) {
+  chat "&cYou cannot teleport to &a&oPlot &b&o#%var.global/reqAddr '&cNone'%&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -67,11 +67,11 @@ if () {
   // @check the -= 1 for XYZ
   var x *= globalvar plotXZPlusGap
   var x += globalvar plotStartX
-  var x -= 1
+  var x += globalvar plotXZ
 
   var y *= globalvar plotYPlusGap
   var y += globalvar plotStartY
-  var y -= 1
+  var y += 1
 
   var z *= globalvar plotXZPlusGap
   var z += globalvar plotStartZ

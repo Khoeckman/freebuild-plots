@@ -1,6 +1,13 @@
 // @global @bot
 // Event input: plotAddr
 
+// @temp
+if (!hasGroup "Mod" true) {
+  chat "&6&lCOMING SOON &7(&5[DEV] &7only for now)"
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 if (var inAddr <= 0) {
   chat "&cYou must be inside a plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
