@@ -34,7 +34,7 @@ if (var plotAddr > globalvar maxPlotAddr) {
   exit
 }
 
-if (globalvar lockdown == 1, !hasGroup "Admin" true) {
+if (globalvar lockdown == 1, !hasGroup "Mod" true) {
   chat "&cYou cannot claim a plot while &a&oCreative &2&oplots&c is &c&lCLOSED&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit

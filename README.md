@@ -166,11 +166,13 @@ trusted (bool) - Whether the requesting player is trusted on plot #{plotAddr}
 
 #### Menu analysis (todo)
 
-m_plra (short) - Amount of clicks on "Menu: Plot rating"
+mPlra (short) - Amount of clicks on "Menu: Plot rating"
+mPlclRebuYes (short) - Amount of clicks on "Plot claim: Reset build"
+mPlclRebuNo (short) - Amount of clicks on "Plot claim: Reset build"
 
 #### Command analysis (todo)
 
-c_pclaim (short) - Use count of "/pclaim"
+cPclaim (short) - Use count of "/pclaim"
 
 ## Personal Notes
 

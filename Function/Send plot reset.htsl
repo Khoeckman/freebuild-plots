@@ -71,7 +71,6 @@ if () {
 
   var y *= globalvar plotYPlusGap
   var y += globalvar plotStartY
-  var y += 1
 
   var z *= globalvar plotXZPlusGap
   var z += globalvar plotStartZ
