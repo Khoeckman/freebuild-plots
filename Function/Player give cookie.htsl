@@ -1,6 +1,7 @@
-goto function "Player give cookie clock"
 goto function "Player give cookie"
 goto function "Player give cookie announce"
+
+goto function "Player give cookie clock"
 
 // @auto 4
 
@@ -24,9 +25,25 @@ goto function "Player give cookie"
 // @global
 // Event input: cookies
 
-if or (!var cookies > 0, !hasItem "PlotsCookie" Metadata Hand "Any Amount") {
+if or (!globalvar cookies > 0, !hasItem "PlotsCookie" "Item Type" Hand "Any Amount") {
   exit
 }
+
+// If player is holding a cookie
+
+// Check if player already gave cookies this week
+var week = %date.unix%
+// Align with start of cookie week
+var week -= 277200
+// Seconds to weeks
+var week /= 604800
+
+if (var week == var cookiesWeek) {
+  exit
+}
+
+// Remember that player gave cookies this week
+var cookiesWeek = var week
 
 var cookiesTotal += globalvar cookies 0
 

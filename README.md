@@ -40,7 +40,7 @@ permission (byte) - Permission level of the player used to compare against the p
 hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
 cookiesTotal (byte) -Total amount of cookies the player has given this house all-time
 
-banSeconds (int) - Amount of seconds a player is soft-banned
+banSeconds (int) - Amount of seconds a player is soft-banned, -1 means based on {banCount}
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
 banCount (byte) [0] - The amount of times the player got banned
 

@@ -1,6 +1,6 @@
 todo:
   - 'Message when someone gave cookies'
-  - 'SECURITY: lower ban time: 10s + 10s'
+  - 'add per player per plot cooldown to /prate'
   - 'BOT: add cooldown to /preset'
   - 'On plot claim show menu keep plot build? keep track of data'
   - 'Recompile upload and download to support plots up to #147'
@@ -12,7 +12,6 @@ todo:
   - 'make /preport and add to /cmds'
   - 'add cooldown to /hreport <player> and show in /cmds'
   - 'complete /pfreeall'
-  - 'add per player per plot cooldown to /prate'
   - 'Add special blocks to /special'
   - 'make /pcopy and /ppaste (plot data AND / OR build)'
   - 'Builder token sytem. Earn points: 1. by getting rated, 2. by rating others, 3. playtime. Spend points on: 1. extra plot, 2. plot protection'
@@ -20,10 +19,10 @@ todo:
   - 'smart system for prevent adding the same player twice to trusted list (upload whole list when adding someone + gc after!)'
   - 'make /staffrem work on admin and dev too if executer has higher rank (workaround needed bcz of target command limitation)'
   - 'auto detect AFK after 3 mins + make AFK zone'
-  - 'Clean up debug vars by resetting house (protected plots will be lost, needs /pfreeall)'
 
 optional:
   - 'Make {unclaimCd} unix based.'
   - 'Add warning message when entering shared zone to prevent build abuse'
   - 'Add B36 on world sides'
   - 'Make /pauto not claim protected plots even if your rank is high enough'
+  - 'Clean up debug vars by resetting house (protected plots will be lost, needs /pfreeall)'

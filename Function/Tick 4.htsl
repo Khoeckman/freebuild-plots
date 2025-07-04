@@ -17,7 +17,7 @@ function "Actionbar"
 // Prevent player from falling in the void
 if (placeholder %player.pos.y% < -6) {
   failParkour Teleported!
-  tp "custom_coordinates" "~ 10 ~" true
+  tp "custom_coordinates" "~ 10 ~" false
   sound "Enderman Teleport" 0.7 1.0 invokers_location
 }
 
