@@ -15,7 +15,7 @@ A Hypixel Housing project. By Khoeckman x Legendary Games.
 {varname} - Player variable
 \#{varname} - Global variable
 @{varname} - Team variable
-Func{functionname} - Function
+Function{functionname} - Function
 
 ## Params
 
@@ -38,6 +38,7 @@ id (number) - Id of the player, mainly used to check if they are new. Might be u
 cd (bool) - Check if a function is on cd by setting to 0 and calling a function which should set it to 1. And checking if its 1 after
 permission (byte) - Permission level of the player used to compare against the protection level of a plot
 hasMultiple (1 | unset) - Whether it's possible that the player has multiple plots
+cookiesTotal (byte) -Total amount of cookies the player has given this house all-time
 
 banSeconds (int) - Amount of seconds a player is soft-banned
 banUnix (int | unset) [0] - Unix timestamp marking the end of the ban
@@ -67,26 +68,25 @@ plotProtect (byte) - (0, 1, 2, 3, 4) = (Off, Low, Medium, High, Extreme) - Prote
 plotProtectStr (String) [&cNone] - Name of the protection setting (ppcd)
 plotPermStr (string) [&e[STAFF]] - Required group tag to change the protection setting (ppcd)
 plotOnline (byte) - (-1, 0, 1) = (Offline, Unknown, Online) - Is the owner of the plot online. When value is `unknown`: disallow claiming the plot and building (ppcd-async)
-plotOnlineStr (string) [&c&lOFFLINE] - OFFLINE or ONLINE
+plotOnlineStr (string) - ('&7(&c&lOFFLINE&7) ', '&7(&c&lUNKNOWN&7) ', '&7(&a&lONLINE&7) ') - String version, paste ready for Function{Actionbar}
 plotTrusted (1 | unset) - Are you trusted on this plot (ppcd-async)
-plotPoints (short) [0] - Total points of the plot
+plotPoints (short) [0 / '0.000'] - Total points of the plot
 plotRated (short) - Total amount of players that rated the plot (all time)
 plotRating (float) - plotPoints / plotRated (ppcd)
 
 // Plot the player is in
 inAddr (byte | unset)
-oldInAddr (byte) - Set to {inAddr} when Func{Plot entry} downloads the data the plot the player is in
+oldInAddr (byte) - Set to {inAddr} when Function{Plot entry} downloads the data the plot the player is in
 in... - Won't be shown if {inAddr} is not above 0
 
 inSpawn (1 | unset) - Is 1 when the player is exactly on the spawn location.
-inShared (1 | unset) - Is 1 when the player is inside the `Shared` region.
 
 // Plot the player has claimed as home
 homeSyncQ (1 | unset) - Queue checking wether the player still owns {plotAddr}
 homeAddr (byte | unset)
 homePrefix (string | unset) [&c&oNone] - Text for before the index eg. "&a&oPlot &b&o#" (ppcd)
 homeRated (byte) [0]
-homeRating (float) ['0.000']
+homeRating (float) [None]
 
 plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` menu after updating a setting.
 settingStr (string) - (Building, Protection) - Name of the setting that changes
@@ -131,9 +131,12 @@ houseGroup (string) - Group tag (eg. "&4[OWNER]") of the player who joined or qu
 houseGroupTag (string) - Group (eg. "Owner") of the player who joined or quit
 houseVersion (string) - Minecraft Version of the player who joined or quit
 
-cookieCurrent (short) - total amount of weekly cookies the house received
-cookieRecord (short) - highest amount of weekly cookies the house received
-cookieTotal (short) - total amount of cookies the house received
+cookieCurrent (short) - Total amount of weekly cookies the house received
+cookieRecord (short) - Highest amount of weekly cookies the house received
+cookieTotal (short) - Total amount of cookies the house received
+cookies (byte) - Total amount of cookies the player just gave
+cookiesTotal (byte) - Total amount of cookies the player has given this house all-time
+
 unique (short) [0] - Unique amount of players on the house
 auto (byte) - Plot address of the plot /pauto will try to claim
 
@@ -161,7 +164,7 @@ exprBufferM (10) - Amount of minutes being offline until another player can clai
 
 plotSyncHyper (1 | unset) - Index of {Plot sync} function that should be used next. Rotate value around 0-1.
 unclaimCd (short) - The number of seconds a player must wait before they can unclaim a plot again
-online (bool) - Is set to 0 before running Func{Player online} which sets it to 1 if the player with id #{target} is online
+online (bool) - Is set to 0 before running Function{Player online} which sets it to 1 if the player with id #{target} is online
 trusted (bool) - Whether the requesting player is trusted on plot #{plotAddr}
 
 #### Menu analysis (todo)

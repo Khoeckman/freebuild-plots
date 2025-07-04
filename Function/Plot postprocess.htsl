@@ -13,12 +13,13 @@ var menuProtect2 unset
 var menuProtect3 unset
 var menuProtect4 unset
 
+var plotExpr unset
+
 // If plot is FREE, clean all {plot...} variables
 if (!var plotId > 0) {
   var plotId unset
   var plotIgn unset
   var plotUnix unset
-  var plotExpr unset
 
   var plotSettings unset
   var plotBuild unset
@@ -39,7 +40,6 @@ if (!var plotId > 0) {
 
 // {plotUnix} may not be ""
 var plotUnix = var plotUnix 0 true
-var plotExpr unset
 
 // Unpack
 // (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
@@ -81,14 +81,14 @@ if (var plotAddr == var homeAddr) {
 }
 
 // Online status
-var plotOnlineStr unset
+var plotOnlineStr = "&7(&c&lUNKNOWN&7) "
 
 if (var plotOnline == -1) {
-  var plotOnlineStr = "&c&lOFFLINE"
+  var plotOnlineStr = "&7(&c&lOFFLINE&7) "
 }
 
 if (var plotOnline == 1) {
-  var plotOnlineStr = "&a&lONLINE"
+  var plotOnlineStr = "&7(&a&lONLINE&7) "
 }
 
 // Build name

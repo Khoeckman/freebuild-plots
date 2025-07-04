@@ -1,4 +1,24 @@
 // Extra fast group change to prevent griefing
-if (!var banUnix > 0, !hasGroup "Staff" true) {
-  changePlayerGroup "Visitor" false
+var inAddr unset
+
+// @mixin Plot exit
+if (!var oldInAddr > 0) {  
+  exit
 }
+
+// If the player just left a plot
+var oldInAddr unset
+
+// Reset necessary vars
+var inId unset
+var inBuildStr unset
+var inProtectStr unset
+var inOnlineStr unset
+
+// If player should not change group
+if or (var banUnix > 0, hasGroup "Staff" true, inRegion "Shared") {
+  exit
+}
+
+changePlayerGroup "Visitor" false
+// @endmixin

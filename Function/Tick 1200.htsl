@@ -13,17 +13,10 @@ if (placeholder %house.cookies% < globalvar cookieCurrent 0) {
 }
 
 // If someone gave cookies, count the amount of cookies and add them to #{cookieTotal}
-if (placeholder %house.cookies% > globalvar cookieCurrent 0) {
+/*if (placeholder %house.cookies% > globalvar cookieCurrent 0) {
   var cookies = %house.cookies%
   var cookies -= globalvar cookieCurrent 0
-  globalvar cookieTotal += var cookies
+  globalvar cookieTotal += var cookies 0
 
   globalvar cookieCurrent = %house.cookies%
-}
-
-// Send LG Discord advertisement every 15 minutes
-/* if (!hasGroup "Staff" true, placeholder %random.whole/1 16% == 1) {
-  chat "&7(&a✌ %var.global/discordMembers% members&7)&f Join &6&lLEGENDARY GAMES&f!"
-  chat "&l &7 ➥ &b&ndiscord.gg/jFtGfAnY8P"
-  sound "Orb Pickup" 0.7 1.0 invokers_location
-} */
+}*/

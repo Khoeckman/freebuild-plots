@@ -13,6 +13,8 @@ if or (var trust1Id == globalvar reqId, var trust2Id == globalvar reqId, var tru
   globalvar trusted = 1
 }
 
+
+
 goto function "Player trusted 2"
 
 // Only meant for the player with id #{targetId}
@@ -24,6 +26,8 @@ if or (var trust1Id == globalvar reqId, var trust2Id == globalvar reqId, var tru
   globalvar trusted = 1
 }
 
+
+
 goto function "Player trusted 3"
 
 // Only meant for the player with id #{targetId}
@@ -34,6 +38,8 @@ if (!globalvar targetId == var id) {
 if or (var trust1Id == globalvar reqId, var trust2Id == globalvar reqId, var trust3Id == globalvar reqId, var trust4Id == globalvar reqId, var trust5Id == globalvar reqId) {
   globalvar trusted = 1
 }
+
+
 
 goto function "Player trusted 4"
 

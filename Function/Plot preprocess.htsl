@@ -11,11 +11,8 @@ if or (!var plotId > 0, var plotIgn == 0 0) {
   exit
 }
 
-// Only the owner of the plot can update its expiry timestamp.
 if (var plotId == var id) {
   var plotUnix = %date.unix%
-  // @todo replace this with earned buffer time
-  var plotUnix += globalvar exprBuffer
 }
 
 // {plotBuild} and {plotProtect} may not be ""

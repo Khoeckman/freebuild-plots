@@ -29,7 +29,7 @@ if (!var plotAddr > 0) {
 }
 
 if (var plotAddr > globalvar maxPlotAddr) {
-  chat "&cYou cannot claim this plot because it's an &e&lARCHIVE&c."
+  chat "&cYou cannot claim this plot because it's an &d&lARCHIVE&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -82,6 +82,7 @@ if (var plotId > 0, !var plotOnline == -1) {
 }
 
 var plotExpr = var plotUnix 0
+var plotExpr += globalvar exprBuffer 
 var plotExpr -= %date.unix%
 
 // Plot is not expired
@@ -105,6 +106,10 @@ var plotBuild = 0
 var plotProtect = var permission 0
 var plotPoints unset
 var plotRated unset
+
+if (var plotProtect == 1) {
+  var plotProtect = 0
+}
 
 var cd = 0
 function "Plot preprocess"

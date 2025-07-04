@@ -6,6 +6,12 @@ if (hasGroup "Staff" true) {
   exit
 }
 
+if (var banSeconds == -1) {
+  var banSeconds = 15
+  var banSeconds *= var banCount 0
+  var banSeconds += 15
+}
+
 // Set or increase the ban expiration timestamp
 if (!var banUnix > %date.unix%) {
   var banUnix = %date.unix%

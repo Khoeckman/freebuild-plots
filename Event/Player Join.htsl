@@ -5,14 +5,13 @@
 
 function "Spawn"
 
-// Make bots invisible
+// Demote previous master bot
 if (hasGroup "Staff") {
-  var invis = 1
-  var invisStr = "&a&lENABLED"
-} else {
-  var invis = 0
-  var invisStr unset
+  changePlayerGroup "Visitor" false
 }
+
+var invis = 0
+var invisStr unset
 
 // Prepare player
 resetInventory

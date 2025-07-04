@@ -1,4 +1,5 @@
 todo:
+  - 'Message when someone gave cookies'
   - 'SECURITY: lower ban time: 10s + 10s'
   - 'BOT: add cooldown to /preset'
   - 'On plot claim show menu keep plot build? keep track of data'

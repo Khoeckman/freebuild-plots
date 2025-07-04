@@ -7,11 +7,11 @@ if or (hasGroup "Banned", hasGroup "Staff" true) {
 var blist unset
 
 // hasItem limit is 20
-if or (hasItem "sapling0" "Item Type" Anywhere "Any Amount", hasItem "sapling1" "Item Type" Anywhere "Any Amount", hasItem "sapling2" "Item Type" Anywhere "Any Amount", hasItem "sapling3" "Item Type" Anywhere "Any Amount", hasItem "sapling4" "Item Type" Anywhere "Any Amount", hasItem "sapling5" "Item Type" Anywhere "Any Amount", hasItem "dispenser" "Item Type" Anywhere "Any Amount", hasItem "jukebox" "Item Type" Anywhere "Any Amount", hasItem "dragon_egg" "Item Type" Anywhere "Any Amount", hasItem "beacon" "Item Type" Anywhere "Any Amount", hasItem "slime" "Item Type" Anywhere "Any Amount", hasItem "barrier" "Item Type" Anywhere "Any Amount", hasItem "flint_and_steel" "Item Type" Anywhere "Any Amount", hasItem "painting" "Item Type" Anywhere "Any Amount", hasItem "snowball" "Item Type" Anywhere "Any Amount") {
+if or (hasItem "sapling0" "Item Type" Anywhere "Any Amount", hasItem "sapling1" "Item Type" Anywhere "Any Amount", hasItem "sapling2" "Item Type" Anywhere "Any Amount", hasItem "sapling3" "Item Type" Anywhere "Any Amount", hasItem "sapling4" "Item Type" Anywhere "Any Amount", hasItem "sapling5" "Item Type" Anywhere "Any Amount", hasItem "dispenser" "Item Type" Anywhere "Any Amount", hasItem "jukebox" "Item Type" Anywhere "Any Amount", hasItem "dragon_egg" "Item Type" Anywhere "Any Amount", hasItem "beacon" "Item Type" Anywhere "Any Amount", hasItem "slime" "Item Type" Anywhere "Any Amount", hasItem "barrier" "Item Type" Anywhere "Any Amount", hasItem "flint_and_steel" "Item Type" Anywhere "Any Amount", hasItem "painting" "Item Type" Anywhere "Any Amount", hasItem "snowball" "Item Type" Anywhere "Any Amount", hasItem "egg" "Item Type" Anywhere "Any Amount", hasItem "ender_pearl" "Item Type" Anywhere "Any Amount", hasItem "potion" "Item Type" Anywhere "Any Amount", hasItem "ender_eye" "Item Type" Anywhere "Any Amount", hasItem "spawn_egg" "Item Type" Anywhere "Any Amount") {
   var blist = 1
 }
 
-if or (hasItem "egg" "Item Type" Anywhere "Any Amount", hasItem "ender_pearl" "Item Type" Anywhere "Any Amount", hasItem "potion" "Item Type" Anywhere "Any Amount", hasItem "spawn_egg" "Item Type" Anywhere "Any Amount", hasItem "experience_bottle" "Item Type" Anywhere "Any Amount", hasItem "item_frame" "Item Type" Anywhere "Any Amount", hasItem "fireworks" "Item Type" Anywhere "Any Amount", hasItem "tnt_minecart" "Item Type" Anywhere "Any Amount") {
+if or (hasItem "experience_bottle" "Item Type" Anywhere "Any Amount", hasItem "fire_charge" "Item Type" Anywhere "Any Amount", hasItem "item_frame" "Item Type" Anywhere "Any Amount", hasItem "fireworks" "Item Type" Anywhere "Any Amount", hasItem "tnt_minecart" "Item Type" Anywhere "Any Amount") {
   var blist = 1
 }
 
@@ -21,10 +21,8 @@ if (!var blist > 0) {
 
 var banReason = "Obtaining a blacklisted item"
 
-// Ban duration increases 30 seconds with each ban
-var banSeconds = 30
-var banSeconds *= var banCount 0
-var banSeconds += 30
+// Dynamic ban duration
+var banSeconds = -1
 
 // Remove the blacklisted item
 resetInventory

@@ -1,7 +1,8 @@
 // @auto 4
 
-function "Bridge Clock"
+function "Bridge clock"
 function "Effects"
+function "Player give cookie clock" // @compile
 function "Blacklist"
 
 function "XYZ to inAddr"
@@ -25,7 +26,7 @@ if (gamemode "Survival", !hasGroup "Staff" true) {
   gamemode "Adventure"
 }
 
-// Check if player clicked on the Creative Menu from his inventory
+// Check if player clicked on the Creative Menu from their inventory
 if (!hasItem "PlotsMenu" Metadata Hotbar "Any Amount") {
   function "Menu open"
 }

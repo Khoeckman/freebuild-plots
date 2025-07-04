@@ -1,5 +1,9 @@
 // @targeted
 
+if (!var banUnix > 0) {
+  exit
+}
+
 var banUnix unset
 var oldInAddr unset
 changePlayerGroup "Visitor" false

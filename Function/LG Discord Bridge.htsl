@@ -1,11 +1,11 @@
-goto function "Bridge Announce"
-goto function "Bridge Clock"
+goto function "Bridge announce"
+goto function "Bridge clock"
 
 // @auto 4
 
 if (!globalvar bridge/msg5 == 0 0) {
   globalvar bridge/annId = 2
-  function "Bridge Announce" true
+  function "Bridge announce" true
 
   globalvar bridge/msg1 unset
   globalvar bridge/msg2 unset
@@ -17,12 +17,14 @@ if (!globalvar bridge/msg5 == 0 0) {
 if (globalvar discordJoins > 0) {
   globalvar bridge/annId = 1
   globalvar discordMembers = globalvar discordJoins
-  function "Bridge Announce" true
+  function "Bridge announce" true
 
   globalvar discordJoins unset
 }
 
-goto function "Bridge Announce"
+
+
+goto function "Bridge announce"
 
 // @global
 // Event input: bridge/annId, discordMembers, bridge/user, bridge/msg#
