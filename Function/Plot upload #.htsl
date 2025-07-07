@@ -1,5 +1,14 @@
-// Input: plot...
-// Output: #p#...
+goto function "Plot upload"
+goto function "Plot upload 2"
+goto function "Plot upload 3"
+goto function "Plot upload 4"
+goto function "Plot upload 5"
+goto function "Plot upload 6"
+goto function "Plot upload 7"
+goto function "Plot upload 8"
+goto function "Plot upload 9"
+goto function "Plot upload 10"
+goto function "Plot upload 11"
 
 goto function "Plot upload"
 

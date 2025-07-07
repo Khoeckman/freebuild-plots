@@ -26,11 +26,22 @@ def nested_loop(funcIdx):
 
 
 with open(output_file, "w") as file:
+    # Step 1: Create all functions
+    for funcIdx in range(1, functions + 1):
+        if funcIdx == 1:
+            file.write(f'goto function "Plot upload"\n')
+        else:
+            file.write(f'goto function "Plot upload {funcIdx}"\n')
+
+    file.write('\n')
+
+    # Step 2
     plotIdx = 0
 
     for funcIdx in range(1, functions + 1):
         if funcIdx == 1:
             file.write(f'goto function "Plot upload"\n\n')
+            file.write(f'var cd = 1\n\n')
         else:
             file.write(f'goto function "Plot upload {funcIdx}"\n\n')
 
