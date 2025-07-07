@@ -101,11 +101,16 @@ menuProtect2 (&eClick to select | unset) [&eClick to select] - Whether the plot 
 menuProtect3 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: High
 menuProtect4 (&eClick to select | unset) [&eClick to select] - Whether the plot protected setting is: Extreme
 
-points (byte) - Amount of points the player gave. To be added to {plotPoints}. {plotRated} increases with 1
-ratingStr (string) - Name of the rating the player gave
 trustAddr (byte) - Trust register address
 trust#Id (short | unset) - Trusted ID (# = register 1 trough 5)
 trust#Ign (string | unset) ['&cNone'] - Trusted IGN (# = register 1 trough 5)
+
+points (byte) - Amount of points the player gave. To be added to {plotPoints}. {plotRated} increases with 1
+ratingStr (string) - Name of the rating the player gave
+ratedAddr (byte) - Register address of the {rated#} register of which it should read the bit at position {pointer}
+pointer {byte} - The number of the bit it should read of the {ratedAddr} register
+rated1 (long) - Register 1 to binairy bitpack whether the player has rated
+rated (1 | unset) - Whether the player has already rated {plotAddr}
 
 ### Global
 

@@ -2,7 +2,7 @@
 
 function "Bridge clock"
 function "Effects"
-function "Player give cookie clock" // @compile
+function "Player give cookie clock"
 function "Blacklist"
 
 function "XYZ to inAddr"

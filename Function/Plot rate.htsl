@@ -17,12 +17,6 @@ var cd = 0
 function "Plot download"
 function "Plot postprocess"
 
-if (var plotId == var id) {
-  chat "&cYou cannot rate your own plot."
-  sound "Pig Idle" 1.0 1.0 invokers_location
-  exit
-}
-
 // If download is on CD
 if (var cd == 0) {
   chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
@@ -36,9 +30,20 @@ if (var plotId == var id) {
   exit
 }
 
+// Check if player has already rated this plot
+var plotAddr = var inAddr
+function "Plot rate read"
+
+// If the player has already rated this plot
+if (var rated == 1) {
+  chat "&cYou already rated this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
 var plotPoints += var points
 
-// Add one to the amount of player who rated this plot
+// Add one to the amount of players who rated this plot
 var plotRated += 1
 
 var cd = 0

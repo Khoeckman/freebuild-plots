@@ -1,0 +1,4 @@
+// Input: plotAddr
+// Output: rated
+
+var rated = 1

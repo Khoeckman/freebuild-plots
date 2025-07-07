@@ -2,10 +2,6 @@
 // Input: inAddr, *oldInAddr
 // Output: oldInAddr
 
-// @todo disabling this function could reduce the amount of fetches from the plot registers
-// BUT! Plot syncs should check for {oldInAddr} if {inAddr} is unset
-// OR use {inId} for #{target}
-
 if or (var inAddr > 0, !var oldInAddr > 0) {  
   exit
 }

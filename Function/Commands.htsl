@@ -44,7 +44,7 @@ if () {
   chat "&80 &c/hrules &8-&f Review the rules of this &eHousing&f."
   chat "&80 &c/blist &8-&f View all blacklisted items." 
   chat "&80 &e/special &8-&f Obtain &dSpecial blocks&f."
-  chat "&80 &e/pme &8-&f View your &6profile&f."
+  chat "&80 &e/whoami &8-&f View your &6profile&f." // @compile + @todo list
   chat "&80 &a/pthis &8-&f Manage the actions and settings of the plot you're in."
   chat "&80 &a/ptrust &8-&f Add or remove who is &e[TRUSTED]&f on your plot."
   chat "&22 &a/prate &8-&f Rate the plot you're in."

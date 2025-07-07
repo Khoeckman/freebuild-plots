@@ -18,7 +18,7 @@ if (!var banUnix > %date.unix%) {
 }
 var banUnix += var banSeconds
 
-var banCount = var banCount 0 true
+//var banCount = var banCount 0 true
 var banCount += 1
 changePlayerGroup "Banned" false
 
