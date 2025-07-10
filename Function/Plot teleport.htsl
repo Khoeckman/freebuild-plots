@@ -18,16 +18,14 @@ var divisor = globalvar plotGridSize
 
 // @mixin Modulo
 // Input: dividend, divisor
-// Output: remainder
+// Output: x
 
-var remainder = var dividend
+var x = var dividend
 var diff = var dividend
 var diff /= var divisor
 var diff *= var divisor
-var remainder -= var diff
+var x -= var diff
 // @endmixin
-
-var x = var remainder
 
 // Layer {y} - addr // plotLayerSize
 var y = var addr
@@ -41,16 +39,14 @@ var divisor = globalvar plotGridSize
 
 // @mixin Modulo
 // Input: dividend, divisor
-// Output: remainder
+// Output: z
 
-var remainder = var dividend
+var z = var dividend
 var diff = var dividend
 var diff /= var divisor
 var diff *= var divisor
-var remainder -= var diff
+var z -= var diff
 // @endmixin
-
-var z = var remainder
 
 // Convert (row, layer, col) to (x, y, z)
 if () {

@@ -50,6 +50,12 @@ unclaimCdM (short | unset) - formatted minutes
 unclaimCdS (short | unset) - formatted seconds
 unclaimCdActive (&a | unset) [&7] - Color code based on whether the cooldown is active, lime for active, gray for inactive
 
+resetCd (short | unset) [#{resetCd}] - Amount of seconds until a player can reset a plot. Is set to #{resetCd} when resetting a plot
+HMS is hardcoded.
+
+reportCd (short | unset) [#{reportCd}] - Amount of seconds until a player can report a player or plot again. Is set to #{reportCd} when reporting a player or plot
+HMS is hardcoded.
+
 nvn (1 | unset) [0] - Night vision
 nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
 invis (1 | unset) [0] - Invisibility (Staff+ only)
@@ -163,20 +169,23 @@ plotEndX (124)
 plotEndY (254)
 plotEndZ (139)
 
-maxPlotAddr (98)
+maxPlotAddr (147)
 exprBuffer (600) - Amount of seconds being offline until another player can claim their plot.
 exprBufferM (10) - Amount of minutes being offline until another player can claim their plot.
 
+unclaimCd (1800) - The number of seconds a player must wait before they can unclaim a plot again
+resetCd (600) - The number of seconds a player must wait before they can reset a plot again
+reportCd (180) - The number of seconds a player must wait before they can report a player or plot again
+
 plotSyncHyper (1 | unset) - Index of {Plot sync} function that should be used next. Rotate value around 0-1.
-unclaimCd (short) - The number of seconds a player must wait before they can unclaim a plot again
 online (bool) - Is set to 0 before running Function{Player online} which sets it to 1 if the player with id #{target} is online
 trusted (bool) - Whether the requesting player is trusted on plot #{plotAddr}
 
 #### Menu analysis (todo)
 
 mPlra (short) - Amount of clicks on "Menu: Plot rating"
-mPlclRebuYes (short) - Amount of clicks on "Plot claim: Reset build"
-mPlclRebuNo (short) - Amount of clicks on "Plot claim: Reset build"
+mPlclRebuYes (short) - Amount of clicks on "Plot reset"
+mPlclRebuNo (short) - Amount of clicks on "Plot reset"
 
 #### Command analysis (todo)
 

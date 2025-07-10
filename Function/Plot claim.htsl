@@ -28,12 +28,6 @@ if (!var plotAddr > 0) {
   exit
 }
 
-if (var plotAddr > globalvar maxPlotAddr) {
-  chat "&cYou cannot claim this plot because it's an &d&lARCHIVE&c."
-  sound "Anvil Land" 0.3 1.0 invokers_location
-  exit
-}
-
 if (globalvar lockdown == 1, !hasGroup "Mod" true) {
   chat "&cYou cannot claim a plot while &a&oCreative &2&oplots&c is &c&lCLOSED&c."
   sound "Anvil Land" 0.3 1.0 invokers_location
@@ -139,10 +133,10 @@ var homePrefix = "&a&oPlot &b&o#"
 chat &7
 chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
 chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
-chat "&fReset the plot: &e/preset"
-chat "&fChange the plot settings: &e/pthis"
-chat "&fMore information: &b/info"
 chat &8
+chat "&fPlot settings: &e/pthis"
+chat "&fMore information: &b/info"
+chat &9
 chat "&c&lDISCLAIMER"
 chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/exprBufferM% minutes&f of"
 chat "&c&l⎜ &fyou being &coffline&f."
@@ -152,3 +146,14 @@ title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lCLAIMED" 1 2 1
 sound "Level Up" 0.7 1.0 invokers_location
 
 var err = 0
+
+// Wait 10 seconds, then ask if the player wants to clear their plot
+pause 200
+
+// Cancel if player unclaimed the plot in the meanwhile
+if (!var homeAddr > 0) {
+  exit
+}
+
+sound "Click" 0.7 1.0 invokers_location
+displayMenu "Plot reset"

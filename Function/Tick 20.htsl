@@ -5,13 +5,19 @@ function "Ban sync"
 // ms
 var playtime += 1000
 
-// Count down
+// Cooldowns
 if (var unclaimCd > 1) {
   var unclaimCd -= 1
 } else {
   var unclaimCd unset
 }
 
-// Convert @temp
+if (var resetCd > 1) {
+  var resetCd -= 1
+} else {
+  var resetCd unset
+}
+
+// Convert playtime to tokens @temp visualization
 var tokens = var playtime
 var tokens /= 1000

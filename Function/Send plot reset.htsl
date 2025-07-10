@@ -78,5 +78,4 @@ if () {
 }
 
 chat "&6&lRESET &ereqId: %var.global/reqId% reqAddr: %var.global/reqAddr%"
-// @todo can y2=256?
 chat ">>copypaste 124 174 108 93 256 139 %var.player/x% %var.player/y% %var.player/z%"

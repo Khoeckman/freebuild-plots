@@ -1,0 +1,23 @@
+// @auto 200
+
+// @temp cookies
+
+// If the weekly cookie record was broken
+if (placeholder %house.cookies% > globalvar cookieRecord 0) {
+  globalvar cookieRecord = %house.cookies%
+}
+
+// If the cookies reset
+if (placeholder %house.cookies% < globalvar cookieCurrent 0) {
+  globalvar cookieCurrent = 0
+}
+
+// Reclaulate #{exprBuffer} based on the amount of online players
+globalvar exprBuffer = {45*60*60}
+globalvar exprBuffer /= %house.players%
+
+globalvar exprBufferM = globalvar exprBuffer
+globalvar exprBufferM /= 60
+
+var exprBuffer unset
+var exprBufferM unset

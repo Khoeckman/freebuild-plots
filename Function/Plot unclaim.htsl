@@ -43,7 +43,7 @@ if (!var permission >= var plotProtect 0 0) {
 }
 
 // Player has an unclaim cooldown
-if (var unclaimCd > 0, !hasGroup "Staff" true) {
+if (var unclaimCd > 0, !hasGroup "Mod" true) {
   var seconds = var unclaimCd
   function "Seconds to HMS"
 

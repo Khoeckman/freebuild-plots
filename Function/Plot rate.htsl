@@ -31,6 +31,7 @@ if (var plotId == var id) {
 }
 
 // Check if player has already rated this plot
+var rated = 1
 var plotAddr = var inAddr
 function "Plot rate read"
 

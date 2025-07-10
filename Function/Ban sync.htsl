@@ -11,10 +11,11 @@ if (!hasGroup "Banned", var banUnix > %date.unix%) {
 }
 
 // Ban has expired
-if (hasGroup "Banned", var banUnix > 0, var banUnix <= %date.unix%) {
+// @todo fallback doesnt work, when [BANNED] while you shouldn't be, u don't get put back to [VISITOR]
+if (hasGroup "Banned", var banUnix <= %date.unix% 0) {
   var banUnix unset
   var oldInAddr unset
-  changePlayerGroup "Visitor" false
+  changePlayerGroup "Visitor" true
 
   chat "&aYour ban ended."
   title "&2&lUNBANNED" "&aYour ban ended" 0 3 1
