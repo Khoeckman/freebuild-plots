@@ -1,6 +1,13 @@
 // Input: plotAddr
 // Output: rated
 
+if (var plotAddr == var lastRateAddr) {
+  var rated = 1
+} else {
+  var rated unset
+}
+
+/*
 var rated = 1
 
 var ratedAddr = var plotAddr
@@ -23,3 +30,4 @@ var pointer -= var diff
 
 // If player has not rated {plotAddr} yet
 var rated unset
+*/
