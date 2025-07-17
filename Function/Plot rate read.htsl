@@ -1,6 +1,7 @@
 // Input: plotAddr
 // Output: rated
 
+// Check last rated plot
 if (var plotAddr == var lastRateAddr) {
   var rated = 1
 } else {

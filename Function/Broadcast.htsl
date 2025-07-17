@@ -5,6 +5,10 @@
 // Event input (bcReason == 1001): banReason
 // Event input (bcReason == 1003): plotAddr
 
+if (hasGroup "Mod" true, globalvar bcReason >= 1, globalvar bcReason <= 2) {
+  sound "Note Pling" 0.7 1.0 invokers_location
+}
+
 if (globalvar bcReason == 1) {
   chat "&a&l» &a&l&oWELCOME %var.global/houseGroupTag% &b%var.global/reqIgn%&f joined for the first time and is playing on &a%var.global/houseVersion%&f."
   exit

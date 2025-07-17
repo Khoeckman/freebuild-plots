@@ -18,6 +18,17 @@ var inPoints unset
 var inRated unset
 var inRating unset
 
+var menuBuild0 unset
+var menuBuild1 unset
+var menuBuild2 unset
+var menuProtect0 unset
+var menuProtect1 unset
+var menuProtect2 unset
+var menuProtect3 unset
+var menuProtect4 unset
+
+var plotMenuQ unset
+
 // If player should not change group
 if or (var banUnix > 0, hasGroup "Staff" true, inRegion "Shared") {
   exit

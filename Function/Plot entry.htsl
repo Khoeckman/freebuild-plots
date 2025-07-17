@@ -60,7 +60,7 @@ if (globalvar lockdown == 1) {
 }
 
 if (var inId == var id) {
-  changePlayerGroup "Home" true
+  changePlayerGroup "Home" false
   exit
 }
 

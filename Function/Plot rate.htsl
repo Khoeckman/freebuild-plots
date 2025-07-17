@@ -62,7 +62,7 @@ if (var cd == 0) {
 var rated = 1
 function "Plot rate write"
 
-chat "&aYou rated &oPlot &b&o#%var.player/plotAddr%&a. &fRating: &c &7(%var.player/ratingStr%&7)"
+chat "&aYou rated &oPlot &b&o#%var.player/plotAddr%&a. &fRating: &c%var.player/points% &7(%var.player/ratingStr%&7)"
 sound "Level Up" 0.7 1.0 invokers_location
 
 globalvar targetId = var plotId

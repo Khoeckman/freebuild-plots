@@ -2,6 +2,7 @@
 // Output: plot..., homeAddr, homePrefix
 
 // 0 = no error; 1 = user error; 2 = plot restriction
+// Plot Auto will only try to claim the next plot if {err} == 2
 var err = 1
 
 if (var banUnix > 0) {
@@ -53,13 +54,21 @@ if (var plotOnline == 0) {
   exit
 }
 
-// Not enough permissions
-if (!var permission >= var plotProtect 0 0) {
-  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
+// Prevent claiming protected plots
+if (var plotProtect > 0) {
+  chat "&cYou cannot claim a protected plot. If you have enough permission, try &e/pfree&c first."
   sound "Anvil Land" 0.3 1.0 invokers_location
   var err = 2
   exit
 }
+
+// Not enough permissions
+// if (!var permission >= var plotProtect 0 0) {
+//   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
+//   sound "Anvil Land" 0.3 1.0 invokers_location
+//   var err = 2
+//   exit
+// }
 
 if (var plotId == var id) {
   chat "&cYou already own this plot."
@@ -145,6 +154,7 @@ chat "&2&m------------------------------------------------"
 title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lCLAIMED" 1 2 1
 sound "Level Up" 0.7 1.0 invokers_location
 
+// Let the Plot Auto system know it was successful
 var err = 0
 
 // Wait 10 seconds, then ask if the player wants to clear their plot
