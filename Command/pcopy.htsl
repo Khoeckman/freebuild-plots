@@ -1,0 +1,11 @@
+// cb = clipboard
+var cbAddr = var inAddr
+var cbId = var inId
+var cbIgn = var inIgn
+var cbUnix = var inUnix
+var cbSettings = var inSettings
+var cbPoints = var inPoints
+var cbRated = var inRated
+
+chat "&aCopied &oPlot &b&o#%var.player/cbAddr%&a to &eclipboard&a."
+sound "Chest Open" 0.7 1.0 invokers_location

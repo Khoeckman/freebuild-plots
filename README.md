@@ -94,6 +94,10 @@ homePrefix (string | unset) [&c&oNone] - Text for before the index eg. "&a&oPlot
 homeRated (byte) [0]
 homeRating (float) [None]
 
+// To /pcopy /ppaste the plot data, cb = clipboard
+cbAddr
+cb...
+
 plotMenuQ (1 | unset) - Queue refreshing the `Plot menu` menu after updating a setting.
 settingStr (string) - (Building, Protection) - Name of the setting that changes
 selected (byte) - The value to be assigned to {plotSettings}
