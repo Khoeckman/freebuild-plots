@@ -4,13 +4,17 @@
 
 // @temp x, y, z, dx, dy, dz, sum, dist
 
-// Abort if the player is the requestor
+// Requestor = #{reqId}
+// Current player = {id}
+
+// Skip checking if the current player is the requestor
 if (globalvar reqId == var id) {
+  // Let the requestor know this global function is not on cooldown
   var cd = 1
   exit
 }
 
-// Calculate the square distance between the event requestor and the player
+// Calculate the square distance between the requestor and the current player
 var dx = %player.pos.x%
 var dx -= globalvar reqX
 var dx *= var dx
@@ -27,6 +31,7 @@ var dist = var dx
 var dist += var dy
 var dist += var dz
 
+// If the current player is the new closest player to the requestor
 if (var dist < globalvar minDist) {
   globalvar minDist = var dist
   globalvar resId = var id
