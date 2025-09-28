@@ -1,0 +1,43 @@
+// @auto 4
+// Input: auto, *#auto
+// Output: #auto
+
+if (!var auto > 0) {
+  exit
+}
+
+if (!globalvar auto > 0) {
+  globalvar auto = 1
+}
+
+var auto -= 1
+
+if (var auto == 0) {
+  chat "&cAutoclaim could not find an empty plot."
+  exit
+}
+
+var plotAddr = globalvar auto 1
+chat "&eAutoclaiming &a&oPlot &b&o#%var.player/plotAddr%&e..."
+function "Plot claim"
+
+if (var err == 0) {
+  var auto = 0
+
+  var plotAddr = var homeAddr
+  function "Plot teleport"
+  sound "Level Up" 0.7 1.0 invokers_location
+}
+
+// Don't increase #{auto} on user error
+if (var err == 1) {
+  var auto = 0
+  chat "&eStopping autoclaim."
+  exit
+}
+
+globalvar auto += 1
+
+if (globalvar auto > globalvar maxHomeAddr) {
+  globalvar auto = 1
+}

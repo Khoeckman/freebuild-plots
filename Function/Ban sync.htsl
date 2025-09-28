@@ -1,0 +1,32 @@
+// @auto 20
+
+// Pardon staff
+if or (!var banUnix > 0, hasGroup "Staff" true) {
+  var banUnix unset
+  exit
+}
+
+// Player has been banned
+if (!hasGroup "Banned", var banUnix > %date.unix%) {
+  changePlayerGroup "Banned" false
+  gamemode "Adventure"
+  exit
+}
+
+// Put the banned player in adventure is they somehow remained in creative (this happened once)
+if (gamemode "Creative", var banUnix > %date.unix%) {
+  gamemode "Adventure"
+  exit
+}
+
+// Ban has expired
+// @todo fallback doesnt work, when [BANNED] while you shouldn't be, u don't get put back to [VISITOR]
+if (hasGroup "Banned", var banUnix <= %date.unix% 0) {
+  var banUnix unset
+  var oldInAddr unset
+  changePlayerGroup "Visitor" true
+
+  chat "&aYour ban ended."
+  title "&2&lUNBANNED" "&aYour ban ended" 0 3 1
+  sound "Level Up" 0.7 1.0 invokers_location
+}

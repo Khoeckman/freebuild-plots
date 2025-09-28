@@ -1,0 +1,13 @@
+// @global
+
+var oldInAddr unset
+
+// If house just closed
+if (globalvar lockdown == 1, !var banUnix > 0, !hasGroup "Staff" true) {
+  changePlayerGroup "Visitor" false
+}
+
+// If house just opened and player is in Region{Shared}
+if (!globalvar lockdown > 0, !var banUnix > 0, !hasGroup "Staff" true, inRegion "Shared") {
+  changePlayerGroup "Build" false
+}

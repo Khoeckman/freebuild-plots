@@ -1,0 +1,6 @@
+var visitAddr *= 10
+// #
+var visitAddr += 1
+
+sound "Click" 0.7 1.0 invokers_location
+displayMenu "Plot visit"

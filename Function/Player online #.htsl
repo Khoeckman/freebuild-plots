@@ -1,0 +1,33 @@
+// @global @hyper 4
+// Event input: targetId
+// Event output: online
+
+goto function "Player online"
+
+if (globalvar targetId == var id) {
+  globalvar online = 1
+}
+
+
+
+goto function "Player online 2"
+
+if (globalvar targetId == var id) {
+  globalvar online = 1
+}
+
+
+
+goto function "Player online 3"
+
+if (globalvar targetId == var id) {
+  globalvar online = 1
+}
+
+
+
+goto function "Player online 4"
+
+if (globalvar targetId == var id) {
+  globalvar online = 1
+}

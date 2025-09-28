@@ -1,0 +1,41 @@
+// Input: plot...
+// Output: plot...
+
+if or (!var plotId > 0, var plotIgn == 0 0) {
+  var plotId unset
+  var plotIgn unset
+  var plotUnix unset
+  var plotSettings unset
+  var plotPoints unset
+  var plotRated unset
+  exit
+}
+
+if (var plotId == var id) {
+  var plotUnix = %date.unix%
+}
+
+// {plotBuild} and {plotProtect} may not be ""
+if (!var plotBuild > 0) {
+  var plotBuild = 0
+}
+
+if (!var plotProtect > 0) {
+  var plotProtect = 0
+}
+
+// Pack
+// (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
+var plotSettings = var plotBuild
+var plotSettings *= 10
+var plotSettings += var plotProtect
+
+// Save 1 global byte if all settings are default
+if (!var plotSettings > 0) {
+  var plotSettings unset
+}
+
+if (!var plotRated > 0) {
+  var plotPoints unset
+  var plotRated unset
+}

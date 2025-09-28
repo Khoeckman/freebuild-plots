@@ -1,0 +1,39 @@
+if (!var inAddr > 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// cb = clipboard
+var plotAddr = var inAddr
+var plotId = var cbId
+var plotIgn = var cbIgn
+var plotUnix = var cbUnix
+var plotSettings = var cbSettings
+var plotPoints = var cbPoints
+var plotRated = var cbRated
+
+var cd = 0
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+chat "&aPasted &oPlot &b&o#%var.player/cbAddr%&a from &eclipboard&a onto &oPlot &b&o#%var.player/inAddr%&a."
+sound "Chest Close" 0.7 1.0 invokers_location
+
+globalvar targetId unset
+globalvar targetAddr = var inAddr
+globalvar targetPlotId unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

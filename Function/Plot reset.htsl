@@ -1,0 +1,54 @@
+// @global @bot
+// Event input: plotAddr
+
+if (!var inAddr > 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var inId == var id, !hasGroup "Mod" true) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (globalvar lockdown >= 1, !hasGroup "Mod" true) {
+  chat "&cYou cannot claim a plot while %house.name%&c is &6&lLOCKED&c or &c&lCLOSED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Not enough permissions
+if (!var permission >= var inProtect 0 0) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Player has an reset cooldown
+if (var resetCd > 0, !hasGroup "Mod" true) {
+  var seconds = var resetCd
+  function "Seconds to HMS"
+
+  chat "&cYou cannot reset any plot for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+globalvar reqId = var id
+globalvar reqAddr = var inAddr
+var cd = 0
+function "Send plot reset" true
+
+// If function is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eSomeone else used this function within the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var resetCd = globalvar resetCd
+
+chat "&eResetting &a&oPlot &b&o#%var.player/plotAddr%&e..."
+sound "Explode" 0.7 1.0 invokers_location

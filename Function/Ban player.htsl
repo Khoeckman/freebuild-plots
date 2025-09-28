@@ -1,0 +1,51 @@
+// Input: banReason, banSeconds
+
+if (hasGroup "Staff" true) {
+  chat "&eSomebody tried to ban you."
+  sound "Note Pling" 0.7 2.0 invokers_location
+  exit
+}
+
+if (var banSeconds == -1) {
+  var banSeconds = 15
+  var banSeconds *= var banCount 0
+  var banSeconds += 15
+}
+
+// Set or increase the ban expiration timestamp
+if (!var banUnix > %date.unix%) {
+  var banUnix = %date.unix%
+}
+var banUnix += var banSeconds
+
+//var banCount = var banCount 0 true
+var banCount += 1
+changePlayerGroup "Banned" false
+
+// Feedback to the player
+var seconds = var banSeconds
+function "Seconds to HMS"
+
+chat &7
+chat "&4&m---&c &lBANNED&4 &m-------------------------------------"
+chat "Reason: &e%var.player/banReason%"
+chat "Duration: &a%var.player/h%h %var.player/m%m %var.player/s%s"
+chat "&4&m------------------------------------------------"
+
+title "&4&lBANNED" "&c%var.player/banReason%" 0 3 1
+sound "Explode" 0.7 1.0 invokers_location
+
+globalvar reqIgn = %player.name%
+globalvar bcReason = 1001
+globalvar banReason = var banReason
+function "Broadcast" true
+
+// gc
+var banReason unset
+globalvar banReason unset
+
+// Remind 'em
+pause 60
+
+sound "Click" 0.7 1.0 invokers_location
+displayMenu "Rules"

@@ -1,0 +1,35 @@
+// @extends Plot postprocess
+// Input: plotId, plotBuild
+// Output plotTrusted
+
+// If building is PRIVATE
+// OR player is the owner
+// OR player is staff
+// THEN they are logically not trusted
+if (!var plotBuild > 0, var plotId == var id, hasGroup "Staff" true) {
+  var plotTrusted unset
+  exit
+}
+
+globalvar reqId = var id
+globalvar targetId = var plotId
+globalvar trusted unset
+
+if (!globalvar plotTrustedHyper > 0) {
+  globalvar plotTrustedHyper = 1
+  function "Player trusted" true
+}
+
+if (globalvar plotTrustedHyper == 1) {
+  globalvar plotTrustedHyper = 2
+  function "Player trusted 2" true
+}
+
+if (globalvar plotTrustedHyper == 2) {
+  globalvar plotTrustedHyper = 3
+  function "Player trusted 3" true
+} else {
+  globalvar plotTrustedHyper unset
+  function "Player trusted 4" true
+}
+var plotTrusted = globalvar trusted 0 true

@@ -1,0 +1,18 @@
+if (!hasGroup "Mod" true) {
+  chat "&cYou must be at least &e[STAFF]&c to become invisible."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var invis == 1) {
+  var invis = 1
+  var invisStr = "&a&lENABLED" 
+  title "&e&oInvis" "&a&lON" 0 1 1
+} else {
+  var invis unset
+  var invisStr unset
+  title "&e&oInvis" "&c&lOFF" 0 1 1
+}
+sound "Drink" 0.7 1.0 invokers_location
+
+displayMenu "Profile"

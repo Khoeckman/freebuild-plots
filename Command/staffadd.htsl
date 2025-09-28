@@ -1,0 +1,8 @@
+if (!hasGroup "Mod" true) {
+  changePlayerGroup "Mod"
+  function "Default inventory"
+
+  globalvar reqIgn = %player.name%
+  globalvar bcReason = 1010
+  function "Broadcast" true
+}

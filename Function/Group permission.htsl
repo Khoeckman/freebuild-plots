@@ -1,0 +1,22 @@
+// Output: permission
+
+if (hasGroup "Dev" true) {
+  var permission = 4
+  exit
+}
+
+if (hasGroup "Admin" true) {
+  var permission = 3
+  exit
+}
+
+if (hasGroup "Mod" true) {
+  var permission = 2
+  exit
+}
+
+if (hasGroup "Home" true) {
+  var permission = 1
+} else {
+  var permission unset
+}

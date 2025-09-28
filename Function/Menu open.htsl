@@ -1,0 +1,41 @@
+// Input: homeAddr
+
+// {unclaimCd} ?: #{unclaimCd} -> HMS
+if (var unclaimCd > 0) {
+  var seconds = var unclaimCd
+  var unclaimCdActive = "&a"
+} else {
+  var seconds = globalvar unclaimCd
+  var unclaimCdActive unset
+}
+
+// @mixin Seconds to HMS
+// Input: seconds
+// Output: h, m, s
+
+var temp = var seconds
+var temp /= 60
+var temp *= 60
+
+var unclaimCdS = var seconds
+var unclaimCdS -= var temp
+
+var temp /= 60
+var unclaimCdM = var temp
+
+var temp /= 60
+var unclaimCdH = var temp
+
+var temp *= 60
+var unclaimCdM -= var temp
+// @endmixin
+
+sound "Door Open" 0.7 1.0 invokers_location
+
+if (var homeAddr > 0) {
+  displayMenu "Menu"
+} else {
+  displayMenu "Menu (Homeless)"
+}
+
+function "Default inventory"

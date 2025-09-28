@@ -1,0 +1,5 @@
+sound "Click" 0.7 1.0 invokers_location
+closeMenu
+
+giveItem "PlotsCookie" true -1 true
+function "Default inventory"

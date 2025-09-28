@@ -1,0 +1,75 @@
+// Input: plotAddr
+// Output: tp(x, y, z)
+
+// @temp addr, x, y, z, diff
+
+if or (!var plotAddr > 0, var plotAddr > globalvar maxPlotAddr -1 0) {
+  chat "&cYou cannot teleport to &a&oPlot &b&o#%var.player/plotAddr '&cNone'%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var addr = var plotAddr
+var addr -= 1
+
+// Row {x} - addr % plotGridSize
+var dividend = var addr
+var divisor = globalvar plotGridSize
+
+// @mixin Modulo
+// Input: dividend, divisor
+// Output: x
+
+var x = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var x -= var diff
+// @endmixin
+
+// Layer {y} - addr // plotLayerSize
+var y = var addr
+var y /= globalvar plotLayerSize
+
+// Col {z} - (addr // plotGridSize) % plotGridSize
+
+var dividend = var addr
+var dividend /= globalvar plotGridSize
+var divisor = globalvar plotGridSize
+
+// @mixin Modulo
+// Input: dividend, divisor
+// Output: z
+
+var z = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var z -= var diff
+// @endmixin
+
+// Convert (row, layer, col) to (x, y, z)
+if () {
+  var x *= globalvar plotXZPlusGap
+  var x += globalvar plotStartX
+  // Teleport the player in the X-axis middle of his home
+  var temp = %var.global/plotXZ%D
+  var temp /= 2.0
+  var x = %var.player/x%D
+  var x += %var.player/temp%D
+
+  var y *= globalvar plotYPlusGap
+  var y += globalvar plotStartY
+  var y += globalvar plotGroundY
+
+  var z *= globalvar plotXZPlusGap
+  var z += globalvar plotStartZ
+  var z += 1
+}
+
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
+tp "custom_coordinates" "%var.player/x% %var.player/y% %var.player/z% 0 0" true
+sound "Enderman Teleport" 0.7 1.0 invokers_location
+chat "&aYou teleported to &oPlot &b&o#%var.player/plotAddr%&a. &7(&e%var.player/x%&7, &e%var.player/y%&7, &e%var.player/z%&7)"

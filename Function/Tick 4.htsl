@@ -1,0 +1,32 @@
+// @auto 4
+
+function "Bridge clock"
+function "Effects"
+function "Player give cookie clock"
+function "Blacklist"
+
+function "XYZ to inAddr"
+function "Home sync"
+function "Plot entry"
+function "Plot exit"
+
+function "Plot auto"
+
+function "Actionbar"
+
+// Prevent player from falling in the void
+if (placeholder %player.pos.y% < -6) {
+  failParkour Teleported!
+  tp "custom_coordinates" "~ 10 ~" false
+  sound "Enderman Teleport" 0.7 1.0 invokers_location
+}
+
+// Force gamemode adventure when going in survival
+if (gamemode "Survival", !hasGroup "Staff" true) {
+  gamemode "Adventure"
+}
+
+// Check if player clicked on the Creative Menu from their inventory
+if (!hasItem "PlotsMenu" Metadata Hotbar "Any Amount") {
+  function "Menu open"
+}

@@ -1,0 +1,10 @@
+// Allows the player to claim another plot
+var homeAddr unset
+var homePrefix unset
+var homeRated unset
+var homeRating unset
+
+var hasMultiple = 1
+
+chat "&aYou can now claim another plot."
+sound "Level Up" 0.7 1.0 invokers_location

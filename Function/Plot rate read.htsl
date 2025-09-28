@@ -1,0 +1,34 @@
+// Input: plotAddr
+// Output: rated
+
+// Check last rated plot
+if (var plotAddr == var lastRateAddr) {
+  var rated = 1
+} else {
+  var rated unset
+}
+
+/*
+var rated = 1
+
+var ratedAddr = var plotAddr
+var ratedAddr /= 63
+var ratedAddr += 1
+
+var dividend = var plotAddr
+var divisor = 63
+
+// @mixin Modulo
+// Input: dividend, divisor
+// Output: pointer
+
+var pointer = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var pointer -= var diff
+// @endmixin
+
+// If player has not rated {plotAddr} yet
+var rated unset
+*/

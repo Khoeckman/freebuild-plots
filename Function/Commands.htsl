@@ -1,0 +1,96 @@
+var seconds = globalvar unclaimCd
+
+// @mixin Seconds to HMS
+// Input: seconds
+// Output: h, m, s
+
+var temp = var seconds
+var temp /= 60
+var temp *= 60
+
+var unclaimCdS = var seconds
+var unclaimCdS -= var temp
+
+var temp /= 60
+var unclaimCdM = var temp
+
+var temp /= 60
+var unclaimCdH = var temp
+
+var temp *= 60
+var unclaimCdM -= var temp
+// @endmixin
+
+if () {
+  chat &7
+  chat "&6&m---&e &lCOMMANDS&6 &m--------------------------"
+  chat "&aEach command is prefixed with the required group priority."
+
+  chat &8
+  chat "&80 &e/cmds &8-&f Prints this list."
+  chat "&80 &e/spawn &8-&f Teleport to spawn."
+  chat "&80 &e/mail &8-&f Teleport to the &bMailbox&f."
+  chat "&80 &e/shared &8-&f Teleport to the &d&oShared&f zone."
+  chat "&80 &e/clear &8-&f Clear your inventory."
+  chat "&80 &9/nvn &8-&f Toggle &e&oNight Vision&f."
+  chat "&80 &6/cookie &8- &a&oSupport this project&f."
+  chat "&80 &b/disc &8-&f Join the &6&lLEGENDARY GAMES&f discord."
+  //chat "&22 &c/hreport &e<target> &8-&f Notify staff about a &eplayer&f breaking the rules."
+}
+
+if () {
+  chat &9
+  chat "&2&lMENU COMMANDS"
+  chat "&80 &e/pmenu &8-&f Open the &a&oCreative &2&oMenu&f."
+  chat "&80 &b/info &8-&f Open the &bInformation&f menu."
+  chat "&80 &c/hrules &8-&f Review the rules of this &eHousing&f."
+  chat "&80 &c/blist &8-&f View all blacklisted items." 
+  chat "&80 &e/special &8-&f Obtain &dSpecial blocks&f."
+  chat "&80 &e/whoami &8-&f View your &6profile&f."
+  chat "&80 &a/pthis &8-&f Manage the actions and settings of the plot you're in."
+  chat "&80 &a/ptrust &8-&f Add or remove who is &e[TRUSTED]&f on your plot."
+  chat "&22 &a/prate &8-&f Rate the plot you're in."
+
+  chat &0
+  chat "&a&lPLOT COMMANDS &7(prefixed with a &ap&7)"
+  chat "&22 &a/pauto &8-&f Autoclaim a plot and teleport to it."
+  chat "&22 &a/pautostop &8-&f Stop the autoclaimer from searching."
+  chat "&22 &a/pclaim &8-&f Claim the plot you're in."
+  chat "&80 &a/punclaim &8-&f Unclaim your home to claim a different plot. &7Cooldown: &a%var.player/unclaimCdH%h %var.player/unclaimCdM%m %var.player/unclaimCdS%s"
+  chat "&80 &a/phome &8-&f Teleport to your home."
+  chat "&22 &a/preset &8-&f Reset the plot you're in to a grass flat."
+  chat "&65 &a/psethome &8-&f Set the plot you're in as your home."
+}
+
+if (hasGroup "Mod" true) {
+  chat &1
+  chat "&e&lMOD COMMANDS"
+  chat "&e15 &e/dumb &e<target> &8-&f Show how to claim explanation to &etarget&f."
+  chat "&e15 &a/pfree &8-&f Sets the plot you're in to &a&lFREE&f."
+  chat "&e15 &9/invis &8-&f Toggle &e&oInvisibility&f."
+  chat "&e15 &c/free &e<target> &8-&f Unban &etarget&f."
+  chat "&e15 &c/ban1m &e<target> &8-&f Ban &etarget&f for &a1 minute&f."
+  chat "&e15 &c/ban1h &e<target> &8-&f Ban &etarget&f for &a1 hour&f."
+  chat "&e15 &c/ban1d &e<target> &8-&f Ban &etarget&f for &a1 day&f."
+  chat "&e15 &c/ban10d &e<target> &8-&f Ban &etarget&f for &a10 days&f."
+}
+
+if (hasGroup "Admin" true) {
+  chat &2
+  chat "&c&lADMIN COMMANDS"
+  chat "&c18 &e/open &8- &a&lOPEN&f %house.name%&f."
+  chat "&c18 &e/close &8- &c&lCLOSE&f %house.name%&f."
+  chat "&c18 &e/staffadd <target> &8-&f Change the group of &etarget&f to &e[STAFF]&f."
+  chat "&c18 &e/staffrem <target> &8-&f Change the group of &etarget&f to &2[VISITOR]&f."
+  chat "&c18 &a/pnew &e<target> &8-&f Allow &etarget&f to claim another plot."
+}
+
+if (hasGroup "Dev" true) {
+  chat &3
+  chat "&5&lDEV COMMANDS"
+  chat "&519 &a/pfreeall &8-&f Set all plots to &a&lFREE&f."
+}
+
+chat "&6&m----------------------------------------"
+
+sound "Note Pling" 1.0 2.0 invokers_location

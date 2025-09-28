@@ -1,0 +1,12 @@
+// @global
+// Event input: targetAddr (wildcard: -1)
+
+if or (globalvar targetAddr == -1, globalvar targetAddr == var homeAddr) {
+  title "&a&oPlot &b&o#%var.player/homeAddr%" "&c&lLOST" 1 2 1
+  sound "Explode" 0.7 1.0 invokers_location
+  
+  var homeAddr unset
+  var homePrefix unset
+  var homeRated unset
+  var homeRating unset
+}

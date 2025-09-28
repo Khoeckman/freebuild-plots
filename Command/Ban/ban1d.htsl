@@ -1,0 +1,6 @@
+// @targeted
+
+var banReason = "Banned by staff"
+var banSeconds = {1 * 24 * 60 * 60}
+
+function "Ban player"

@@ -1,0 +1,26 @@
+// @global
+
+// When the house owner joins or leaves, everyone gets set to adventure, so put them back in creative.
+
+pause 4
+gamemode "creative"
+
+pause 4
+if () {
+  gamemode "creative"
+}
+
+pause 8
+if () {
+  gamemode "creative"
+}
+
+pause 8
+if () {
+  gamemode "creative"
+}
+
+pause 16
+if () {
+  gamemode "creative"
+}

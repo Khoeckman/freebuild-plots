@@ -1,0 +1,9 @@
+if (hasGroup "Staff" true, !hasGroup "Admin" true) {
+  globalvar reqIgn = %player.name%
+  globalvar bcReason = 1011
+  function "Broadcast" true
+
+  var oldInAddr unset
+  changePlayerGroup "Visitor" false
+  function "Default inventory"
+}

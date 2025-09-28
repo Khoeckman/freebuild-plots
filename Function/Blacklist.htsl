@@ -1,0 +1,38 @@
+// @temp blist
+
+if or (hasGroup "Banned", hasGroup "Staff" true) {
+  exit
+}
+
+var blist unset
+
+// hasItem limit is 20
+if or (hasItem "sapling0" "Item Type" Anywhere "Any Amount", hasItem "sapling1" "Item Type" Anywhere "Any Amount", hasItem "sapling2" "Item Type" Anywhere "Any Amount", hasItem "sapling3" "Item Type" Anywhere "Any Amount", hasItem "sapling4" "Item Type" Anywhere "Any Amount", hasItem "sapling5" "Item Type" Anywhere "Any Amount", hasItem "dispenser" "Item Type" Anywhere "Any Amount", hasItem "jukebox" "Item Type" Anywhere "Any Amount", hasItem "dragon_egg" "Item Type" Anywhere "Any Amount", hasItem "beacon" "Item Type" Anywhere "Any Amount", hasItem "slime" "Item Type" Anywhere "Any Amount", hasItem "barrier" "Item Type" Anywhere "Any Amount", hasItem "flint_and_steel" "Item Type" Anywhere "Any Amount", hasItem "painting" "Item Type" Anywhere "Any Amount", hasItem "snowball" "Item Type" Anywhere "Any Amount", hasItem "egg" "Item Type" Anywhere "Any Amount", hasItem "ender_pearl" "Item Type" Anywhere "Any Amount", hasItem "potion" "Item Type" Anywhere "Any Amount", hasItem "ender_eye" "Item Type" Anywhere "Any Amount", hasItem "spawn_egg" "Item Type" Anywhere "Any Amount") {
+  var blist = 1
+}
+
+if or (hasItem "experience_bottle" "Item Type" Anywhere "Any Amount", hasItem "fire_charge" "Item Type" Anywhere "Any Amount", hasItem "item_frame" "Item Type" Anywhere "Any Amount", hasItem "fireworks" "Item Type" Anywhere "Any Amount", hasItem "tnt_minecart" "Item Type" Anywhere "Any Amount") {
+  var blist = 1
+}
+
+if (!var blist > 0) {
+  exit
+}
+
+var banReason = "Obtaining a blacklisted item"
+
+// Dynamic ban duration
+// @todo revert after event to -1
+var banSeconds = -1
+
+// Remove the blacklisted item
+resetInventory
+giveItem "PlotsCookie" false 4 true
+function "Default inventory"
+
+function "Ban player"
+
+// Remind 'em
+pause 60
+sound "Click" 0.7 1.0 invokers_location
+displayMenu "Blacklist"

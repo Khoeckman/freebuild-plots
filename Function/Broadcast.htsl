@@ -1,0 +1,87 @@
+// @global
+
+// Event input: reqIgn, bcReason (1-999 = PUBLIC, 1000+ = STAFF-ONLY)
+// Event input (bcReason == 1 or 2): houseGroupTag, houseVersion
+// Event input (bcReason == 1001): banReason
+// Event input (bcReason == 1003): plotAddr
+
+if or (globalvar bcReason == 1, globalvar bcReason == 2, globalvar bcReason == 1000) {
+  exit
+}
+
+if (hasGroup "Mod" true, globalvar bcReason >= 1, globalvar bcReason <= 2) {
+  sound "Note Pling" 0.7 1.0 invokers_location
+}
+
+if (globalvar bcReason == 1) {
+  chat "&a&l» &a&l&oWELCOME %var.global/houseGroupTag% &b%var.global/reqIgn%&f joined for the first time and is playing on &a%var.global/houseVersion%&f."
+  exit
+}
+
+if (globalvar bcReason == 2) {
+  chat "&a&l» %var.global/houseGroupTag% &b%var.global/reqIgn%&f joined and is playing on &a%var.global/houseVersion%&f."
+  exit
+}
+
+if (globalvar bcReason >= 1000, !hasGroup "Mod" true) {
+  exit
+}
+
+if (globalvar bcReason == 1000) {
+  chat "&c&l« %var.global/houseGroupTag% &b%var.global/reqIgn%&f quit."
+  exit
+}
+
+chat &7
+
+if (globalvar bcReason >= 1000) {
+  chat "&4&m---&c &lSTAFF&4 &m--------------------------------------"
+} else {
+  chat "&2&m---&a &lPUBLIC&2 &m-------------------------------------"
+}
+
+if (globalvar bcReason == 9) {
+  chat "&b%var.global/reqIgn%&f set all plots to &a&lFREE&f."
+}
+
+if (globalvar bcReason == 10) {
+  chat "&b%var.global/reqIgn%&f &a&lOPENED&f %house.name%&f."
+}
+
+if (globalvar bcReason == 11) {
+  chat "&b%var.global/reqIgn%&f &c&lCLOSED&f %house.name%&f."
+}
+
+if (globalvar bcReason == 12) {
+  chat "&b%var.global/reqIgn%&f &6&lLOCKED&f %house.name%&f."
+}
+
+if (globalvar bcReason == 1001) {
+  chat "&b%var.global/reqIgn%&f was &c&lBANNED&f."
+  chat "Reason: &e%var.global/banReason%"
+}
+
+if (globalvar bcReason == 1002) {
+  // @todo get xyz of player + who reported, group-prio has been set to 15 temp
+  chat "&b%var.global/reqIgn%&f was &6&lREPORTED&f."
+}
+
+if (globalvar bcReason == 1003) {
+  chat "&b%var.global/reqIgn%&f set &a&oPlot &b&o#%var.global/plotAddr%&f to &a&lFREE&f."
+}
+
+if (globalvar bcReason == 1010) {
+  chat "&b%var.global/reqIgn%&f was &a&lADDED&f to the staff team. &a&l&oWELCOME"
+}
+
+if (globalvar bcReason == 1011) {
+  chat "&b%var.global/reqIgn%&f was &c&lREMOVED&f from the staff team."
+}
+
+if (globalvar bcReason >= 1000) {
+  chat "&4&m------------------------------------------------"
+} else {
+  chat "&2&m------------------------------------------------"
+}
+
+sound "Orb Pickup" 1 0 invokers_location

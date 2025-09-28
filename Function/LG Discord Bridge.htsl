@@ -1,0 +1,41 @@
+goto function "Bridge announce"
+goto function "Bridge clock"
+
+// @auto 4
+
+if (!globalvar bridge/msg5 == 0 0) {
+  globalvar bridge/annId = 2
+  function "Bridge announce" true
+
+  globalvar bridge/msg1 unset
+  globalvar bridge/msg2 unset
+  globalvar bridge/msg3 unset
+  globalvar bridge/msg4 unset
+  globalvar bridge/msg5 unset
+}
+
+if (globalvar discordJoins > 0) {
+  globalvar bridge/annId = 1
+  globalvar discordMembers = globalvar discordJoins
+  function "Bridge announce" true
+
+  globalvar discordJoins unset
+}
+
+
+
+goto function "Bridge announce"
+
+// @global
+// Event input: bridge/annId, discordMembers, bridge/user, bridge/msg#
+
+if (globalvar bridge/annId == 1) {
+  chat "&7(&a✌ %var.global/discordMembers% members&7) &bSomeone &fjoined &6&lLEGENDARY GAMES&f!"
+  chat "&l &l &l &f ➥ &b&ndiscord.gg/jFtGfAnY8P"
+  sound "Orb Pickup" 0.7 1.0 invokers_location
+}
+
+if (globalvar bridge/annId == 2) {
+  chat "&7&l[&9&lDISCORD&7&l] &b%var.global/bridge/user%&f: %var.global/bridge/msg1%%var.global/bridge/msg2%%var.global/bridge/msg3%%var.global/bridge/msg4%%var.global/bridge/msg5%"
+  sound "Note Sticks" 0.3 2.0 invokers_location
+}

@@ -1,0 +1,92 @@
+// Input: homeAddr
+
+if (!var homeAddr > 0) {
+  chat "&cYou must have a home."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (globalvar lockdown >= 1, !hasGroup "Mod" true) {
+  chat "&cYou cannot unclaim your home while %house.name%&c is &6&lLOCKED&c or &c&lCLOSED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var plotAddr = var homeAddr
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+ // {homeAddr} is no longer owned by {id}
+if (!var plotId == var id) {
+  chat "&cYou must have a home."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+
+  var homeAddr unset
+  var homePrefix unset
+  var homeRated unset
+  var homeRating unset
+  exit
+}
+
+if (!var permission >= var plotProtect 0 0) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Player has an unclaim cooldown
+if (var unclaimCd > 0, !hasGroup "Mod" true) {
+  var seconds = var unclaimCd
+  function "Seconds to HMS"
+
+  chat "&cYou cannot unclaim your home for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Erase plot data
+var plotId unset
+
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var homeAddr unset
+var homePrefix unset
+
+var unclaimCd = globalvar unclaimCd
+
+chat &7
+chat "&2&m---&a &lPLOT UNCLAIMED&2 &m---------------------------&l-"
+chat "&fYou unclaimed &a&oPlot &b&o#%var.player/plotAddr%&f."
+chat "&2&m------------------------------------------------"
+
+title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lUNCLAIMED" 1 2 1
+sound "Explode" 0.7 1.0 invokers_location
+
+globalvar targetId unset
+globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

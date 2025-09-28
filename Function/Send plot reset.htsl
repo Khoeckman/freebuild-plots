@@ -1,0 +1,81 @@
+// @global
+// Event input: reqId, reqAddr
+
+// Let the requestor know the function is not on cooldown
+if (globalvar reqId == var id) {
+  var cd = 1
+  exit
+}
+
+// Bots only
+if (!hasGroup "Staff") {
+  exit
+}
+
+if or (!globalvar reqAddr > 0, globalvar reqAddr > globalvar maxHomeAddr -1) {
+  chat "&cYou cannot teleport to &a&oPlot &b&o#%var.global/reqAddr '&cNone'%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+var addr = globalvar reqAddr
+var addr -= 1
+
+// Row {x} - addr % plotGridSize
+var dividend = var addr
+var divisor = globalvar plotGridSize
+
+// @mixin Modulo
+// Input: dividend, divisor
+// Output: remainder
+
+var remainder = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var remainder -= var diff
+// @endmixin
+
+var x = var remainder
+
+// Layer {y} - addr // plotLayerSize
+var y = var addr
+var y /= globalvar plotLayerSize
+
+// Col {z} - (addr // plotGridSize) % plotGridSize
+
+var dividend = var addr
+var dividend /= globalvar plotGridSize
+var divisor = globalvar plotGridSize
+
+// @mixin Modulo
+// Input: dividend, divisor
+// Output: remainder
+
+var remainder = var dividend
+var diff = var dividend
+var diff /= var divisor
+var diff *= var divisor
+var remainder -= var diff
+// @endmixin
+
+var z = var remainder
+
+// Convert (row, layer, col) to (x, y, z)
+if () {
+  // possible seperate addr -> XYZ logic into reusable function
+  // @check the -= 1 for XYZ
+  var x *= globalvar plotXZPlusGap
+  var x += globalvar plotStartX
+  var x += globalvar plotXZ
+
+  var y *= globalvar plotYPlusGap
+  var y += globalvar plotStartY
+
+  var z *= globalvar plotXZPlusGap
+  var z += globalvar plotStartZ
+  var z -= 1
+}
+
+chat "&6&lRESET &ereqId: %var.global/reqId% reqAddr: %var.global/reqAddr%"
+chat ">>copypaste 124 174 108 93 256 139 %var.player/x% %var.player/y% %var.player/z%"

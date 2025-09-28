@@ -1,0 +1,19 @@
+todo:
+  - 'fix shared area not working'
+  - 'add per player per plot cooldown to /prate'
+  - 'Make /pauto not claim protected plots even if your rank is high enough'
+  - 'SECURITY: disable skulls (furniture) (when buildperm is off)'
+  - 'Show player/id in join/leave broadcasts'
+  - 'Add special blocks to /special and make obtainable by clicking'
+  - 'make /staffrem work on admin and dev too if executer has higher rank (workaround needed bcz of target command limitation)'
+  - 'auto detect AFK after 3 mins + make AFK zone'
+  - 'GLITCH?: Function{Plot online} @hyper 4, gave issues with when 5 players were rate-bombing, online-status sometimes went OFFLINE instead of UNKNOWN'
+
+optional:
+  - 'Make {unclaimCd} unix based.'
+  - 'Add warning message when entering shared zone to prevent build abuse'
+  - 'Add B36 on world sides'
+  - 'Clean up debug vars by resetting house (protected plots will be lost, needs /pfreeall)'
+  - 'Add /pfreeall'
+  - 'smart system for prevent adding the same player twice to trusted list (upload whole list when adding someone + gc after!)'
+  - 'Builder token system. Earn points: 1. by getting rated, 2. by rating others, 3. playtime. Spend points on: ? 1. extra plot, 2. plot protection'

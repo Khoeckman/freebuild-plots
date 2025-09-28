@@ -1,0 +1,3 @@
+if (!var banUnix > 0, !hasGroup "Staff" true) {
+  changePlayerGroup "Visitor" false
+}

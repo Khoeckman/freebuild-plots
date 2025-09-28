@@ -1,0 +1,68 @@
+// Input: trustAddr, *trust#Id, *trust#Ign
+// Output: trust#Id, trust#Ign
+
+// @temp ign
+
+// {trustAddr} must be between 1 and 5
+if or (!var trustAddr > 0, var trustAddr > 5) {
+  exit
+}
+
+if (var trustAddr == 1) {
+  var ign = var trust1Ign 0 true
+  
+  globalvar targetId = var trust1Id
+  var trust1Id unset
+  var trust1Ign unset
+}
+
+if (var trustAddr == 2) {
+  var ign = var trust2Ign 0 true
+  
+  globalvar targetId = var trust2Id
+  var trust2Id unset
+  var trust2Ign unset
+}
+
+if (var trustAddr == 3) {
+  var ign = var trust3Ign 0 true
+  
+  globalvar targetId = var trust3Id
+  var trust3Id unset
+  var trust3Ign unset
+}
+
+if (var trustAddr == 4) {
+  var ign = var trust4Ign 0 true
+  
+  globalvar targetId = var trust4Id
+  var trust4Id unset
+  var trust4Ign unset
+}
+
+if (var trustAddr == 5) {
+  var ign = var trust5Ign 0 true
+  
+  globalvar targetId = var trust5Id
+  var trust5Id unset
+  var trust5Ign unset
+}
+
+chat "&aUnassigned &b%var.player/ign '&cNone'%&a from &eSlot &b#%var.player/trustAddr%&a."
+sound Fizz 0.7 1.0 invokers_location
+
+// Prevent syncing if target is unset
+if (!globalvar targetId > 0) {
+  exit
+}
+
+globalvar targetAddr unset
+globalvar targetPlotId unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

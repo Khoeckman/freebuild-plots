@@ -1,0 +1,9 @@
+if (var banUnix > 0) {
+  chat "&cYou are not allowed to be in creative mode while banned."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+sound "Level Up" 0.7 1.0 invokers_location
+chat "&aYou are in creative mode."
+gamemode "Creative"

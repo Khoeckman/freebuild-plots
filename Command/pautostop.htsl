@@ -1,0 +1,4 @@
+if (var auto > 0) {
+  chat "&eStopping autoclaim."
+}
+var auto unset

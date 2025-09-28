@@ -1,0 +1,43 @@
+// @auto 4
+// Input: *nvn, *invis
+// Output: nvn, invis, invisStr
+
+// Make the player invisible if they are on the exact spawn position
+var inSpawn unset
+
+if (!var banUnix > 0, placeholder %player.location.x% == 0, placeholder %player.location.y% == 13, placeholder %player.location.z% == 6) {
+  var inSpawn = 1
+}
+
+// No invisibility permission
+if (!var inSpawn > 0, hasPotion "Invisibility", !hasGroup "Staff" true) {
+  var invis unset
+  var invisStr unset
+  clearEffects
+  displayNametag true
+}
+
+if (!var inSpawn > 0, hasPotion "Invisibility", !var invis == 1) {
+  var invisStr unset
+  clearEffects
+  displayNametag true
+}
+
+if (hasPotion "Night Vision", !var nvn == 1) {
+  var nvnStr unset
+  clearEffects
+}
+
+if (var nvn == 1) {
+  applyPotion "Night Vision" 2592000
+}
+
+if or (var inSpawn == 1, var invis == 1) {
+  applyPotion "Invisibility" 2592000
+  displayNametag false
+}
+
+// Ban from participating in PvP
+if (var banUnix > 0) {
+  applyPotion "Weakness" 30 10
+}

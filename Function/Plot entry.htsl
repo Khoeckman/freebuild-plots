@@ -1,0 +1,77 @@
+// @auto 4
+// Input: inAddr, *oldInAddr
+// Output: in...
+
+// If the player is not inAddr a plot
+// OR
+// the player just entered a (different) plot
+if or (!var inAddr > 0, var inAddr == var oldInAddr) {
+  exit
+}
+
+if (inRegion "Shared") {
+  var oldInAddr = var inAddr
+  exit
+}
+
+var plotAddr = var inAddr
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  exit
+}
+
+// Only run this function when these no longer match
+var oldInAddr = var inAddr
+
+// Copy {plot...} to {in...}
+var inId = var plotId 0 true
+var inIgn = var plotIgn 0 true
+var inUnix = var plotUnix 0 true
+var inExpr = var plotExpr 0 true
+var inSettings = var plotSettings 0 true
+var inBuild = var plotBuild 0 true
+var inBuildStr = var plotBuildStr 0 true
+var inProtect = var plotProtect 0 true
+var inProtectStr = var plotProtectStr 0 true
+var inOnline = var plotOnline 0 true
+var inOnlineStr = var plotOnlineStr 0 true
+var inTrusted = var plotTrusted 0 true
+var inPoints = var plotPoints 0 true
+var inRated = var plotRated 0 true
+var inRating = var plotRating 0 true
+
+if (var plotMenuQ == 1) {
+  var plotMenuQ unset
+  displayMenu "Plot menu"
+}
+
+// If player should not change group
+if or (var banUnix > 0, hasGroup "Staff" true) {
+  exit
+}
+
+if (globalvar lockdown == 1) {
+  changePlayerGroup "Visitor" false
+  exit
+}
+
+if (var inId == var id) {
+  changePlayerGroup "Home" false
+  exit
+}
+
+if (var inBuild > 0, var inOnline > 0, var inTrusted == 1) {
+  changePlayerGroup "Trusted" false
+  exit
+}
+
+if (var inBuild == 2, var inOnline > 0) {
+  changePlayerGroup "Build" false
+  exit
+}
+
+changePlayerGroup "Visitor" false

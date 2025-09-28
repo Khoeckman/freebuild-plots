@@ -1,0 +1,5 @@
+// @todo create command
+
+globalvar reqIgn = %player.name%
+globalvar bcReason = 9
+function "Broadcast" true

@@ -1,0 +1,140 @@
+// Input: plot...
+// Output: plot...
+
+// @temp rest, mask
+
+// Command{pset} item feedback
+var menuBuild0 unset
+var menuBuild1 unset
+var menuBuild2 unset
+var menuProtect0 unset
+var menuProtect1 unset
+var menuProtect2 unset
+var menuProtect3 unset
+var menuProtect4 unset
+
+var plotExpr unset
+
+// If plot is FREE, clean all {plot...} variables
+if (!var plotId > 0) {
+  var plotId unset
+  var plotIgn unset
+  var plotUnix unset
+
+  var plotSettings unset
+  var plotBuild unset
+  var plotBuildStr unset
+  var plotProtect unset
+  var plotProtectStr unset
+  var plotPermStr unset
+  var plotOnline unset
+  var plotOnlineStr unset
+
+  var plotTrusted unset
+
+  var plotPoints unset
+  var plotRated unset
+  var plotRating unset
+  exit
+}
+
+// {plotUnix} may not be ""
+var plotUnix = var plotUnix 0 true
+
+// Unpack
+// (2 bits: AB) = (A: plotBuild, B: plotProtect) = (00-24) / compressed = (0-15)
+var rest = var plotSettings 0 true
+var rest = var rest 0
+
+var mask = var rest
+var mask /= 10
+var mask *= 10
+var plotProtect = var rest
+var plotProtect -= var mask
+
+var rest /= 10
+var plotBuild = var rest
+
+// Online - Skip checking if they are the owner
+function "Plot online"
+
+// Trusted - Skip checking if they are the owner or staff
+function "Plot trusted"
+
+// Calculate rating
+// {plotPoints} may not be ""
+var plotPoints = var plotPoints 0 true
+
+if (!var plotRated > 0) {
+  var plotPoints unset
+  var plotRated unset
+  var plotRating unset
+} else {
+  var plotRating = %var.player/plotPoints 0%D
+  var plotRating /= %var.player/plotRated%D
+}
+
+// Sync home data
+if (var plotAddr == var homeAddr) {
+  var homeRated = var plotRated 0 true
+  var homeRating = var plotRating 0 true
+}
+
+// Online status
+var plotOnlineStr = "&7(&c&lUNKNOWN&7) "
+
+if (var plotOnline == -1) {
+  var plotOnlineStr = "&7(&c&lOFFLINE&7) "
+}
+
+if (var plotOnline == 1) {
+  var plotOnlineStr = "&7(&a&lONLINE&7) "
+}
+
+// Build name
+
+if (!var plotBuild > 0) {
+  var plotBuildStr = "&cPrivate"
+  var menuBuild0 = "&aSelected"
+}
+
+if (var plotBuild == 1) {
+  var plotBuildStr = "&eTrusted"
+  var menuBuild1 = "&aSelected"
+}
+
+if (var plotBuild == 2) {
+  var plotBuildStr = "&aPublic"
+  var menuBuild2 = "&aSelected"
+}
+
+// Protect & permission group name
+var plotPermStr = "&e[STAFF]"
+
+if (!var plotProtect > 0) {
+  var plotProtectStr = "&7Off"
+  var menuProtect0 = "&aSelected"
+  exit
+}
+
+if (var plotProtect == 1) {
+  var plotProtectStr = "&aLow"
+  var menuProtect1 = "&aSelected"
+  exit
+}
+
+if (var plotProtect == 2) {
+  var plotProtectStr = "&eMedium"
+  var menuProtect2 = "&aSelected"
+  exit
+}
+
+if (var plotProtect == 3) {
+  var plotProtectStr = "&6High"
+  var plotPermStr = "&c[STAFF]"
+  var menuProtect3 = "&aSelected"
+} else {
+  var plotProtectStr = "&cExtreme"
+  var plotPermStr = "&4[OWNER]"
+  var menuProtect4 = "&aSelected"
+}

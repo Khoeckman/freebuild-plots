@@ -1,0 +1,3 @@
+// Input: plotAddr, rated (bool)
+
+var lastRateAddr = var plotAddr

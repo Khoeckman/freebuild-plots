@@ -1,0 +1,18 @@
+// Does not do:
+// resetInventory
+// giveItem "PlotsCookie" false 4 true
+
+removeItem "PlotsMenu64"
+
+if (hasGroup "Dev" true) {
+  giveItem "PlotsMenu" true 7 true
+  giveItem "HousingMenu" true 8 true
+  exit
+}
+
+if (hasGroup "Mod" true) {
+  giveItem "PlotsMenu" true 7 true
+  giveItem "HousingAdminMenu" true 8 true
+} else {
+  giveItem "PlotsMenu" true 8 true
+}

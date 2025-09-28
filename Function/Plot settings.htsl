@@ -1,0 +1,98 @@
+// Input: in..., settingStr, selected
+// Output: plot...
+
+if or (!var inAddr > 0, !var inId > 0) {
+  chat "&cYou must be inside an occupied plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var inId == var id, !hasGroup "Mod" true) {
+  chat "&cYou must own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Not enough permissions to manage plot
+if (!var permission >= var inProtect 0 0) {
+  chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to manage this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var settingStr == "Protection", !hasGroup "Mod" true) {
+  chat "&cYou must be at least &e[STAFF]&c to change the protection setting of a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var settingStr == "Protection", !var permission >= var selected 0 0) {
+  chat "&cYou lack permission to apply this setting."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Warning when modifying someone else's plot
+if (!var inId == var id) {
+  chat "&6&lWARNING &eYou are modifying &a&oPlot &b&o#%var.player/inAddr%&e owned by &b%var.player/inIgn%&e."
+  sound "Note Pling" 1.0 2.0 invokers_location
+}
+
+// Dynamically update the correct setting
+
+if (var settingStr == "Building", var selected == var plotBuild) {
+  chat "&c%var.player/settingStr% is already set to %var.player/selectedStr%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var settingStr == "Protection", var selected == var plotProtect) {
+  chat "&c%var.player/settingStr% is already set to %var.player/selectedStr%&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var settingStr == "Building") {
+  var inBuild = var selected
+  var inBuildStr = var selectedStr
+}
+
+if (var settingStr == "Protection") {
+  var inProtect = var selected
+  var inProtectStr = var selectedStr
+}
+
+var plotId = var inId 0 true
+var plotIgn = var inIgn 0 true
+var plotUnix = var inUnix 0 true
+var plotBuild = var inBuild 0 true
+var plotProtect = var inProtect 0 true
+var plotPoints = var inPoints 0 true
+var plotRated = var inRated 0 true
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+chat "&aYou updated &oPlot &b&o#%var.player/inAddr%&a. &f%var.player/settingStr%: %var.player/selectedStr%"
+sound "Click" 0.7 1.0 invokers_location
+
+var plotMenuQ = 1
+
+globalvar targetId unset
+globalvar targetAddr = var inAddr
+globalvar targetPlotId unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

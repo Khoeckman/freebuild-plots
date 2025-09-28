@@ -1,0 +1,45 @@
+// Check if the player still owns their home when they return
+var homeSyncQ = 1
+
+var groupStr = %player.group.name%
+
+if (var groupStr == "Owner") {
+  function "Owner join or leave" true
+}
+
+globalvar reqIgn = %player.name%
+globalvar houseGroupTag = %player.group.tag%
+
+globalvar bcReason = 1000
+function "Broadcast" true
+
+// If player is homeless
+if (!var homeAddr > 0, !var hasMultiple > 0) {
+  exit
+}
+
+var cd unset
+
+if (var homeAddr > 0) {
+  var plotAddr = var homeAddr
+  function "Plot download"
+  function "Plot postprocess"
+}
+
+if (var cd == 1) {
+  function "Plot preprocess"
+  function "Plot upload"
+}
+
+// Send player offline event if they have a home
+globalvar targetId unset
+globalvar targetAddr unset
+globalvar targetPlotId = var id
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

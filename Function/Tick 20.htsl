@@ -1,0 +1,42 @@
+// @auto 20
+
+function "Ban sync"
+
+// ms
+var playtime += 1000
+
+// Cooldowns
+if (var unclaimCd > 1) {
+  var unclaimCd -= 1
+} else {
+  var unclaimCd unset
+}
+
+if (var resetCd > 1) {
+  var resetCd -= 1
+} else {
+  var resetCd unset
+}
+
+if () {
+  var seconds = var playtime
+  var seconds /= 1000
+
+  // @mixin Seconds to HMS
+  // Input: seconds
+  // Output: h, m, s
+  var temp = var seconds
+  var temp /= 60
+  var ptM = var temp
+
+  var temp *= 60
+  var ptS = var seconds
+  var ptS -= var temp
+
+  var temp /= 3600
+  var ptH = var temp
+
+  var temp *= 60
+  var ptM -= var temp
+  // @endmixin
+}

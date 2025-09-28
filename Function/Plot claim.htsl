@@ -1,0 +1,171 @@
+// Input: plotAddr
+// Output: plot..., homeAddr, homePrefix
+
+// 0 = no error; 1 = user error; 2 = plot restriction
+// Plot Auto will only try to claim the next plot if {err} == 2
+var err = 1
+
+if (var banUnix > 0) {
+  chat "&cYou cannot claim a plot while banned."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var homeAddr == var plotAddr -1) {
+  chat "&cYou already own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var homeAddr > 0) {
+  chat "&cYou already own &a&oPlot &b&o#%var.player/homeAddr%&c. Try &e/phome&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (!var plotAddr > 0) {
+  chat "&cYou must be inside a plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (globalvar lockdown >= 1, !hasGroup "Mod" true) {
+  chat "&cYou cannot claim a plot while %house.name%&c is &6&lLOCKED&c or &c&lCLOSED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Download the plot the player is trying to claim
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+// If download is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already downloaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// If "Player online" is on CD
+if (var plotOnline == 0) {
+  chat "&6&lTRY AGAIN &eSomeone else used this function within the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Prevent claiming protected plots
+if (var plotProtect > 0) {
+  chat "&cYou cannot claim a protected plot. If you have enough permission, try &e/pfree&c first."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
+  exit
+}
+
+// Not enough permissions
+// if (!var permission >= var plotProtect 0 0) {
+//   chat "&cYou must be at least %var.player/plotPermStr '&e[STAFF]'%&c to claim this plot."
+//   sound "Anvil Land" 0.3 1.0 invokers_location
+//   var err = 2
+//   exit
+// }
+
+if (var plotId == var id) {
+  chat "&cYou already own this plot."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+// Plot owner is online
+if (var plotId > 0, !var plotOnline == -1) {
+  chat "&cYou cannot claim this plot because the owner is online."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
+  exit
+}
+
+var plotExpr = var plotUnix 0
+var plotExpr += globalvar exprBuffer 
+var plotExpr -= %date.unix%
+
+// Plot is not expired
+if (var plotId > 0, var plotExpr > 0) {
+  var seconds = var plotExpr
+
+  function "Seconds to HMS"
+
+  chat "&cYou cannot claim this plot for another &a%var.player/h%h %var.player/m%m %var.player/s%s&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  var err = 2
+  exit
+}
+
+// Claim plot #{plotAddr}
+var plotId = var id
+var plotIgn = %player.name%
+var plotUnix unset
+var plotOnline = 1
+var plotBuild = globalvar event 0
+var plotProtect = var permission 0
+var plotPoints unset
+var plotRated unset
+
+if (var plotProtect == 1) {
+  var plotProtect = 0
+}
+
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
+
+// If upload is on CD
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eYou already uploaded a plot in the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+globalvar targetId unset
+globalvar targetAddr = var plotAddr
+globalvar targetPlotId unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+var homeAddr = var plotAddr 0 true
+var homePrefix = "&a&oPlot &b&o#"
+
+chat &7
+chat "&2&m---&a &lPLOT CLAIMED&2 &m-----------------------------&l-"
+chat "&fYou &atemporarily&f claimed &a&oPlot &b&o#%var.player/plotAddr%&f."
+chat &8
+chat "&fPlot settings: &e/pthis"
+chat "&fMore information: &b/info"
+chat &9
+chat "&c&lDISCLAIMER"
+chat "&c&l⎜ &fAnyone else can claim this plot after &a%var.global/exprBufferM% minutes&f of"
+chat "&c&l⎜ &fyou being &coffline&f."
+chat "&2&m------------------------------------------------"
+
+title "&a&oPlot &b&o#%var.player/plotAddr%" "&e&lCLAIMED" 1 2 1
+sound "Level Up" 0.7 1.0 invokers_location
+
+// Let the Plot Auto system know it was successful
+var err = 0
+
+// @todo when clearing works
+
+// Wait 10 seconds, then ask if the player wants to clear their plot
+// pause 200
+
+// Cancel if player unclaimed the plot in the meanwhile
+// if (!var homeAddr > 0) {
+//   exit
+// }
+
+//sound "Click" 0.7 1.0 invokers_location
+//displayMenu "Plot reset"

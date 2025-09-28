@@ -1,0 +1,34 @@
+// @global
+// Event input: reqId, reqX, reqY, reqZ
+// Event output: resId, resIgn, minDist
+
+// @temp x, y, z, dx, dy, dz, sum, dist
+
+// Abort if the player is the requestor
+if (globalvar reqId == var id) {
+  var cd = 1
+  exit
+}
+
+// Calculate the square distance between the event requestor and the player
+var dx = %player.pos.x%
+var dx -= globalvar reqX
+var dx *= var dx
+
+var dy = %player.pos.y%
+var dy -= globalvar reqY
+var dy *= var dy
+
+var dz = %player.pos.z%
+var dz -= globalvar reqZ
+var dz *= var dz
+
+var dist = var dx
+var dist += var dy
+var dist += var dz
+
+if (var dist < globalvar minDist) {
+  globalvar minDist = var dist
+  globalvar resId = var id
+  globalvar resIgn = %player.name%
+}

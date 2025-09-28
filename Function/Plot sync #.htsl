@@ -1,0 +1,49 @@
+// @global @hyper 2
+// Event input: targetId, targetAddr, targetPlotId, targetHome (only combines with #{targetId})
+// Output: oldInAddr, homeSyncQ
+
+goto function "Plot sync"
+
+// @debug log all uses of this function
+if (hasGroup "Dev" true) {
+  // #
+  chat "&ePlot sync 1 / targetId: %var.global/targetId 'Unset'%, targetAddr: %var.global/targetAddr 'Unset'%, targetPlotId: %var.global/targetPlotId 'Unset'%"
+}
+
+// Sync home if the player is the target
+if (globalvar targetId == var id, globalvar targetHome == 1) {
+  chat "&aSomeone rated your plot."
+  var homeSyncQ = 1
+  exit
+}
+
+// If player is the target
+// OR player is in the same plot
+// OR player is in a plot owner by #{id}
+// THEN sync {inAddr}
+if or (globalvar targetId == var id, globalvar targetAddr == var inAddr, globalvar targetPlotId == var inId) {
+ var oldInAddr unset
+}
+
+goto function "Plot sync 2"
+
+// @debug log all uses of this function
+if (hasGroup "Dev" true) {
+  // #
+  chat "&ePlot sync 2 / targetId: %var.global/targetId 'Unset'%, targetAddr: %var.global/targetAddr 'Unset'%, targetPlotId: %var.global/targetPlotId 'Unset'%"
+}
+
+// Sync home if the player is the target
+if (globalvar targetId == var id, globalvar targetHome == 1) {
+  chat "&aSomeone rated your plot."
+  var homeSyncQ = 1
+  exit
+}
+
+// If player is the target
+// OR player is in the same plot
+// OR player is in a plot owner by #{id}
+// THEN sync {inAddr}
+if or (globalvar targetId == var id, globalvar targetAddr == var inAddr, globalvar targetPlotId == var inId) {
+ var oldInAddr unset
+}

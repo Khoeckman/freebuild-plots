@@ -1,0 +1,11 @@
+if (var banUnix > 0) {
+  chat "&cYou are not allowed to obtain items while banned."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+sound "Chicken Egg Pop" 0.7 1.0 invokers_location
+// #
+// giveItem "OakWood12" true -1 true
+giveItem "OakWood12" true -1 true
+// @todo ...

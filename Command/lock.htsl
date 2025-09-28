@@ -1,0 +1,12 @@
+if (globalvar lockdown == 2) {
+  chat "&cThe house is already &6&lLOCKED&c."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+globalvar lockdown = 2
+function "Plot sync all" true
+
+globalvar reqIgn = %player.name%
+globalvar bcReason = 12
+function "Broadcast" true

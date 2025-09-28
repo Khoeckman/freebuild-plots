@@ -1,0 +1,9 @@
+// @targeted
+
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
+tp "custom_coordinates" "5.5 13 7.5 -90 0" true
+sound "Enderman Teleport" 0.7 1.0 invokers_location
+
+title "&e&oHow to claim a plot" "Click the &e&lNPC&f or do &e/pauto" 0 5 1

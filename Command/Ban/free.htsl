@@ -1,0 +1,13 @@
+// @targeted
+
+if (!var banUnix > 0) {
+  exit
+}
+
+var banUnix unset
+var oldInAddr unset
+changePlayerGroup "Visitor" false
+
+chat "&aYou received a pardon."
+title "&2&lUNBANNED" "&aYou received a pardon" 0 3 1
+sound "Level Up" 0.7 1.0 invokers_location

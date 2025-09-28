@@ -1,0 +1,8 @@
+// #
+var settingStr = "Protection"
+// #
+var selected = 4
+// #
+var selectedStr = "&cExtreme"
+
+function "Plot settings"

@@ -1,0 +1,7 @@
+resetInventory
+giveItem "PlotsCookie" false 4 true
+function "Default inventory"
+
+title "&a&oInventory" "&e&lCLEARED" 0 1 1
+sound "Item Break" 0.7 1.0 invokers_location
+closeMenu

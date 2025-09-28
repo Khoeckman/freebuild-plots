@@ -1,0 +1,16 @@
+function "Group permission"
+
+if (!hasGroup "Banned") {
+  gamemode "Creative"
+}
+
+// Make bots invisible
+if (hasGroup "Staff") {
+  var invis = 1
+  var invisStr = "&a&lENABLED"
+}
+
+// Improve grief prevention - Reset velocity if they just lost "Build" permission
+if (!hasPermission "Build") {
+  tp "custom_coordinates" "~ ~ ~"
+}

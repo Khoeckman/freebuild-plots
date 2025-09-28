@@ -1,0 +1,121 @@
+// Init: homePrefix
+// Input: id, homeAddr
+
+// @temp hasHome, groupStr
+
+function "Spawn"
+
+// Demote previous master bot
+if (hasGroup "Staff") {
+  changePlayerGroup "Visitor" false
+}
+
+var invis = 0
+var invisStr unset
+
+// Prepare player
+resetInventory
+giveItem "PlotsCookie" false 4 true
+function "Default inventory"
+
+// @mixin Event: Group Change
+function "Group permission"
+
+if (!hasGroup "Banned") {
+  gamemode "Creative"
+}
+// @endmixin
+
+var hasHome unset
+
+// If player has a home
+if or (var homeAddr > 0, var hasMultiple == 1) {
+  var hasHome = 1
+}
+
+// Send player online event
+if (var hasHome == 1) {
+  globalvar targetId unset
+  globalvar targetAddr unset
+  globalvar targetPlotId = var id
+}
+
+if (var hasHome == 1, !globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+}
+
+if (var hasHome == 1, globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}
+
+var groupStr = %player.group.name%
+
+if (var groupStr == "Owner") {
+  function "Owner join or leave" true
+}
+
+// Join message
+globalvar reqIgn = %player.name%
+globalvar houseGroupTag = %player.group.tag%
+globalvar houseVersion = %player.version%
+
+if (!var id > 0) {
+  globalvar unique += 1
+  var id = globalvar unique
+  
+  globalvar bcReason = 1
+  function "Broadcast" true
+
+  var nvn = 1
+  var nvnStr = "&a&lENABLED"
+  resetInventory
+  pause 30
+
+  chat &7
+  chat "&2&m---&a %house.name%&r &m------------------------------"
+  chat "&fWelcome to this unique &a&lFREEBUILD&f project!"
+  chat "&fIn this &6house&f you can claim your own &e30x30&f &a&oPlot&f to build on."
+  chat "&fYou can &eTrust&f others to build on your &a&oPlot&f using &e/ptrust&f."
+  chat "&fNobody can &cgrief&f your build!"
+  chat &8
+  chat "&a&lCLAIMING A PLOT"
+  chat "&fJust do &e/pclaim&f to claim the plot you are in."
+  chat "&fYou can teleport to your plot using &e/phome&f."
+  chat "&fUse the &a&oCreative &2&oMenu&f for more features."
+  chat &9
+  chat "&c&lDISCLAIMER"
+  chat "&c&l⎜ &fCheck &b/info&f to prevent getting &c&lBANNED&f."
+  chat "&2&m------------------------------------------------"
+
+  title "%house.name%" "&e&lWELCOME" 0 2 1
+  
+  // Make sure new players their inventory is correct
+  function "Default inventory"
+} else {
+  globalvar bcReason = 2
+  function "Broadcast" true
+
+  pause 30
+
+  title "%house.name%" "&e&lWELCOME BACK" 0 2 1
+}
+
+// All code below is delayed 30 ticks (like the title in the if above)!
+
+sound "Level Up" 0.7 1.0 invokers_location
+
+pause 30
+
+if (globalvar lockdown == 1) {
+  chat "&6&lWARNING %house.name%&e is currently &c&lCLOSED&e."
+  sound "Note Pling" 1.0 2.0 invokers_location
+  exit
+}
+
+// Let only Admins know whether the house is open or closed
+if (hasGroup "Admin" true, !globalvar lockdown > 0) {
+  chat "&6&lWARNING %house.name%&e is currently &a&lOPEN&e."
+  sound "Note Pling" 1.0 2.0 invokers_location
+}

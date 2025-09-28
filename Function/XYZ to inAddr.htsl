@@ -1,0 +1,75 @@
+// Scratch: https://scratch.mit.edu/projects/1160831605/editor/
+
+// @auto 4
+// Input: pos(x, y, z)
+// Output: inAddr
+
+// @temp dividend, diff, inX, inY, inZ, inCol, inLayer, inRow
+
+// Check if player is outside the most outer plots
+if or (placeholder %player.pos.x% < globalvar plotStartX, placeholder %player.pos.x% > globalvar plotEndX, placeholder %player.pos.y% < globalvar plotStartY, placeholder %player.pos.y% > globalvar plotEndY, placeholder %player.pos.z% < globalvar plotStartZ, placeholder %player.pos.z% > globalvar plotEndZ) {
+  var inAddr unset
+  exit
+}
+
+// Check if the player is on the street (preparation)
+if () {
+  // Calculate for {inX}
+  var dividend = %player.location.x%
+  var dividend -= globalvar plotStartX
+
+  var diff = var dividend
+  var diff /= globalvar plotXZPlusGap
+  var diff *= globalvar plotXZPlusGap
+
+  var inX = var dividend
+  var inX -= var diff
+
+  // Calculate for {inY}
+  var dividend = %player.location.y%
+  var dividend -= globalvar plotStartY
+
+  var diff = var dividend
+  var diff /= globalvar plotYPlusGap
+  var diff *= globalvar plotYsPlusGap
+
+  var inY = var dividend
+  var inY -= var diff
+
+  // Calculate for {inZ}
+  var dividend = %player.location.z%
+  var dividend -= globalvar plotStartZ
+
+  var diff = var dividend
+  var diff /= globalvar plotXZPlusGap
+  var diff *= globalvar plotXZPlusGap
+
+  var inZ = var dividend
+  var inZ -= var diff
+}
+
+// Check if the player is on the street
+if or (var inX >= globalvar plotXZ, var inY >= globalvar plotY, var inZ >= globalvar plotXZ) {
+  var inAddr unset
+  exit
+}
+
+// Calculate what plot the player is in
+var inCol = %player.location.x%
+var inCol -= globalvar plotStartX
+var inCol /= globalvar plotXZPlusGap
+
+var inRow = %player.location.z%
+var inRow -= globalvar plotStartZ
+var inRow /= globalvar plotXZPlusGap
+var inRow *= globalvar plotGridSize
+
+var inLayer = %player.location.y%
+var inLayer -= globalvar plotStartY
+var inLayer /= globalvar plotYPlusGap
+var inLayer *= globalvar plotLayerSize
+
+var inAddr = 1
+var inAddr += var inRow
+var inAddr += var inCol
+var inAddr += var inLayer

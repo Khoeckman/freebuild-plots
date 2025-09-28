@@ -1,0 +1,102 @@
+// @auto 4
+
+if (var banUnix > 0) {
+  var seconds = var banUnix
+  var seconds -= %date.unix%
+
+  // @mixin Seconds to HMS
+  // Input: seconds
+  // Output: h, m, s
+  var temp = var seconds
+  var temp /= 60
+  var m = var temp
+
+  var temp *= 60
+  var s = var seconds
+  var s -= var temp
+
+  var temp /= 3600
+  var h = var temp
+
+  var temp *= 60
+  var m -= var temp
+  // @endmixin
+
+  actionBar "&c&oBanned &8/ &a%var.player/h%h %var.player/m%m %var.player/s%s"
+  exit
+}
+
+// "XYZ to inAddr" debug
+// actionBar "&finAddr %var.player/inAddr% &8| &finRow %var.player/inRow% &8| &finCol %var.player/inCol% &8| &finX %var.player/inX% &8| &finZ %var.player/inZ%"
+
+if (inRegion "Shared") {
+  actionBar "&d&oShared"
+  exit
+}
+
+if (!var inAddr > 0) {
+  actionBar "&e&oPublic"
+  exit
+}
+
+if (var inAddr > globalvar maxPlotAddr) {
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &2&lARCHIVE"
+  exit
+}
+
+if (!var inId > 0) {
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/ &a&lFREE"
+  exit
+}
+
+// If owner is not offline and the plot is not protected
+if (!var inOnline == -1, !var inProtect > 0) {
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/&f Owner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) %var.player/inOnlineStr%&8/&f Building: %var.player/inBuildStr &cNone% &8/&f Rating: &c%var.player/inRating 0%"
+  exit
+}
+
+// If owner is not offline
+if (!var inOnline == -1) {
+  // Length: 259/256 !!!
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/&f Owner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) %var.player/inOnlineStr%&8/&f Building: %var.player/inBuildStr &cNone% &8/&f Protection: %var.player/inProtectStr &cNone% &8/&f Rating: &c%var.player/inRating None%"
+  exit
+}
+
+// Owner is offline
+
+if (var inProtect > 0) {
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/&f Owner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) %var.player/inOnlineStr%&8/&f Protection: %var.player/inProtectStr '&cNone'% &8/&f Rating: &c%var.player/inRating 'None'%"
+  exit
+}
+
+var plotExpr = var plotUnix 0
+var plotExpr += globalvar exprBuffer 
+var plotExpr -= %date.unix%
+
+// If plot is expired
+if (var plotExpr > 0) {
+  var seconds = var plotExpr
+
+  // @mixin Seconds to HMS
+  // Input: seconds
+  // Output: h, m, s
+  var temp = var seconds
+  var temp /= 60
+  var m = var temp
+
+  var temp *= 60
+  var s = var seconds
+  var s -= var temp
+
+  var temp /= 3600
+  var h = var temp
+
+  var temp *= 60
+  var m -= var temp
+  // @endmixin
+
+  actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/&f Owner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) %var.player/inOnlineStr%&8/&f Protection: &a%var.player/h%h %var.player/m%m %var.player/s%s &8/&f Rating: &c%var.player/inRating 'None'%"
+  exit
+}
+
+actionBar "&a&oPlot &b&o#%var.player/inAddr% &8/&f Owner: &b%var.player/inIgn% &7(&b#%var.player/inId%&7) %var.player/inOnlineStr%&8/&f &a&lFREE"

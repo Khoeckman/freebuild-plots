@@ -1,0 +1,15 @@
+// @global
+// Event input: reqId, reqAddr
+
+// Let the requestor know the function is not on cooldown
+if (globalvar reqId == var id) {
+  var cd = 1
+  exit
+}
+
+// ChatSocket only
+if (!hasGroup "Dev") {
+  exit
+}
+
+chat "[ChatSocket] {type: rate, plotAddr: %var.global/reqAddr%, rating: %var.global/reqRating%}"

@@ -1,0 +1,4 @@
+// #
+var trustAddr = 1
+function "Remove trusted player"
+displayMenu "Trusted builders"

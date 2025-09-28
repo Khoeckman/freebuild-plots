@@ -1,0 +1,71 @@
+goto function "Player give cookie"
+goto function "Player give cookie announce"
+
+goto function "Player give cookie clock"
+
+// @auto 4
+
+// Only continue if someone gave cookies, then count the amount of cookies and add them to #{cookieTotal}
+if (!placeholder %house.cookies% > globalvar cookieCurrent 0) {
+  exit
+}
+
+globalvar cookies = %house.cookies%
+globalvar cookies -= globalvar cookieCurrent 0
+globalvar cookieTotal += globalvar cookies 0
+
+globalvar cookieCurrent = %house.cookies%
+
+function "Player give cookie" true
+
+
+
+goto function "Player give cookie"
+
+// @global
+// Event input: cookies
+
+if or (!globalvar cookies > 0, !hasItem "PlotsCookie" "Item Type" Hand "Any Amount") {
+  exit
+}
+
+// If player is holding a cookie
+
+// Check if player already gave cookies this week
+var week = %date.unix%
+// Align with start of cookie week
+var week -= 277200
+// Seconds to weeks
+var week /= 604800
+
+if (var week == var cookiesWeek) {
+  exit
+}
+
+// Remember that player gave cookies this week
+var cookiesWeek = var week
+
+var cookiesTotal += globalvar cookies 0
+
+globalvar reqIgn = %player.name%
+globalvar cookiesTotal = var cookiesTotal
+function "Player give cookie announce" true
+
+// Prevent other players who are also holding the cookie to run this function
+globalvar cookies unset
+
+
+
+
+goto function "Player give cookie announce"
+
+// @global
+// Event input: reqIgn, cookies, cookiesTotal
+
+// 1 cookie, 2 cookies
+if (globalvar cookies == 1) {
+  chat "&d&l&oTHANKS &b%var.global/reqIgn% &fgave &e%var.global/cookies% &6cookie &c❤ &7(total %var.global/cookiesTotal%)"
+} else {
+  chat "&d&l&oTHANKS &b%var.global/reqIgn% &fgave &e%var.global/cookies% &6cookies &c❤ &7(total %var.global/cookiesTotal%)"
+}
+sound "Level Up" 0.7 1.0 invokers_location

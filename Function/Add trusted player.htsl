@@ -1,0 +1,73 @@
+// Input: trustAddr
+// Output: trust#Id, trust#Ign
+
+// {trustAddr} must be between 1 and 5
+if or (!var trustAddr > 0, var trustAddr > 5) {
+  exit
+}
+
+globalvar reqId = var id
+globalvar reqX = %player.pos.x%
+globalvar reqY = %player.pos.y%
+globalvar reqZ = %player.pos.z%
+globalvar resId unset
+globalvar resIgn unset
+
+// Nearest player has to be within #{plotXZ} blocks
+// Distance calculations are done by comparing squared distances to avoid sqrt()
+globalvar minDist = globalvar plotXZ
+globalvar minDist *= globalvar plotXZ
+var cd = 0
+function "Find nearest player" true
+
+if (var cd == 0) {
+  chat "&6&lTRY AGAIN &eSomeone else used this function within the last 4 ticks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if or (!globalvar resId > 0, globalvar resIgn == 0 0) {
+  chat "&cNo players found within &a%var.global/plotXZ%&c blocks."
+  sound "Anvil Land" 0.3 1.0 invokers_location
+  exit
+}
+
+if (var trustAddr == 1) {
+  var trust1Id = globalvar resId
+  var trust1Ign = globalvar resIgn
+}
+
+if (var trustAddr == 2) {
+  var trust2Id = globalvar resId
+  var trust2Ign = globalvar resIgn
+}
+
+if (var trustAddr == 3) {
+  var trust3Id = globalvar resId
+  var trust3Ign = globalvar resIgn
+}
+
+if (var trustAddr == 4) {
+  var trust4Id = globalvar resId
+  var trust4Ign = globalvar resIgn
+}
+
+if (var trustAddr == 5) {
+  var trust5Id = globalvar resId
+  var trust5Ign = globalvar resIgn
+}
+
+chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
+sound Click 0.7 1.0 invokers_location
+
+globalvar targetId = globalvar resId
+globalvar targetAddr unset
+globalvar targetPlotId = unset
+
+if (!globalvar plotSyncHyper == 1) {
+  globalvar plotSyncHyper = 1
+  function "Plot sync" true
+} else {
+  globalvar plotSyncHyper unset
+  function "Plot sync 2" true
+}

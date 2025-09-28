@@ -1,0 +1,10 @@
+if (!var banUnix > 0, !hasGroup "Staff" true) {
+  // Ensures block breaking is disabled after teleport to prevent abuse.
+  changePlayerGroup "Visitor" false
+}
+failParkour Teleported!
+applyPotion "Blindness" 1 1 false true
+
+// #
+tp "custom_coordinates" "~ 4 ~" true
+sound "Enderman Teleport" 0.7 1.0 invokers_location
