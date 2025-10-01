@@ -18,6 +18,7 @@ if (var resetCd > 1) {
   var resetCd unset
 }
 
+// Playtime HMS
 if () {
   var seconds = var playtime
   var seconds /= 1000
@@ -39,4 +40,22 @@ if () {
   var temp *= 60
   var ptM -= var temp
   // @endmixin
+}
+
+var ptS_ unset
+
+if (var ptS < 10) {
+  var ptS_ = 0
+}
+
+var ptM_ unset
+
+if (var ptM < 10) {
+  var ptM_ = 0
+}
+
+var ptH_ unset
+
+if (var ptH < 10) {
+  var ptH_ = 0
 }
