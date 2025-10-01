@@ -1,7 +1,7 @@
 // @auto 20
 
 // Pardon staff
-if or (!var banUnix > 0, hasGroup "Staff" true) {
+if (!var banUnix > 0, hasGroup "Staff" true) {
   var banUnix unset
   exit
 }
