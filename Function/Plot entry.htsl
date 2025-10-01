@@ -9,10 +9,10 @@ if or (!var inAddr > 0, var inAddr == var oldInAddr) {
   exit
 }
 
-if (inRegion "Shared") {
-  var oldInAddr = var inAddr
-  exit
-}
+// if (inRegion "Shared") {
+//   var oldInAddr = var inAddr
+//   exit
+// }
 
 var plotAddr = var inAddr
 var cd = 0
