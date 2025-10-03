@@ -12,7 +12,7 @@ globalvar houseGroupTag = %player.group.tag%
 
 globalvar bcReason = 1000
 globalvar reqId = var id
-globalvar reqHomeAddr = var homeAddr
+globalvar reqHomeAddr = var homeAddr 0 true
 function "Broadcast" true
 
 // If player is homeless
