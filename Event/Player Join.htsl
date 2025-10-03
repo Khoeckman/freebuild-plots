@@ -66,6 +66,7 @@ if (!var id > 0) {
   var id = globalvar unique
   
   globalvar bcReason = 1
+  globalvar reqId = var id
   function "Broadcast" true
 
   var nvn = 1
@@ -95,6 +96,7 @@ if (!var id > 0) {
   function "Default inventory"
 } else {
   globalvar bcReason = 2
+  globalvar reqId = var id
   function "Broadcast" true
 
   pause 30

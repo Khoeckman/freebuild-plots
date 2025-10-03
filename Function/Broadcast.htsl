@@ -1,25 +1,23 @@
 // @global
 
 // Event input: reqIgn, bcReason (1-999 = PUBLIC, 1000+ = STAFF-ONLY)
-// Event input (bcReason == 1 or 2): houseGroupTag, houseVersion
+// Event input (bcReason == 1 or 2): houseVersion
+// Event input (bcReason == 1 or 2 or 1000): houseGroupTag, reqId
+// Event input (bcReason == 1000): reqHomeAddr
 // Event input (bcReason == 1001): banReason
 // Event input (bcReason == 1003): plotAddr
-
-if or (globalvar bcReason == 1, globalvar bcReason == 2, globalvar bcReason == 1000) {
-  exit
-}
 
 if (hasGroup "Mod" true, globalvar bcReason >= 1, globalvar bcReason <= 2) {
   sound "Note Pling" 0.7 1.0 invokers_location
 }
 
 if (globalvar bcReason == 1) {
-  chat "&a&l» &a&l&oWELCOME %var.global/houseGroupTag% &b%var.global/reqIgn%&f joined for the first time and is playing on &a%var.global/houseVersion%&f."
+  chat "&a&l» &a&l&oWELCOME %var.global/houseGroupTag% &b%var.global/reqIgn% &7(&b#%var.global/reqId%&7)&f joined for the first time and is playing on &a%var.global/houseVersion%&f."
   exit
 }
 
 if (globalvar bcReason == 2) {
-  chat "&a&l» %var.global/houseGroupTag% &b%var.global/reqIgn%&f joined and is playing on &a%var.global/houseVersion%&f."
+  chat "&a&l» %var.global/houseGroupTag% &b%var.global/reqIgn% &7(&b#%var.global/reqId%&7)&f joined and is playing on &a%var.global/houseVersion%&f."
   exit
 }
 
@@ -28,7 +26,7 @@ if (globalvar bcReason >= 1000, !hasGroup "Mod" true) {
 }
 
 if (globalvar bcReason == 1000) {
-  chat "&c&l« %var.global/houseGroupTag% &b%var.global/reqIgn%&f quit."
+  chat "&c&l« %var.global/houseGroupTag% &b%var.global/reqIgn% &7(&b#%var.global/reqId%&7) &7(&a&oPlot &b#%var.global/reqHomeAddr &cNone%&7)&f quit."
   exit
 }
 
