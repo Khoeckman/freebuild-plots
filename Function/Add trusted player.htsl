@@ -60,9 +60,9 @@ if (var trustAddr == 5) {
 chat "&aAssigned &b%var.global/resIgn%&a to &eSlot &b#%var.player/trustAddr%&a."
 sound Click 0.7 1.0 invokers_location
 
-globalvar targetId = globalvar resId
-globalvar targetAddr unset
-globalvar targetPlotId = unset
+globalvar targetId unset
+globalvar targetAddr = var inAddr
+globalvar targetPlotId unset
 
 if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper = 1
@@ -71,3 +71,25 @@ if (!globalvar plotSyncHyper == 1) {
   globalvar plotSyncHyper unset
   function "Plot sync 2" true
 }
+
+
+// Automatically set the plot the player is in their build setting to Trusted
+// If player is the owner
+// AND has enough permissions to manage plot
+if or (!var inId == var id, !var permission >= var inProtect 0 0) {
+  exit
+}
+
+var plotAddr = var homeAddr
+var cd = 0
+function "Plot download"
+function "Plot postprocess"
+
+if or (var cd == 0, var plotBuild > 0) {
+  exit
+}
+
+var plotBuild = 1
+var cd = 0
+function "Plot preprocess"
+function "Plot upload"
