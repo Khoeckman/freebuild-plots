@@ -39,7 +39,7 @@ function "Plot rate read"
 
 // If the player has already rated this plot
 if (var rated == 1) {
-  chat "&cYou already rated this plot."
+  chat "&cYou just rated this plot."
   sound "Anvil Land" 0.3 1.0 invokers_location
   exit
 }
@@ -48,6 +48,7 @@ if (var rated == 1) {
 // Event input: reqId, reqAddr
 globalvar reqId = var id
 globalvar reqAddr = var plotAddr
+globalvar reqPoints = var points
 var cd = 0
 function "Send plot rate" true
 

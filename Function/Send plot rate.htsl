@@ -1,15 +1,14 @@
 // @global
-// Event input: reqId, reqAddr
+// Event input: reqId, reqAddr, reqPoints
 
 // Let the requestor know the function is not on cooldown
 if (globalvar reqId == var id) {
   var cd = 1
-  exit
 }
 
 // ChatSocket only
-if (!hasGroup "Dev") {
+if (!hasGroup "Dev" true) {
   exit
 }
 
-chat "[ChatSocket] {type: rate, plotAddr: %var.global/reqAddr%, rating: %var.global/reqRating%}"
+chat "[CS] {type:\"Plot rating\", plotAddr:%var.global/reqAddr%, points:%var.global/reqPoints%}"
