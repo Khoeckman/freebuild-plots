@@ -9,4 +9,4 @@ if (!var nvn == 1) {
 }
 sound "Drink" 0.7 1.0 invokers_location
 
-displayMenu "Profile"
+displayMenu "Settings"

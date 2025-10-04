@@ -62,9 +62,9 @@ reportCd (short | unset) [#{reportCd}] - Amount of seconds until a player can re
 HMS is hardcoded.
 
 nvn (1 | unset) [0] - Night vision
-nvnStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
+nvnStr (string) [&cDISABLED] - Used to display effect status in "Settings" menu
 invis (1 | unset) [0] - Invisibility (Staff+ only)
-invisStr (string) [&cDISABLED] - Used to display effect status in "Profile" menu
+invisStr (string) [&cDISABLED] - Used to display effect status in "Settings" menu
 
 // Temporary plot data to work with or store in {in...} or {home...}
 plotAddr (byte) [&cNone] - Plot register address of the current plot
