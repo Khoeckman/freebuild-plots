@@ -1,7 +1,7 @@
 from math import ceil
 
 output_file = "output.htsl"
-plots_per_function = 14
+plots_per_function = 24
 plots = 7*7*3
 functions = ceil(plots / plots_per_function)
 
